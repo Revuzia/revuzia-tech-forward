@@ -61,7 +61,7 @@ const ArticleCarousel = ({
       {title === "Explore Latest Reviews" ? (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           {/* Left side - 2 main articles */}
-          <div className="lg:col-span-2 grid grid-rows-2 gap-0">
+          <div className="lg:col-span-2 space-y-0">
             {articles.slice(0, 2).map((article, index) => (
               <ArticleCard key={index} {...article} isHero={true} />
             ))}

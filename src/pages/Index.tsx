@@ -203,22 +203,27 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             {/* Left side - 2 main articles */}
-            <div className="lg:col-span-2 grid grid-rows-2 gap-0">
+            <div className="lg:col-span-2 space-y-0">
               {/* Tech News - Top */}
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
-                isHero={true}
+                isHero={true} 
               />
               {/* Get Electrified - Bottom */}
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
-                isHero={true}
+                isHero={true} 
               />
             </div>
             {/* Right side - 2x2 grid */}
             <div className="grid grid-cols-2 grid-rows-2 gap-0">
-              {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").slice(1, 5).map((article, index) => (
-                <ArticleCard key={index} {...article} />
+              {/* 2 Tech News articles */}
+              {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
+                <ArticleCard key={`tech-${index}`} {...article} />
+              ))}
+              {/* 2 Get Electrified articles */}
+              {featuredArticles.filter(article => article.category === "Get Electrified").slice(1, 3).map((article, index) => (
+                <ArticleCard key={`electrified-${index}`} {...article} />
               ))}
             </div>
           </div>

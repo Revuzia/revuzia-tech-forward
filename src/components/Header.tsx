@@ -47,14 +47,14 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative">
-                <h1 className="text-5xl font-display font-bold relative">
-                  <span className="relative inline-block text-white drop-shadow-2xl">
+                <h1 className="text-6xl font-black font-poppins relative tracking-wider">
+                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent drop-shadow-2xl">
                     REVUZIA
-                    {/* Reduced glow effect layers */}
-                    <span className="absolute inset-0 text-white opacity-20 blur-sm animate-pulse">
+                    {/* Enhanced glow effect layers */}
+                    <span className="absolute inset-0 text-brand opacity-30 blur-sm animate-pulse">
                       REVUZIA
                     </span>
-                    <span className="absolute inset-0 text-brand opacity-15 blur-md animate-pulse">
+                    <span className="absolute inset-0 text-brand opacity-20 blur-md animate-pulse">
                       REVUZIA
                     </span>
                   </span>
@@ -88,11 +88,18 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`text-white hover:text-brand transition-colors duration-300 font-poppins font-medium relative group ${
-                      isActive ? 'text-brand' : 'text-white'
-                    }`}
+                     className={`text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-semibold relative group flex items-center gap-2 ${
+                       isActive ? 'text-brand' : 'text-white'
+                     }`}
                   >
-                    {item.name}
+                     {item.name === "Get Electrified" ? (
+                       <>
+                         Get Electrified
+                         <Zap className="w-5 h-5 text-accent animate-pulse" />
+                       </>
+                     ) : (
+                       item.name
+                     )}
                     <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
                       isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></span>
