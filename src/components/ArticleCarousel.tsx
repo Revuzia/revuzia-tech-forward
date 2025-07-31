@@ -44,7 +44,10 @@ const ArticleCarousel = ({
           {title}
         </h2>
         <Link to={viewAllLink}>
-          <Button variant="accent" className="hover:scale-105 transition-transform duration-300">
+          <Button 
+            variant="outline" 
+            className="border-brand text-brand hover:bg-brand hover:text-background transition-all duration-300"
+          >
             {viewAllText}
           </Button>
         </Link>

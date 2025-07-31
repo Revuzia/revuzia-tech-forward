@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Brand color extracted from logo - exact turquoise/teal */
-    --brand: 180 100% 60%; /* #00E6E6 - exact brand color from logo */
-    --brand-rgb: 0, 230, 230;
+    /* Brand color - #49c4b6 */
+    --brand: 171 51% 53%; /* #49c4b6 - exact brand color */
+    --brand-rgb: 73, 196, 182;
     
     /* Dark futuristic color scheme */
     --background: 220 27% 8%;
