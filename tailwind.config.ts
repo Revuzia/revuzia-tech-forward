@@ -19,8 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'rajdhani': ['Rajdhani', 'sans-serif'],
-				'exo': ['Exo 2', 'sans-serif'],
+				'heading': ['Orbitron', 'sans-serif'],
+				'body': ['Exo 2', 'sans-serif'],
+				'display': ['Rajdhani', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

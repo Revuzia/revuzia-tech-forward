@@ -35,7 +35,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             />
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
-              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full hover:bg-brand hover:text-black transition-colors duration-300">
+              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black group-hover:shadow-lg group-hover:shadow-brand/50 transition-all duration-300">
                 {category}
               </Badge>
             </div>
@@ -43,26 +43,24 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           
           {/* Content */}
           <div className="p-6 space-y-4">
-            <h2 className={`font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
+            <h2 className={`font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
               {title}
             </h2>
             
-            {/* Author and Meta Info - Centered and Spaced */}
-            <div className="flex flex-col items-center gap-3 pt-2">
+            {/* Author and Meta Info - Single Line */}
+            <div className="flex items-center justify-center gap-4 pt-2">
               <div className="flex items-center gap-3">
-                <Avatar className="w-10 h-10 border-2 border-brand/20">
+                <Avatar className="w-8 h-8 border-2 border-brand/20">
                   <AvatarImage src={author.avatar} alt={author.name} />
-                  <AvatarFallback className="bg-brand/10 text-brand text-sm font-medium">
+                  <AvatarFallback className="bg-brand/10 text-brand text-xs font-medium">
                     {author.name.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>
                 </Avatar>
-                <div className="text-center">
-                  <p className="text-sm font-medium text-white">{author.name}</p>
-                </div>
+                <p className="text-sm font-medium text-white font-body">{author.name}</p>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-3 h-3 text-white" />
-                <p className="text-sm text-white font-medium">{readTime}</p>
+                <p className="text-sm text-white font-medium font-body">{readTime}</p>
               </div>
             </div>
           </div>

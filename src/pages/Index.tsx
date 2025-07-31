@@ -184,9 +184,33 @@ const Index = () => {
       <main id="main-content" className="container mx-auto px-4 py-16">
         {/* Latest Tech News Section */}
         <section className="mb-16" aria-labelledby="tech-news-heading">
-          <h2 id="tech-news-heading" className="text-4xl font-bold text-brand text-center mb-8">Latest Tech and Electronics</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto justify-items-center">
-            {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").map((article, index) => (
+          <div className="relative inline-block w-full text-center mb-12">
+            <h2 id="tech-news-heading" className="text-5xl md:text-6xl font-display font-bold text-center mb-8">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                Latest Tech and Electronics
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  Latest Tech and Electronics
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  Latest Tech and Electronics
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  Latest Tech and Electronics
+                </span>
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {/* Featured Article - Large */}
+            <div className="lg:col-span-2 lg:row-span-2">
+              <ArticleCard 
+                {...featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified")[0]} 
+                isHero={true}
+              />
+            </div>
+            {/* Smaller Articles */}
+            {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").slice(1, 5).map((article, index) => (
               <ArticleCard key={index} {...article} />
             ))}
           </div>

@@ -36,21 +36,25 @@ const ArticleCarousel = ({
 }: ArticleCarouselProps) => {
   return (
     <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}>
-      <div className="text-center mb-8">
+      <div className="relative inline-block w-full text-center mb-12">
         <h2 
           id={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}
-          className="text-3xl font-bold text-brand mb-4"
+          className="text-5xl md:text-6xl font-display font-bold text-center mb-8"
         >
-          {title}
+          <span className="relative inline-block text-white drop-shadow-2xl">
+            {title}
+            {/* Glow effect layers */}
+            <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+              {title}
+            </span>
+            <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+              {title}
+            </span>
+            <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+              {title}
+            </span>
+          </span>
         </h2>
-        <Link to={viewAllLink}>
-          <Button 
-            variant="outline" 
-            className="border-brand text-brand hover:bg-brand hover:text-background transition-all duration-300"
-          >
-            {viewAllText}
-          </Button>
-        </Link>
       </div>
       
       <div className="relative">
