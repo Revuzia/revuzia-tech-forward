@@ -47,27 +47,41 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative group">
-                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300 font-rajdhani">
-                  <span className="relative geometric-logo">
-                    REVUZIA
-                    {/* Geometric floating elements */}
-                    <div className="absolute -top-4 -right-4 w-3 h-3 bg-brand border border-brand/50 rotate-45 opacity-80 animate-spin-slow"></div>
-                    <div className="absolute -bottom-4 -left-4 w-4 h-4 bg-brand clip-triangle opacity-70 animate-pulse"></div>
-                    <div className="absolute top-1/2 -left-8 w-3 h-12 bg-brand/40 transform -translate-y-1/2 animate-float-vertical clip-hexagon"></div>
-                    <div className="absolute top-1/2 -right-8 w-3 h-10 bg-brand/50 transform -translate-y-1/2 animate-float-vertical-delayed clip-diamond"></div>
-                    {/* Circuit board lines */}
-                    <div className="absolute -top-2 left-1/3 w-8 h-0.5 bg-brand/30 animate-pulse"></div>
-                    <div className="absolute -bottom-2 right-1/3 w-6 h-0.5 bg-brand/30 animate-pulse"></div>
-                    <div className="absolute top-1/2 -left-4 w-0.5 h-4 bg-brand/30 transform -translate-y-1/2 animate-pulse"></div>
-                    <div className="absolute top-1/2 -right-4 w-0.5 h-6 bg-brand/30 transform -translate-y-1/2 animate-pulse"></div>
-                    {/* Geometric nodes */}
-                    <div className="absolute top-1 left-1 w-2 h-2 bg-accent border border-accent/50 rotate-45 opacity-70 animate-float-1"></div>
-                    <div className="absolute bottom-1 right-1 w-2 h-2 bg-accent rounded-full opacity-70 animate-float-2"></div>
-                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-accent transform -translate-x-1/2 -translate-y-1/2 animate-ping opacity-60"></div>
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 text-brand opacity-0 group-hover:opacity-50 transition-opacity duration-300 blur-sm">
+                <div className="text-4xl font-bold tracking-wider transform hover:scale-110 transition-all duration-300 font-orbitron">
+                  <span className="relative tech-logo">
+                    <span className="relative inline-block text-white drop-shadow-2xl animate-pulse-green">
                       REVUZIA
+                      {/* Enhanced glow effect layers */}
+                      <span className="absolute inset-0 text-white opacity-80 blur-sm animate-pulse">
+                        REVUZIA
+                      </span>
+                      <span className="absolute inset-0 text-brand opacity-60 blur-md animate-pulse">
+                        REVUZIA
+                      </span>
+                      <span className="absolute inset-0 text-accent opacity-40 blur-lg animate-pulse">
+                        REVUZIA
+                      </span>
+                    </span>
+                    
+                    {/* Orbiting Tech Elements */}
+                    <div className="absolute inset-0 pointer-events-none">
+                      <div className="orbit-element orbit-logo-1">
+                        <div className="w-6 h-6 bg-brand/80 rounded border border-brand animate-spin-slow"></div>
+                      </div>
+                      <div className="orbit-element orbit-logo-2">
+                        <div className="w-4 h-4 bg-accent/80 clip-triangle animate-pulse"></div>
+                      </div>
+                      <div className="orbit-element orbit-logo-3">
+                        <div className="w-5 h-5 bg-brand/70 clip-hexagon animate-float-1"></div>
+                      </div>
+                      <div className="orbit-element orbit-logo-4">
+                        <div className="w-3 h-3 bg-accent/90 rounded-full animate-ping"></div>
+                      </div>
                     </div>
+                    
+                    {/* Circuit lines connecting to orbiting elements */}
+                    <div className="absolute top-1/2 left-1/2 w-0.5 h-12 bg-brand/30 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                    <div className="absolute top-1/2 left-1/2 w-12 h-0.5 bg-brand/30 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
                   </span>
                 </div>
               </div>

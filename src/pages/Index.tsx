@@ -167,12 +167,12 @@ const Index = () => {
           {/* Radiating Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/product-reviews">
-              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
+              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg animate-glow-pulse">
                 Explore Latest Reviews
               </Button>
             </Link>
             <Link to="/video-reviews">
-              <Button variant="outline" className="hero-button-radiate border-brand/30 bg-background/20 text-brand hover:bg-brand/10 hover:border-brand hover:shadow-glow-primary px-8 py-4 text-lg">
+              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg animate-glow-pulse">
                 <Play className="w-5 h-5 mr-2" />
                 Watch Review Videos
               </Button>

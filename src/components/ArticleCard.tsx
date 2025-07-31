@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Clock } from "lucide-react";
 
 interface Author {
   name: string;
@@ -42,7 +43,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           
           {/* Content */}
           <div className="p-6 space-y-4">
-            <h2 className={`font-bold text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
+            <h2 className={`font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
               {title}
             </h2>
             
@@ -56,12 +57,12 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
                   </AvatarFallback>
                 </Avatar>
                 <div className="text-center">
-                  <p className="text-sm font-medium text-foreground/90">{author.name}</p>
+                  <p className="text-sm font-medium text-white">{author.name}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-brand/40 rounded-full"></div>
-                <p className="text-sm text-foreground/70 font-medium">{readTime}</p>
+                <Clock className="w-3 h-3 text-white" />
+                <p className="text-sm text-white font-medium">{readTime}</p>
               </div>
             </div>
           </div>
