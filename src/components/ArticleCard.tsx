@@ -34,7 +34,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             />
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
-              <Badge className="bg-brand/90 text-primary-foreground border-0 font-semibold px-3 py-1 rounded-full">
+              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full hover:bg-brand hover:text-black transition-colors duration-300">
                 {category}
               </Badge>
             </div>
@@ -62,7 +62,6 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-brand/40 rounded-full"></div>
                 <p className="text-sm text-foreground/70 font-medium">{readTime}</p>
-                <div className="w-2 h-2 bg-brand/40 rounded-full"></div>
               </div>
             </div>
           </div>

@@ -344,9 +344,19 @@
 
   /* Logo Animations */
   .geometric-logo {
-    font-family: 'Orbitron', monospace;
-    letter-spacing: 0.1em;
-    font-weight: 800;
+    position: relative;
+  }
+
+  .clip-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  .clip-hexagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  }
+
+  .clip-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
   @keyframes spin-slow {

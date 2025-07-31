@@ -128,9 +128,19 @@ const Index = () => {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           {/* Hero Title with Orbiting Elements */}
           <div className="relative inline-block mb-6">
-            <h1 className="text-5xl md:text-7xl font-bold text-center font-orbitron">
-              <span className="hero-title-solid text-white">
-                THE FUTURE OF TECH AND ELECTRONICS NEWS & REVIEWS
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-8 leading-tight">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                The Future of Tech and Reviews
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  The Future of Tech and Reviews
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  The Future of Tech and Reviews
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  The Future of Tech and Reviews
+                </span>
               </span>
             </h1>
             

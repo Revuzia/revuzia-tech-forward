@@ -47,20 +47,23 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative group">
-                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300 font-orbitron">
+                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300 font-rajdhani">
                   <span className="relative geometric-logo">
                     REVUZIA
-                    {/* Electronic floating elements */}
-                    <div className="absolute -top-3 -right-3 w-4 h-4 bg-brand rotate-45 opacity-60 animate-spin-slow"></div>
-                    <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-brand rounded-full opacity-80 animate-pulse"></div>
-                    <div className="absolute top-1/2 -left-6 w-2 h-10 bg-brand/30 transform -translate-y-1/2 animate-float-vertical"></div>
-                    <div className="absolute top-1/2 -right-6 w-2 h-8 bg-brand/40 transform -translate-y-1/2 animate-float-vertical-delayed"></div>
-                    {/* Circuit-like elements */}
-                    <div className="absolute -top-1 left-1/4 w-6 h-1 bg-brand/20 animate-pulse"></div>
-                    <div className="absolute -bottom-1 right-1/4 w-4 h-1 bg-brand/20 animate-pulse"></div>
-                    {/* Electronic nodes */}
-                    <div className="absolute top-0 left-0 w-2 h-2 bg-accent rounded-full opacity-70 animate-float-1"></div>
-                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-accent rounded-full opacity-70 animate-float-2"></div>
+                    {/* Geometric floating elements */}
+                    <div className="absolute -top-4 -right-4 w-3 h-3 bg-brand border border-brand/50 rotate-45 opacity-80 animate-spin-slow"></div>
+                    <div className="absolute -bottom-4 -left-4 w-4 h-4 bg-brand clip-triangle opacity-70 animate-pulse"></div>
+                    <div className="absolute top-1/2 -left-8 w-3 h-12 bg-brand/40 transform -translate-y-1/2 animate-float-vertical clip-hexagon"></div>
+                    <div className="absolute top-1/2 -right-8 w-3 h-10 bg-brand/50 transform -translate-y-1/2 animate-float-vertical-delayed clip-diamond"></div>
+                    {/* Circuit board lines */}
+                    <div className="absolute -top-2 left-1/3 w-8 h-0.5 bg-brand/30 animate-pulse"></div>
+                    <div className="absolute -bottom-2 right-1/3 w-6 h-0.5 bg-brand/30 animate-pulse"></div>
+                    <div className="absolute top-1/2 -left-4 w-0.5 h-4 bg-brand/30 transform -translate-y-1/2 animate-pulse"></div>
+                    <div className="absolute top-1/2 -right-4 w-0.5 h-6 bg-brand/30 transform -translate-y-1/2 animate-pulse"></div>
+                    {/* Geometric nodes */}
+                    <div className="absolute top-1 left-1 w-2 h-2 bg-accent border border-accent/50 rotate-45 opacity-70 animate-float-1"></div>
+                    <div className="absolute bottom-1 right-1 w-2 h-2 bg-accent rounded-full opacity-70 animate-float-2"></div>
+                    <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-accent transform -translate-x-1/2 -translate-y-1/2 animate-ping opacity-60"></div>
                     {/* Glow effect */}
                     <div className="absolute inset-0 text-brand opacity-0 group-hover:opacity-50 transition-opacity duration-300 blur-sm">
                       REVUZIA

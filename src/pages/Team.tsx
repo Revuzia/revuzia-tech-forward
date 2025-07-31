@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import authorZara from "@/assets/author-zara.jpg";
 import authorTheo from "@/assets/author-theo.jpg";
+import authorAria from "@/assets/author-aria.jpg";
+import authorMiles from "@/assets/author-miles.jpg";
+import authorRaj from "@/assets/author-raj.jpg";
+import authorImani from "@/assets/author-imani.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -12,6 +17,7 @@ const Team = () => {
       bio: "Zara has over 8 years of experience in tech journalism, specializing in mobile devices, gaming hardware, and emerging technologies. She holds a degree in Computer Science and has written for major tech publications.",
       avatar: authorZara,
       expertise: ["Mobile Technology", "Gaming Hardware", "AI & Machine Learning"],
+      slug: "zara-velez",
     },
     {
       name: "Theo Chan",
@@ -19,6 +25,39 @@ const Team = () => {
       bio: "With a background in electrical engineering and 10+ years in tech reviews, Theo leads our product testing and evaluation process. He's passionate about helping consumers make informed purchasing decisions.",
       avatar: authorTheo,
       expertise: ["Product Testing", "Consumer Electronics", "Buying Guides"],
+      slug: "theo-chan",
+    },
+    {
+      name: "Aria Lin",
+      role: "Mobile Technology Specialist",
+      bio: "Aria is our go-to expert for everything mobile. With a background in software engineering and a passion for cutting-edge smartphones, she provides in-depth analysis of the latest mobile innovations and trends.",
+      avatar: authorAria,
+      expertise: ["Smartphones", "Mobile Apps", "Software Development"],
+      slug: "aria-lin",
+    },
+    {
+      name: "Miles Danner", 
+      role: "Gaming Hardware Expert",
+      bio: "Miles brings over 6 years of gaming industry experience to Revuzia. As a former esports player turned tech journalist, he understands what gamers need and delivers comprehensive reviews of gaming peripherals and hardware.",
+      avatar: authorMiles,
+      expertise: ["Gaming Hardware", "Esports", "PC Building"],
+      slug: "miles-danner",
+    },
+    {
+      name: "Raj Malhotra",
+      role: "Enterprise Technology Analyst", 
+      bio: "Raj specializes in enterprise technology and business solutions. With an MBA and extensive experience in corporate IT, he evaluates tech products from a business perspective, focusing on productivity and value.",
+      avatar: authorRaj,
+      expertise: ["Enterprise Software", "Business Technology", "Productivity Tools"],
+      slug: "raj-malhotra",
+    },
+    {
+      name: "Imani Brooks",
+      role: "Emerging Technology Reporter",
+      bio: "Imani covers the latest in emerging technologies and innovation. With a degree in Computer Science and a talent for making complex topics accessible, she explores everything from AI to renewable energy tech.",
+      avatar: authorImani,
+      expertise: ["Artificial Intelligence", "Renewable Energy", "Innovation Trends"],
+      slug: "imani-brooks",
     },
   ];
 
@@ -35,56 +74,46 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <img 
-                    src={member.avatar} 
-                    alt={member.name}
-                    className="w-20 h-20 rounded-full border-2 border-brand/30 mr-4"
-                    width="80"
-                    height="80"
-                  />
+              <Link key={index} to={`/authors/${member.slug}`} className="block group">
+                <div className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300 group-hover:scale-105">
+                  <div className="flex flex-col items-center text-center mb-6">
+                    <img 
+                      src={member.avatar} 
+                      alt={member.name}
+                      className="w-24 h-24 rounded-full border-2 border-brand/30 mb-4 group-hover:border-brand/60 transition-all duration-300"
+                      width="96"
+                      height="96"
+                    />
+                    <div>
+                      <h2 className="text-xl font-bold text-foreground group-hover:text-brand transition-colors duration-300">{member.name}</h2>
+                      <p className="text-brand font-medium">{member.role}</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+                    {member.bio}
+                  </p>
+                  
                   <div>
-                    <h2 className="text-2xl font-bold text-foreground">{member.name}</h2>
-                    <p className="text-brand font-medium">{member.role}</p>
+                    <h3 className="text-sm font-semibold text-foreground mb-3">Expertise</h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {member.expertise.map((skill, skillIndex) => (
+                        <span 
+                          key={skillIndex}
+                          className="px-2 py-1 bg-brand/20 text-brand rounded-full text-xs border border-brand/30"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {member.bio}
-                </p>
-                
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-3">Expertise</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {member.expertise.map((skill, skillIndex) => (
-                      <span 
-                        key={skillIndex}
-                        className="px-3 py-1 bg-brand/20 text-brand rounded-full text-sm border border-brand/30"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          <div className="mt-16 text-center bg-gradient-card rounded-lg border border-border p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Join Our Team</h2>
-            <p className="text-muted-foreground mb-6">
-              We're always looking for passionate tech enthusiasts to join our growing team.
-            </p>
-            <a 
-              href="mailto:careers@revuzia.com" 
-              className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg font-medium hover:bg-brand/90 transition-colors duration-300"
-            >
-              View Open Positions
-            </a>
-          </div>
         </div>
       </main>
 
