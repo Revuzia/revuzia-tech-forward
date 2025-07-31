@@ -10,7 +10,7 @@ import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
 import authorTheo from "@/assets/author-theo.jpg";
-import rocketHeroBg from "@/assets/rocket-hero-bg.jpg";
+import futuristicHeroBg from "@/assets/futuristic-hero-bg.jpg";
 
 const Index = () => {
   const featuredArticles = [
@@ -68,7 +68,7 @@ const Index = () => {
       {/* Hero Section with Parallax Background */}
       <section 
         className="relative min-h-screen flex items-center justify-center bg-fixed bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${rocketHeroBg})` }}
+        style={{ backgroundImage: `url(${futuristicHeroBg})` }}
       >
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-background/80"></div>
@@ -91,9 +91,8 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/product-reviews">
               <Button 
-                variant="hero" 
                 size="lg" 
-                className="bg-gradient-to-r from-brand to-cyan-400 text-background hover:shadow-[0_0_30px_rgba(0,255,191,0.5)] hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg"
+                className="bg-brand text-background hover:bg-brand/90 hover:shadow-[0_0_30px_rgba(0,255,191,0.5)] hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg"
               >
                 Explore Latest Reviews
               </Button>
@@ -101,9 +100,8 @@ const Index = () => {
             
             <Link to="/video-reviews">
               <Button 
-                variant="outline" 
                 size="lg" 
-                className="border-2 border-brand/50 text-foreground hover:bg-brand/10 hover:border-brand hover:shadow-[0_0_20px_rgba(0,255,191,0.3)] transition-all duration-300 px-8 py-4 text-lg backdrop-blur-sm"
+                className="bg-brand text-background hover:bg-brand/90 hover:shadow-[0_0_30px_rgba(0,255,191,0.5)] hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Watch Review Videos
@@ -111,21 +109,6 @@ const Index = () => {
             </Link>
           </div>
           
-          {/* Stats Section */}
-          <div className="mt-16 grid grid-cols-3 gap-8 text-center">
-            <div className="group hover:scale-105 transition-transform duration-300">
-              <div className="text-3xl md:text-4xl font-bold text-brand mb-2 group-hover:text-cyan-400 transition-colors">500+</div>
-              <div className="text-foreground/70">Reviews</div>
-            </div>
-            <div className="group hover:scale-105 transition-transform duration-300">
-              <div className="text-3xl md:text-4xl font-bold text-brand mb-2 group-hover:text-cyan-400 transition-colors">50M+</div>
-              <div className="text-foreground/70">Views</div>
-            </div>
-            <div className="group hover:scale-105 transition-transform duration-300">
-              <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2 group-hover:text-brand transition-colors">24/7</div>
-              <div className="text-foreground/70">Updates</div>
-            </div>
-          </div>
         </div>
         
         {/* Floating particles */}
@@ -151,7 +134,42 @@ const Index = () => {
         {/* Explore Latest Reviews Carousel */}
         <ArticleCarousel
           title="Explore Latest Reviews"
-          articles={featuredArticles.slice(1)}
+          articles={[
+            ...featuredArticles.slice(1),
+            {
+              title: "Apple Vision Pro 2025: The Mixed Reality Revolution",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "10 min read",
+              category: "Product Reviews",
+              slug: "apple-vision-pro-2025",
+            },
+            {
+              title: "Tesla Cybertruck Interior Tech Deep Dive",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "9 min read",
+              category: "Product Reviews",
+              slug: "tesla-cybertruck-tech",
+            },
+            {
+              title: "Framework Laptop 16: The Ultimate Modular Machine",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "11 min read",
+              category: "Product Reviews",
+              slug: "framework-laptop-16",
+            },
+          ]}
           viewAllLink="/product-reviews"
           viewAllText="View All Reviews"
         />
@@ -203,6 +221,39 @@ const Index = () => {
               readTime: "22:15",
               category: "Video Review",
               slug: "iphone-16-pro-video",
+            },
+            {
+              title: "M4 MacBook Pro Performance Review",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "19:45",
+              category: "Video Review",
+              slug: "m4-macbook-pro-video",
+            },
+            {
+              title: "Google Pixel 9 Pro Camera Comparison",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "14:30",
+              category: "Video Review",
+              slug: "pixel-9-pro-video",
+            },
+            {
+              title: "Steam Deck OLED vs ROG Ally X",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "16:55",
+              category: "Video Review",
+              slug: "handheld-gaming-comparison",
             },
           ]}
           viewAllLink="/video-reviews"
