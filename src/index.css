@@ -182,4 +182,24 @@
   .swiper-pagination-bullet-active {
     background: rgb(var(--brand-rgb)) !important;
   }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

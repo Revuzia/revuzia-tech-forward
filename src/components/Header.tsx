@@ -38,12 +38,22 @@ const Header = () => {
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
             >
-              <div className="relative">
-                <div className="text-2xl font-bold text-brand tracking-wider transform hover:scale-105 transition-transform duration-300">
-                  <span className="relative">
+              <div className="relative group">
+                <div className="text-3xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-500 relative">
+                  <span className="relative inline-block">
                     REVUZIA
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand rotate-45 opacity-60"></div>
-                    <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand rounded-full opacity-80"></div>
+                    {/* Animated geometric elements */}
+                    <div className="absolute -top-2 -right-2 w-3 h-3 bg-brand rotate-45 opacity-60 animate-pulse"></div>
+                    <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-brand rounded-full opacity-80 animate-bounce"></div>
+                    <div className="absolute top-1/2 -right-4 w-1 h-6 bg-brand/50 transform -translate-y-1/2 animate-pulse"></div>
+                    <div className="absolute top-1/2 -left-4 w-1 h-4 bg-brand/30 transform -translate-y-1/2 animate-pulse delay-300"></div>
+                    {/* Orbiting elements */}
+                    <div className="absolute top-1/2 left-1/2 w-8 h-8 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                      <div className="absolute w-1 h-1 bg-brand rounded-full animate-spin" style={{
+                        animation: 'spin 3s linear infinite',
+                        transformOrigin: '16px 0px'
+                      }}></div>
+                    </div>
                   </span>
                 </div>
               </div>
