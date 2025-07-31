@@ -126,11 +126,30 @@ const Index = () => {
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center">
-            <span className="bg-gradient-to-r from-brand to-accent bg-clip-text text-transparent hero-title-glow">
-              The Future of Tech Reviews
-            </span>
-          </h1>
+          {/* Hero Title with Orbiting Elements */}
+          <div className="relative inline-block mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-center font-orbitron">
+              <span className="hero-title-solid text-white">
+                THE FUTURE OF TECH AND ELECTRONICS NEWS & REVIEWS
+              </span>
+            </h1>
+            
+            {/* Orbiting Tech Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="orbit-element orbit-1">
+                <Cpu className="w-8 h-8 text-brand" />
+              </div>
+              <div className="orbit-element orbit-2">
+                <Smartphone className="w-6 h-6 text-accent" />
+              </div>
+              <div className="orbit-element orbit-3">
+                <Monitor className="w-7 h-7 text-brand" />
+              </div>
+              <div className="orbit-element orbit-4">
+                <Zap className="w-6 h-6 text-accent" />
+              </div>
+            </div>
+          </div>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover cutting-edge technology through in-depth reviews, exclusive insights, and futuristic perspectives on the devices shaping tomorrow.
           </p>

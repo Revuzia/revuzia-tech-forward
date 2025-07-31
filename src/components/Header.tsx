@@ -47,7 +47,7 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative group">
-                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300">
+                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300 font-orbitron">
                   <span className="relative geometric-logo">
                     REVUZIA
                     {/* Electronic floating elements */}
