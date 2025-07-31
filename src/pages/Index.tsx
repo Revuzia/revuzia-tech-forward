@@ -4,6 +4,8 @@ import { Play } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
+import ArticleCarousel from "@/components/ArticleCarousel";
+import BackToTop from "@/components/BackToTop";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
@@ -62,9 +64,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
+      <main id="main-content" className="container mx-auto px-4 py-8">
         {/* Featured Articles Grid */}
-        <section className="mb-16">
+        <section className="mb-16" aria-labelledby="featured-articles-heading">
+          <h1 id="featured-articles-heading" className="sr-only">Featured Articles</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
             {featuredArticles.map((article, index) => (
               <ArticleCard key={index} {...article} />
@@ -72,33 +75,25 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Explore Latest Reviews Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-accent">Explore Latest Reviews</h2>
-            <Link to="/product-reviews">
-              <Button variant="accent">View All Reviews</Button>
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredArticles.slice(1).map((article, index) => (
-              <ArticleCard key={`review-${index}`} {...article} />
-            ))}
-          </div>
-        </section>
+        {/* Explore Latest Reviews Carousel */}
+        <ArticleCarousel
+          title="Explore Latest Reviews"
+          articles={featuredArticles.slice(1)}
+          viewAllLink="/product-reviews"
+          viewAllText="View All Reviews"
+        />
 
         {/* Watch Review Videos Section */}
-        <section className="text-center py-16 bg-gradient-card rounded-2xl border border-border">
+        <section className="text-center py-16 bg-gradient-card rounded-2xl border border-border mb-16" aria-labelledby="video-reviews-heading">
           <div className="max-w-2xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+            <h2 id="video-reviews-heading" className="text-3xl font-bold text-foreground mb-4">
               Watch Review Videos
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
               Get in-depth video reviews of the latest tech gadgets and devices from our expert team.
             </p>
             <Link to="/video-reviews">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group hover:scale-105 transition-transform duration-300">
                 <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                 Watch Videos
               </Button>
@@ -108,6 +103,7 @@ const Index = () => {
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 };
