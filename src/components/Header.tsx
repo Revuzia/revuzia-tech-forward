@@ -33,12 +33,16 @@ const Header = () => {
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between gap-4" role="navigation" aria-label="Main navigation">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
+            <Link 
+              to="/" 
+              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
+              aria-label="Revuzia – Home"
+            >
               <img 
                 src="/lovable-uploads/d72cd261-6580-4fde-8fc1-c96bbcf98b2e.png" 
-                alt="Revuzia - Tech News and Reviews" 
+                alt="Revuzia" 
                 className="h-10 w-auto"
-                width="120"
+                width="200"
                 height="40"
               />
             </Link>

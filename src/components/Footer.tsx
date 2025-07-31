@@ -29,10 +29,10 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-20">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-          {/* Categories Section */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-foreground mb-6">CATEGORIES</h3>
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          {/* Explore Section */}
+          <div className="flex flex-col items-center">
+            <h3 className="text-xl font-bold text-brand mb-6">EXPLORE</h3>
             <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
@@ -48,8 +48,8 @@ const Footer = () => {
           </div>
 
           {/* REVUZIA Section */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-foreground mb-6">REVUZIA</h3>
+          <div className="flex flex-col items-center">
+            <h3 className="text-xl font-bold text-brand mb-6">REVUZIA</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
@@ -86,9 +86,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* STAY UPDATED Section */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-xl font-bold text-foreground mb-6">STAY UPDATED</h3>
+          {/* CONNECT Section */}
+          <div className="flex flex-col items-center">
+            <h3 className="text-xl font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
             <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-4">
