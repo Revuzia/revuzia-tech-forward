@@ -15,9 +15,6 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Affiliate from "./pages/Affiliate";
 import NotFound from "./pages/NotFound";
-import AuthorProfile from "./pages/AuthorProfile";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -36,11 +33,8 @@ const App = () => (
           <Route path="/video-reviews" element={<VideoReviews />} />
           <Route path="/search" element={<Search />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/author/:authorSlug" element={<AuthorProfile />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/affiliate" element={<Affiliate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

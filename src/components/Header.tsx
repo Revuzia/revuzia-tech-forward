@@ -38,28 +38,12 @@ const Header = () => {
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
             >
-              <div className="relative group">
-                <div className="text-4xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-500 relative">
-                  <span className="relative inline-block">
+              <div className="relative">
+                <div className="text-2xl font-bold text-brand tracking-wider transform hover:scale-105 transition-transform duration-300">
+                  <span className="relative">
                     REVUZIA
-                    {/* Enhanced animated geometric elements */}
-                    <div className="absolute -top-3 -right-3 w-4 h-4 bg-brand rotate-45 opacity-60 animate-pulse"></div>
-                    <div className="absolute -bottom-3 -left-3 w-3 h-3 bg-brand rounded-full opacity-80 animate-bounce"></div>
-                    <div className="absolute top-1/2 -right-5 w-2 h-8 bg-brand/50 transform -translate-y-1/2 animate-pulse"></div>
-                    <div className="absolute top-1/2 -left-5 w-1.5 h-6 bg-brand/30 transform -translate-y-1/2 animate-pulse delay-300"></div>
-                    <div className="absolute -top-1 left-1/2 w-2 h-2 bg-cyan-400 rounded-full opacity-70 animate-bounce delay-500"></div>
-                    <div className="absolute -bottom-1 right-1/4 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-60 animate-pulse delay-700"></div>
-                    {/* Orbiting elements */}
-                    <div className="absolute top-1/2 left-1/2 w-10 h-10 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                      <div className="absolute w-1.5 h-1.5 bg-brand rounded-full animate-spin" style={{
-                        animation: 'spin 4s linear infinite',
-                        transformOrigin: '20px 0px'
-                      }}></div>
-                      <div className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-spin" style={{
-                        animation: 'spin 3s linear infinite reverse',
-                        transformOrigin: '15px 0px'
-                      }}></div>
-                    </div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand rotate-45 opacity-60"></div>
+                    <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand rounded-full opacity-80"></div>
                   </span>
                 </div>
               </div>

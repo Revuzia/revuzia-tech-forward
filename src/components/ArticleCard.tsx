@@ -16,8 +16,8 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = false }: ArticleCardProps) => {
   const cardClasses = isHero 
-    ? "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,255,191,0.4)] hover:scale-[1.02] hover:-translate-y-2 col-span-2 row-span-2"
-    : "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,255,191,0.3)] hover:scale-[1.03] hover:-translate-y-1";
+    ? "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-300 hover:shadow-glow-primary col-span-2 row-span-2"
+    : "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-300 hover:shadow-glow-primary";
 
   return (
     <Link to={`/article/${slug}`} className={cardClasses}>
@@ -35,7 +35,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
         
         {/* Category Badge */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+        <div className="absolute top-4 left-4">
           <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand/20 text-brand border border-brand/30">
             {category}
           </span>
@@ -49,7 +49,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           {title}
         </h3>
 
-        <div className="flex items-center justify-center space-x-4">
+        <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <img 
               src={author.avatar} 
@@ -59,10 +59,10 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               height="32"
               loading="lazy"
             />
-            <span className="text-white text-sm font-medium">{author.name}</span>
+            <span className="text-muted-foreground text-sm font-medium">{author.name}</span>
           </div>
           
-          <div className="flex items-center space-x-1 text-white text-sm">
+          <div className="flex items-center space-x-1 text-muted-foreground text-sm">
             <Clock className="w-4 h-4" />
             <span>{readTime}</span>
           </div>
