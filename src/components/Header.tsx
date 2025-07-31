@@ -47,8 +47,17 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative">
-                <h1 className="text-2xl font-display font-bold text-brand animate-pulse-green">
-                  REVUZIA
+                <h1 className="text-4xl font-display font-bold relative">
+                  <span className="relative inline-block text-white drop-shadow-2xl">
+                    REVUZIA
+                    {/* Reduced glow effect layers */}
+                    <span className="absolute inset-0 text-white opacity-20 blur-sm animate-pulse">
+                      REVUZIA
+                    </span>
+                    <span className="absolute inset-0 text-brand opacity-15 blur-md animate-pulse">
+                      REVUZIA
+                    </span>
+                  </span>
                 </h1>
                 
                 {/* Orbiting Tech Elements */}
@@ -79,7 +88,7 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`text-white hover:text-brand transition-colors duration-300 font-body font-medium relative group ${
+                    className={`text-white hover:text-brand transition-colors duration-300 font-poppins font-medium relative group ${
                       isActive ? 'text-brand' : 'text-white'
                     }`}
                   >

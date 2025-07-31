@@ -203,7 +203,7 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left side - 2 main articles */}
-            <div className="lg:col-span-2 grid grid-rows-2 gap-6">
+            <div className="lg:col-span-2 grid grid-rows-2 gap-4">
               {/* Tech News - Top */}
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
@@ -215,8 +215,8 @@ const Index = () => {
                 isHero={true}
               />
             </div>
-            {/* Right side - 4 even sized articles */}
-            <div className="grid grid-rows-4 gap-4">
+            {/* Right side - 2x2 grid */}
+            <div className="grid grid-cols-2 grid-rows-2 gap-3">
               {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").slice(1, 5).map((article, index) => (
                 <ArticleCard key={index} {...article} />
               ))}

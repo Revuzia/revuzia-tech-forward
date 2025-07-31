@@ -22,6 +22,7 @@ export default {
 				'heading': ['Orbitron', 'sans-serif'],
 				'body': ['Exo 2', 'sans-serif'],
 				'display': ['Rajdhani', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

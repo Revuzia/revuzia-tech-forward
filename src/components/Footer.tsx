@@ -32,13 +32,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {/* Explore Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-display font-bold text-brand mb-6">EXPLORE</h3>
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">EXPLORE</h3>
             <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
                    <Link 
                      to={category.path} 
-                     className="text-white hover:text-brand transition-colors duration-300 font-body"
+                     className="text-white hover:text-brand transition-colors duration-300 font-poppins"
                    >
                     {category.name}
                   </Link>
@@ -49,12 +49,12 @@ const Footer = () => {
 
           {/* REVUZIA Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-display font-bold text-brand mb-6">REVUZIA</h3>
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">REVUZIA</h3>
             <ul className="space-y-3">
               <li>
                  <Link 
                    to="/team" 
-                   className="text-white hover:text-brand transition-colors duration-300"
+                   className="text-white hover:text-brand transition-colors duration-300 font-poppins"
                  >
                    Meet Our Team
                  </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/privacy" 
-                   className="text-white hover:text-brand transition-colors duration-300"
+                   className="text-white hover:text-brand transition-colors duration-300 font-poppins"
                  >
                    Privacy Policy
                  </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/terms" 
-                   className="text-white hover:text-brand transition-colors duration-300"
+                   className="text-white hover:text-brand transition-colors duration-300 font-poppins"
                  >
                    Terms & Conditions
                  </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/affiliate" 
-                   className="text-white hover:text-brand transition-colors duration-300"
+                   className="text-white hover:text-brand transition-colors duration-300 font-poppins"
                  >
                   Affiliate Disclosure
                 </Link>
@@ -88,7 +88,7 @@ const Footer = () => {
 
           {/* CONNECT Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-display font-bold text-brand mb-6">CONNECT</h3>
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
             <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-4">
@@ -120,7 +120,7 @@ const Footer = () => {
                href="https://twitter.com/revuzia" 
                target="_blank" 
                rel="noopener noreferrer"
-               className="inline-flex items-center space-x-3 text-white hover:text-brand transition-colors duration-300 group"
+               className="inline-flex items-center space-x-3 text-white hover:text-brand transition-colors duration-300 group font-poppins"
              >
               <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               <span>Follow Us on X</span>
