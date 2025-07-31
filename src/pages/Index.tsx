@@ -67,7 +67,7 @@ const Index = () => {
       <main id="main-content" className="container mx-auto px-4 py-8">
         {/* Featured Articles Grid */}
         <section className="mb-16" aria-labelledby="featured-articles-heading">
-          <h1 id="featured-articles-heading" className="sr-only">Featured Articles</h1>
+          <h1 id="featured-articles-heading" className="text-4xl font-bold text-brand text-center mb-8">Latest Tech News & Reviews</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
             {featuredArticles.map((article, index) => (
               <ArticleCard key={index} {...article} />
@@ -83,23 +83,58 @@ const Index = () => {
           viewAllText="View All Reviews"
         />
 
-        {/* Watch Review Videos Section */}
-        <section className="text-center py-16 bg-gradient-card rounded-2xl border border-border mb-16" aria-labelledby="video-reviews-heading">
-          <div className="max-w-2xl mx-auto px-6">
-            <h2 id="video-reviews-heading" className="text-3xl font-bold text-foreground mb-4">
-              Watch Review Videos
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Get in-depth video reviews of the latest tech gadgets and devices from our expert team.
-            </p>
-            <Link to="/video-reviews">
-              <Button variant="hero" size="lg" className="group hover:scale-105 transition-transform duration-300">
-                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                Watch Videos
-              </Button>
-            </Link>
-          </div>
-        </section>
+        {/* Watch Review Videos Carousel */}
+        <ArticleCarousel
+          title="Watch Review Videos"
+          articles={[
+            {
+              title: "RTX 5090 Gaming Laptop Full Review",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "15:32",
+              category: "Video Review",
+              slug: "rtx-5090-video-review",
+            },
+            {
+              title: "Samsung Galaxy S25 Ultra Camera Test",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "12:45",
+              category: "Video Review",
+              slug: "samsung-s25-video-review",
+            },
+            {
+              title: "Best Gaming Laptops 2025 Roundup",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "18:20",
+              category: "Video Review",
+              slug: "gaming-laptops-2025-video",
+            },
+            {
+              title: "iPhone 16 Pro Max Deep Dive",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "22:15",
+              category: "Video Review",
+              slug: "iphone-16-pro-video",
+            },
+          ]}
+          viewAllLink="/video-reviews"
+          viewAllText="Watch All Videos"
+        />
       </main>
 
       <Footer />

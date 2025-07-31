@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Brand color extracted from logo - exact teal/cyan */
-    --brand: 52 208 235; /* #34D0EB - exact brand color from logo */
-    --brand-rgb: 52, 208, 235;
+    /* Brand color extracted from logo - exact green */
+    --brand: 0 255 136; /* #00FF88 - exact brand green from logo */
+    --brand-rgb: 0, 255, 136;
     
     /* Dark futuristic color scheme */
     --background: 220 27% 8%;
@@ -23,7 +23,7 @@
     /* Primary using brand color */
     --primary: var(--brand);
     --primary-foreground: 220 27% 8%;
-    --primary-glow: 52 208 235;
+    --primary-glow: 0 255 136;
 
     --secondary: 220 27% 18%;
     --secondary-foreground: 180 100% 95%;
@@ -45,7 +45,7 @@
     --radius: 0.75rem;
 
     /* Custom gradient variables using brand color */
-    --gradient-primary: linear-gradient(135deg, rgb(var(--brand-rgb)), rgb(52, 168, 235));
+    --gradient-primary: linear-gradient(135deg, rgb(var(--brand-rgb)), rgb(0, 200, 120));
     --gradient-hero: linear-gradient(135deg, hsl(220, 27%, 8%), hsl(220, 27%, 15%));
     --gradient-card: linear-gradient(145deg, hsl(220, 27%, 12%), hsl(220, 27%, 18%));
     

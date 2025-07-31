@@ -43,8 +43,29 @@ const Header = () => {
               />
             </Link>
 
+            {/* Navigation Links - Desktop */}
+            <div className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`text-brand hover:text-brand/80 transition-colors duration-300 font-medium relative group ${
+                      isActive ? 'text-brand' : 'text-brand'
+                    }`}
+                  >
+                    {item.name}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </Link>
+                );
+              })}
+            </div>
+
             {/* Search Bar - Desktop */}
-            <form onSubmit={handleSearch} className="hidden md:flex items-center flex-1 max-w-md mx-8" role="search">
+            <form onSubmit={handleSearch} className="hidden md:flex items-center max-w-md ml-auto" role="search">
               <div className="relative w-full">
                 <Input
                   type="search"
@@ -66,26 +87,6 @@ const Header = () => {
               </div>
             </form>
 
-            {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-6">
-              {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`text-foreground hover:text-brand transition-colors duration-300 font-medium relative group ${
-                      isActive ? 'text-brand' : ''
-                    }`}
-                  >
-                    {item.name}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </Link>
-                );
-              })}
-            </div>
 
             {/* Mobile Menu Button */}
             <Button 

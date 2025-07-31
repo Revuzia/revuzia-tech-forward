@@ -36,10 +36,10 @@ const ArticleCarousel = ({
 }: ArticleCarouselProps) => {
   return (
     <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}>
-      <div className="flex items-center justify-between mb-8">
+      <div className="text-center mb-8">
         <h2 
           id={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}
-          className="text-3xl font-bold text-accent"
+          className="text-3xl font-bold text-brand mb-4"
         >
           {title}
         </h2>
