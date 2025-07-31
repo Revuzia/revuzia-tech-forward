@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Twitter, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -32,13 +32,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {/* Explore Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-2xl font-poppins font-bold text-brand mb-6">EXPLORE</h3>
-            <ul className="space-y-4">
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">EXPLORE</h3>
+            <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
                    <Link 
                      to={category.path} 
-                     className="text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                     className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
                    >
                     {category.name}
                   </Link>
@@ -49,12 +49,12 @@ const Footer = () => {
 
           {/* REVUZIA Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-2xl font-poppins font-bold text-brand mb-6">REVUZIA</h3>
-            <ul className="space-y-4">
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">REVUZIA</h3>
+            <ul className="space-y-3">
               <li>
                  <Link 
                    to="/team" 
-                   className="text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
                  >
                    Meet Our Team
                  </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/privacy" 
-                   className="text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
                  >
                    Privacy Policy
                  </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/terms" 
-                   className="text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
                  >
                    Terms & Conditions
                  </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
                <li>
                  <Link 
                    to="/affiliate" 
-                   className="text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
                  >
                   Affiliate Disclosure
                 </Link>
@@ -88,25 +88,25 @@ const Footer = () => {
 
           {/* CONNECT Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-2xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
+            <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
             <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-6">
               <div className="flex flex-col gap-3">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="🚀 Join our tech community for exclusive reviews!"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="border-border focus:border-brand focus:ring-brand font-poppins text-lg"
+                  className="border-border focus:border-brand focus:ring-brand font-poppins text-base"
                   required
                 />
                 <Button 
                   type="submit" 
                   variant="outline" 
-                  className="border-brand text-brand hover:bg-brand hover:text-background font-poppins font-semibold text-lg"
+                  className="border-brand text-brand hover:bg-brand hover:text-background font-poppins font-semibold text-base"
                 >
-                  <Mail className="h-5 w-5 mr-2" />
+                  <Mail className="h-4 w-4 mr-2" />
                   SUBSCRIBE
                 </Button>
               </div>
@@ -120,9 +120,9 @@ const Footer = () => {
                href="https://twitter.com/revuzia4455" 
                target="_blank" 
                rel="noopener noreferrer"
-               className="inline-flex items-center space-x-3 text-white text-lg hover:text-brand transition-colors duration-300 group font-poppins font-medium"
+               className="inline-flex items-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium"
              >
-              <Twitter className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+              <X className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               <span>Follow Us on X</span>
             </a>
           </div>

@@ -19,8 +19,8 @@ interface ArticleCardProps {
 }
 
 const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = false }: ArticleCardProps) => {
-  const cardSizeClass = isHero ? "md:col-span-2 md:row-span-2" : "";
-  const imageHeightClass = isHero ? "h-96" : "h-48";
+  const cardSizeClass = "";
+  const imageHeightClass = isHero ? "h-48" : "h-32";
 
   return (
     <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl ${cardSizeClass}`}>

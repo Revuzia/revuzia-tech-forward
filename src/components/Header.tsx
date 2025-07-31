@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Menu, X, Cpu, Smartphone, Monitor, Zap } from "lucide-react";
+import { Search, Menu, X as CloseIcon, Cpu, Smartphone, Monitor, Zap } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -47,14 +47,11 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative">
-                <h1 className="text-6xl font-black font-poppins relative tracking-wider">
-                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent drop-shadow-2xl">
+                <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
+                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent drop-shadow-lg">
                     REVUZIA
-                    {/* Enhanced glow effect layers */}
-                    <span className="absolute inset-0 text-brand opacity-30 blur-sm animate-pulse">
-                      REVUZIA
-                    </span>
-                    <span className="absolute inset-0 text-brand opacity-20 blur-md animate-pulse">
+                    {/* Subtle glow effect */}
+                    <span className="absolute inset-0 text-brand opacity-15 blur-sm">
                       REVUZIA
                     </span>
                   </span>
@@ -88,7 +85,7 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                     className={`text-white text-lg hover:text-brand transition-colors duration-300 font-poppins font-semibold relative group flex items-center gap-2 ${
+                     className={`text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative group flex items-center gap-2 ${
                        isActive ? 'text-brand' : 'text-white'
                      }`}
                   >
@@ -141,7 +138,7 @@ const Header = () => {
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <CloseIcon className="w-6 h-6" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}
