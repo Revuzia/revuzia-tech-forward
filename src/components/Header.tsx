@@ -47,7 +47,7 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative">
-                <h1 className="text-4xl font-display font-bold relative">
+                <h1 className="text-5xl font-display font-bold relative">
                   <span className="relative inline-block text-white drop-shadow-2xl">
                     REVUZIA
                     {/* Reduced glow effect layers */}
@@ -175,7 +175,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className={`block text-foreground hover:text-brand transition-colors duration-300 font-medium py-2 ${
+                      className={`block text-white hover:text-brand transition-colors duration-300 font-poppins font-medium py-2 ${
                         isActive ? 'text-brand' : ''
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}

@@ -59,15 +59,15 @@ const ArticleCarousel = ({
       
       {/* Grid layout for Explore Latest Reviews */}
       {title === "Explore Latest Reviews" ? (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           {/* Left side - 2 main articles */}
-          <div className="lg:col-span-2 grid grid-rows-2 gap-4">
+          <div className="lg:col-span-2 grid grid-rows-2 gap-0">
             {articles.slice(0, 2).map((article, index) => (
               <ArticleCard key={index} {...article} isHero={true} />
             ))}
           </div>
           {/* Right side - 2x2 grid */}
-          <div className="grid grid-cols-2 grid-rows-2 gap-3">
+          <div className="grid grid-cols-2 grid-rows-2 gap-0">
             {articles.slice(2, 6).map((article, index) => (
               <ArticleCard key={index + 2} {...article} />
             ))}
