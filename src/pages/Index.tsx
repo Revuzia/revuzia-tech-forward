@@ -59,6 +59,39 @@ const Index = () => {
       category: "Get Electrified",
       slug: "samsung-s25-ultra-photography",
     },
+    {
+      title: "Quantum Computing Breakthrough: IBM's Latest Processor Changes Everything",
+      image: gamingHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "9 min read",
+      category: "Tech News",
+      slug: "quantum-computing-breakthrough",
+    },
+    {
+      title: "Tesla Model Y 2025: Electric Performance Meets Smart Technology",
+      image: buyingGuideHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
+      readTime: "10 min read",
+      category: "Get Electrified",
+      slug: "tesla-model-y-2025",
+    },
+    {
+      title: "Meta Quest 4 Review: VR Gaming Reaches New Reality",
+      image: gamingHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "11 min read",
+      category: "Product Reviews",
+      slug: "meta-quest-4-vr-review",
+    },
   ];
 
   return (
@@ -93,8 +126,10 @@ const Index = () => {
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-brand to-accent bg-clip-text text-transparent animate-pulse-glow">
-            The Future of Tech Reviews
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center">
+            <span className="bg-gradient-to-r from-brand to-accent bg-clip-text text-transparent hero-title-glow">
+              The Future of Tech Reviews
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover cutting-edge technology through in-depth reviews, exclusive insights, and futuristic perspectives on the devices shaping tomorrow.
@@ -183,6 +218,28 @@ const Index = () => {
               readTime: "22:15",
               category: "Video Review",
               slug: "iphone-16-pro-video",
+            },
+            {
+              title: "Tesla Cybertruck: Full Electric Beast Review",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "25:40",
+              category: "Video Review",
+              slug: "tesla-cybertruck-video",
+            },
+            {
+              title: "Apple Vision Pro: Spatial Computing Future",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "19:55",
+              category: "Video Review",
+              slug: "apple-vision-pro-video",
             },
           ]}
           viewAllLink="/video-reviews"

@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
-import { Clock, User } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+interface Author {
+  name: string;
+  avatar: string;
+}
 
 interface ArticleCardProps {
   title: string;
   image: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
+  author: Author;
   readTime: string;
   category: string;
   slug: string;
@@ -15,60 +18,57 @@ interface ArticleCardProps {
 }
 
 const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = false }: ArticleCardProps) => {
-  const cardClasses = isHero 
-    ? "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-300 hover:shadow-glow-primary col-span-2 row-span-2"
-    : "group relative overflow-hidden rounded-lg bg-gradient-card border border-border hover:border-brand/50 transition-all duration-300 hover:shadow-glow-primary";
+  const cardSizeClass = isHero ? "md:col-span-2 md:row-span-2" : "";
+  const imageHeightClass = isHero ? "h-96" : "h-48";
 
   return (
-    <Link to={`/article/${slug}`} className={cardClasses}>
-      <div className="relative">
-        <img 
-          src={image} 
-          alt={title}
-          className={`w-full object-cover transition-transform duration-300 group-hover:scale-105 ${
-            isHero ? 'h-80' : 'h-48'
-          }`}
-          width={isHero ? "600" : "400"}
-          height={isHero ? "320" : "192"}
-          loading={isHero ? "eager" : "lazy"}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
-        
-        {/* Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand/20 text-brand border border-brand/30">
-            {category}
-          </span>
-        </div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        <h3 className={`font-bold text-foreground mb-3 line-clamp-3 group-hover:text-brand transition-colors duration-300 ${
-          isHero ? 'text-2xl mb-4' : 'text-lg'
-        }`}>
-          {title}
-        </h3>
-
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
+    <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl ${cardSizeClass}`}>
+      <Link to={`/articles/${slug}`} className="block">
+        <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300">
+          {/* Image Container */}
+          <div className={`relative ${imageHeightClass} overflow-hidden`}>
             <img 
-              src={author.avatar} 
-              alt={author.name}
-              className="w-8 h-8 rounded-full border-2 border-brand/30"
-              width="32"
-              height="32"
-              loading="lazy"
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <span className="text-muted-foreground text-sm font-medium">{author.name}</span>
+            {/* Category Badge */}
+            <div className="absolute top-4 left-4">
+              <Badge className="bg-brand/90 text-primary-foreground border-0 font-semibold px-3 py-1 rounded-full">
+                {category}
+              </Badge>
+            </div>
           </div>
           
-          <div className="flex items-center space-x-1 text-muted-foreground text-sm">
-            <Clock className="w-4 h-4" />
-            <span>{readTime}</span>
+          {/* Content */}
+          <div className="p-6 space-y-4">
+            <h2 className={`font-bold text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
+              {title}
+            </h2>
+            
+            {/* Author and Meta Info - Centered and Spaced */}
+            <div className="flex flex-col items-center gap-3 pt-2">
+              <div className="flex items-center gap-3">
+                <Avatar className="w-10 h-10 border-2 border-brand/20">
+                  <AvatarImage src={author.avatar} alt={author.name} />
+                  <AvatarFallback className="bg-brand/10 text-brand text-sm font-medium">
+                    {author.name.split(' ').map(n => n[0]).join('')}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="text-center">
+                  <p className="text-sm font-medium text-foreground/90">{author.name}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-brand/40 rounded-full"></div>
+                <p className="text-sm text-foreground/70 font-medium">{readTime}</p>
+                <div className="w-2 h-2 bg-brand/40 rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </article>
   );
 };
 

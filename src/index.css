@@ -268,6 +268,33 @@
   .animate-float-4 { animation: float-4 9s ease-in-out infinite 3s; }
   .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 
+  /* Hero Title Enhanced Readability */
+  .hero-title-glow {
+    text-shadow: 
+      0 0 10px rgba(var(--brand-rgb), 0.8),
+      0 0 20px rgba(var(--brand-rgb), 0.6),
+      0 0 30px rgba(var(--brand-rgb), 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: enhanced-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes enhanced-glow {
+    0%, 100% { 
+      text-shadow: 
+        0 0 10px rgba(var(--brand-rgb), 0.8),
+        0 0 20px rgba(var(--brand-rgb), 0.6),
+        0 0 30px rgba(var(--brand-rgb), 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    50% { 
+      text-shadow: 
+        0 0 15px rgba(var(--brand-rgb), 1),
+        0 0 25px rgba(var(--brand-rgb), 0.8),
+        0 0 35px rgba(var(--brand-rgb), 0.6),
+        2px 2px 6px rgba(0, 0, 0, 0.9);
+    }
+  }
+
   /* Logo Animations */
   .geometric-logo {
     font-family: 'Inter', sans-serif;
