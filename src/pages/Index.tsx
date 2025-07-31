@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
+import { Play, Zap, Cpu, Smartphone, Monitor } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
@@ -10,6 +10,7 @@ import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
 import authorTheo from "@/assets/author-theo.jpg";
+import heroTechBg from "@/assets/hero-tech-bg.jpg";
 
 const Index = () => {
   const featuredArticles = [
@@ -64,12 +65,64 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main id="main-content" className="container mx-auto px-4 py-8">
-        {/* Featured Articles Grid */}
-        <section className="mb-16" aria-labelledby="featured-articles-heading">
-          <h1 id="featured-articles-heading" className="text-4xl font-bold text-brand text-center mb-8">Latest Tech News & Reviews</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
-            {featuredArticles.map((article, index) => (
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroTechBg})` }}
+        >
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
+        </div>
+        
+        {/* Floating Tech Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="floating-tech-element animate-float-1">
+            <Cpu className="w-8 h-8 text-brand opacity-60" />
+          </div>
+          <div className="floating-tech-element animate-float-2">
+            <Smartphone className="w-6 h-6 text-brand opacity-40" />
+          </div>
+          <div className="floating-tech-element animate-float-3">
+            <Monitor className="w-10 h-10 text-brand opacity-50" />
+          </div>
+          <div className="floating-tech-element animate-float-4">
+            <Zap className="w-7 h-7 text-brand opacity-45" />
+          </div>
+        </div>
+        
+        {/* Hero Content */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-brand to-accent bg-clip-text text-transparent animate-pulse-glow">
+            The Future of Tech Reviews
+          </h1>
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Discover cutting-edge technology through in-depth reviews, exclusive insights, and futuristic perspectives on the devices shaping tomorrow.
+          </p>
+          
+          {/* Radiating Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link to="/product-reviews">
+              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
+                Explore Latest Reviews
+              </Button>
+            </Link>
+            <Link to="/video-reviews">
+              <Button variant="outline" className="hero-button-radiate border-brand/30 bg-background/20 text-brand hover:bg-brand/10 hover:border-brand hover:shadow-glow-primary px-8 py-4 text-lg">
+                <Play className="w-5 h-5 mr-2" />
+                Watch Review Videos
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      <main id="main-content" className="container mx-auto px-4 py-16">
+        {/* Latest Tech News Section */}
+        <section className="mb-16" aria-labelledby="tech-news-heading">
+          <h2 id="tech-news-heading" className="text-4xl font-bold text-brand text-center mb-8">Latest Tech and Electronics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto justify-items-center">
+            {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").map((article, index) => (
               <ArticleCard key={index} {...article} />
             ))}
           </div>
@@ -78,7 +131,7 @@ const Index = () => {
         {/* Explore Latest Reviews Carousel */}
         <ArticleCarousel
           title="Explore Latest Reviews"
-          articles={featuredArticles.slice(1)}
+          articles={featuredArticles.filter(article => article.category === "Product Reviews" || article.category === "Buying Guides")}
           viewAllLink="/product-reviews"
           viewAllText="View All Reviews"
         />

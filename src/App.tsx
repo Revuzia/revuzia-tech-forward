@@ -16,6 +16,17 @@ import Terms from "./pages/Terms";
 import Affiliate from "./pages/Affiliate";
 import NotFound from "./pages/NotFound";
 
+// Subcategory pages
+import SmartphonesTablets from "./pages/subcategories/SmartphonesTablets";
+import GamingPCs from "./pages/subcategories/GamingPCs";
+import WearablesTech from "./pages/subcategories/WearablesTech";
+
+// Author pages
+import AriaLin from "./pages/authors/AriaLin";
+import ImaniBrooks from "./pages/authors/ImaniBrooks";
+import RajMalhotra from "./pages/authors/RajMalhotra";
+import MilesDanner from "./pages/authors/MilesDanner";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -36,6 +47,18 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/affiliate" element={<Affiliate />} />
+          
+          {/* Subcategory Routes */}
+          <Route path="/smartphones-tablets" element={<SmartphonesTablets />} />
+          <Route path="/gaming-pcs" element={<GamingPCs />} />
+          <Route path="/wearables-tech" element={<WearablesTech />} />
+          
+          {/* Author Routes */}
+          <Route path="/author/aria-lin" element={<AriaLin />} />
+          <Route path="/author/imani-brooks" element={<ImaniBrooks />} />
+          <Route path="/author/raj-malhotra" element={<RajMalhotra />} />
+          <Route path="/author/miles-danner" element={<MilesDanner />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

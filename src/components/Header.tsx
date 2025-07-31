@@ -10,7 +10,15 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const navItems = [
-    { name: "Tech News", path: "/tech-news" },
+    { 
+      name: "Tech News", 
+      path: "/tech-news",
+      subcategories: [
+        { name: "Smartphones & Tablets", path: "/smartphones-tablets" },
+        { name: "Gaming & PCs", path: "/gaming-pcs" },
+        { name: "Wearables & Tech", path: "/wearables-tech" }
+      ]
+    },
     { name: "Get Electrified", path: "/get-electrified" },
     { name: "Product Reviews", path: "/product-reviews" },
     { name: "Buying Guides", path: "/buying-guides" },
@@ -38,12 +46,19 @@ const Header = () => {
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
             >
-              <div className="relative">
-                <div className="text-2xl font-bold text-brand tracking-wider transform hover:scale-105 transition-transform duration-300">
-                  <span className="relative">
+              <div className="relative group">
+                <div className="text-3xl font-bold text-brand tracking-wider transform hover:scale-110 transition-all duration-300">
+                  <span className="relative geometric-logo">
                     REVUZIA
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand rotate-45 opacity-60"></div>
-                    <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand rounded-full opacity-80"></div>
+                    {/* Animated geometric elements */}
+                    <div className="absolute -top-2 -right-2 w-3 h-3 bg-brand rotate-45 opacity-60 animate-spin-slow"></div>
+                    <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-brand rounded-full opacity-80 animate-pulse"></div>
+                    <div className="absolute top-1/2 -left-4 w-1 h-8 bg-brand/30 transform -translate-y-1/2 animate-float-vertical"></div>
+                    <div className="absolute top-1/2 -right-4 w-1 h-6 bg-brand/40 transform -translate-y-1/2 animate-float-vertical-delayed"></div>
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 text-brand opacity-0 group-hover:opacity-50 transition-opacity duration-300 blur-sm">
+                      REVUZIA
+                    </div>
                   </span>
                 </div>
               </div>
