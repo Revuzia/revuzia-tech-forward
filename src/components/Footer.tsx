@@ -32,13 +32,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           {/* Explore Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-bold text-brand mb-6">EXPLORE</h3>
+            <h3 className="text-xl font-display font-bold text-brand mb-6">EXPLORE</h3>
             <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
                    <Link 
                      to={category.path} 
-                     className="text-white hover:text-brand transition-colors duration-300"
+                     className="text-white hover:text-brand transition-colors duration-300 font-body"
                    >
                     {category.name}
                   </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* REVUZIA Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-bold text-brand mb-6">REVUZIA</h3>
+            <h3 className="text-xl font-display font-bold text-brand mb-6">REVUZIA</h3>
             <ul className="space-y-3">
               <li>
                  <Link 
@@ -88,7 +88,7 @@ const Footer = () => {
 
           {/* CONNECT Section */}
           <div className="flex flex-col items-center">
-            <h3 className="text-xl font-bold text-brand mb-6">CONNECT</h3>
+            <h3 className="text-xl font-display font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
             <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-4">

@@ -36,10 +36,10 @@ const ArticleCarousel = ({
 }: ArticleCarouselProps) => {
   return (
     <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}>
-      <div className="relative inline-block w-full text-center mb-12">
+      <div className="relative inline-block w-full text-center mb-8">
         <h2 
           id={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}
-          className="text-5xl md:text-6xl font-display font-bold text-center mb-8"
+          className="text-5xl md:text-6xl font-display font-bold text-center"
         >
           <span className="relative inline-block text-white drop-shadow-2xl">
             {title}
@@ -57,51 +57,70 @@ const ArticleCarousel = ({
         </h2>
       </div>
       
-      <div className="relative">
-        <Swiper
-          modules={[Navigation, Pagination, Keyboard, A11y]}
-          spaceBetween={24}
-          slidesPerView={1}
-          navigation={{
-            nextEl: `.swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`,
-            prevEl: `.swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`,
-          }}
-          pagination={{ 
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          keyboard={{
-            enabled: true,
-            onlyInViewport: true,
-          }}
-          a11y={{
-            prevSlideMessage: 'Previous article',
-            nextSlideMessage: 'Next article',
-            paginationBulletMessage: 'Go to article {{index}}',
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="pb-12"
-        >
-          {articles.map((article, index) => (
-            <SwiperSlide key={index}>
-              <ArticleCard {...article} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        
-        {/* Custom Navigation Buttons */}
-        <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`} 
-             aria-label="Previous article"></div>
-        <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`}
-             aria-label="Next article"></div>
-      </div>
+      {/* Grid layout for Explore Latest Reviews */}
+      {title === "Explore Latest Reviews" ? (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left side - 2 main articles */}
+          <div className="lg:col-span-2 grid grid-rows-2 gap-6">
+            {articles.slice(0, 2).map((article, index) => (
+              <ArticleCard key={index} {...article} isHero={true} />
+            ))}
+          </div>
+          {/* Right side - 4 even sized articles */}
+          <div className="grid grid-rows-4 gap-4">
+            {articles.slice(2, 6).map((article, index) => (
+              <ArticleCard key={index + 2} {...article} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* Swiper for other carousels */
+        <div className="relative">
+          <Swiper
+            modules={[Navigation, Pagination, Keyboard, A11y]}
+            spaceBetween={24}
+            slidesPerView={1}
+            navigation={{
+              nextEl: `.swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`,
+              prevEl: `.swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`,
+            }}
+            pagination={{ 
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            keyboard={{
+              enabled: true,
+              onlyInViewport: true,
+            }}
+            a11y={{
+              prevSlideMessage: 'Previous article',
+              nextSlideMessage: 'Next article',
+              paginationBulletMessage: 'Go to article {{index}}',
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="pb-12"
+          >
+            {articles.map((article, index) => (
+              <SwiperSlide key={index}>
+                <ArticleCard {...article} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
+          {/* Custom Navigation Buttons */}
+          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`} 
+               aria-label="Previous article"></div>
+          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`}
+               aria-label="Next article"></div>
+        </div>
+      )}
     </section>
   );
 };

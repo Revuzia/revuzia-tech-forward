@@ -167,12 +167,12 @@ const Index = () => {
           {/* Radiating Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/product-reviews">
-              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg animate-glow-pulse">
+              <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
                 Explore Latest Reviews
               </Button>
             </Link>
             <Link to="/video-reviews">
-              <Button className="hero-button-radiate bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg animate-glow-pulse">
+              <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
                 <Play className="w-5 h-5 mr-2" />
                 Watch Review Videos
               </Button>
@@ -184,8 +184,8 @@ const Index = () => {
       <main id="main-content" className="container mx-auto px-4 py-16">
         {/* Latest Tech News Section */}
         <section className="mb-16" aria-labelledby="tech-news-heading">
-          <div className="relative inline-block w-full text-center mb-12">
-            <h2 id="tech-news-heading" className="text-5xl md:text-6xl font-display font-bold text-center mb-8">
+          <div className="relative inline-block w-full text-center mb-8">
+            <h2 id="tech-news-heading" className="text-5xl md:text-6xl font-display font-bold text-center">
               <span className="relative inline-block text-white drop-shadow-2xl">
                 Latest Tech and Electronics
                 {/* Glow effect layers */}
@@ -201,18 +201,26 @@ const Index = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            {/* Featured Article - Large */}
-            <div className="lg:col-span-2 lg:row-span-2">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Left side - 2 main articles */}
+            <div className="lg:col-span-2 grid grid-rows-2 gap-6">
+              {/* Tech News - Top */}
               <ArticleCard 
-                {...featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified")[0]} 
+                {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
+                isHero={true}
+              />
+              {/* Get Electrified - Bottom */}
+              <ArticleCard 
+                {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
                 isHero={true}
               />
             </div>
-            {/* Smaller Articles */}
-            {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").slice(1, 5).map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+            {/* Right side - 4 even sized articles */}
+            <div className="grid grid-rows-4 gap-4">
+              {featuredArticles.filter(article => article.category === "Tech News" || article.category === "Get Electrified").slice(1, 5).map((article, index) => (
+                <ArticleCard key={index} {...article} />
+              ))}
+            </div>
           </div>
         </section>
 

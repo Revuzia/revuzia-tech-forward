@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Cpu, Smartphone, Monitor, Zap } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -46,43 +46,27 @@ const Header = () => {
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
             >
-              <div className="relative group">
-                <div className="text-4xl font-bold tracking-wider transform hover:scale-110 transition-all duration-300 font-orbitron">
-                  <span className="relative tech-logo">
-                    <span className="relative inline-block text-white drop-shadow-2xl animate-pulse-green">
-                      REVUZIA
-                      {/* Enhanced glow effect layers */}
-                      <span className="absolute inset-0 text-white opacity-80 blur-sm animate-pulse">
-                        REVUZIA
-                      </span>
-                      <span className="absolute inset-0 text-brand opacity-60 blur-md animate-pulse">
-                        REVUZIA
-                      </span>
-                      <span className="absolute inset-0 text-accent opacity-40 blur-lg animate-pulse">
-                        REVUZIA
-                      </span>
-                    </span>
-                    
-                    {/* Orbiting Tech Elements */}
-                    <div className="absolute inset-0 pointer-events-none">
-                      <div className="orbit-element orbit-logo-1">
-                        <div className="w-6 h-6 bg-brand/80 rounded border border-brand animate-spin-slow"></div>
-                      </div>
-                      <div className="orbit-element orbit-logo-2">
-                        <div className="w-4 h-4 bg-accent/80 clip-triangle animate-pulse"></div>
-                      </div>
-                      <div className="orbit-element orbit-logo-3">
-                        <div className="w-5 h-5 bg-brand/70 clip-hexagon animate-float-1"></div>
-                      </div>
-                      <div className="orbit-element orbit-logo-4">
-                        <div className="w-3 h-3 bg-accent/90 rounded-full animate-ping"></div>
-                      </div>
+              <div className="relative">
+                <h1 className="text-2xl font-display font-bold text-brand animate-pulse-green">
+                  REVUZIA
+                </h1>
+                
+                {/* Orbiting Tech Elements */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="orbit-logo-1 absolute">
+                      <Cpu className="w-3 h-3 text-brand opacity-70" />
                     </div>
-                    
-                    {/* Circuit lines connecting to orbiting elements */}
-                    <div className="absolute top-1/2 left-1/2 w-0.5 h-12 bg-brand/30 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-                    <div className="absolute top-1/2 left-1/2 w-12 h-0.5 bg-brand/30 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-                  </span>
+                    <div className="orbit-logo-2 absolute">
+                      <Smartphone className="w-2.5 h-2.5 text-accent opacity-60" />
+                    </div>
+                    <div className="orbit-logo-3 absolute">
+                      <Monitor className="w-3.5 h-3.5 text-brand opacity-80" />
+                    </div>
+                    <div className="orbit-logo-4 absolute">
+                      <Zap className="w-2.5 h-2.5 text-accent opacity-65" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Link>
@@ -95,8 +79,8 @@ const Header = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`text-brand hover:text-brand/80 transition-colors duration-300 font-medium relative group ${
-                      isActive ? 'text-brand' : 'text-brand'
+                    className={`text-white hover:text-brand transition-colors duration-300 font-body font-medium relative group ${
+                      isActive ? 'text-brand' : 'text-white'
                     }`}
                   >
                     {item.name}
