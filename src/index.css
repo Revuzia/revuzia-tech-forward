@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Brand color - #49c4b6 */
-    --brand: 171 51% 53%; /* #49c4b6 - exact brand color */
-    --brand-rgb: 73, 196, 182;
+    /* Brand color - #00ffbf */
+    --brand: 160 100% 50%; /* #00ffbf - bright cyan/green */
+    --brand-rgb: 0, 255, 191;
     
     /* Dark futuristic color scheme */
     --background: 220 27% 8%;

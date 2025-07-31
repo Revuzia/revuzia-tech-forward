@@ -36,10 +36,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {categories.map((category) => (
                 <li key={category.name}>
-                  <Link 
-                    to={category.path} 
-                    className="text-muted-foreground hover:text-brand transition-colors duration-300"
-                  >
+                   <Link 
+                     to={category.path} 
+                     className="text-white hover:text-brand transition-colors duration-300"
+                   >
                     {category.name}
                   </Link>
                 </li>
@@ -52,34 +52,34 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-brand mb-6">REVUZIA</h3>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  to="/team" 
-                  className="text-muted-foreground hover:text-brand transition-colors duration-300"
-                >
-                  Meet Our Team
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/privacy" 
-                  className="text-muted-foreground hover:text-brand transition-colors duration-300"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/terms" 
-                  className="text-muted-foreground hover:text-brand transition-colors duration-300"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/affiliate" 
-                  className="text-muted-foreground hover:text-brand transition-colors duration-300"
-                >
+                 <Link 
+                   to="/team" 
+                   className="text-white hover:text-brand transition-colors duration-300"
+                 >
+                   Meet Our Team
+                 </Link>
+               </li>
+               <li>
+                 <Link 
+                   to="/privacy" 
+                   className="text-white hover:text-brand transition-colors duration-300"
+                 >
+                   Privacy Policy
+                 </Link>
+               </li>
+               <li>
+                 <Link 
+                   to="/terms" 
+                   className="text-white hover:text-brand transition-colors duration-300"
+                 >
+                   Terms & Conditions
+                 </Link>
+               </li>
+               <li>
+                 <Link 
+                   to="/affiliate" 
+                   className="text-white hover:text-brand transition-colors duration-300"
+                 >
                   Affiliate Disclosure
                 </Link>
               </li>
@@ -116,12 +116,12 @@ const Footer = () => {
             </form>
 
             {/* Social Links */}
-            <a 
-              href="https://twitter.com/revuzia" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-3 text-muted-foreground hover:text-brand transition-colors duration-300 group"
-            >
+             <a 
+               href="https://twitter.com/revuzia" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-flex items-center space-x-3 text-white hover:text-brand transition-colors duration-300 group"
+             >
               <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               <span>Follow Us on X</span>
             </a>

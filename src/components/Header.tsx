@@ -38,13 +38,15 @@ const Header = () => {
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
             >
-              <img 
-                src="/lovable-uploads/d72cd261-6580-4fde-8fc1-c96bbcf98b2e.png" 
-                alt="Revuzia" 
-                className="h-10 w-auto"
-                width="200"
-                height="40"
-              />
+              <div className="relative">
+                <div className="text-2xl font-bold text-brand tracking-wider transform hover:scale-105 transition-transform duration-300">
+                  <span className="relative">
+                    REVUZIA
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-brand rotate-45 opacity-60"></div>
+                    <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-brand rounded-full opacity-80"></div>
+                  </span>
+                </div>
+              </div>
             </Link>
 
             {/* Navigation Links - Desktop */}
