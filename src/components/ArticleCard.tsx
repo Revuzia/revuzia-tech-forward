@@ -36,7 +36,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
         
         {/* Category Badge */}
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand/20 text-white border border-brand/30">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand/20 text-brand border border-brand/30">
             {category}
           </span>
         </div>

@@ -65,23 +65,20 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section with Parallax Background */}
+      {/* Hero Section with Fixed Background */}
       <section 
-        className="relative min-h-screen flex items-center justify-center bg-fixed bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{ backgroundImage: `url(${futuristicHeroBg})` }}
       >
-        {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-background/80"></div>
-        
-        {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <div className="inline-flex items-center bg-brand/20 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-brand/30">
-            <span className="w-2 h-2 bg-brand rounded-full mr-2 animate-pulse"></span>
-            <span className="text-brand font-medium">Featured Review</span>
-          </div>
+      </section>
+      
+      {/* Hero Content */}
+      <section className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="text-center px-4 max-w-4xl mx-auto">
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-brand via-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
-            The Future of Tech & Electronics Reviews
+            The Future of Tech and Electronics Reviews
           </h1>
           
           <p className="text-xl md:text-2xl text-foreground/80 mb-12 leading-relaxed animate-fade-in delay-300">
@@ -110,17 +107,9 @@ const Index = () => {
           </div>
           
         </div>
-        
-        {/* Floating particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-2 h-2 bg-brand rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-40 left-20 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute bottom-20 right-10 w-1 h-1 bg-brand rounded-full animate-bounce delay-1000"></div>
-        </div>
       </section>
       
-      <main id="main-content" className="container mx-auto px-4 py-16">
+      <main id="main-content" className="relative z-10 bg-background container mx-auto px-4 py-16">
         {/* Featured Articles Grid */}
         <section className="mb-16" aria-labelledby="featured-articles-heading">
           <h1 id="featured-articles-heading" className="text-4xl font-bold text-brand text-center mb-8">Latest Tech News & Reviews</h1>
