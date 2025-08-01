@@ -79,18 +79,24 @@ const Header = () => {
             >
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
-                  <span className="relative inline-block text-white drop-shadow-2xl">
-                    <span className="inline-block border-2 border-white px-1 mr-1 font-mono transform rotate-12">R</span>EVUZIA
-                    {/* Brighter glow effect layers */}
-                    <span className="absolute inset-0 text-white opacity-80 blur-sm animate-pulse">
-                      REVUZIA
-                    </span>
-                    <span className="absolute inset-0 text-brand opacity-60 blur-md animate-pulse">
-                      REVUZIA
-                    </span>
-                    <span className="absolute inset-0 text-green-300 opacity-40 blur-lg animate-pulse">
-                      REVUZIA
-                    </span>
+                  <span className="relative inline-block text-white drop-shadow-2xl" style={{
+                    textShadow: `
+                      0 0 10px rgb(var(--brand-rgb)),
+                      0 0 20px rgb(var(--brand-rgb)),
+                      0 0 30px rgb(var(--brand-rgb)),
+                      0 0 40px rgb(var(--brand-rgb)),
+                      0 0 50px rgb(var(--brand-rgb)),
+                      0 0 60px rgb(var(--brand-rgb)),
+                      0 0 70px rgb(var(--brand-rgb))
+                    `
+                  }}>
+                    <span className="inline-block border-2 border-white px-1 mr-1 font-mono transform rotate-12" style={{
+                      boxShadow: `
+                        0 0 10px rgb(var(--brand-rgb)),
+                        0 0 20px rgb(var(--brand-rgb)),
+                        0 0 30px rgb(var(--brand-rgb))
+                      `
+                    }}>R</span>EVUZIA
                   </span>
                 </h1>
                 
@@ -167,7 +173,7 @@ const Header = () => {
               <div className="relative w-full">
                 <Input
                   type="search"
-                  placeholder="Search reviews, guides…"
+                  placeholder="Search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
@@ -219,7 +225,7 @@ const Header = () => {
                 <div className="relative">
                   <Input
                     type="search"
-                    placeholder="Search reviews, guides…"
+                    placeholder="Search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full pr-10 border-border focus:border-brand focus:ring-brand"
