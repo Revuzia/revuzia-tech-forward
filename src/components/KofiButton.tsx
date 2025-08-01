@@ -14,7 +14,7 @@ const KofiButton = () => {
         className="bg-brand hover:bg-brand/90 text-black font-semibold py-3 px-5 rounded-full shadow-xl border-2 border-white/20 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
       >
         <Coffee className="h-5 w-5 text-black/80" />
-        {isHovered && <span className="whitespace-nowrap">Support us on Ko-fi</span>}
+        {isHovered && <span className="whitespace-nowrap text-black">Support us on Ko-fi</span>}
       </Button>
     </div>
   );

@@ -115,10 +115,24 @@ const ArticleCarousel = ({
           </Swiper>
           
           {/* Custom Navigation Buttons */}
-          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-               aria-label="Previous article"></div>
-          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-               aria-label="Next article"></div>
+          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !bg-brand !rounded-full !w-12 !h-12 !mt-0 !top-1/2 !-translate-y-1/2 !border-2 !border-white/20 hover:!scale-110 !transition-all !duration-300`} 
+               style={{
+                 backgroundColor: 'rgb(var(--brand-rgb))',
+                 borderRadius: '50%',
+                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+               }}
+               aria-label="Previous article">
+            <div className="!text-black !text-lg !font-bold">‹</div>
+          </div>
+          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !bg-brand !rounded-full !w-12 !h-12 !mt-0 !top-1/2 !-translate-y-1/2 !border-2 !border-white/20 hover:!scale-110 !transition-all !duration-300`}
+               style={{
+                 backgroundColor: 'rgb(var(--brand-rgb))',
+                 borderRadius: '50%',
+                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+               }}
+               aria-label="Next article">
+            <div className="!text-black !text-lg !font-bold">›</div>
+          </div>
         </div>
       )}
     </section>

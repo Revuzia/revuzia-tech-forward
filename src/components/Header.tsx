@@ -79,26 +79,33 @@ const Header = () => {
             >
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
-                  <span className="relative inline-block text-white drop-shadow-2xl" style={{
-                    textShadow: `
-                      0 0 5px rgb(var(--brand-rgb)),
-                      0 0 10px rgb(var(--brand-rgb)),
-                      0 0 15px rgb(var(--brand-rgb)),
-                      0 0 20px rgb(var(--brand-rgb)),
-                      0 0 35px rgb(var(--brand-rgb)),
-                      0 0 40px rgb(var(--brand-rgb))
-                    `,
-                    filter: 'brightness(1.1) contrast(1.1)'
-                  }}>
-                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12" style={{
+                  <span className="relative inline-block text-white drop-shadow-2xl vintage-neon-text">
+                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12 vintage-neon-hanging-r" style={{
                       textShadow: `
                         0 0 5px rgb(var(--brand-rgb)),
                         0 0 10px rgb(var(--brand-rgb)),
-                        0 0 15px rgb(var(--brand-rgb))
+                        0 0 20px rgb(var(--brand-rgb)),
+                        0 0 40px rgb(var(--brand-rgb))
                       `,
                       borderColor: 'rgb(var(--brand-rgb))',
-                      color: 'rgb(var(--brand-rgb))'
-                    }}>R</span>EVUZIA
+                      color: 'rgb(var(--brand-rgb))',
+                      borderRadius: '4px',
+                      boxShadow: `
+                        0 0 5px rgb(var(--brand-rgb)),
+                        inset 0 0 5px rgb(var(--brand-rgb))
+                      `
+                    }}>R</span>
+                    <span style={{
+                      textShadow: `
+                        0 0 5px rgb(var(--brand-rgb)),
+                        0 0 10px rgb(var(--brand-rgb)),
+                        0 0 20px rgb(var(--brand-rgb)),
+                        0 0 40px rgb(var(--brand-rgb)),
+                        0 0 80px rgb(var(--brand-rgb))
+                      `,
+                      color: 'rgb(var(--brand-rgb))',
+                      filter: 'brightness(1.2) contrast(1.1)'
+                    }}>EVUZIA</span>
                   </span>
                 </h1>
                 

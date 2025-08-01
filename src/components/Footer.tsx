@@ -135,7 +135,7 @@ const Footer = () => {
                href="https://twitter.com/revuzia45555"
                target="_blank" 
                rel="noopener noreferrer"
-               className="inline-flex items-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium"
+               className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black"
              >
               <X className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               <span>Follow Us on X</span>
