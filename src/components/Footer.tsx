@@ -3,58 +3,19 @@ import { X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { useAuth } from "@/components/AuthProvider";
-import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [showEmailInput, setShowEmailInput] = useState(false);
-  const { subscribeToNewsletter } = useAuth();
-  const { toast } = useToast();
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = async () => {
-    if (!showEmailInput) {
-      setShowEmailInput(true);
-      return;
-    }
-
-    if (!email.trim()) {
-      toast({
-        title: "Email required",
-        description: "Please enter your email address",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    try {
-      const { error } = await subscribeToNewsletter(email);
-      if (error) {
-        toast({
-          title: "Subscription failed",
-          description: error.message,
-          variant: "destructive",
-        });
-      } else {
-        toast({
-          title: "Welcome to Revuzia!",
-          description: "You've been subscribed to our newsletter and created an account.",
-        });
-        setEmail("");
-        setShowEmailInput(false);
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSubscribe();
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      // Simple subscription for now - will be enhanced with auth later
+      console.log("Newsletter subscription:", email);
+      setIsSubscribed(true);
+      setEmail("");
+      setTimeout(() => setIsSubscribed(false), 3000);
     }
   };
 
@@ -130,35 +91,28 @@ const Footer = () => {
             <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
-            <div className="w-full max-w-sm mb-6">
-              {!showEmailInput ? (
+            <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-6">
+              <div className="flex flex-col gap-3">
+                <Input
+                  type="email"
+                  placeholder="Stay ahead of the tech curve with exclusive insights..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-muted/20 border-brand/30 text-white placeholder:text-white/60 focus:border-brand font-poppins text-base"
+                  required
+                />
                 <Button 
-                  onClick={handleSubscribe}
-                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins text-base"
+                  type="submit" 
+                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins text-base"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   SUBSCRIBE
                 </Button>
-              ) : (
-                <div className="space-y-3">
-                  <Input
-                    type="email"
-                    placeholder="Stay ahead of the tech curve with exclusive insights..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    className="bg-muted/20 border-brand/30 text-white placeholder:text-white/60 focus:border-brand font-poppins text-base"
-                  />
-                  <Button 
-                    onClick={handleSubscribe}
-                    className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins text-base"
-                  >
-                    <Mail className="w-5 h-5 mr-2" />
-                    SUBSCRIBE
-                  </Button>
-                </div>
+              </div>
+              {isSubscribed && (
+                <p className="text-sm text-brand mt-2 font-poppins">Thank you for subscribing!</p>
               )}
-            </div>
+            </form>
 
             {/* Social Links */}
              <a 
