@@ -127,7 +127,9 @@ const Auth = () => {
           <Card className="bg-card/95 backdrop-blur-sm border-border/50 shadow-2xl shadow-brand/10">
             <CardHeader className="text-center space-y-4">
               <div className="w-16 h-16 bg-gradient-to-br from-brand to-accent rounded-full mx-auto flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-full"></div>
+                <div className="w-8 h-8 bg-black rounded border-2 border-white flex items-center justify-center transform rotate-12">
+                  <span className="text-white font-mono font-bold text-lg">R</span>
+                </div>
               </div>
               <CardTitle className="text-3xl font-bold text-white font-poppins">Join Revuzia</CardTitle>
               <CardDescription className="text-foreground/80 font-poppins text-lg">
