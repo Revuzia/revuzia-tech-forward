@@ -10,14 +10,15 @@ import BackToTop from "@/components/BackToTop";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
+// Temporarily commented out auth functionality
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Handle authentication logic here
-    setTimeout(() => setIsLoading(false), 2000);
+    // Temporarily disabled auth logic
+    setTimeout(() => setIsLoading(false), 1000);
   };
 
   return (
