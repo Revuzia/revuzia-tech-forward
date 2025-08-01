@@ -36,9 +36,8 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
                   alt={title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* Category Badge */}
                 <div className="absolute top-2 left-2">
-                  <Badge className="bg-background/90 text-white border-0 font-semibold px-2 py-1 text-xs rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
+                  <Badge className="bg-white text-brand border-0 font-semibold px-2 py-1 text-xs rounded-full group-hover:bg-brand group-hover:text-white transition-all duration-300">
                     {category}
                   </Badge>
                 </div>
@@ -87,7 +86,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             />
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
-              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
+              <Badge className="bg-white text-brand border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-white transition-all duration-300">
                 {category}
               </Badge>
             </div>
