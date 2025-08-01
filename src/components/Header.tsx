@@ -95,16 +95,15 @@ const Header = () => {
                         inset 0 0 5px rgb(var(--brand-rgb))
                       `
                     }}>R</span>
-                    <span style={{
+                    <span className="vintage-neon-text-evuzia" style={{
                       textShadow: `
-                        0 0 5px rgb(var(--brand-rgb)),
-                        0 0 10px rgb(var(--brand-rgb)),
-                        0 0 20px rgb(var(--brand-rgb)),
-                        0 0 40px rgb(var(--brand-rgb)),
-                        0 0 80px rgb(var(--brand-rgb))
+                        0 0 3px rgb(var(--brand-rgb)),
+                        0 0 6px rgb(var(--brand-rgb)),
+                        0 0 12px rgb(var(--brand-rgb)),
+                        0 0 24px rgb(var(--brand-rgb))
                       `,
                       color: 'rgb(var(--brand-rgb))',
-                      filter: 'brightness(1.2) contrast(1.1)'
+                      filter: 'brightness(0.9) contrast(1.0)'
                     }}>EVUZIA</span>
                   </span>
                 </h1>
@@ -120,7 +119,7 @@ const Header = () => {
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-2 select-none flex flex-col gap-1 items-center">
+                      <div className="text-white/40 mx-2 select-none flex flex-col gap-2 items-center">
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>

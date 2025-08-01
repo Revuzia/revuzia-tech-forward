@@ -90,6 +90,22 @@
     user-select: none;
   }
 
+  /* Vintage neon sign animation */
+  .vintage-neon-text-evuzia {
+    animation: neonFlicker 4s infinite alternate;
+  }
+
+  @keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      filter: brightness(0.9) contrast(1.0);
+    }
+    20%, 24%, 55% {
+      opacity: 0.4;
+      filter: brightness(0.3) contrast(0.8);
+    }
+  }
+
   /* Allow selection in input fields and editable content */
   input, textarea, [contenteditable="true"] {
     -webkit-user-select: text;

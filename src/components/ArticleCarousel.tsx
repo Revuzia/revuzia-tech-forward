@@ -59,15 +59,15 @@ const ArticleCarousel = ({
       
       {/* Grid layout for Explore Latest Reviews */}
       {title === "Explore Latest Reviews" ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto">
           {/* Left side - 2 featured articles stacked */}
-          <div className="lg:col-span-1 grid grid-rows-2 gap-1 h-full">
+          <div className="lg:col-span-1 grid grid-rows-2 gap-4 h-full">
             {articles.slice(0, 2).map((article, index) => (
               <ArticleCard key={index} {...article} isHero={true} />
             ))}
           </div>
           {/* Right side - 4 horizontal rectangles */}
-          <div className="lg:col-span-1 grid grid-rows-4 gap-0.5 h-full">
+          <div className="lg:col-span-1 grid grid-rows-4 gap-3 h-full">
             {articles.slice(2, 6).map((article, index) => (
               <ArticleCard key={index + 2} {...article} isHorizontal={true} />
             ))}
@@ -115,23 +115,25 @@ const ArticleCarousel = ({
           </Swiper>
           
           {/* Custom Navigation Buttons */}
-          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !bg-brand !rounded-full !w-12 !h-12 !mt-0 !top-1/2 !-translate-y-1/2 !border-2 !border-white/20 hover:!scale-110 !transition-all !duration-300`} 
+          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300`} 
                style={{
-                 backgroundColor: 'rgb(var(--brand-rgb))',
+                 backgroundColor: 'rgba(var(--brand-rgb), 0.8)',
                  borderRadius: '50%',
-                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                 border: '2px solid rgba(var(--brand-rgb), 0.4)'
                }}
                aria-label="Previous article">
-            <div className="!text-black !text-lg !font-bold">‹</div>
+            <div className="!text-black !text-2xl !font-bold" style={{fontWeight: '900'}}>‹</div>
           </div>
-          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !bg-brand !rounded-full !w-12 !h-12 !mt-0 !top-1/2 !-translate-y-1/2 !border-2 !border-white/20 hover:!scale-110 !transition-all !duration-300`}
+          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300`}
                style={{
-                 backgroundColor: 'rgb(var(--brand-rgb))',
+                 backgroundColor: 'rgba(var(--brand-rgb), 0.8)',
                  borderRadius: '50%',
-                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                 border: '2px solid rgba(var(--brand-rgb), 0.4)'
                }}
                aria-label="Next article">
-            <div className="!text-black !text-lg !font-bold">›</div>
+            <div className="!text-black !text-2xl !font-bold" style={{fontWeight: '900'}}>›</div>
           </div>
         </div>
       )}

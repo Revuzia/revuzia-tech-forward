@@ -255,7 +255,7 @@ const Index = () => {
       
       <main id="main-content" className="container mx-auto px-4 py-16">
         {/* Latest Tech News Section */}
-        <section className="mb-16" aria-labelledby="tech-news-heading">
+        <section className="mb-20" aria-labelledby="tech-news-heading">
           <div className="relative inline-block w-full text-center mb-8">
             <h2 id="tech-news-heading" className="text-5xl md:text-6xl font-display font-bold text-center">
               <span className="relative inline-block text-white drop-shadow-2xl">
@@ -273,9 +273,9 @@ const Index = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 h-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto">
             {/* Left side - 2 large featured articles stacked */}
-            <div className="lg:col-span-1 space-y-2">
+            <div className="lg:col-span-1 space-y-4">
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
                 isHero={true} 
@@ -286,7 +286,7 @@ const Index = () => {
               />
             </div>
             {/* Right side - 4 horizontal rectangles */}
-            <div className="lg:col-span-1 grid grid-rows-4 gap-1.5 h-full">
+            <div className="lg:col-span-1 grid grid-rows-4 gap-3 h-full">
               {/* 2 more Tech News articles */}
               {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
                 <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
