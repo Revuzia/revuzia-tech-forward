@@ -5,12 +5,12 @@ import BackToTop from "@/components/BackToTop";
 const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Floating rockets */}
-      <div className="floating-rockets">
-        <div className="rocket">🚀</div>
-        <div className="rocket">🚀</div>
-        <div className="rocket">🚀</div>
-      </div>
+       {/* Floating elements */}
+       <div className="floating-rockets">
+         <div className="rocket">📱</div>
+         <div className="rocket">💻</div>
+         <div className="rocket">⌚</div>
+       </div>
       
       <Header />
       

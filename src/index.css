@@ -713,33 +713,30 @@
   overflow: hidden;
 }
 
-.product-reviews-animation::after {
-  content: '★';
+.product-reviews-animation::before {
+  content: '';
   position: absolute;
   top: 50%;
-  left: -15px;
-  font-size: 14px;
-  color: #10b981;
-  animation: star-sweep 2.8s ease-in-out infinite;
-  transform: translateY(-50%);
-  opacity: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #10b981, transparent);
+  transform: translateY(-50%) scaleX(0);
+  animation: star-pulse 2.8s ease-in-out infinite;
 }
 
-@keyframes star-sweep {
-  0%, 82% {
-    left: -15px;
+@keyframes star-pulse {
+  0%, 72% {
+    transform: translateY(-50%) scaleX(0);
     opacity: 0;
-    transform: translateY(-50%) rotate(0deg);
   }
-  25%, 35% {
-    left: calc(100% + 10px);
+  80%, 85% {
+    transform: translateY(-50%) scaleX(1);
     opacity: 1;
-    transform: translateY(-50%) rotate(180deg);
   }
-  100% {
-    left: calc(100% + 10px);
+  95%, 100% {
+    transform: translateY(-50%) scaleX(0);
     opacity: 0;
-    transform: translateY(-50%) rotate(360deg);
   }
 }
 
@@ -749,32 +746,29 @@
   overflow: hidden;
 }
 
-.buying-guides-animation::after {
-  content: '✓';
+.buying-guides-animation::before {
+  content: '';
   position: absolute;
   top: 50%;
-  left: -12px;
-  font-size: 14px;
-  color: #f59e0b;
-  animation: check-flow 3.2s ease-in-out infinite;
-  transform: translateY(-50%);
-  opacity: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  transform: translateY(-50%) scaleX(0);
+  animation: guide-pulse 3.2s ease-in-out infinite;
 }
 
-@keyframes check-flow {
+@keyframes guide-pulse {
   0%, 78% {
-    left: -12px;
+    transform: translateY(-50%) scaleX(0);
     opacity: 0;
-    transform: translateY(-50%) scale(0.8);
   }
-  22%, 32% {
-    left: calc(100% + 8px);
+  85%, 90% {
+    transform: translateY(-50%) scaleX(1);
     opacity: 1;
-    transform: translateY(-50%) scale(1.2);
   }
-  100% {
-    left: calc(100% + 8px);
+  95%, 100% {
+    transform: translateY(-50%) scaleX(0);
     opacity: 0;
-    transform: translateY(-50%) scale(0.8);
   }
 }

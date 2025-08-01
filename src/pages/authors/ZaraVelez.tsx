@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
 import authorZara from "/lovable-uploads/75c66acd-a1fa-4912-9cb0-ba0121e8debb.png";
-import authorZaraAvatar from "/lovable-uploads/75c66acd-a1fa-4912-9cb0-ba0121e8debb.png";
+import authorZaraAvatar from "@/assets/author-zara-avatar.jpg";
 import gamingArticleHero from "@/assets/gaming-article-hero.jpg";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
 import { Button } from "@/components/ui/button";

@@ -273,22 +273,26 @@ const Index = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-auto">
-            {/* Left side - 1 large featured article */}
-            <div className="lg:col-span-1 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-auto">
+            {/* Left side - 2 large featured articles stacked */}
+            <div className="lg:col-span-1 space-y-4">
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
                 isHero={true} 
               />
+              <ArticleCard 
+                {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
+                isHero={true} 
+              />
             </div>
             {/* Right side - 4 horizontal rectangles */}
-            <div className="lg:col-span-1 grid grid-rows-5 gap-1 h-full">
+            <div className="lg:col-span-1 grid grid-rows-4 gap-2 h-full">
               {/* 2 more Tech News articles */}
               {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
                 <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
               ))}
-              {/* 3 Get Electrified articles */}
-              {featuredArticles.filter(article => article.category === "Get Electrified").slice(0, 3).map((article, index) => (
+              {/* 2 more Get Electrified articles */}
+              {featuredArticles.filter(article => article.category === "Get Electrified").slice(1, 3).map((article, index) => (
                 <ArticleCard key={`electrified-${index}`} {...article} isHorizontal={true} />
               ))}
             </div>
