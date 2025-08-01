@@ -67,7 +67,7 @@ const ArticleCarousel = ({
             ))}
           </div>
           {/* Right side - 4 horizontal rectangles */}
-          <div className="lg:col-span-1 grid grid-rows-4 gap-1 h-full">
+          <div className="lg:col-span-1 grid grid-rows-4 gap-2 h-full">
             {articles.slice(2, 6).map((article, index) => (
               <ArticleCard key={index + 2} {...article} isHorizontal={true} />
             ))}

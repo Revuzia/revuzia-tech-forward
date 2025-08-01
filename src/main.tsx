@@ -25,6 +25,9 @@ import GamingPCs from "./pages/subcategories/GamingPCs";
 import WearablesTech from "./pages/subcategories/WearablesTech";
 import AIMachineLearning from "./pages/subcategories/AIMachineLearning";
 import Cybersecurity from "./pages/subcategories/Cybersecurity";
+import CloudComputing from "./pages/subcategories/CloudComputing";
+import SmartHomeTech from "./pages/subcategories/SmartHomeTech";
+import BestInClass from "./pages/subcategories/BestInClass";
 
 // Admin pages
 import AdminAuthorManagement from "./pages/AdminAuthorManagement";
@@ -65,6 +68,9 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/wearables-tech" element={<WearablesTech />} />
           <Route path="/ai-machine-learning" element={<AIMachineLearning />} />
           <Route path="/cybersecurity" element={<Cybersecurity />} />
+          <Route path="/cloud-computing" element={<CloudComputing />} />
+          <Route path="/smart-home-tech" element={<SmartHomeTech />} />
+          <Route path="/best-in-class" element={<BestInClass />} />
           
           {/* Admin routes */}
           <Route path="/admin/authors" element={<AdminAuthorManagement />} />

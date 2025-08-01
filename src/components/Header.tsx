@@ -14,36 +14,36 @@ const Header = () => {
       name: "Tech News", 
       path: "/tech-news",
       subcategories: [
-        { name: "Smartphones & Tablets", path: "/smartphones-tablets" },
-        { name: "Gaming & PCs", path: "/gaming-pcs" },
-        { name: "Wearables & Tech", path: "/wearables-tech" },
         { name: "AI & Machine Learning", path: "/ai-machine-learning" },
         { name: "Cybersecurity", path: "/cybersecurity" },
-        { name: "Cloud Computing", path: "/cloud-computing" }
+        { name: "Cloud Computing", path: "/cloud-computing" },
+        { name: "GPU & Graphics", path: "/gpu-graphics" },
+        { name: "Software Updates", path: "/software-updates" },
+        { name: "Industry News", path: "/industry-news" }
       ]
     },
     { 
       name: "Get Electrified", 
       path: "/get-electrified",
       subcategories: [
-        { name: "Electric Vehicles", path: "/electric-vehicles" },
-        { name: "Smart Home", path: "/smart-home" },
-        { name: "Green Tech", path: "/green-tech" },
-        { name: "Solar Energy", path: "/solar-energy" },
-        { name: "Battery Tech", path: "/battery-tech" },
-        { name: "Sustainable Living", path: "/sustainable-living" }
+        { name: "Smart Home Tech", path: "/smart-home-tech" },
+        { name: "Latest Releases", path: "/latest-releases" },
+        { name: "IoT Devices", path: "/iot-devices" },
+        { name: "Home Automation", path: "/home-automation" },
+        { name: "Connected Lifestyle", path: "/connected-lifestyle" },
+        { name: "Emerging Tech", path: "/emerging-tech" }
       ]
     },
     { 
       name: "Product Reviews", 
       path: "/product-reviews",
       subcategories: [
+        { name: "Smartphones & Tablets", path: "/smartphones-tablets" },
+        { name: "Gaming & PCs", path: "/gaming-pcs" },
         { name: "Laptops & Computers", path: "/laptops-computers" },
         { name: "Audio & Headphones", path: "/audio-headphones" },
         { name: "Cameras & Photography", path: "/cameras-photography" },
-        { name: "Home Appliances", path: "/home-appliances" },
-        { name: "Fitness Tech", path: "/fitness-tech" },
-        { name: "Entertainment Systems", path: "/entertainment-systems" }
+        { name: "Home Appliances", path: "/home-appliances" }
       ]
     },
     { 
@@ -51,11 +51,11 @@ const Header = () => {
       path: "/buying-guides",
       subcategories: [
         { name: "Best Budget Picks", path: "/budget-picks" },
-        { name: "Premium Options", path: "/premium-options" },
-        { name: "Seasonal Deals", path: "/seasonal-deals" },
-        { name: "Student Essentials", path: "/student-essentials" },
-        { name: "Business Solutions", path: "/business-solutions" },
-        { name: "Gift Ideas", path: "/gift-ideas" }
+        { name: "Best in Class", path: "/best-in-class" },
+        { name: "Best of 2025", path: "/best-of-2025" },
+        { name: "Product Comparisons", path: "/product-comparisons" },
+        { name: "Value Champions", path: "/value-champions" },
+        { name: "Premium Picks", path: "/premium-picks" }
       ]
     },
   ];
