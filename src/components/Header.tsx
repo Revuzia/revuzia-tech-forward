@@ -37,7 +37,7 @@ const Header = () => {
       subcategories: [
         { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
         { name: "Wearables Tech", path: "/subcategories/wearables-tech" },
-        { name: "Gaming & PCs", path: "/gaming-pcs" },
+        { name: "Gaming & PCs", path: "/subcategories/gaming-pcs" },
         { name: "Audio & Video", path: "/subcategories/audio-video" },
         { name: "Cameras & Photography", path: "/subcategories/cameras-photography" }
       ]
@@ -81,21 +81,23 @@ const Header = () => {
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
                   <span className="relative inline-block text-white drop-shadow-2xl" style={{
                     textShadow: `
+                      0 0 5px rgb(var(--brand-rgb)),
                       0 0 10px rgb(var(--brand-rgb)),
+                      0 0 15px rgb(var(--brand-rgb)),
                       0 0 20px rgb(var(--brand-rgb)),
-                      0 0 30px rgb(var(--brand-rgb)),
-                      0 0 40px rgb(var(--brand-rgb)),
-                      0 0 50px rgb(var(--brand-rgb)),
-                      0 0 60px rgb(var(--brand-rgb)),
-                      0 0 70px rgb(var(--brand-rgb))
-                    `
+                      0 0 35px rgb(var(--brand-rgb)),
+                      0 0 40px rgb(var(--brand-rgb))
+                    `,
+                    filter: 'brightness(1.1) contrast(1.1)'
                   }}>
-                    <span className="inline-block border-2 border-white px-1 mr-1 font-mono transform rotate-12" style={{
-                      boxShadow: `
+                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12" style={{
+                      textShadow: `
+                        0 0 5px rgb(var(--brand-rgb)),
                         0 0 10px rgb(var(--brand-rgb)),
-                        0 0 20px rgb(var(--brand-rgb)),
-                        0 0 30px rgb(var(--brand-rgb))
-                      `
+                        0 0 15px rgb(var(--brand-rgb))
+                      `,
+                      borderColor: 'rgb(var(--brand-rgb))',
+                      color: 'rgb(var(--brand-rgb))'
                     }}>R</span>EVUZIA
                   </span>
                 </h1>
