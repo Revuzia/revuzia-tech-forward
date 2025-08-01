@@ -113,7 +113,7 @@ const Header = () => {
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-2 select-none flex flex-col gap-0.5 items-center">
+                      <div className="text-white/40 mx-2 select-none flex flex-col gap-1 items-center">
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
                         <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>

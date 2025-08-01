@@ -77,7 +77,7 @@ const Team = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <Link key={index} to={`/author/${member.slug}`} className="block group">
-                <div className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300 group-hover:scale-105">
+                <div className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300 group-hover:scale-105 h-[420px] flex flex-col">
                   <div className="flex flex-col items-center text-center mb-6">
                     <img 
                       src={member.avatar} 
@@ -92,11 +92,11 @@ const Team = () => {
                     </div>
                   </div>
                   
-                  <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-sm flex-grow">
                     {member.bio}
                   </p>
                   
-                  <div>
+                  <div className="mt-auto">
                     <h3 className="text-sm font-semibold text-foreground mb-3">Expertise</h3>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {member.expertise.map((skill, skillIndex) => (
