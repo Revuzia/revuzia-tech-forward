@@ -48,12 +48,10 @@ const Header = () => {
             >
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
-                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent drop-shadow-lg">
+                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent" style={{ 
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(34, 197, 94, 0.3)' 
+                  }}>
                     REVUZIA
-                    {/* Subtle glow effect */}
-                    <span className="absolute inset-0 text-brand opacity-15 blur-sm">
-                      REVUZIA
-                    </span>
                   </span>
                 </h1>
                 

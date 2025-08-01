@@ -201,29 +201,23 @@ const Index = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-0 h-auto">
-            {/* Left side - 2 featured articles (smaller squares) */}
-            <div className="lg:col-span-3 grid grid-rows-2 gap-0 h-full">
-              {/* Tech News - Top */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-auto">
+            {/* Left side - 1 large featured article */}
+            <div className="lg:col-span-1 h-full">
               <ArticleCard 
                 {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
                 isHero={true} 
               />
-              {/* Get Electrified - Bottom */}
-              <ArticleCard 
-                {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
-                isHero={true} 
-              />
             </div>
-            {/* Right side - 2x2 vertical rectangles */}
-            <div className="lg:col-span-3 grid grid-cols-2 grid-rows-2 gap-0 h-full">
-              {/* 2 Tech News articles */}
+            {/* Right side - 4 horizontal rectangles */}
+            <div className="lg:col-span-1 grid grid-rows-4 gap-0 h-full">
+              {/* 2 more Tech News articles */}
               {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
-                <ArticleCard key={`tech-${index}`} {...article} />
+                <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
               ))}
               {/* 2 Get Electrified articles */}
-              {featuredArticles.filter(article => article.category === "Get Electrified").slice(1, 3).map((article, index) => (
-                <ArticleCard key={`electrified-${index}`} {...article} />
+              {featuredArticles.filter(article => article.category === "Get Electrified").slice(0, 2).map((article, index) => (
+                <ArticleCard key={`electrified-${index}`} {...article} isHorizontal={true} />
               ))}
             </div>
           </div>

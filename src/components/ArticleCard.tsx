@@ -16,14 +16,66 @@ interface ArticleCardProps {
   category: string;
   slug: string;
   isHero?: boolean;
+  isHorizontal?: boolean;
 }
 
-const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = false }: ArticleCardProps) => {
+const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = false, isHorizontal = false }: ArticleCardProps) => {
   const cardSizeClass = "";
-  const imageHeightClass = isHero ? "h-48" : "h-32";
+  const imageHeightClass = isHero ? "h-48" : isHorizontal ? "h-20" : "h-32";
+
+  if (isHorizontal) {
+    return (
+      <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
+        <Link to={`/articles/${slug}`} className="block">
+          <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300 h-full">
+            <div className="flex h-full">
+              {/* Image Container - Left Side */}
+              <div className={`relative w-1/3 overflow-hidden`}>
+                <img 
+                  src={image} 
+                  alt={title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                {/* Category Badge */}
+                <div className="absolute top-2 left-2">
+                  <Badge className="bg-background/90 text-white border-0 font-semibold px-2 py-1 text-xs rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
+                    {category}
+                  </Badge>
+                </div>
+              </div>
+              
+              {/* Content - Right Side */}
+              <div className="w-2/3 p-4 flex flex-col justify-center">
+                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-2">
+                  {title}
+                </h2>
+                
+                {/* Author and Meta Info */}
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-6 h-6 border border-brand/20">
+                      <AvatarImage src={author.avatar} alt={author.name} />
+                      <AvatarFallback className="bg-brand/10 text-brand text-xs font-medium">
+                        {author.name.split(' ').map(n => n[0]).join('')}
+                      </AvatarFallback>
+                    </Avatar>
+                    <p className="text-xs font-medium text-white font-body">{author.name}</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-white" />
+                    <p className="text-xs text-white font-medium font-body">{readTime}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </article>
+    );
+  }
 
   return (
-    <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl ${cardSizeClass}`}>
+    <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
       <Link to={`/articles/${slug}`} className="block">
         <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300">
           {/* Image Container */}
@@ -35,7 +87,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             />
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
-              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black group-hover:shadow-lg group-hover:shadow-brand/50 transition-all duration-300">
+              <Badge className="bg-background/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
                 {category}
               </Badge>
             </div>
