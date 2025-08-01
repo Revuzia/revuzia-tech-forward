@@ -60,9 +60,9 @@ const ZaraVelez = () => {
               className="avatar-container mb-8 w-64 h-64 mx-auto"
             >
               <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-brand/30 shadow-glow-primary">
-                <img 
-                  src={authorZara}
-                  alt="Zara Velez"
+                 <img 
+                   src={authorZaraAvatar}
+                   alt="Zara Velez"
                   className="w-full h-full object-cover transition-transform duration-300 ease-out"
                   style={{ 
                     transform: `translate(${Math.max(-20, Math.min(20, avatarPosition.x))}px, ${Math.max(-20, Math.min(20, avatarPosition.y))}px) scale(1.05)`,

@@ -132,7 +132,7 @@ const Footer = () => {
 
             {/* Social Links */}
              <a 
-               href="https://twitter.com/revuzia4455" 
+               href="https://twitter.com/revuzia45555"
                target="_blank" 
                rel="noopener noreferrer"
                className="inline-flex items-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium"

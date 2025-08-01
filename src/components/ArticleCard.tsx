@@ -27,7 +27,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
     return (
       <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
         <Link to={`/articles/${slug}`} className="block">
-          <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300 h-full">
+          <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300 h-48">
             <div className="flex h-full">
               {/* Image Container - Left Side */}
               <div className={`relative w-1/3 overflow-hidden`}>
@@ -44,12 +44,12 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               </div>
               
               {/* Content - Right Side */}
-              <div className="w-2/3 p-4 flex flex-col justify-center">
-                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-1">
+              <div className="w-2/3 p-4 flex flex-col justify-between h-full">
+                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-2">
                   {title}
                 </h2>
-                <p className="text-xs text-white/70 mb-2 line-clamp-1">
-                  Discover the latest innovations and expert insights in this comprehensive review.
+                <p className="text-xs text-white/70 mb-3 line-clamp-2 leading-relaxed">
+                  Discover the latest innovations and expert insights in this comprehensive review that will help you make informed decisions.
                 </p>
                 
                 {/* Author and Meta Info */}

@@ -80,7 +80,7 @@ const Header = () => {
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
                   <span className="relative inline-block text-white drop-shadow-2xl">
-                    REVUZIA
+                    <span className="inline-block border-2 border-white px-1 mr-1 font-mono transform rotate-12">R</span>EVUZIA
                     {/* Brighter glow effect layers */}
                     <span className="absolute inset-0 text-white opacity-80 blur-sm animate-pulse">
                       REVUZIA
@@ -103,9 +103,9 @@ const Header = () => {
                 const isActive = location.pathname === item.path;
                 return (
                   <div key={item.name} className="relative group flex items-center">
-                    {/* Add dash separator between categories */}
+                    {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <span className="text-white/40 mx-3 select-none">—</span>
+                      <span className="text-white/40 mx-2 select-none text-xs" style={{letterSpacing: '2px'}}>• • •</span>
                     )}
                     <Link
                       to={item.path}
