@@ -102,23 +102,43 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background gradient and effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-brand/10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,197,94,0.1),transparent_70%)]"></div>
+      
+      {/* Floating tech elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="floating-tech-element animate-float-1">
+          <div className="w-3 h-3 bg-brand/30 rounded-full blur-sm"></div>
+        </div>
+        <div className="floating-tech-element animate-float-2">
+          <div className="w-2 h-2 bg-accent/40 rounded-full blur-sm"></div>
+        </div>
+        <div className="floating-tech-element animate-float-3">
+          <div className="w-4 h-4 bg-brand/20 rounded-full blur-sm"></div>
+        </div>
+      </div>
+      
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-md mx-auto">
-          <Card className="bg-card border-border">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-white">Join Revuzia</CardTitle>
-              <CardDescription className="text-foreground/80">
+          <Card className="bg-card/95 backdrop-blur-sm border-border/50 shadow-2xl shadow-brand/10">
+            <CardHeader className="text-center space-y-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand to-accent rounded-full mx-auto flex items-center justify-center">
+                <div className="w-8 h-8 bg-white rounded-full"></div>
+              </div>
+              <CardTitle className="text-3xl font-bold text-white font-poppins">Join Revuzia</CardTitle>
+              <CardDescription className="text-foreground/80 font-poppins text-lg">
                 Sign up for exclusive tech insights and reviews
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-6">
               <Tabs defaultValue="signin" className="w-full">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="signin">Sign In</TabsTrigger>
-                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 bg-muted/20">
+                  <TabsTrigger value="signin" className="data-[state=active]:bg-brand data-[state=active]:text-black font-poppins">Sign In</TabsTrigger>
+                  <TabsTrigger value="signup" className="data-[state=active]:bg-brand data-[state=active]:text-black font-poppins">Sign Up</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="signin">
@@ -149,7 +169,7 @@ const Auth = () => {
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-brand hover:bg-brand/90 text-black"
+                      className="w-full bg-gradient-to-r from-brand to-accent hover:from-brand/90 hover:to-accent/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins"
                       disabled={isLoading}
                     >
                       {isLoading ? "Signing in..." : "Sign In"}
@@ -197,7 +217,7 @@ const Auth = () => {
                     </div>
                     <Button 
                       type="submit" 
-                      className="w-full bg-brand hover:bg-brand/90 text-black"
+                      className="w-full bg-gradient-to-r from-brand to-accent hover:from-brand/90 hover:to-accent/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins"
                       disabled={isLoading}
                     >
                       {isLoading ? "Creating account..." : "Sign Up"}
@@ -206,9 +226,9 @@ const Auth = () => {
                 </TabsContent>
               </Tabs>
               
-              <div className="mt-6 text-center">
-                <Link to="/" className="text-brand hover:underline">
-                  Back to Home
+              <div className="mt-8 text-center">
+                <Link to="/" className="text-brand hover:text-accent transition-colors duration-300 font-poppins font-medium">
+                  ← Back to Home
                 </Link>
               </div>
             </CardContent>

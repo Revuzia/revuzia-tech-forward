@@ -19,9 +19,33 @@ const Header = () => {
         { name: "Wearables & Tech", path: "/wearables-tech" }
       ]
     },
-    { name: "Get Electrified", path: "/get-electrified" },
-    { name: "Product Reviews", path: "/product-reviews" },
-    { name: "Buying Guides", path: "/buying-guides" },
+    { 
+      name: "Get Electrified", 
+      path: "/get-electrified",
+      subcategories: [
+        { name: "Electric Vehicles", path: "/electric-vehicles" },
+        { name: "Smart Home", path: "/smart-home" },
+        { name: "Green Tech", path: "/green-tech" }
+      ]
+    },
+    { 
+      name: "Product Reviews", 
+      path: "/product-reviews",
+      subcategories: [
+        { name: "Laptops & Computers", path: "/laptops-computers" },
+        { name: "Audio & Headphones", path: "/audio-headphones" },
+        { name: "Cameras & Photography", path: "/cameras-photography" }
+      ]
+    },
+    { 
+      name: "Buying Guides", 
+      path: "/buying-guides",
+      subcategories: [
+        { name: "Best Budget Picks", path: "/budget-picks" },
+        { name: "Premium Options", path: "/premium-options" },
+        { name: "Seasonal Deals", path: "/seasonal-deals" }
+      ]
+    },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -88,25 +112,43 @@ const Header = () => {
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                     className={`text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative group flex items-center gap-2 ${
-                       isActive ? 'text-brand' : 'text-white'
-                     }`}
-                  >
-                     {item.name === "Get Electrified" ? (
-                       <>
-                         Get Electrified
-                         <Zap className="w-5 h-5 text-accent animate-pulse" />
-                       </>
-                     ) : (
-                       item.name
-                     )}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}></span>
-                  </Link>
+                  <div key={item.name} className="relative group">
+                    <Link
+                      to={item.path}
+                      className={`text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-2 ${
+                        isActive ? 'text-brand' : 'text-white'
+                      }`}
+                    >
+                      {item.name === "Get Electrified" ? (
+                        <>
+                          Get Electrified
+                          <Zap className="w-5 h-5 text-accent animate-pulse" />
+                        </>
+                      ) : (
+                        item.name
+                      )}
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
+                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}></span>
+                    </Link>
+                    
+                    {/* Dropdown Menu */}
+                    {item.subcategories && (
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div className="py-2">
+                          {item.subcategories.map((subcat) => (
+                            <Link
+                              key={subcat.name}
+                              to={subcat.path}
+                              className="block px-4 py-3 text-white hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins"
+                            >
+                              {subcat.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </div>

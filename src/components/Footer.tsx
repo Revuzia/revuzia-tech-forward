@@ -6,16 +6,25 @@ import { useState } from "react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [showEmailInput, setShowEmailInput] = useState(false);
+
+  const handleSubscribeClick = () => {
+    setShowEmailInput(true);
+  };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
-      // Simple subscription for now - will be enhanced with auth later
       console.log("Newsletter subscription:", email);
-      setIsSubscribed(true);
       setEmail("");
-      setTimeout(() => setIsSubscribed(false), 3000);
+      setShowEmailInput(false);
+      // Show success message or handle subscription
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleEmailSubmit(e as any);
     }
   };
 
@@ -91,28 +100,35 @@ const Footer = () => {
             <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
             
             {/* Newsletter Signup */}
-            <form onSubmit={handleEmailSubmit} className="w-full max-w-sm mb-6">
-              <div className="flex flex-col gap-3">
-                <Input
-                  type="email"
-                  placeholder="Stay ahead of the tech curve with exclusive insights..."
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-muted/20 border-brand/30 text-white placeholder:text-white/60 focus:border-brand font-poppins text-base"
-                  required
-                />
+            <div className="w-full max-w-sm mb-6">
+              {!showEmailInput ? (
                 <Button 
-                  type="submit" 
+                  onClick={handleSubscribeClick}
                   className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins text-base"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   SUBSCRIBE
                 </Button>
-              </div>
-              {isSubscribed && (
-                <p className="text-sm text-brand mt-2 font-poppins">Thank you for subscribing!</p>
+              ) : (
+                <div className="bg-white rounded-2xl p-4 shadow-lg">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email..."
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className="border-gray-300 text-black placeholder:text-gray-500 focus:border-brand font-poppins text-base mb-3"
+                    autoFocus
+                  />
+                  <Button 
+                    onClick={handleEmailSubmit}
+                    className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-2 rounded-lg transition-all duration-300 font-poppins text-base"
+                  >
+                    Subscribe
+                  </Button>
+                </div>
               )}
-            </form>
+            </div>
 
             {/* Social Links */}
              <a 
