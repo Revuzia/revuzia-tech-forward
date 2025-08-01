@@ -6,7 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Mail } from "lucide-react";
 import authorImani from "@/assets/author-imani.jpg";
-import authorImaniAvatar from "@/assets/author-imani-avatar.jpg";
+import authorImaniAvatar from "@/assets/author-imani-avatar-new.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 
 const ImaniBrooks = () => {

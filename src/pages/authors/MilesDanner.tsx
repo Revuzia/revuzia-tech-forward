@@ -6,7 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Mail } from "lucide-react";
 import authorMiles from "@/assets/author-miles.jpg";
-import authorMilesAvatar from "@/assets/author-miles-avatar.jpg";
+import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 
 const MilesDanner = () => {

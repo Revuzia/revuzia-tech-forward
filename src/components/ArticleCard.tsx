@@ -45,9 +45,12 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               
               {/* Content - Right Side */}
               <div className="w-2/3 p-4 flex flex-col justify-center">
-                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-2">
+                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-1">
                   {title}
                 </h2>
+                <p className="text-xs text-white/70 mb-2 line-clamp-1">
+                  Discover the latest innovations and expert insights in this comprehensive review.
+                </p>
                 
                 {/* Author and Meta Info */}
                 <div className="flex items-center gap-3">

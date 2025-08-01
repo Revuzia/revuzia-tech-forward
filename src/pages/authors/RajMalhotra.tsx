@@ -6,7 +6,7 @@ import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Mail } from "lucide-react";
 import authorRaj from "@/assets/author-raj.jpg";
-import authorRajAvatar from "@/assets/author-raj-avatar.jpg";
+import authorRajAvatar from "@/assets/author-raj-avatar-new.jpg";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 
 const RajMalhotra = () => {

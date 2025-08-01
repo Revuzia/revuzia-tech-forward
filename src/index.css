@@ -677,98 +677,149 @@
   overflow: hidden;
 }
 
-.tech-news-animation::after {
-  content: '◯';
+/* Category Animation Styles */
+.lightning-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.lightning-animation::after {
+  content: '';
   position: absolute;
   top: 50%;
-  left: -10px;
-  font-size: 12px;
-  color: #3b82f6;
-  animation: circuit-pulse 3s ease-in-out infinite;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
   transform: translateY(-50%);
-  opacity: 0;
+  animation: lightning-strike 4s infinite;
 }
 
-@keyframes circuit-pulse {
-  0%, 88% {
-    left: -10px;
-    opacity: 0;
-    transform: translateY(-50%) scale(0.5);
-  }
-  20%, 30% {
-    left: calc(100% + 5px);
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
-  100% {
-    left: calc(100% + 5px);
-    opacity: 0;
-    transform: translateY(-50%) scale(0.5);
-  }
+.tech-news-animation {
+  position: relative;
+  overflow: hidden;
 }
 
-/* Product Reviews - Star Animation */
+.tech-news-animation::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00FF7F, transparent);
+  transform: translateY(-50%);
+  animation: tech-pulse 4s infinite 1s;
+}
+
 .product-reviews-animation {
   position: relative;
   overflow: hidden;
 }
 
-.product-reviews-animation::before {
+.product-reviews-animation::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
+  left: -100%;
+  width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #10b981, transparent);
-  transform: translateY(-50%) scaleX(0);
-  animation: star-pulse 2.8s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, #FF4444, transparent);
+  transform: translateY(-50%);
+  animation: review-scan 4s infinite 2s;
 }
 
-@keyframes star-pulse {
-  0%, 72% {
-    transform: translateY(-50%) scaleX(0);
-    opacity: 0;
-  }
-  80%, 85% {
-    transform: translateY(-50%) scaleX(1);
-    opacity: 1;
-  }
-  95%, 100% {
-    transform: translateY(-50%) scaleX(0);
-    opacity: 0;
-  }
-}
-
-/* Buying Guides - Checkmark Animation */
 .buying-guides-animation {
   position: relative;
   overflow: hidden;
 }
 
-.buying-guides-animation::before {
+.buying-guides-animation::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
+  left: -100%;
+  width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
-  transform: translateY(-50%) scaleX(0);
-  animation: guide-pulse 3.2s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, #4488FF, transparent);
+  transform: translateY(-50%);
+  animation: guide-flow 4s infinite 3s;
 }
 
-@keyframes guide-pulse {
-  0%, 78% {
-    transform: translateY(-50%) scaleX(0);
-    opacity: 0;
-  }
-  85%, 90% {
-    transform: translateY(-50%) scaleX(1);
-    opacity: 1;
-  }
-  95%, 100% {
-    transform: translateY(-50%) scaleX(0);
-    opacity: 0;
-  }
+@keyframes lightning-strike {
+  0%, 80% { left: -100%; opacity: 0; }
+  85%, 95% { left: 100%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes tech-pulse {
+  0%, 80% { left: -100%; opacity: 0; }
+  85%, 95% { left: 100%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes review-scan {
+  0%, 80% { left: -100%; opacity: 0; }
+  85%, 95% { left: 100%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes guide-flow {
+  0%, 80% { left: -100%; opacity: 0; }
+  85%, 95% { left: 100%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Floating elements animation */
+.floating-rockets {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.rocket {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.rocket:nth-child(1) {
+  animation: bounce1 8s ease-in-out infinite;
+}
+
+.rocket:nth-child(2) {
+  animation: bounce2 10s ease-in-out infinite 2s;
+}
+
+.rocket:nth-child(3) {
+  animation: bounce3 12s ease-in-out infinite 4s;
+}
+
+@keyframes bounce1 {
+  0% { top: 10%; left: 10%; transform: translate(0, 0); }
+  25% { top: 70%; left: 80%; transform: translate(-20px, 10px); }
+  50% { top: 30%; left: 90%; transform: translate(-40px, -15px); }
+  75% { top: 80%; left: 20%; transform: translate(30px, 20px); }
+  100% { top: 10%; left: 10%; transform: translate(0, 0); }
+}
+
+@keyframes bounce2 {
+  0% { top: 80%; left: 90%; transform: translate(0, 0); }
+  25% { top: 20%; left: 30%; transform: translate(25px, -10px); }
+  50% { top: 60%; left: 10%; transform: translate(-30px, 15px); }
+  75% { top: 40%; left: 70%; transform: translate(20px, -25px); }
+  100% { top: 80%; left: 90%; transform: translate(0, 0); }
+}
+
+@keyframes bounce3 {
+  0% { top: 50%; left: 60%; transform: translate(0, 0); }
+  25% { top: 10%; left: 80%; transform: translate(-15px, 20px); }
+  50% { top: 90%; left: 40%; transform: translate(35px, -10px); }
+  75% { top: 30%; left: 5%; transform: translate(-20px, 30px); }
+  100% { top: 50%; left: 60%; transform: translate(0, 0); }
 }

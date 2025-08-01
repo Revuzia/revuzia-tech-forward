@@ -98,21 +98,21 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-8 xl:space-x-12 flex-1 justify-center">
+            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <div key={item.name} className="relative group flex items-center">
+                    {/* Add dash separator between categories */}
+                    {index > 0 && (
+                      <span className="text-white/40 mx-3 select-none">—</span>
+                    )}
                     <Link
                       to={item.path}
                       className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
                     >
-                    {/* Add dash separator between categories */}
-                    {index > 0 && (
-                      <span className="text-white/40 mr-8 xl:mr-12 select-none">—</span>
-                    )}
                       {item.name === "Get Electrified" ? (
                         <span className="lightning-animation">
                           Get Electrified
