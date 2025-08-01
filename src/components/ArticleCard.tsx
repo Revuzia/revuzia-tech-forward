@@ -25,9 +25,9 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
 
   if (isHorizontal) {
     return (
-      <article className={`group cursor-pointer transition-all duration-300 hover:scale-102 ${cardSizeClass}`}>
+      <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
         <Link to={`/articles/${slug}`} className="block">
-          <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300 h-48">
+          <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 h-48">
             <div className="flex h-full">
               {/* Image Container - Left Side */}
               <div className={`relative w-1/3 overflow-hidden`}>
@@ -77,9 +77,9 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
   }
 
   return (
-    <article className={`group cursor-pointer transition-all duration-300 hover:scale-102 ${cardSizeClass}`}>
+    <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
       <Link to={`/articles/${slug}`} className="block">
-        <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 transition-all duration-300">
+        <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300">
           {/* Image Container */}
           <div className={`relative ${imageHeightClass} overflow-hidden`}>
             <img 

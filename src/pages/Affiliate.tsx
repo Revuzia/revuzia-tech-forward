@@ -8,7 +8,7 @@ const Affiliate = () => {
       
       <Header />
       
-      <main id="main-content" className="container mx-auto px-4 py-16">
+      <main id="main-content" className="container mx-auto px-4 py-16 font-poppins">
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Section */}
           <div className="mb-16">
