@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import authorTheo from "/lovable-uploads/ac76f32b-e603-4aea-84ef-eaef30d438db.png";
+import authorTheo from "/lovable-uploads/77db2401-63d0-4707-a42f-51632b75e5c2.png";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
 import { Button } from "@/components/ui/button";

@@ -111,19 +111,19 @@ const Header = () => {
                     >
                       {item.name === "Get Electrified" ? (
                         <span className="lightning-animation">
-                          Get Electrified
+                          Get - Electrified
                         </span>
                       ) : item.name === "Tech News" ? (
                         <span className="tech-news-animation">
-                          Tech News
+                          Tech - News
                         </span>
                       ) : item.name === "Product Reviews" ? (
                         <span className="product-reviews-animation">
-                          Product Reviews
+                          Product - Reviews
                         </span>
                       ) : item.name === "Buying Guides" ? (
                         <span className="buying-guides-animation">
-                          Buying Guides
+                          Buying - Guides
                         </span>
                       ) : (
                         item.name
