@@ -458,4 +458,28 @@
       box-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary)), 0 0 30px hsl(var(--primary));
     }
   }
+
+  /* Lightning animation for Get Electrified category */
+  @keyframes lightning-flash {
+    0%, 90%, 100% { opacity: 0; }
+    10%, 15% { opacity: 1; }
+  }
+
+  .lightning-animation {
+    position: relative;
+    overflow: visible;
+  }
+
+  .lightning-animation::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+    animation: lightning-flash 4s infinite;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
 }

@@ -245,6 +245,11 @@ const Index = () => {
               </Button>
             </Link>
           </div>
+          
+          {/* Tagline */}
+          <p className="text-lg md:text-xl text-foreground/70 mt-8 font-medium tracking-wide">
+            Reliable. Insightful. Transparent.
+          </p>
         </div>
       </section>
       
@@ -277,13 +282,13 @@ const Index = () => {
               />
             </div>
             {/* Right side - 4 horizontal rectangles */}
-            <div className="lg:col-span-1 grid grid-rows-4 gap-0 h-full">
+            <div className="lg:col-span-1 grid grid-rows-5 gap-1 h-full">
               {/* 2 more Tech News articles */}
               {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
                 <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
               ))}
-              {/* 2 Get Electrified articles */}
-              {featuredArticles.filter(article => article.category === "Get Electrified").slice(0, 2).map((article, index) => (
+              {/* 3 Get Electrified articles */}
+              {featuredArticles.filter(article => article.category === "Get Electrified").slice(0, 3).map((article, index) => (
                 <ArticleCard key={`electrified-${index}`} {...article} isHorizontal={true} />
               ))}
             </div>
@@ -367,6 +372,39 @@ const Index = () => {
               readTime: "19:55",
               category: "Video Review",
               slug: "apple-vision-pro-video",
+            },
+            {
+              title: "MacBook Pro M4 Max Performance Test",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "16:30",
+              category: "Video Review",
+              slug: "macbook-pro-m4-video",
+            },
+            {
+              title: "Google Pixel 9 Pro Camera Showdown",
+              image: buyingGuideHero,
+              author: {
+                name: "Theo Chan",
+                avatar: authorTheo,
+              },
+              readTime: "14:20",
+              category: "Video Review",
+              slug: "pixel-9-pro-video",
+            },
+            {
+              title: "Steam Deck OLED vs ROG Ally Comparison",
+              image: gamingHero,
+              author: {
+                name: "Zara Velez",
+                avatar: authorZara,
+              },
+              readTime: "21:15",
+              category: "Video Review",
+              slug: "steam-deck-vs-rog-ally-video",
             },
           ]}
           viewAllLink="/video-reviews"

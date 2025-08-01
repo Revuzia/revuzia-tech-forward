@@ -14,48 +14,45 @@ const Header = () => {
       name: "Tech News", 
       path: "/tech-news",
       subcategories: [
-        { name: "AI & Machine Learning", path: "/ai-machine-learning" },
-        { name: "Cybersecurity", path: "/cybersecurity" },
-        { name: "Cloud Computing", path: "/cloud-computing" },
-        { name: "GPU & Graphics", path: "/gpu-graphics" },
-        { name: "Software Updates", path: "/software-updates" },
-        { name: "Industry News", path: "/industry-news" }
+        { name: "AI & Machine Learning", path: "/subcategories/ai-machine-learning" },
+        { name: "Cybersecurity", path: "/subcategories/cybersecurity" },
+        { name: "Cloud Computing", path: "/subcategories/cloud-computing" },
+        { name: "Blockchain & Crypto", path: "/subcategories/blockchain-crypto" },
+        { name: "Data Analytics", path: "/subcategories/data-analytics" },
+        { name: "Enterprise Tech", path: "/subcategories/enterprise-tech" }
       ]
     },
     { 
       name: "Get Electrified", 
       path: "/get-electrified",
       subcategories: [
-        { name: "Smart Home Tech", path: "/smart-home-tech" },
-        { name: "Latest Releases", path: "/latest-releases" },
-        { name: "IoT Devices", path: "/iot-devices" },
         { name: "Home Automation", path: "/home-automation" },
-        { name: "Connected Lifestyle", path: "/connected-lifestyle" },
-        { name: "Emerging Tech", path: "/emerging-tech" }
+        { name: "New Electronics", path: "/new-electronics" },
+        { name: "Smart Appliances", path: "/subcategories/smart-appliances" },
+        { name: "Audio Tech", path: "/subcategories/audio-tech" },
+        { name: "Display Tech", path: "/subcategories/display-tech" }
       ]
     },
     { 
       name: "Product Reviews", 
       path: "/product-reviews",
       subcategories: [
-        { name: "Smartphones & Tablets", path: "/smartphones-tablets" },
+        { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
+        { name: "Wearables Tech", path: "/subcategories/wearables-tech" },
         { name: "Gaming & PCs", path: "/gaming-pcs" },
-        { name: "Laptops & Computers", path: "/laptops-computers" },
-        { name: "Audio & Headphones", path: "/audio-headphones" },
-        { name: "Cameras & Photography", path: "/cameras-photography" },
-        { name: "Home Appliances", path: "/home-appliances" }
+        { name: "Audio & Video", path: "/subcategories/audio-video" },
+        { name: "Cameras & Photography", path: "/subcategories/cameras-photography" }
       ]
     },
     { 
       name: "Buying Guides", 
       path: "/buying-guides",
       subcategories: [
-        { name: "Best Budget Picks", path: "/budget-picks" },
-        { name: "Best in Class", path: "/best-in-class" },
-        { name: "Best of 2025", path: "/best-of-2025" },
-        { name: "Product Comparisons", path: "/product-comparisons" },
-        { name: "Value Champions", path: "/value-champions" },
-        { name: "Premium Picks", path: "/premium-picks" }
+        { name: "Best in Class", path: "/subcategories/best-in-class" },
+        { name: "Best Budget Picks", path: "/subcategories/budget-picks" },
+        { name: "Best of 2025", path: "/subcategories/best-of-2025" },
+        { name: "Product Comparisons", path: "/subcategories/comparisons" },
+        { name: "Value Deals", path: "/subcategories/value-deals" }
       ]
     },
   ];
@@ -132,10 +129,9 @@ const Header = () => {
                       }`}
                     >
                       {item.name === "Get Electrified" ? (
-                        <>
+                        <span className="lightning-animation">
                           Get Electrified
-                          <Zap className="w-5 h-5 text-accent animate-pulse" />
-                        </>
+                        </span>
                       ) : (
                         item.name
                       )}

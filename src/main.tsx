@@ -28,6 +28,18 @@ import Cybersecurity from "./pages/subcategories/Cybersecurity";
 import CloudComputing from "./pages/subcategories/CloudComputing";
 import SmartHomeTech from "./pages/subcategories/SmartHomeTech";
 import BestInClass from "./pages/subcategories/BestInClass";
+import BlockchainCrypto from "./pages/subcategories/BlockchainCrypto";
+import DataAnalytics from "./pages/subcategories/DataAnalytics";
+import EnterpriseTech from "./pages/subcategories/EnterpriseTech";
+import SmartAppliances from "./pages/subcategories/SmartAppliances";
+import AudioTech from "./pages/subcategories/AudioTech";
+import DisplayTech from "./pages/subcategories/DisplayTech";
+import AudioVideo from "./pages/subcategories/AudioVideo";
+import CamerasPhotography from "./pages/subcategories/CamerasPhotography";
+import BudgetPicks from "./pages/subcategories/BudgetPicks";
+import BestOf2025 from "./pages/subcategories/BestOf2025";
+import Comparisons from "./pages/subcategories/Comparisons";
+import ValueDeals from "./pages/subcategories/ValueDeals";
 
 // Admin pages
 import AdminAuthorManagement from "./pages/AdminAuthorManagement";
@@ -63,14 +75,26 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/profile" element={<Profile />} />
           
           {/* Subcategory routes */}
-          <Route path="/smartphones-tablets" element={<SmartphonesTablets />} />
+          <Route path="/subcategories/smartphones-tablets" element={<SmartphonesTablets />} />
           <Route path="/gaming-pcs" element={<GamingPCs />} />
-          <Route path="/wearables-tech" element={<WearablesTech />} />
-          <Route path="/ai-machine-learning" element={<AIMachineLearning />} />
-          <Route path="/cybersecurity" element={<Cybersecurity />} />
-          <Route path="/cloud-computing" element={<CloudComputing />} />
-          <Route path="/smart-home-tech" element={<SmartHomeTech />} />
-          <Route path="/best-in-class" element={<BestInClass />} />
+          <Route path="/subcategories/wearables-tech" element={<WearablesTech />} />
+          <Route path="/subcategories/ai-machine-learning" element={<AIMachineLearning />} />
+          <Route path="/subcategories/cybersecurity" element={<Cybersecurity />} />
+          <Route path="/subcategories/cloud-computing" element={<CloudComputing />} />
+          <Route path="/subcategories/smart-home-tech" element={<SmartHomeTech />} />
+          <Route path="/subcategories/best-in-class" element={<BestInClass />} />
+          <Route path="/subcategories/blockchain-crypto" element={<BlockchainCrypto />} />
+          <Route path="/subcategories/data-analytics" element={<DataAnalytics />} />
+          <Route path="/subcategories/enterprise-tech" element={<EnterpriseTech />} />
+          <Route path="/subcategories/smart-appliances" element={<SmartAppliances />} />
+          <Route path="/subcategories/audio-tech" element={<AudioTech />} />
+          <Route path="/subcategories/display-tech" element={<DisplayTech />} />
+          <Route path="/subcategories/audio-video" element={<AudioVideo />} />
+          <Route path="/subcategories/cameras-photography" element={<CamerasPhotography />} />
+          <Route path="/subcategories/budget-picks" element={<BudgetPicks />} />
+          <Route path="/subcategories/best-of-2025" element={<BestOf2025 />} />
+          <Route path="/subcategories/comparisons" element={<Comparisons />} />
+          <Route path="/subcategories/value-deals" element={<ValueDeals />} />
           
           {/* Admin routes */}
           <Route path="/admin/authors" element={<AdminAuthorManagement />} />
