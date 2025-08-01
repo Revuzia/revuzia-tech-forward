@@ -35,10 +35,10 @@ const ArticleCarousel = ({
   viewAllText = "View All" 
 }: ArticleCarouselProps) => {
   return (
-    <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}>
+    <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-heading`}>
       <div className="relative inline-block w-full text-center mb-8">
         <h2 
-          id={`${title.toLowerCase().replace(/\s+/g, '-')}-heading`}
+          id={`${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-heading`}
           className="text-5xl md:text-6xl font-display font-bold text-center"
         >
           <span className="relative inline-block text-white drop-shadow-2xl">
@@ -81,8 +81,8 @@ const ArticleCarousel = ({
             spaceBetween={24}
             slidesPerView={1}
             navigation={{
-              nextEl: `.swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`,
-              prevEl: `.swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`,
+              nextEl: `.swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+              prevEl: `.swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
             }}
             pagination={{ 
               clickable: true,
@@ -115,9 +115,9 @@ const ArticleCarousel = ({
           </Swiper>
           
           {/* Custom Navigation Buttons */}
-          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/\s+/g, '-')}`} 
+          <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
                aria-label="Previous article"></div>
-          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/\s+/g, '-')}`}
+          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                aria-label="Next article"></div>
         </div>
       )}
