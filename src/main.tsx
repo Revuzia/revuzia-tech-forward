@@ -25,13 +25,10 @@ import GamingPCs from "./pages/subcategories/GamingPCs";
 import WearablesTech from "./pages/subcategories/WearablesTech";
 import AIMachineLearning from "./pages/subcategories/AIMachineLearning";
 import Cybersecurity from "./pages/subcategories/Cybersecurity";
-import CloudComputing from "./pages/subcategories/CloudComputing";
 import SmartHomeTech from "./pages/subcategories/SmartHomeTech";
 import BestInClass from "./pages/subcategories/BestInClass";
 import BlockchainCrypto from "./pages/subcategories/BlockchainCrypto.tsx";
-import DataAnalytics from "./pages/subcategories/DataAnalytics";
-import EnterpriseTech from "./pages/subcategories/EnterpriseTech";
-import SmartAppliances from "./pages/subcategories/SmartAppliances";
+import AutomationLLM from "./pages/subcategories/AutomationLLM";
 import AudioTech from "./pages/subcategories/AudioTech";
 import DisplayTech from "./pages/subcategories/DisplayTech";
 import AudioVideo from "./pages/subcategories/AudioVideo";
@@ -80,13 +77,10 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/subcategories/wearables-tech" element={<WearablesTech />} />
           <Route path="/subcategories/ai-machine-learning" element={<AIMachineLearning />} />
           <Route path="/subcategories/cybersecurity" element={<Cybersecurity />} />
-          <Route path="/subcategories/cloud-computing" element={<CloudComputing />} />
+          <Route path="/subcategories/automation-llm" element={<AutomationLLM />} />
           <Route path="/subcategories/smart-home-tech" element={<SmartHomeTech />} />
           <Route path="/subcategories/best-in-class" element={<BestInClass />} />
           <Route path="/subcategories/blockchain-crypto" element={<BlockchainCrypto />} />
-          <Route path="/subcategories/data-analytics" element={<DataAnalytics />} />
-          <Route path="/subcategories/enterprise-tech" element={<EnterpriseTech />} />
-          <Route path="/subcategories/smart-appliances" element={<SmartAppliances />} />
           <Route path="/subcategories/audio-tech" element={<AudioTech />} />
           <Route path="/subcategories/display-tech" element={<DisplayTech />} />
           <Route path="/subcategories/audio-video" element={<AudioVideo />} />

@@ -16,10 +16,8 @@ const Header = () => {
       subcategories: [
         { name: "AI & Machine Learning", path: "/subcategories/ai-machine-learning" },
         { name: "Cybersecurity", path: "/subcategories/cybersecurity" },
-        { name: "Cloud Computing", path: "/subcategories/cloud-computing" },
-        { name: "Blockchain & Crypto", path: "/subcategories/blockchain-crypto" },
-        { name: "Data Analytics", path: "/subcategories/data-analytics" },
-        { name: "Enterprise Tech", path: "/subcategories/enterprise-tech" }
+        { name: "Automation & LLM Tools", path: "/subcategories/automation-llm" },
+        { name: "Blockchain & Crypto", path: "/subcategories/blockchain-crypto" }
       ]
     },
     { 
@@ -28,7 +26,7 @@ const Header = () => {
       subcategories: [
         { name: "Home Automation", path: "/home-automation" },
         { name: "New Electronics", path: "/new-electronics" },
-        { name: "Smart Appliances", path: "/subcategories/smart-appliances" },
+        { name: "Wearables Tech", path: "/subcategories/wearables-tech" },
         { name: "Audio Tech", path: "/subcategories/audio-tech" },
         { name: "Display Tech", path: "/subcategories/display-tech" }
       ]
@@ -83,36 +81,19 @@ const Header = () => {
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
                   <span className="relative inline-block text-white drop-shadow-2xl">
                     REVUZIA
-                    {/* White/Green glow effect layers */}
-                    <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                    {/* Brighter glow effect layers */}
+                    <span className="absolute inset-0 text-white opacity-80 blur-sm animate-pulse">
                       REVUZIA
                     </span>
-                    <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                    <span className="absolute inset-0 text-brand opacity-60 blur-md animate-pulse">
                       REVUZIA
                     </span>
-                    <span className="absolute inset-0 text-green-300 opacity-20 blur-lg animate-pulse">
+                    <span className="absolute inset-0 text-green-300 opacity-40 blur-lg animate-pulse">
                       REVUZIA
                     </span>
                   </span>
                 </h1>
                 
-                {/* Orbiting Tech Elements */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="orbit-logo-1 absolute">
-                      <Cpu className="w-4 h-4 text-brand opacity-70 animate-pulse" />
-                    </div>
-                    <div className="orbit-logo-2 absolute">
-                      <Smartphone className="w-3 h-3 text-green-300 opacity-60 animate-pulse" />
-                    </div>
-                    <div className="orbit-logo-3 absolute">
-                      <Monitor className="w-4 h-4 text-brand opacity-80 animate-pulse" />
-                    </div>
-                    <div className="orbit-logo-4 absolute">
-                      <Zap className="w-3 h-3 text-green-300 opacity-65 animate-pulse" />
-                    </div>
-                  </div>
-                </div>
               </div>
             </Link>
 
@@ -131,6 +112,18 @@ const Header = () => {
                       {item.name === "Get Electrified" ? (
                         <span className="lightning-animation">
                           Get Electrified
+                        </span>
+                      ) : item.name === "Tech News" ? (
+                        <span className="tech-news-animation">
+                          Tech News
+                        </span>
+                      ) : item.name === "Product Reviews" ? (
+                        <span className="product-reviews-animation">
+                          Product Reviews
+                        </span>
+                      ) : item.name === "Buying Guides" ? (
+                        <span className="buying-guides-animation">
+                          Buying Guides
                         </span>
                       ) : (
                         item.name

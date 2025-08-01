@@ -247,7 +247,7 @@ const Index = () => {
           </div>
           
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-foreground/70 mt-8 font-medium tracking-wide">
+          <p className="text-xl md:text-2xl text-foreground/80 mt-8 font-medium tracking-wide max-w-4xl mx-auto">
             Reliable. Insightful. Transparent.
           </p>
         </div>
