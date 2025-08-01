@@ -27,26 +27,26 @@ const Index = () => {
       isHero: true,
     },
     {
-      title: "The Definitive Tech Buying Guide 2025: 5 Essential Gadgets That Offer Incredible Value Right Now",
+      title: "Quantum Computing Breakthrough: IBM's Latest Processor Changes Everything",
       image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "12 min read",
-      category: "Buying Guides",
-      slug: "tech-buying-guide-2025",
-    },
-    {
-      title: "Revolutionary Gaming Laptops: RTX 5090 Performance Benchmark",
-      image: gamingHero,
       author: {
         name: "Zara Velez",
         avatar: authorZara,
       },
+      readTime: "9 min read",
+      category: "Tech News",
+      slug: "quantum-computing-breakthrough",
+    },
+    {
+      title: "5G Revolution: How Next-Gen Networks Are Transforming Smart Cities",
+      image: gamingHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
       readTime: "8 min read",
-      category: "Product Reviews",
-      slug: "rtx-5090-gaming-laptops",
+      category: "Tech News",
+      slug: "5g-revolution-smart-cities",
     },
     {
       title: "Samsung Galaxy S25 Ultra: The Photography Revolution",
@@ -60,19 +60,8 @@ const Index = () => {
       slug: "samsung-s25-ultra-photography",
     },
     {
-      title: "Quantum Computing Breakthrough: IBM's Latest Processor Changes Everything",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "9 min read",
-      category: "Tech News",
-      slug: "quantum-computing-breakthrough",
-    },
-    {
       title: "Tesla Model Y 2025: Electric Performance Meets Smart Technology",
-      image: buyingGuideHero,
+      image: gamingHero,
       author: {
         name: "Theo Chan",
         avatar: authorTheo,
@@ -80,6 +69,39 @@ const Index = () => {
       readTime: "10 min read",
       category: "Get Electrified",
       slug: "tesla-model-y-2025",
+    },
+    {
+      title: "Wireless Charging Revolution: New Standards Change Everything",
+      image: buyingGuideHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "7 min read",
+      category: "Get Electrified",
+      slug: "wireless-charging-revolution",
+    },
+    {
+      title: "Revolutionary Gaming Laptops: RTX 5090 Performance Benchmark",
+      image: gamingHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "8 min read",
+      category: "Product Reviews",
+      slug: "rtx-5090-gaming-laptops",
+    },
+    {
+      title: "The Definitive Tech Buying Guide 2025: 5 Essential Gadgets That Offer Incredible Value Right Now",
+      image: buyingGuideHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
+      readTime: "12 min read",
+      category: "Buying Guides",
+      slug: "tech-buying-guide-2025",
     },
     {
       title: "Meta Quest 4 Review: VR Gaming Reaches New Reality",
@@ -91,6 +113,39 @@ const Index = () => {
       readTime: "11 min read",
       category: "Product Reviews",
       slug: "meta-quest-4-vr-review",
+    },
+    {
+      title: "iPhone 16 Pro Max: Camera Innovation Redefined",
+      image: buyingGuideHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
+      readTime: "9 min read",
+      category: "Product Reviews",
+      slug: "iphone-16-pro-max-review",
+    },
+    {
+      title: "Best Gaming Monitors 2025: Display Technology Guide",
+      image: gamingHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "15 min read",
+      category: "Buying Guides",
+      slug: "best-gaming-monitors-2025",
+    },
+    {
+      title: "Smart Home Security: 2025's Best Systems Compared",
+      image: buyingGuideHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
+      readTime: "13 min read",
+      category: "Buying Guides",
+      slug: "smart-home-security-2025",
     },
   ];
 

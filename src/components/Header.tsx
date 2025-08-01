@@ -48,10 +48,18 @@ const Header = () => {
             >
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
-                  <span className="relative inline-block bg-gradient-to-r from-brand to-white bg-clip-text text-transparent" style={{ 
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(34, 197, 94, 0.3)' 
-                  }}>
+                  <span className="relative inline-block text-white drop-shadow-2xl">
                     REVUZIA
+                    {/* White/Green glow effect layers */}
+                    <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                      REVUZIA
+                    </span>
+                    <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                      REVUZIA
+                    </span>
+                    <span className="absolute inset-0 text-green-300 opacity-20 blur-lg animate-pulse">
+                      REVUZIA
+                    </span>
                   </span>
                 </h1>
                 
@@ -59,16 +67,16 @@ const Header = () => {
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="orbit-logo-1 absolute">
-                      <Cpu className="w-3 h-3 text-brand opacity-70" />
+                      <Cpu className="w-4 h-4 text-brand opacity-70 animate-pulse" />
                     </div>
                     <div className="orbit-logo-2 absolute">
-                      <Smartphone className="w-2.5 h-2.5 text-accent opacity-60" />
+                      <Smartphone className="w-3 h-3 text-green-300 opacity-60 animate-pulse" />
                     </div>
                     <div className="orbit-logo-3 absolute">
-                      <Monitor className="w-3.5 h-3.5 text-brand opacity-80" />
+                      <Monitor className="w-4 h-4 text-brand opacity-80 animate-pulse" />
                     </div>
                     <div className="orbit-logo-4 absolute">
-                      <Zap className="w-2.5 h-2.5 text-accent opacity-65" />
+                      <Zap className="w-3 h-3 text-green-300 opacity-65 animate-pulse" />
                     </div>
                   </div>
                 </div>
