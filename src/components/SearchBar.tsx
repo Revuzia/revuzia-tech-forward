@@ -11,7 +11,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ 
   onSearch, 
-  placeholder = "Search reviews, guides…",
+  placeholder = "Search",
   className = ""
 }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState("");

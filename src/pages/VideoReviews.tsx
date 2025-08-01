@@ -43,8 +43,8 @@ const VideoReviews = () => {
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Button variant="hero" size="lg" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Play className="w-6 h-6" />
+                  <Button variant="hero" size="lg" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand/90 rounded-full border-2 border-black">
+                    <Play className="w-6 h-6 text-black" />
                   </Button>
                 </div>
                 <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">

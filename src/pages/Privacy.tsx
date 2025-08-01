@@ -5,12 +5,6 @@ import BackToTop from "@/components/BackToTop";
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
-       {/* Floating elements */}
-       <div className="floating-rockets">
-         <div className="rocket">🔐</div>
-         <div className="rocket">🔍</div>
-         <div className="rocket">📋</div>
-       </div>
       
       <Header />
       
