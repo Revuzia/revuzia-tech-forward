@@ -28,7 +28,7 @@ import Cybersecurity from "./pages/subcategories/Cybersecurity";
 import CloudComputing from "./pages/subcategories/CloudComputing";
 import SmartHomeTech from "./pages/subcategories/SmartHomeTech";
 import BestInClass from "./pages/subcategories/BestInClass";
-import BlockchainCrypto from "./pages/subcategories/BlockchainCrypto";
+import BlockchainCrypto from "./pages/subcategories/BlockchainCrypto.tsx";
 import DataAnalytics from "./pages/subcategories/DataAnalytics";
 import EnterpriseTech from "./pages/subcategories/EnterpriseTech";
 import SmartAppliances from "./pages/subcategories/SmartAppliances";
