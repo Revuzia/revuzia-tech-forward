@@ -10,7 +10,7 @@ import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
 import authorTheo from "@/assets/author-theo.jpg";
-import authorAria from "@/assets/author-aria.jpg";
+import authorAria from "@/assets/author-aria-avatar.jpg";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
 
 const Index = () => {
