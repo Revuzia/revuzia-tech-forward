@@ -55,16 +55,19 @@ const TheoChan = () => {
         {/* Hero Section */}
         <div className="container mx-auto px-4 mb-16">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="avatar-container mb-8">
-              <img 
-                src={authorTheo}
-                alt="Theo Chan"
-                className="w-32 h-32 rounded-full mx-auto border-4 border-brand/30 transition-all duration-300 hover:border-brand/60"
-                style={{ 
-                  transform: `translate(${avatarPosition.x}px, ${avatarPosition.y}px)`,
-                  transition: 'transform 0.1s ease-out'
-                }}
-              />
+            <div 
+              className="avatar-container mb-8 w-64 h-64 mx-auto"
+            >
+              <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-brand/30 shadow-glow-primary">
+                <img 
+                  src={authorTheo}
+                  alt="Theo Chan"
+                  className="w-full h-full object-cover transition-transform duration-300 ease-out"
+                  style={{ 
+                    transform: `translate(${Math.max(-20, Math.min(20, avatarPosition.x))}px, ${Math.max(-20, Math.min(20, avatarPosition.y))}px) scale(1.05)`,
+                  }}
+                />
+              </div>
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Theo Chan</h1>
@@ -77,37 +80,46 @@ const TheoChan = () => {
             </div>
             
             <div className="flex justify-center gap-4">
-              <Button variant="outline" size="sm" className="text-white border-white/30 hover:bg-white/10">
+              <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
                 <Twitter className="w-4 h-4 mr-2" />
-                Twitter
+                Follow
               </Button>
-              <Button variant="outline" size="sm" className="text-white border-white/30 hover:bg-white/10">
-                <Linkedin className="w-4 h-4 mr-2" />
-                LinkedIn
-              </Button>
-              <Button variant="outline" size="sm" className="text-white border-white/30 hover:bg-white/10">
+              <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
                 <Mail className="w-4 h-4 mr-2" />
-                Email
+                Contact
               </Button>
             </div>
           </div>
         </div>
 
         {/* Articles Section */}
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-white text-center mb-12">Latest Articles by Theo</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {articles.map((article, index) => (
-                <ArticleCard 
-                  key={index}
-                  {...article}
-                />
-              ))}
-            </div>
+        <section className="container mx-auto px-4 mb-16">
+          <div className="relative inline-block w-full text-center mb-8">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-center">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                LATEST ARTICLES BY THEO
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  LATEST ARTICLES BY THEO
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  LATEST ARTICLES BY THEO
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  LATEST ARTICLES BY THEO
+                </span>
+              </span>
+            </h2>
           </div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {articles.map((article, index) => (
+              <ArticleCard 
+                key={index}
+                {...article}
+              />
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />

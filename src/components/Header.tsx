@@ -16,7 +16,10 @@ const Header = () => {
       subcategories: [
         { name: "Smartphones & Tablets", path: "/smartphones-tablets" },
         { name: "Gaming & PCs", path: "/gaming-pcs" },
-        { name: "Wearables & Tech", path: "/wearables-tech" }
+        { name: "Wearables & Tech", path: "/wearables-tech" },
+        { name: "AI & Machine Learning", path: "/ai-machine-learning" },
+        { name: "Cybersecurity", path: "/cybersecurity" },
+        { name: "Cloud Computing", path: "/cloud-computing" }
       ]
     },
     { 
@@ -25,7 +28,10 @@ const Header = () => {
       subcategories: [
         { name: "Electric Vehicles", path: "/electric-vehicles" },
         { name: "Smart Home", path: "/smart-home" },
-        { name: "Green Tech", path: "/green-tech" }
+        { name: "Green Tech", path: "/green-tech" },
+        { name: "Solar Energy", path: "/solar-energy" },
+        { name: "Battery Tech", path: "/battery-tech" },
+        { name: "Sustainable Living", path: "/sustainable-living" }
       ]
     },
     { 
@@ -34,7 +40,10 @@ const Header = () => {
       subcategories: [
         { name: "Laptops & Computers", path: "/laptops-computers" },
         { name: "Audio & Headphones", path: "/audio-headphones" },
-        { name: "Cameras & Photography", path: "/cameras-photography" }
+        { name: "Cameras & Photography", path: "/cameras-photography" },
+        { name: "Home Appliances", path: "/home-appliances" },
+        { name: "Fitness Tech", path: "/fitness-tech" },
+        { name: "Entertainment Systems", path: "/entertainment-systems" }
       ]
     },
     { 
@@ -43,7 +52,10 @@ const Header = () => {
       subcategories: [
         { name: "Best Budget Picks", path: "/budget-picks" },
         { name: "Premium Options", path: "/premium-options" },
-        { name: "Seasonal Deals", path: "/seasonal-deals" }
+        { name: "Seasonal Deals", path: "/seasonal-deals" },
+        { name: "Student Essentials", path: "/student-essentials" },
+        { name: "Business Solutions", path: "/business-solutions" },
+        { name: "Gift Ideas", path: "/gift-ideas" }
       ]
     },
   ];
@@ -108,14 +120,14 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
+            <div className="hidden lg:flex items-center space-x-2 xl:space-x-6 flex-1 justify-center">
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <div key={item.name} className="relative group">
                     <Link
                       to={item.path}
-                      className={`text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-2 ${
+                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
                     >

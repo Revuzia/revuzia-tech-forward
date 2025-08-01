@@ -23,6 +23,11 @@ import Profile from "./pages/Profile";
 import SmartphonesTablets from "./pages/subcategories/SmartphonesTablets";
 import GamingPCs from "./pages/subcategories/GamingPCs";
 import WearablesTech from "./pages/subcategories/WearablesTech";
+import AIMachineLearning from "./pages/subcategories/AIMachineLearning";
+import Cybersecurity from "./pages/subcategories/Cybersecurity";
+
+// Admin pages
+import AdminAuthorManagement from "./pages/AdminAuthorManagement";
 
 // Author pages
 import AriaLin from "./pages/authors/AriaLin";
@@ -58,6 +63,11 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/smartphones-tablets" element={<SmartphonesTablets />} />
           <Route path="/gaming-pcs" element={<GamingPCs />} />
           <Route path="/wearables-tech" element={<WearablesTech />} />
+          <Route path="/ai-machine-learning" element={<AIMachineLearning />} />
+          <Route path="/cybersecurity" element={<Cybersecurity />} />
+          
+          {/* Admin routes */}
+          <Route path="/admin/authors" element={<AdminAuthorManagement />} />
           
           {/* Author routes */}
           <Route path="/authors/aria-lin" element={<AriaLin />} />

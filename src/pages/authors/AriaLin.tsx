@@ -62,7 +62,7 @@ const AriaLin = () => {
         <div className="text-center mb-16">
           <div 
             id="avatar-container"
-            className="relative inline-block mb-8"
+            className="relative inline-block mb-8 w-64 h-64"
           >
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-brand/30 shadow-glow-primary">
               <img 
@@ -70,7 +70,7 @@ const AriaLin = () => {
                 alt="Aria Lin Avatar" 
                 className="w-full h-full object-cover transition-transform duration-300 ease-out"
                 style={{
-                  transform: `translate(${avatarPosition.x}px, ${avatarPosition.y}px) scale(1.05)`,
+                  transform: `translate(${Math.max(-20, Math.min(20, avatarPosition.x))}px, ${Math.max(-20, Math.min(20, avatarPosition.y))}px) scale(1.05)`,
                 }}
               />
             </div>
@@ -93,10 +93,6 @@ const AriaLin = () => {
               Follow
             </Button>
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Linkedin className="w-4 h-4 mr-2" />
-              Connect
-            </Button>
-            <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
               <Mail className="w-4 h-4 mr-2" />
               Contact
             </Button>
@@ -104,9 +100,25 @@ const AriaLin = () => {
         </div>
 
         {/* Author's Articles */}
-        <section>
-          <h2 className="text-3xl font-bold text-brand text-center mb-12">Latest Articles by Aria</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        <section className="mb-16">
+          <div className="relative inline-block w-full text-center mb-8">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-center">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                LATEST ARTICLES BY ARIA
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  LATEST ARTICLES BY ARIA
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  LATEST ARTICLES BY ARIA
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  LATEST ARTICLES BY ARIA
+                </span>
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {articles.map((article, index) => (
               <ArticleCard key={index} {...article} />
             ))}
