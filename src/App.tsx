@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "@/components/AuthProvider";
 import KofiButton from "./components/KofiButton";
 import Index from "./pages/Index";
 import TechNews from "./pages/TechNews";
@@ -45,12 +46,15 @@ import TheoChan from "./pages/authors/TheoChan";
 import ZaraVelez from "./pages/authors/ZaraVelez";
 
 const App = () => {
+  console.log("App component rendering...");
+  
   return (
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <KofiButton />
-      <BrowserRouter>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <KofiButton />
+        <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tech-news" element={<TechNews />} />
@@ -95,8 +99,9 @@ const App = () => {
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   );
 };
 
