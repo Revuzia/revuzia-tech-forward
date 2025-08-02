@@ -48,6 +48,7 @@ const Footer = () => {
                    <Link 
                      to={category.path} 
                      className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                     onClick={() => window.scrollTo(0, 0)}
                    >
                     {category.name}
                   </Link>
@@ -64,6 +65,7 @@ const Footer = () => {
                  <Link 
                    to="/team" 
                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   onClick={() => window.scrollTo(0, 0)}
                  >
                    Meet Our Team
                  </Link>
@@ -72,6 +74,7 @@ const Footer = () => {
                  <Link 
                    to="/privacy" 
                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   onClick={() => window.scrollTo(0, 0)}
                  >
                    Privacy Policy
                  </Link>
@@ -80,6 +83,7 @@ const Footer = () => {
                  <Link 
                    to="/terms" 
                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   onClick={() => window.scrollTo(0, 0)}
                  >
                    Terms & Conditions
                  </Link>
@@ -88,6 +92,7 @@ const Footer = () => {
                  <Link 
                    to="/affiliate" 
                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                   onClick={() => window.scrollTo(0, 0)}
                  >
                   Affiliate Disclosure
                 </Link>
@@ -111,13 +116,13 @@ const Footer = () => {
                 </Button>
               ) : (
                 <div className="bg-white rounded-2xl p-4 shadow-lg">
-                  <Input
+                   <Input
                     type="email"
                     placeholder="Enter your email..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className="border-gray-300 text-black placeholder:text-gray-500 focus:border-brand font-poppins text-base mb-3"
+                    className="border-gray-300 text-brand placeholder:text-gray-500 focus:border-brand font-poppins text-base mb-3"
                     autoFocus
                   />
                   <Button 
@@ -137,8 +142,11 @@ const Footer = () => {
                rel="noopener noreferrer"
                className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black"
              >
-              <X className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span>Follow Us on X</span>
+              <div className="bg-black rounded-full p-1">
+                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <span>Follow Us on</span>
+              <X className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
             </a>
           </div>
         </div>

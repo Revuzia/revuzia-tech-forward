@@ -119,10 +119,10 @@ const Header = () => {
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-2 select-none flex flex-col gap-2 items-center">
-                        <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
-                        <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
-                        <span className="w-0.5 h-0.5 bg-white/40 rounded-full"></span>
+                      <div className="text-white/40 mx-2 select-none flex flex-col gap-3 items-center">
+                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
+                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
+                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
                       </div>
                     )}
                     <Link
@@ -130,6 +130,7 @@ const Header = () => {
                       className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
+                      onClick={() => window.scrollTo(0, 0)}
                     >
                       {item.name === "Get Electrified" ? (
                         <span className="lightning-animation">
@@ -164,6 +165,7 @@ const Header = () => {
                               key={subcat.name}
                               to={subcat.path}
                               className="block px-4 py-3 text-white hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins"
+                              onClick={() => window.scrollTo(0, 0)}
                             >
                               {subcat.name}
                             </Link>
@@ -201,7 +203,7 @@ const Header = () => {
 
             {/* User Auth Button - Simple for now */}
             <div className="hidden md:flex items-center">
-              <Link to="/auth">
+            <Link to="/auth" onClick={() => window.scrollTo(0, 0)}>
                 <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
                   Sign In
                 </Button>
@@ -262,7 +264,10 @@ const Header = () => {
                       className={`block text-white hover:text-brand transition-colors duration-300 font-poppins font-medium py-2 ${
                         isActive ? 'text-brand' : ''
                       }`}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        window.scrollTo(0, 0);
+                      }}
                     >
                       {item.name}
                     </Link>

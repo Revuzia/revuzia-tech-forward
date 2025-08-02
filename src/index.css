@@ -95,6 +95,12 @@
     animation: neonFlicker 4s infinite alternate;
   }
 
+  @media (max-width: 768px) {
+    .vintage-neon-text-evuzia {
+      animation: none;
+    }
+  }
+
   @keyframes neonFlicker {
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
       opacity: 1;

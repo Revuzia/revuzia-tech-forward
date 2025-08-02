@@ -76,8 +76,8 @@ const Team = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Link key={index} to={`/author/${member.slug}`} className="block group">
-                <div className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300 group-hover:scale-105 h-[480px] flex flex-col">
+              <Link key={index} to={`/author/${member.slug}`} className="block group" onClick={() => window.scrollTo(0, 0)}>
+                <div className="bg-gradient-card rounded-lg border border-border p-6 hover:border-brand/50 transition-all duration-300 group-hover:scale-105 h-[520px] flex flex-col">
                   <div className="flex flex-col items-center text-center mb-6">
                     <img 
                       src={member.avatar} 
