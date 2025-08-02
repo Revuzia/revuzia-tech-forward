@@ -119,10 +119,10 @@ const Header = () => {
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-2 select-none flex flex-col gap-3 items-center">
-                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
-                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
-                        <span className="w-2 h-2 bg-white/40 rounded-full"></span>
+                      <div className="text-white/40 mx-2 select-none flex flex-col gap-2.5 items-center">
+                        <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
+                        <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
+                        <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                       </div>
                     )}
                     <Link

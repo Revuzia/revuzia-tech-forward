@@ -146,7 +146,9 @@ const Footer = () => {
                 <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
               <span>Follow Us on</span>
-              <X className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+              <div className="bg-black rounded-full p-1">
+                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
             </a>
           </div>
         </div>
