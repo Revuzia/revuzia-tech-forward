@@ -115,25 +115,25 @@ const ArticleCarousel = ({
           </Swiper>
           
           {/* Custom Navigation Buttons */}
-           <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300`} 
+           <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300 !flex !items-center !justify-center`} 
                style={{
-                 backgroundColor: 'rgba(34, 197, 94, 1)',
+                 backgroundColor: 'hsl(var(--brand))',
                  borderRadius: '50%',
                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                 border: '2px solid rgba(34, 197, 94, 0.4)'
+                 border: '2px solid hsl(var(--brand) / 0.4)'
                }}
                aria-label="Previous article">
-            <div className="!text-white !text-3xl !font-black" style={{fontWeight: '900'}}>‹</div>
+            <div className="!text-white !text-2xl !font-black !leading-none !flex !items-center !justify-center" style={{fontWeight: '900'}}>‹</div>
           </div>
-          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300`}
+          <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !rounded-full !w-14 !h-14 !mt-0 !top-1/2 !-translate-y-1/2 hover:!scale-110 !transition-all !duration-300 !flex !items-center !justify-center`}
                style={{
-                 backgroundColor: 'rgba(34, 197, 94, 1)',
+                 backgroundColor: 'hsl(var(--brand))',
                  borderRadius: '50%',
                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                 border: '2px solid rgba(34, 197, 94, 0.4)'
+                 border: '2px solid hsl(var(--brand) / 0.4)'
                }}
                aria-label="Next article">
-            <div className="!text-white !text-3xl !font-black" style={{fontWeight: '900'}}>›</div>
+            <div className="!text-white !text-2xl !font-black !leading-none !flex !items-center !justify-center" style={{fontWeight: '900'}}>›</div>
           </div>
         </div>
       )}

@@ -21,7 +21,6 @@ const KofiButton = () => {
         >
           <div className="relative">
             <Coffee className="h-6 w-6 text-black/80" />
-            <Heart className="h-2.5 w-2.5 text-red-500 absolute top-1.5 left-1/2 transform -translate-x-1/2" fill="currentColor" />
           </div>
           {isHovered && (
             <svg className="h-4 w-4 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
