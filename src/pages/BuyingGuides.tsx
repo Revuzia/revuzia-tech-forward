@@ -1,24 +1,37 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import { useArticles } from "@/hooks/useArticles";
+import gamingHero from "@/assets/gaming-article-hero.jpg";
+import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
+import authorTheo from "@/assets/author-theo.jpg";
 
 const BuyingGuides = () => {
-  const { articles: dbArticles, loading, error } = useArticles("Buying Guides");
-
-  // Transform database articles to match ArticleCard props
-  const articles = dbArticles.map(article => ({
-    title: article.title,
-    image: article.featured_image_url,
-    author: {
-      name: article.author_name,
-      avatar: authorZara, // Default avatar for now
+  const articles = [
+    {
+      title: "The Definitive Tech Buying Guide 2025: 5 Essential Gadgets That Offer Incredible Value Right Now",
+      image: buyingGuideHero,
+      author: {
+        name: "Theo Chan",
+        avatar: authorTheo,
+      },
+      readTime: "12 min read",
+      category: "Buying Guides",
+      slug: "tech-buying-guide-2025",
     },
-    readTime: "10 min read", // Default read time
-    category: article.category_name,
-    slug: article.slug,
-  }));
+    {
+      title: "Best Gaming Laptops Under $2000: Performance vs Budget",
+      image: gamingHero,
+      author: {
+        name: "Zara Velez",
+        avatar: authorZara,
+      },
+      readTime: "10 min read",
+      category: "Buying Guides",
+      slug: "gaming-laptops-under-2000",
+    },
+    // ... more articles would be added here
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,25 +43,11 @@ const BuyingGuides = () => {
           <p className="text-xl text-muted-foreground">Expert advice to help you make the best tech purchasing decisions</p>
         </div>
 
-        {loading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="text-xl text-muted-foreground">Loading articles...</div>
-          </div>
-        ) : error ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="text-xl text-red-500">Error loading articles: {error}</div>
-          </div>
-        ) : articles.length === 0 ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="text-xl text-muted-foreground">No articles found.</div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.map((article, index) => (
-              <ArticleCard key={article.slug || index} {...article} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {articles.map((article, index) => (
+            <ArticleCard key={index} {...article} />
+          ))}
+        </div>
       </main>
 
       <Footer />
