@@ -36,7 +36,7 @@ const BackToTop = () => {
       className="fixed bottom-8 right-8 z-50 rounded-full w-12 h-12 p-0 bg-brand hover:bg-brand/90 text-white shadow-lg hover:shadow-xl transition-all duration-300"
       aria-label="Back to top"
     >
-      <ChevronUp className="h-8 w-8 stroke-[6] text-white" />
+      <ChevronUp className="h-6 w-6 stroke-[3] text-black" />
     </Button>
   );
 };

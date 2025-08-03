@@ -142,10 +142,7 @@ const Footer = () => {
                rel="noopener noreferrer"
                className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black"
              >
-              <div className="bg-black rounded-full p-1">
-                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <span>Follow Us on</span>
+              <span>Follow Us on X</span>
               <div className="bg-black rounded-full p-1">
                 <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>

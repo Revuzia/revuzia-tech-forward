@@ -81,7 +81,7 @@ const Header = () => {
               <div className="relative">
                 <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
                   <span className="relative inline-block text-white drop-shadow-2xl vintage-neon-text">
-                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12 vintage-neon-hanging-r" style={{
+                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12 vintage-neon-hanging-r md:border-2 border-0" style={{
                       textShadow: `
                         0 0 5px rgb(var(--brand-rgb)),
                         0 0 10px rgb(var(--brand-rgb)),

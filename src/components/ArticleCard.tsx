@@ -79,7 +79,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
   return (
     <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
       <Link to={`/articles/${slug}`} className="block">
-        <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300">
+        <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 h-[400px] flex flex-col">
           {/* Image Container */}
           <div className={`relative ${imageHeightClass} overflow-hidden`}>
             <img 
@@ -96,8 +96,8 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           </div>
           
           {/* Content */}
-          <div className="p-6 space-y-4">
-            <h2 className={`font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center ${isHero ? 'text-2xl' : 'text-lg'}`}>
+          <div className="p-6 space-y-4 flex-1 flex flex-col">
+            <h2 className={`font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center flex-1 min-h-[4.5rem] ${isHero ? 'text-2xl' : 'text-lg'}`}>
               {title}
             </h2>
             
