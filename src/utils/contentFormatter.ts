@@ -2,6 +2,8 @@ export const formatArticleContent = (content: string): string => {
   return content
     // Convert H2: markers to actual h2 tags with glow effect
     .replace(/H2:\s*(.*?)(?=\n|$)/g, '<h2 style="color: rgb(0, 255, 191); font-size: 1.5rem; font-weight: bold; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif; text-shadow: 0 0 10px rgba(0, 255, 191, 0.5), 0 0 20px rgba(0, 255, 191, 0.3), 0 0 30px rgba(0, 255, 191, 0.2);">$1</h2>')
+    // Convert ## headers to actual h2 tags with glow effect
+    .replace(/^##\s+(.*?)$/gm, '<h2 style="color: rgb(0, 255, 191); font-size: 1.5rem; font-weight: bold; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif; text-shadow: 0 0 10px rgba(0, 255, 191, 0.5), 0 0 20px rgba(0, 255, 191, 0.3), 0 0 30px rgba(0, 255, 191, 0.2);">$1</h2>')
     // Convert ALL product names in brackets to clickable Amazon links (including ASIN links)
     .replace(/\[([^\]]+)\]\s*(https?:\/\/[^\s\)]+)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: rgb(0, 255, 191); text-decoration: none; border-bottom: 1px dotted rgb(0, 255, 191); transition: all 0.3s ease; font-weight: 600;">$1</a>')
     // Also catch product names followed by ASIN links in parentheses
