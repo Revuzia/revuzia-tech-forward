@@ -34,7 +34,14 @@ export const formatArticleContent = (content: string): string => {
     
     // Convert table-like data (pipe-separated values) to HTML tables
     processedContent = processedContent.replace(/(\|[^|\r\n]*\|[^|\r\n]*\|[^|\r\n]*.*?(?:\r?\n|$))+/g, function(match) {
-      const lines = match.trim().split(/\r?\n/).filter(line => line.trim() && line.includes('|'));
+      const lines = match.trim().split(/\r?\n/).filter(line => {
+        // Filter out empty lines and lines with only dashes/separators
+        const trimmed = line.trim();
+        return trimmed && 
+               trimmed.includes('|') && 
+               !(/^[\|\s\-]+$/.test(trimmed)); // Skip lines that only contain |, spaces, and dashes
+      });
+      
       if (lines.length === 0) return match;
       
       const tableRows = lines.map((line, index) => {
