@@ -52,8 +52,8 @@ const VideoReviews = () => {
                 </div>
               </div>
               
-              <div className="p-4">
-                <h3 className="font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-300">
+              <div className="p-3">
+                <h3 className="font-bold text-foreground mb-1 line-clamp-2 group-hover:text-primary transition-colors duration-300">
                   {video.title}
                 </h3>
                 <div className="text-muted-foreground text-sm">
@@ -66,7 +66,7 @@ const VideoReviews = () => {
           ))}
         </div>
 
-        <div className="text-center mt-6">
+        <div className="text-center mt-4">
           <Button 
             variant="outline" 
             size="lg"
