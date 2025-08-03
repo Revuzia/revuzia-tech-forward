@@ -17,11 +17,19 @@ import heroTechBg from "@/assets/hero-tech-bg.jpg";
 const Index = () => {
   const { data: techNewsArticles } = useArticles("tech-news");
   const { data: electrifiedArticles } = useArticles("get-electrified");
+  const { data: productReviewsArticles } = useArticles("product-reviews");
+  const { data: buyingGuidesArticles } = useArticles("buying-guides");
   
   // Combine tech-news and get-electrified articles for the "Latest Tech and Electronics" section
   const techAndElectrifiedArticles = [
     ...(techNewsArticles || []),
     ...(electrifiedArticles || [])
+  ];
+
+  // Combine product reviews and buying guides for "Explore Latest Reviews" section
+  const reviewArticles = [
+    ...(productReviewsArticles || []),
+    ...(buyingGuidesArticles || [])
   ];
   
   const featuredArticles = [
@@ -365,7 +373,17 @@ const Index = () => {
         {/* Explore Latest Reviews Carousel */}
         <ArticleCarousel
           title="Explore Latest Reviews"
-          articles={featuredArticles.filter(article => article.category === "Product Reviews" || article.category === "Buying Guides")}
+          articles={reviewArticles.length > 0 ? reviewArticles.map(article => ({
+            title: article.title,
+            image: article.featured_image_url,
+            author: {
+              name: article.author_name,
+              avatar: "",
+            },
+            readTime: `${Math.ceil(article.content.length / 1000)} min read`,
+            category: article.category_name,
+            slug: article.slug,
+          })) : featuredArticles.filter(article => article.category === "Product Reviews" || article.category === "Buying Guides")}
           viewAllLink="/product-reviews"
           viewAllText="View All Reviews"
         />
