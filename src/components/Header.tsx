@@ -77,6 +77,7 @@ const Header = () => {
               to="/" 
               className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
+              onClick={() => window.scrollTo(0, 0)}
             >
               <div className="relative">
                   <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">

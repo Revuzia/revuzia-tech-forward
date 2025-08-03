@@ -7,9 +7,15 @@ marked.setOptions({
 });
 
 export const formatArticleContent = (content: string): string => {
+  if (!content || typeof content !== 'string') {
+    console.error('Content is not a string:', typeof content, content);
+    return String(content || '');
+  }
+  
   try {
     // Process the markdown content with marked
-    let processedContent = marked(content) as string;
+    const markedResult = marked(content);
+    let processedContent = typeof markedResult === 'string' ? markedResult : String(markedResult);
     
     // Post-process the HTML to add custom styling
     processedContent = processedContent
@@ -57,7 +63,7 @@ export const formatArticleContent = (content: string): string => {
     return processedContent;
   } catch (error) {
     console.error('Error processing markdown:', error);
-    // Fallback to basic processing if markdown fails
+    // Fallback to basic HTML processing if markdown fails
     return content
       .replace(/\n\n/g, '</p><p style="margin-bottom: 1.5rem; line-height: 1.7; font-family: Poppins, sans-serif;">')
       .replace(/^(?!<)/, '<p style="margin-bottom: 1.5rem; line-height: 1.7; font-family: Poppins, sans-serif;">')
