@@ -24,11 +24,10 @@ const Header = () => {
       name: "Get Electrified", 
       path: "/get-electrified",
       subcategories: [
-        { name: "Home Automation", path: "/home-automation" },
-        { name: "New Electronics", path: "/new-electronics" },
-        { name: "Wearables Tech", path: "/subcategories/wearables-tech" },
-        { name: "Audio Tech", path: "/subcategories/audio-tech" },
-        { name: "Display Tech", path: "/subcategories/display-tech" }
+        { name: "Home Automation", path: "/subcategories/home-automation" },
+        { name: "Audio Electronics", path: "/subcategories/audio-electronics" },
+        { name: "Display Electronics", path: "/subcategories/display-electronics" },
+        { name: "Gadgets & Cool Tech", path: "/subcategories/gadgets-cool-tech" }
       ]
     },
     { 
@@ -36,10 +35,12 @@ const Header = () => {
       path: "/product-reviews",
       subcategories: [
         { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
-        { name: "Wearables Tech", path: "/subcategories/wearables-tech" },
         { name: "Gaming & PCs", path: "/subcategories/gaming-pcs" },
         { name: "Audio & Video", path: "/subcategories/audio-video" },
-        { name: "Cameras & Photography", path: "/subcategories/cameras-photography" }
+        { name: "Cameras & Photography", path: "/subcategories/cameras-photography" },
+        { name: "Battery Packs & Power", path: "/subcategories/battery-power" },
+        { name: "Networking & Connectivity", path: "/subcategories/networking-connectivity" },
+        { name: "Tools & Accessories", path: "/subcategories/tools-accessories" }
       ]
     },
     { 
@@ -50,7 +51,7 @@ const Header = () => {
         { name: "Best Budget Picks", path: "/subcategories/budget-picks" },
         { name: "Best of 2025", path: "/subcategories/best-of-2025" },
         { name: "Product Comparisons", path: "/subcategories/comparisons" },
-        { name: "Value Deals", path: "/subcategories/value-deals" }
+        { name: "Beginner's Guides", path: "/subcategories/beginners-guides" }
       ]
     },
   ];

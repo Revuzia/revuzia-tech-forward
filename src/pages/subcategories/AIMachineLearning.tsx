@@ -1,58 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import ArticleCarousel from "@/components/ArticleCarousel";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import ArticleCard from "@/components/ArticleCard";
+import { useArticles } from "@/hooks/useArticles";
 
 const AIMachineLearning = () => {
-  const featuredArticles = [
-    {
-      title: "ChatGPT vs Google Bard: The Ultimate AI Comparison",
-      image: heroTechBg,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "12 min read",
-      category: "AI & Machine Learning",
-      slug: "chatgpt-vs-google-bard",
-    },
-    {
-      title: "Machine Learning on Edge Devices: Revolution Begins",
-      image: heroTechBg,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "15 min read",
-      category: "AI & Machine Learning",
-      slug: "ml-edge-devices",
-    },
-    {
-      title: "The Ethical Implications of AI in Healthcare",
-      image: heroTechBg,
-      author: {
-        name: "Raj Malhotra",
-        avatar: authorZara,
-      },
-      readTime: "14 min read",
-      category: "AI & Machine Learning",
-      slug: "ethical-ai-healthcare",
-    },
-    {
-      title: "AI-Powered Cybersecurity: Future of Threat Detection",
-      image: heroTechBg,
-      author: {
-        name: "Imani Brooks",
-        avatar: authorTheo,
-      },
-      readTime: "16 min read",
-      category: "AI & Machine Learning",
-      slug: "ai-cybersecurity",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("tech-news", "AI & Machine Learning");
 
   return (
     <div className="min-h-screen bg-background">
@@ -83,13 +36,33 @@ const AIMachineLearning = () => {
           </p>
         </section>
 
-        {/* Featured Articles */}
-        <ArticleCarousel 
-          title="Latest AI & ML Articles"
-          articles={featuredArticles}
-          viewAllLink="/tech-news"
-          viewAllText="View All AI Articles"
-        />
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "", // Will use placeholder
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category={article.subCategory_name}
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">No articles found in this category.</p>
+            </div>
+          )}
+        </div>
       </main>
 
       <Footer />

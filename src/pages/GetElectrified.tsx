@@ -1,37 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import { useArticles } from "@/hooks/useArticles";
 
 const GetElectrified = () => {
-  const articles = [
-    {
-      title: "Samsung Galaxy S25 Ultra: The Photography Revolution",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "6 min read",
-      category: "Get Electrified",
-      slug: "samsung-s25-ultra-photography",
-    },
-    {
-      title: "Tesla's New Chip Architecture Powers Next-Gen Autopilot",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "9 min read",
-      category: "Get Electrified",
-      slug: "tesla-chip-autopilot",
-    },
-    // ... more articles would be added here
-  ];
+  const { data: articles, isLoading } = useArticles("get-electrified");
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,9 +17,30 @@ const GetElectrified = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.map((article, index) => (
-            <ArticleCard key={index} {...article} />
-          ))}
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "",
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category={article.category_name}
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">No articles found in this category.</p>
+            </div>
+          )}
         </div>
       </main>
 

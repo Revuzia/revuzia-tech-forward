@@ -17,25 +17,29 @@ import Terms from "./pages/Terms";
 import Affiliate from "./pages/Affiliate";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import Article from "./pages/Article";
 
 // Subcategory pages
 import SmartphonesTablets from "./pages/subcategories/SmartphonesTablets";
 import GamingPCs from "./pages/subcategories/GamingPCs";
-import WearablesTech from "./pages/subcategories/WearablesTech";
 import AIMachineLearning from "./pages/subcategories/AIMachineLearning";
 import Cybersecurity from "./pages/subcategories/Cybersecurity";
 import AutomationLLM from "./pages/subcategories/AutomationLLM";
 import BlockchainCrypto from "./pages/subcategories/BlockchainCrypto";
-import AudioTech from "./pages/subcategories/AudioTech";
-import DisplayTech from "./pages/subcategories/DisplayTech";
+import HomeAutomation from "./pages/subcategories/HomeAutomation";
+import AudioElectronics from "./pages/subcategories/AudioElectronics";
+import DisplayElectronics from "./pages/subcategories/DisplayElectronics";
+import GadgetsCoolTech from "./pages/subcategories/GadgetsCoolTech";
 import AudioVideo from "./pages/subcategories/AudioVideo";
 import CamerasPhotography from "./pages/subcategories/CamerasPhotography";
+import BatteryPower from "./pages/subcategories/BatteryPower";
+import NetworkingConnectivity from "./pages/subcategories/NetworkingConnectivity";
+import ToolsAccessories from "./pages/subcategories/ToolsAccessories";
 import BestInClass from "./pages/subcategories/BestInClass";
 import BudgetPicks from "./pages/subcategories/BudgetPicks";
 import BestOf2025 from "./pages/subcategories/BestOf2025";
 import Comparisons from "./pages/subcategories/Comparisons";
-import ValueDeals from "./pages/subcategories/ValueDeals";
-import SmartHomeTech from "./pages/subcategories/SmartHomeTech";
+import BeginnersGuides from "./pages/subcategories/BeginnersGuides";
 
 // Author pages
 import AriaLin from "./pages/authors/AriaLin";
@@ -71,21 +75,27 @@ const App = () => {
           {/* Subcategory Routes */}
           <Route path="/subcategories/smartphones-tablets" element={<SmartphonesTablets />} />
           <Route path="/subcategories/gaming-pcs" element={<GamingPCs />} />
-          <Route path="/subcategories/wearables-tech" element={<WearablesTech />} />
           <Route path="/subcategories/ai-machine-learning" element={<AIMachineLearning />} />
           <Route path="/subcategories/cybersecurity" element={<Cybersecurity />} />
           <Route path="/subcategories/automation-llm" element={<AutomationLLM />} />
           <Route path="/subcategories/blockchain-crypto" element={<BlockchainCrypto />} />
-          <Route path="/subcategories/audio-tech" element={<AudioTech />} />
-          <Route path="/subcategories/display-tech" element={<DisplayTech />} />
+          <Route path="/subcategories/home-automation" element={<HomeAutomation />} />
+          <Route path="/subcategories/audio-electronics" element={<AudioElectronics />} />
+          <Route path="/subcategories/display-electronics" element={<DisplayElectronics />} />
+          <Route path="/subcategories/gadgets-cool-tech" element={<GadgetsCoolTech />} />
           <Route path="/subcategories/audio-video" element={<AudioVideo />} />
           <Route path="/subcategories/cameras-photography" element={<CamerasPhotography />} />
+          <Route path="/subcategories/battery-power" element={<BatteryPower />} />
+          <Route path="/subcategories/networking-connectivity" element={<NetworkingConnectivity />} />
+          <Route path="/subcategories/tools-accessories" element={<ToolsAccessories />} />
           <Route path="/subcategories/best-in-class" element={<BestInClass />} />
           <Route path="/subcategories/budget-picks" element={<BudgetPicks />} />
           <Route path="/subcategories/best-of-2025" element={<BestOf2025 />} />
           <Route path="/subcategories/comparisons" element={<Comparisons />} />
-          <Route path="/subcategories/value-deals" element={<ValueDeals />} />
-          <Route path="/subcategories/smart-home-tech" element={<SmartHomeTech />} />
+          <Route path="/subcategories/beginners-guides" element={<BeginnersGuides />} />
+          
+          {/* Article Route */}
+          <Route path="/article/:slug" element={<Article />} />
           
           {/* Author Routes */}
           <Route path="/author/aria-lin" element={<AriaLin />} />

@@ -1,19 +1,22 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
 import { useArticles } from "@/hooks/useArticles";
 
-const ProductReviews = () => {
-  const { data: articles, isLoading } = useArticles("product-reviews");
+const NetworkingConnectivity = () => {
+  const { data: articles, isLoading } = useArticles("product-reviews", "Networking & Connectivity");
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Product Reviews</h1>
-          <p className="text-xl text-muted-foreground">In-depth reviews of the latest tech products and gadgets</p>
+      <main className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-brand mb-4">Networking & Connectivity</h1>
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+            Routers, network hardware, WiFi solutions, and connectivity tech.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -32,7 +35,7 @@ const ProductReviews = () => {
                   avatar: "",
                 }}
                 readTime={`${Math.ceil(article.content.length / 1000)} min read`}
-                category={article.category_name}
+                category={article.subCategory_name}
                 slug={article.slug}
               />
             ))
@@ -45,8 +48,9 @@ const ProductReviews = () => {
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 };
 
-export default ProductReviews;
+export default NetworkingConnectivity;
