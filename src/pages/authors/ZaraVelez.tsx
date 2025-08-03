@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Twitter, Linkedin, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
@@ -72,17 +72,17 @@ const ZaraVelez = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Zara Velez</h1>
-            <p className="text-xl text-brand font-medium mb-6">Senior Tech Editor</p>
+            <p className="text-xl text-brand font-medium mb-6">Tech News and Market Analysis</p>
             
             <div className="max-w-2xl mx-auto mb-8">
               <p className="text-white/90 leading-relaxed text-lg">
-                Zara has over 8 years of experience in tech journalism, specializing in mobile devices, gaming hardware, and emerging technologies. She holds a degree in Computer Science and has written for major tech publications. Her passion for cutting-edge technology and ability to explain complex concepts in simple terms makes her reviews invaluable to tech enthusiasts and casual users alike.
+                Hi! I'm Zara, and I'm fascinated by the "why" behind tech news. Sure, a new product launch is exciting, but what I really want to understand is why it matters, how it fits into the bigger picture, and what it means for consumers and the industry as a whole. My background in business journalism gives me a unique lens on technology coverage. I don't just report what happened – I dig into the market forces, business strategies, and industry trends that drive these developments. It's like being a detective, but for tech.
               </p>
             </div>
             
             <div className="flex justify-center gap-4">
               <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-                <Twitter className="w-4 h-4 mr-2" />
+                <X className="w-4 h-4 mr-2" />
                 Follow
               </Button>
               <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">

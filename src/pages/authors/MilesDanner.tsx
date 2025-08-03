@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import { Twitter, Linkedin, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import authorMiles from "@/assets/author-miles.jpg";
 import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -81,15 +81,19 @@ const MilesDanner = () => {
           
           <h1 className="text-5xl font-bold text-brand mb-4">Miles Danner</h1>
           <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
-            Consumer Technology Advisor and Buying Guide Expert. Miles specializes in helping readers make informed 
-            technology purchases, creating comprehensive buying guides and value-focused recommendations for every budget 
-            and use case.
+            Electronics & Innovation Reporter
           </p>
+          
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-white/90 leading-relaxed text-lg">
+              What's up! I'm Miles, and I'm basically a professional "cool stuff" hunter. While most people are just hearing about the latest iPhone, I'm already three trends ahead, digging through Kickstarter campaigns, haunting maker spaces, and somehow always ending up in conversations with inventors who are building the future in their basements. I live for that moment when you see something and think "wait, THAT exists?" – whether it's a transparent TV, a jacket that charges your phone, or some wild concept device that makes you rethink what electronics can do. My job is finding those "no way, that's real?" moments and bringing them to you first.
+            </p>
+          </div>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Twitter className="w-4 h-4 mr-2" />
+              <X className="w-4 h-4 mr-2" />
               Follow
             </Button>
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">

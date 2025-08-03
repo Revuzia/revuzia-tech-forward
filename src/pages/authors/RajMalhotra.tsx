@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import { Twitter, Linkedin, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import authorRaj from "@/assets/author-raj.jpg";
 import authorRajAvatar from "@/assets/author-raj-avatar-new.jpg";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
@@ -81,20 +81,20 @@ const RajMalhotra = () => {
           
           <h1 className="text-5xl font-bold text-brand mb-4">Raj Malhotra</h1>
           <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
-            Electric Vehicle and Sustainable Technology Specialist. Raj focuses on the electrification revolution, 
-            covering everything from EVs and battery technology to renewable energy solutions and green tech innovations 
-            that are reshaping our future.
+            Buying Guides & Product Comparison
           </p>
+          
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-white/90 leading-relaxed text-lg">
+              Hello! I'm Raj, and I'm essentially a professional researcher who happens to be obsessed with helping people make smart purchasing decisions. I genuinely enjoy spending hours comparing specifications, reading user reviews, and building comparison charts – the kind of deep-dive research most people don't have time for. My analytical background means I approach every buying guide like a research project. I create frameworks for evaluation, weight different factors based on user priorities, and organize information in ways that actually make sense when you're trying to choose between fifteen different options.
+            </p>
+          </div>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Twitter className="w-4 h-4 mr-2" />
+              <X className="w-4 h-4 mr-2" />
               Follow
-            </Button>
-            <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Linkedin className="w-4 h-4 mr-2" />
-              Connect
             </Button>
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
               <Mail className="w-4 h-4 mr-2" />

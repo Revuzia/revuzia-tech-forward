@@ -96,6 +96,7 @@ const App = () => {
           
           {/* Article Route */}
           <Route path="/article/:slug" element={<Article />} />
+          <Route path="/articles/:slug" element={<Article />} />
           
           {/* Author Routes */}
           <Route path="/author/aria-lin" element={<AriaLin />} />

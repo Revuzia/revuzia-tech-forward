@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import { Twitter, Linkedin, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import authorAria from "@/assets/author-aria.jpg";
 import authorAriaAvatar from "@/assets/author-aria-avatar.jpg";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
@@ -81,15 +81,19 @@ const AriaLin = () => {
           
           <h1 className="text-5xl font-bold text-brand mb-4">Aria Lin</h1>
           <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
-            Senior Technology Reporter specializing in AI, smart home technology, and sustainable computing. 
-            With over 8 years of experience in tech journalism, Aria brings cutting-edge insights and in-depth analysis 
-            to help readers navigate the rapidly evolving tech landscape.
+            Tech News & Electronics Specialist
           </p>
+          
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-white/90 leading-relaxed text-lg">
+              I'm Aria, and I'm the type of person who reads quarterly earnings reports for entertainment and can spot industry patterns three moves ahead. My electrical engineering background trained me to think systematically, but eight years in tech journalism taught me that the most important stories often hide in the details everyone else glosses over. While others chase the flashy headlines, I'm more interested in the underlying currents – the supply chain shifts, the patent filings, the executive moves that signal where the industry is really heading. I love connecting dots that seem unrelated until suddenly they reveal the bigger picture.
+            </p>
+          </div>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Twitter className="w-4 h-4 mr-2" />
+              <X className="w-4 h-4 mr-2" />
               Follow
             </Button>
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">

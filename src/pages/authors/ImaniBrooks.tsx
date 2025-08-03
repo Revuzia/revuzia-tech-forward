@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import { Twitter, Linkedin, Mail } from "lucide-react";
+import { X, Mail } from "lucide-react";
 import authorImani from "@/assets/author-imani.jpg";
 import authorImaniAvatar from "@/assets/author-imani-avatar-new.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -81,20 +81,20 @@ const ImaniBrooks = () => {
           
           <h1 className="text-5xl font-bold text-brand mb-4">Imani Brooks</h1>
           <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
-            Gaming Technology Expert and Product Review Specialist. Imani combines her passion for gaming 
-            with technical expertise to deliver comprehensive reviews of gaming hardware, peripherals, 
-            and cutting-edge technology solutions for gamers and tech enthusiasts.
+            Consumer Tech Reviews & Guides
           </p>
+          
+          <div className="max-w-2xl mx-auto mb-8">
+            <p className="text-white/90 leading-relaxed text-lg">
+              Hey! I'm Imani, and I'm probably a lot like you – I want tech that actually works for real people living real lives. I come from a consumer advocacy background, which means I'm always asking the questions that matter most: "Is this actually worth my money?" and "Will this make my life better or just more complicated?" I don't care how impressive the specs look on paper if the user experience is frustrating. I care about whether my mom could figure out how to use it, whether it's accessible for people with different needs, and whether you'll still be happy with your purchase six months from now.
+            </p>
+          </div>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Twitter className="w-4 h-4 mr-2" />
+              <X className="w-4 h-4 mr-2" />
               Follow
-            </Button>
-            <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Linkedin className="w-4 h-4 mr-2" />
-              Connect
             </Button>
             <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
               <Mail className="w-4 h-4 mr-2" />
