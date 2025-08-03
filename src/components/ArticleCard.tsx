@@ -64,7 +64,10 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
                   {title}
                 </h2>
                 <p className="text-xs text-white/70 mb-3 leading-relaxed">
-                  Discover the latest innovations and expert insights in this comprehensive review. Our team provides detailed analysis to help you make informed decisions about the newest tech products and trends in the market.
+                  {title.includes("iPhone") ? "Apple's latest innovations continue to reshape mobile technology and creative workflows. Advanced camera systems and AI-powered features make professional-grade content creation more accessible than ever." :
+                   title.includes("Gaming") ? "Latest gaming hardware delivers unprecedented performance and immersive experiences. Our comprehensive testing reveals which products offer the best value for enthusiast gamers." :
+                   title.includes("Audio") ? "Premium audio technology meets affordability in this comprehensive review. Experience studio-quality sound without breaking the bank with our expert recommendations." :
+                   "Discover the latest innovations and expert insights in this comprehensive review. Our team provides detailed analysis to help you make informed decisions about the newest tech products."}
                 </p>
                 
                 {/* Author and Meta Info */}

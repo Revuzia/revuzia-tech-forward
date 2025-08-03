@@ -101,46 +101,46 @@ const Footer = () => {
           </div>
 
           {/* CONNECT Section */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
+          <div className="flex flex-col items-center space-y-3">
+            <h3 className="text-xl font-poppins font-bold text-brand mb-4">CONNECT</h3>
             
             {/* 1. Follow us on X - First */}
             <a 
               href="https://twitter.com/revuzia45555"
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black w-full max-w-sm"
+              className="inline-flex items-center justify-center space-x-2 text-white text-sm hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-4 py-2 hover:bg-brand hover:text-black w-full max-w-xs"
             >
               <span>Follow us on</span>
               <div className="bg-black rounded-full p-1">
-                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
+                <X className="w-3 h-3 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
             </a>
 
             {/* 2. Newsletter Signup - Second */}
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-xs">
               {!showEmailInput ? (
                 <Button 
                   onClick={handleSubscribeClick}
-                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-base"
+                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-2 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-sm"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
+                  <Mail className="w-4 h-4 mr-2" />
                   SUBSCRIBE
                 </Button>
               ) : (
-                <div className="bg-white rounded-2xl p-4 shadow-lg">
+                <div className="bg-white rounded-2xl p-3 shadow-lg">
                    <Input
                     type="email"
                     placeholder="Enter your email..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className="border-gray-300 text-brand placeholder:text-gray-500 focus:border-brand font-poppins text-base mb-3"
+                    className="border-gray-300 text-brand placeholder:text-gray-500 focus:border-brand font-poppins text-sm mb-2"
                     autoFocus
                   />
                   <Button 
                     onClick={handleEmailSubmit}
-                    className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-2 rounded-lg transition-all duration-300 font-poppins text-base"
+                    className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-2 rounded-lg transition-all duration-300 font-poppins text-sm"
                   >
                     Subscribe
                   </Button>
@@ -148,12 +148,12 @@ const Footer = () => {
               )}
             </div>
 
-            {/* 3. Email Support - Third */}
+            {/* 3. Email Support - Third - Smaller */}
             <a 
               href="mailto:support@revuzia.com"
-              className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black w-full max-w-sm"
+              className="inline-flex items-center justify-center space-x-2 text-white text-xs hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-3 py-2 hover:bg-brand hover:text-black w-full max-w-xs"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-3 h-3" />
               <span>Email us @ support@revuzia.com</span>
             </a>
           </div>
