@@ -64,11 +64,31 @@ const AriaLin = () => {
             Tech News & Electronics Specialist
           </p>
           
-          <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-white/90 leading-relaxed text-lg">
-              I'm Aria, and I'm the type of person who reads quarterly earnings reports for entertainment and can spot industry patterns three moves ahead. My electrical engineering background trained me to think systematically, but eight years in tech journalism taught me that the most important stories often hide in the details everyone else glosses over. While others chase the flashy headlines, I'm more interested in the underlying currents – the supply chain shifts, the patent filings, the executive moves that signal where the industry is really heading. I love connecting dots that seem unrelated until suddenly they reveal the bigger picture.
-            </p>
-          </div>
+            <div className="max-w-3xl mx-auto mb-8 space-y-6">
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed text-lg mb-4">
+                  Hi! I'm Aria, and I'm the type of person who reads <strong className="text-brand">quarterly earnings reports for entertainment</strong> and can spot industry patterns three moves ahead.
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  My electrical engineering background trained me to think systematically, but eight years in tech journalism taught me that the most important stories often hide in the details everyone else glosses over.
+                </p>
+              </div>
+              
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed mb-3">
+                  <strong className="text-brand">My focus:</strong> The underlying currents that drive tech
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  While others chase the flashy headlines, I'm more interested in the supply chain shifts, the patent filings, the executive moves that signal where the industry is really heading. I love connecting dots that seem unrelated until suddenly they reveal the bigger picture.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-brand/80 italic text-lg">
+                  "The most important stories hide in the details everyone else glosses over."
+                </p>
+              </div>
+            </div>
           
           {/* Social Links */}
           <div className="flex justify-center gap-4">

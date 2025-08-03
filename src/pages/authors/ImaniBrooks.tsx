@@ -65,10 +65,30 @@ const ImaniBrooks = () => {
               Consumer Advocacy Editor
             </p>
             
-            <div className="max-w-2xl mx-auto mb-8">
-              <p className="author-bio text-white/90 leading-relaxed text-lg">
-                Hey! I'm Imani, and I'm probably a lot like you – I want tech that actually works for real people living real lives. I come from a consumer advocacy background, which means I'm always asking the questions that matter most: "Is this actually worth my money?" and "Will this make my life better or just more complicated?" I don't care how impressive the specs look on paper if the user experience is frustrating. I care about whether my mom could figure out how to use it, whether it's accessible for people with different needs, and whether you'll still be happy with your purchase six months from now.
-              </p>
+            <div className="max-w-3xl mx-auto mb-8 space-y-6">
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed text-lg mb-4">
+                  Hey! I'm Imani, and I'm probably a lot like you – I want tech that <strong className="text-brand">actually works for real people</strong> living real lives.
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  I come from a consumer advocacy background, which means I'm always asking the questions that matter most: "Is this actually worth my money?" and "Will this make my life better or just more complicated?"
+                </p>
+              </div>
+              
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed mb-3">
+                  <strong className="text-brand">My standards:</strong> Real-world usability over impressive specs
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  I don't care how impressive the specs look on paper if the user experience is frustrating. I care about whether my mom could figure out how to use it, whether it's accessible for people with different needs, and whether you'll still be happy with your purchase six months from now.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-brand/80 italic text-lg">
+                  "Great tech should make life better, not more complicated."
+                </p>
+              </div>
             </div>
             
             <div className="author-stats flex justify-center gap-6 mb-8 text-sm">

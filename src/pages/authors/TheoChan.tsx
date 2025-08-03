@@ -63,10 +63,30 @@ const TheoChan = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Theo Chan</h1>
             <p className="text-xl text-brand font-medium mb-6">Video Reviews and Tech Demos</p>
             
-            <div className="max-w-2xl mx-auto mb-8">
-              <p className="text-white/90 leading-relaxed text-lg">
-                Hey there! I'm Theo, and I'm obsessed with making technology accessible through video. I believe the best way to understand a product is to see it in action – not just glamour shots or spec sheets, but real, hands-on exploration of how things actually work. My background in visual storytelling means I think about tech reviews differently. I'm not just listing features; I'm trying to help you visualize how this technology would fit into your life. Every video is designed to answer the question: "Okay, but what's it really like to use this every day?"
-              </p>
+            <div className="max-w-3xl mx-auto mb-8 space-y-6">
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed text-lg mb-4">
+                  Hey there! I'm Theo, and I'm obsessed with making technology <strong className="text-brand">accessible through video</strong>.
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  I believe the best way to understand a product is to see it in action – not just glamour shots or spec sheets, but real, hands-on exploration of how things actually work.
+                </p>
+              </div>
+              
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed mb-3">
+                  <strong className="text-brand">My approach:</strong> Visual storytelling meets tech reviews
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  My background in visual storytelling means I think about tech reviews differently. I'm not just listing features; I'm trying to help you visualize how this technology would fit into your life. Every video is designed to answer the question: "Okay, but what's it really like to use this every day?"
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-brand/80 italic text-lg">
+                  "The best way to understand tech is to see it in action."
+                </p>
+              </div>
             </div>
             
             <div className="flex justify-center gap-4">

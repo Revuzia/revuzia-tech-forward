@@ -64,10 +64,30 @@ const RajMalhotra = () => {
             Buying Guides & Product Comparison
           </p>
           
-          <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-white/90 leading-relaxed text-lg">
-              Hello! I'm Raj, and I'm essentially a professional researcher who happens to be obsessed with helping people make smart purchasing decisions. I genuinely enjoy spending hours comparing specifications, reading user reviews, and building comparison charts – the kind of deep-dive research most people don't have time for. My analytical background means I approach every buying guide like a research project. I create frameworks for evaluation, weight different factors based on user priorities, and organize information in ways that actually make sense when you're trying to choose between fifteen different options.
-            </p>
+          <div className="max-w-3xl mx-auto mb-8 space-y-6">
+            <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+              <p className="text-white/90 leading-relaxed text-lg mb-4">
+                Hello! I'm Raj, and I'm essentially a <strong className="text-brand">professional researcher</strong> who happens to be obsessed with helping people make smart purchasing decisions.
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                I genuinely enjoy spending hours comparing specifications, reading user reviews, and building comparison charts – the kind of deep-dive research most people don't have time for.
+              </p>
+            </div>
+            
+            <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+              <p className="text-white/90 leading-relaxed mb-3">
+                <strong className="text-brand">My methodology:</strong> Every buying guide is a research project
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                My analytical background means I approach every buying guide systematically. I create frameworks for evaluation, weight different factors based on user priorities, and organize information in ways that actually make sense when you're trying to choose between fifteen different options.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-brand/80 italic text-lg">
+                "Smart purchasing decisions start with smart research."
+              </p>
+            </div>
           </div>
           
           {/* Social Links */}

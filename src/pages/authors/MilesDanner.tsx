@@ -64,10 +64,30 @@ const MilesDanner = () => {
             Electronics & Innovation Reporter
           </p>
           
-          <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-white/90 leading-relaxed text-lg">
-              What's up! I'm Miles, and I'm basically a professional "cool stuff" hunter. While most people are just hearing about the latest iPhone, I'm already three trends ahead, digging through Kickstarter campaigns, haunting maker spaces, and somehow always ending up in conversations with inventors who are building the future in their basements. I live for that moment when you see something and think "wait, THAT exists?" – whether it's a transparent TV, a jacket that charges your phone, or some wild concept device that makes you rethink what electronics can do. My job is finding those "no way, that's real?" moments and bringing them to you first.
-            </p>
+          <div className="max-w-3xl mx-auto mb-8 space-y-6">
+            <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+              <p className="text-white/90 leading-relaxed text-lg mb-4">
+                What's up! I'm Miles, and I'm basically a professional <strong className="text-brand">"cool stuff" hunter</strong>.
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                While most people are just hearing about the latest iPhone, I'm already three trends ahead, digging through Kickstarter campaigns, haunting maker spaces, and somehow always ending up in conversations with inventors who are building the future in their basements.
+              </p>
+            </div>
+            
+            <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+              <p className="text-white/90 leading-relaxed mb-3">
+                <strong className="text-brand">My mission:</strong> Finding the "no way, that's real?" moments
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                I live for that moment when you see something and think "wait, THAT exists?" – whether it's a transparent TV, a jacket that charges your phone, or some wild concept device that makes you rethink what electronics can do. My job is finding those moments and bringing them to you first.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-brand/80 italic text-lg">
+                "The future is already here, you just have to know where to look."
+              </p>
+            </div>
           </div>
           
           {/* Social Links */}
