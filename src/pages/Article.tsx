@@ -211,11 +211,11 @@ const Article = () => {
 
           {/* Featured Image */}
           {article.featured_image_url && (
-            <div className="mb-8 flex justify-center">
+            <div className="mb-8">
               <img 
                 src={article.featured_image_url} 
                 alt={article.title}
-                className="w-1/2 max-w-[600px] h-auto rounded-lg shadow-lg"
+                className="w-full max-w-4xl mx-auto h-auto rounded-lg shadow-xl"
                 loading="lazy"
               />
             </div>
