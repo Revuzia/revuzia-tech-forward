@@ -171,14 +171,37 @@ const Article = () => {
                 <Avatar className="w-10 h-10">
                   <AvatarImage src={(() => {
                     const authorImages = {
-                      "Zara Velez": "/lovable-uploads/zara-velez-team-final.png",
-                      "Theo Chan": "/lovable-uploads/theo-chan-team-final.png",
-                      "Aria Lin": "/src/assets/author-aria.jpg",
-                      "Miles Danner": "/src/assets/author-miles.jpg", 
-                      "Raj Malhotra": "/src/assets/author-raj.jpg",
-                      "Imani Brooks": "/src/assets/author-imani.jpg"
+                      "Zara Velez": {
+                        main: "/lovable-uploads/zara-velez-team-final.png",
+                        avatar: "/src/assets/author-zara-avatar-new.jpg"
+                      },
+                      "Theo Chan": {
+                        main: "/lovable-uploads/theo-chan-team-final.png", 
+                        avatar: "/src/assets/author-theo-avatar-new.jpg"
+                      },
+                      "Aria Lin": {
+                        main: "/src/assets/author-aria.jpg",
+                        avatar: "/src/assets/author-aria-avatar.jpg"
+                      },
+                      "Miles Danner": {
+                        main: "/src/assets/author-miles.jpg",
+                        avatar: "/src/assets/author-miles-avatar-new.jpg"
+                      },
+                      "Raj Malhotra": {
+                        main: "/src/assets/author-raj.jpg",
+                        avatar: "/src/assets/author-raj-avatar-new.jpg"
+                      },
+                      "Imani Brooks": {
+                        main: "/src/assets/author-imani.jpg",
+                        avatar: "/src/assets/author-imani-avatar-new.jpg"
+                      }
                     };
-                    return authorImages[article.author_name as keyof typeof authorImages] || "/placeholder.svg";
+                    const authorData = authorImages[article.author_name as keyof typeof authorImages];
+                    if (!authorData) return "/placeholder.svg";
+                    
+                    // Use a simple hash of the article slug to determine which image to show
+                    const hash = article.slug.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+                    return hash % 2 === 0 ? authorData.main : authorData.avatar;
                   })()} alt={article.author_name} />
                   <AvatarFallback>
                     {article.author_name.split(' ').map(n => n[0]).join('').toUpperCase()}
