@@ -95,7 +95,39 @@ const Team = () => {
             </div>
           </div>
 
-          {/* Editorial Leadership */}
+          {/* Team Members Grid */}
+          <div className="mb-16">
+            <h2 className="text-4xl font-bold text-brand text-center mb-12">Our Editorial Team</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teamMembers.map((member) => (
+                <div key={member.name} className="bg-card/50 rounded-2xl p-6 border border-border/50 text-center">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-brand/30">
+                    <img 
+                      src={member.avatar} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand mb-2">{member.name}</h3>
+                  <p className="text-sm text-brand/80 mb-3 font-semibold">{member.role}</p>
+                  <p className="text-foreground text-sm leading-relaxed mb-4">{member.bio}</p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {member.expertise.map((skill) => (
+                      <span key={skill} className="bg-brand/10 text-brand text-xs px-2 py-1 rounded-full">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                  <Link 
+                    to={`/authors/${member.slug}`}
+                    className="inline-block mt-4 text-brand hover:text-brand/80 text-sm font-medium"
+                  >
+                    View Articles →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="mb-16">
             <h2 className="text-4xl font-bold text-brand text-center mb-12">Editorial Leadership</h2>
             
