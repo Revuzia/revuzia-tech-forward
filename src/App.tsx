@@ -101,12 +101,12 @@ const App = () => {
           <Route path="/articles/:slug" element={<Article />} />
           
           {/* Author Routes */}
-          <Route path="/author/aria-lin" element={<AriaLin />} />
-          <Route path="/author/imani-brooks" element={<ImaniBrooks />} />
-          <Route path="/author/raj-malhotra" element={<RajMalhotra />} />
-          <Route path="/author/miles-danner" element={<MilesDanner />} />
-          <Route path="/author/theo-chan" element={<TheoChan />} />
-          <Route path="/author/zara-velez" element={<ZaraVelez />} />
+          <Route path="/authors/aria-lin" element={<AriaLin />} />
+          <Route path="/authors/imani-brooks" element={<ImaniBrooks />} />
+          <Route path="/authors/raj-malhotra" element={<RajMalhotra />} />
+          <Route path="/authors/miles-danner" element={<MilesDanner />} />
+          <Route path="/authors/theo-chan" element={<TheoChan />} />
+          <Route path="/authors/zara-velez" element={<ZaraVelez />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
