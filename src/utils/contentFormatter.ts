@@ -32,6 +32,24 @@ export const formatArticleContent = (content: string): string => {
     // Style regular links  
     processedContent = processedContent.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: rgb(0, 255, 191); text-decoration: none; border-bottom: 1px dotted rgb(0, 255, 191); transition: all 0.3s ease; font-weight: 600;">$1</a>');
     
+    // Convert table-like data (pipe-separated values) to HTML tables
+    processedContent = processedContent.replace(/\|([^|\n]*\|[^|\n]*\|[^|\n]*.*)\n/g, function(match, content) {
+      const rows = content.split('\n').filter(row => row.trim() && row.includes('|'));
+      if (rows.length < 2) return match;
+      
+      const tableRows = rows.map((row, index) => {
+        const cells = row.split('|').map(cell => cell.trim()).filter(cell => cell);
+        const cellTag = index === 0 ? 'th' : 'td';
+        const cellStyle = index === 0 
+          ? 'padding: 12px; text-align: left; font-weight: 600; color: rgb(0, 255, 191); border-bottom: 2px solid rgba(0, 255, 191, 0.3); background: rgba(0, 255, 191, 0.05);'
+          : 'padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 255, 191, 0.1);';
+        
+        return `<tr>${cells.map(cell => `<${cellTag} style="${cellStyle}">${cell}</${cellTag}>`).join('')}</tr>`;
+      }).join('');
+      
+      return `<div style="overflow-x: auto; margin: 2rem 0;"><table style="width: 100%; border-collapse: collapse; border: 1px solid rgba(0, 255, 191, 0.2); border-radius: 8px; overflow: hidden; font-family: Poppins, sans-serif; background: rgba(0, 0, 0, 0.02);">${tableRows}</table></div>`;
+    });
+    
     // Convert bullet points (- item, X item, ❌ item)
     processedContent = processedContent.replace(/^- (.+)$/gm, '<li style="margin-bottom: 0.5rem; margin-left: 1.5rem;">$1</li>');
     processedContent = processedContent.replace(/^X (.+)$/gm, '<li style="margin-bottom: 0.5rem; margin-left: 1.5rem;">$1</li>');
