@@ -64,10 +64,30 @@ const ZaraVelez = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Zara Velez</h1>
             <p className="text-xl text-brand font-medium mb-6">Tech News and Market Analysis</p>
             
-            <div className="max-w-2xl mx-auto mb-8">
-              <p className="text-white/90 leading-relaxed text-lg">
-                Hi! I'm Zara, and I'm fascinated by the "why" behind tech news. Sure, a new product launch is exciting, but what I really want to understand is why it matters, how it fits into the bigger picture, and what it means for consumers and the industry as a whole. My background in business journalism gives me a unique lens on technology coverage. I don't just report what happened – I dig into the market forces, business strategies, and industry trends that drive these developments. It's like being a detective, but for tech.
-              </p>
+            <div className="max-w-3xl mx-auto mb-8 space-y-6">
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed text-lg mb-4">
+                  Hi! I'm Zara, and I'm fascinated by the <strong className="text-brand">"why"</strong> behind tech news.
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  Sure, a new product launch is exciting, but what I really want to understand is why it matters, how it fits into the bigger picture, and what it means for consumers and the industry as a whole.
+                </p>
+              </div>
+              
+              <div className="bg-card/30 rounded-xl p-6 border border-brand/20">
+                <p className="text-white/90 leading-relaxed mb-3">
+                  <strong className="text-brand">My approach:</strong> Business journalism meets tech coverage
+                </p>
+                <p className="text-white/80 leading-relaxed">
+                  My background in business journalism gives me a unique lens on technology coverage. I don't just report what happened – I dig into the market forces, business strategies, and industry trends that drive these developments.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-brand/80 italic text-lg">
+                  "It's like being a detective, but for tech."
+                </p>
+              </div>
             </div>
             
             <div className="flex justify-center gap-4">

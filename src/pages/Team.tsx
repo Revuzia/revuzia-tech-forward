@@ -129,50 +129,6 @@ const Team = () => {
               ))}
             </div>
           </div>
-          <div className="mb-16">
-            <h2 className="text-4xl font-bold text-brand text-center mb-12">Editorial Leadership</h2>
-            
-            <div className="space-y-8">
-              <div className="bg-card/50 rounded-2xl p-8 border border-border/50">
-                <h3 className="text-2xl font-bold text-brand mb-3">Editor-in-Chief</h3>
-                <p className="text-lg italic text-foreground/70 mb-4">Leading Revuzia's editorial vision and maintaining our standards for independent tech journalism.</p>
-                <p className="text-foreground leading-relaxed">
-                  Our Editor-in-Chief oversees all editorial content, ensuring that our reviews, news coverage, and analysis maintain the highest standards of accuracy and independence. With over 15 years of experience in technology journalism, they guide our editorial strategy and uphold our commitment to unbiased reporting.
-                </p>
-              </div>
-
-              <div className="bg-card/50 rounded-2xl p-8 border border-border/50">
-                <h3 className="text-2xl font-bold text-brand mb-3">Senior Technology Editor</h3>
-                <p className="text-lg italic text-foreground/70 mb-4">Specializing in emerging technologies, enterprise solutions, and industry analysis.</p>
-                <p className="text-foreground leading-relaxed">
-                  Our Senior Technology Editor brings deep expertise in cutting-edge technologies, from artificial intelligence and machine learning to enterprise software and cybersecurity. They lead our coverage of tech industry trends and provide expert analysis on how new technologies impact businesses and consumers.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Product Review Team */}
-          <div className="mb-16">
-            <h2 className="text-4xl font-bold text-brand text-center mb-12">Product Review Team</h2>
-            
-            <div className="space-y-8">
-              <div className="bg-card/50 rounded-2xl p-8 border border-border/50">
-                <h3 className="text-2xl font-bold text-brand mb-3">Consumer Electronics Editor</h3>
-                <p className="text-lg italic text-foreground/70 mb-4">Expert testing and reviews of smartphones, laptops, audio equipment, and consumer gadgets.</p>
-                <p className="text-foreground leading-relaxed">
-                  Our Consumer Electronics Editor has tested thousands of products over the past decade, developing rigorous testing methodologies that prioritize real-world performance over marketing claims.
-                </p>
-              </div>
-
-              <div className="bg-card/50 rounded-2xl p-8 border border-border/50">
-                <h3 className="text-2xl font-bold text-brand mb-3">Hardware Testing Specialist</h3>
-                <p className="text-lg italic text-foreground/70 mb-4">In-depth analysis of computer hardware, gaming equipment, and technical specifications.</p>
-                <p className="text-foreground leading-relaxed">
-                  Our Hardware Testing Specialist brings technical expertise in computer architecture, performance benchmarking, and component analysis.
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Editorial Standards */}
           <div className="mb-16">
