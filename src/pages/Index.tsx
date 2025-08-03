@@ -251,11 +251,15 @@ const Index = () => {
           
           {/* Radiating Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link to="/buying-guides">
-              <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
-                Explore Latest Reviews
-              </Button>
-            </Link>
+            <Button 
+              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg"
+              onClick={() => {
+                const element = document.getElementById('explore-latest-reviews');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Explore Latest Reviews
+            </Button>
             <Link to="/video-reviews">
               <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
                 <Play className="w-5 h-5 mr-2" />
@@ -371,7 +375,8 @@ const Index = () => {
         </section>
 
         {/* Explore Latest Reviews Carousel */}
-        <ArticleCarousel
+        <section id="explore-latest-reviews">
+          <ArticleCarousel
           title="Explore Latest Reviews"
           articles={reviewArticles.length > 0 ? reviewArticles.map(article => ({
             title: article.title,
@@ -387,8 +392,7 @@ const Index = () => {
           viewAllLink="/product-reviews"
           viewAllText="View All Reviews"
         />
-
-        {/* Watch Review Videos Carousel */}
+        </section>
         <ArticleCarousel
           title="Watch Review Videos"
           articles={[
