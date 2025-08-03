@@ -81,7 +81,7 @@ const Article = () => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${article.title} | Revuzia`} />
         <meta property="og:description" content={article.excerpt || `Read ${article.title} on Revuzia - Your trusted source for tech news and reviews.`} />
-        <meta property="og:image" content={article.featured_image_url || "https://revuzia.com/favicon.ico"} />
+        <meta property="og:image" content={article.featured_image_url || "https://revuzia.com/lovable-uploads/4bd7c322-2c67-44ee-b0dd-07a2a91f95e0.png"} />
         <meta property="og:url" content={`https://revuzia.com/article/${article.slug}`} />
         <meta property="og:site_name" content="Revuzia" />
         
@@ -89,7 +89,7 @@ const Article = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${article.title} | Revuzia`} />
         <meta name="twitter:description" content={article.excerpt || `Read ${article.title} on Revuzia - Your trusted source for tech news and reviews.`} />
-        <meta name="twitter:image" content={article.featured_image_url || "https://revuzia.com/favicon.ico"} />
+        <meta name="twitter:image" content={article.featured_image_url || "https://revuzia.com/lovable-uploads/4bd7c322-2c67-44ee-b0dd-07a2a91f95e0.png"} />
         
         {/* Article specific */}
         <meta property="article:author" content={article.author_name} />
@@ -114,7 +114,7 @@ const Article = () => {
               "name": "Revuzia",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://revuzia.com/favicon.ico"
+                "url": "https://revuzia.com/lovable-uploads/4bd7c322-2c67-44ee-b0dd-07a2a91f95e0.png"
               }
             },
             "datePublished": article.created_at,
