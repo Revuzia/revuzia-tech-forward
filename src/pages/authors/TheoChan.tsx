@@ -19,6 +19,9 @@ const TheoChan = () => {
   ) || [];
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const handleMouseMove = (e: MouseEvent) => {
       const rect = document.querySelector('.avatar-container')?.getBoundingClientRect();
       if (rect) {

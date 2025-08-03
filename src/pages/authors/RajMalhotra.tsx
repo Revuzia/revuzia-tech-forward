@@ -18,6 +18,9 @@ const RajMalhotra = () => {
   ) || [];
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const handleMouseMove = (e: MouseEvent) => {
       const rect = document.getElementById('avatar-container')?.getBoundingClientRect();
       if (rect) {
