@@ -79,35 +79,35 @@ const Header = () => {
               aria-label="Revuzia – Home"
             >
               <div className="relative">
-                <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
-                  <span className="relative inline-block text-white drop-shadow-2xl vintage-neon-text">
-                    <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12 vintage-neon-hanging-r md:border-2 border-0" style={{
-                      textShadow: `
-                        0 0 5px rgb(var(--brand-rgb)),
-                        0 0 10px rgb(var(--brand-rgb)),
-                        0 0 20px rgb(var(--brand-rgb)),
-                        0 0 40px rgb(var(--brand-rgb))
-                      `,
-                      borderColor: 'rgb(var(--brand-rgb))',
-                      color: 'rgb(var(--brand-rgb))',
-                      borderRadius: '4px',
-                      boxShadow: `
-                        0 0 5px rgb(var(--brand-rgb)),
-                        inset 0 0 5px rgb(var(--brand-rgb))
-                      `
-                    }}>R</span>
-                    <span className="vintage-neon-text-evuzia" style={{
-                      textShadow: `
-                        0 0 3px rgb(var(--brand-rgb)),
-                        0 0 6px rgb(var(--brand-rgb)),
-                        0 0 12px rgb(var(--brand-rgb)),
-                        0 0 24px rgb(var(--brand-rgb))
-                      `,
-                      color: 'rgb(var(--brand-rgb))',
-                      filter: 'brightness(0.9) contrast(1.0)'
-                    }}>EVUZIA</span>
-                  </span>
-                </h1>
+                  <h1 className="text-4xl font-extrabold font-poppins relative tracking-wide">
+                    <span className="relative inline-block text-white drop-shadow-2xl vintage-neon-text">
+                      <span className="inline-block border-2 border-brand px-1 mr-1 font-mono transform rotate-12 vintage-neon-hanging-r" style={{
+                        textShadow: `
+                          0 0 5px rgb(var(--brand-rgb)),
+                          0 0 10px rgb(var(--brand-rgb)),
+                          0 0 20px rgb(var(--brand-rgb)),
+                          0 0 40px rgb(var(--brand-rgb))
+                        `,
+                        borderColor: 'rgb(var(--brand-rgb))',
+                        color: 'rgb(var(--brand-rgb))',
+                        borderRadius: '4px',
+                        boxShadow: `
+                          0 0 5px rgb(var(--brand-rgb)),
+                          inset 0 0 5px rgb(var(--brand-rgb))
+                        `
+                      }}>R</span>
+                      <span className="vintage-neon-text-evuzia" style={{
+                        textShadow: `
+                          0 0 3px rgb(var(--brand-rgb)),
+                          0 0 6px rgb(var(--brand-rgb)),
+                          0 0 12px rgb(var(--brand-rgb)),
+                          0 0 24px rgb(var(--brand-rgb))
+                        `,
+                        color: 'rgb(var(--brand-rgb))',
+                        filter: 'brightness(0.9) contrast(1.0)'
+                      }}>EVUZIA</span>
+                    </span>
+                  </h1>
                 
               </div>
             </Link>

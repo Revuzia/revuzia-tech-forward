@@ -10,8 +10,8 @@
     --brand: 160 100% 50%; /* #00ffbf - bright cyan/green */
     --brand-rgb: 0, 255, 191;
     
-    /* Dark futuristic color scheme */
-    --background: 220 27% 8%;
+    /* Blue background color scheme matching header */
+    --background: 220 27% 12%;
     --foreground: 180 100% 95%;
 
     --card: 220 27% 12%;
@@ -97,6 +97,11 @@
 
   @media (max-width: 768px) {
     .vintage-neon-text-evuzia {
+      animation: neonFlicker 4s infinite alternate;
+    }
+    
+    .vintage-neon-hanging-r {
+      border-width: 2px !important;
       animation: none;
     }
   }
@@ -118,6 +123,35 @@
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+  }
+
+  /* Article header glow effects */
+  .article-header-glow h1,
+  .article-header-glow h2,
+  .article-header-glow h3,
+  .article-header-glow h4,
+  .article-header-glow h5,
+  .article-header-glow h6 {
+    text-shadow: 
+      0 0 10px rgba(var(--brand-rgb), 0.5),
+      0 0 20px rgba(var(--brand-rgb), 0.3),
+      0 0 30px rgba(var(--brand-rgb), 0.2);
+    animation: header-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes header-glow {
+    0% {
+      text-shadow: 
+        0 0 10px rgba(var(--brand-rgb), 0.5),
+        0 0 20px rgba(var(--brand-rgb), 0.3),
+        0 0 30px rgba(var(--brand-rgb), 0.2);
+    }
+    100% {
+      text-shadow: 
+        0 0 15px rgba(var(--brand-rgb), 0.7),
+        0 0 25px rgba(var(--brand-rgb), 0.5),
+        0 0 35px rgba(var(--brand-rgb), 0.3);
+    }
   }
 
   .dark {
@@ -226,8 +260,13 @@
     font-size: 16px !important;
   }
 
+  .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.3) !important;
+    opacity: 1 !important;
+  }
+
   .swiper-pagination-bullet-active {
-    background: #10b981 !important;
+    background: rgb(var(--brand-rgb)) !important;
   }
 
   /* Hero Section Animations */

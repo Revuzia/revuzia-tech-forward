@@ -3,6 +3,22 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock } from "lucide-react";
 
+// Real author images
+const authorImages = {
+  "Zara Velez": "/lovable-uploads/zara-velez-team-final.png",
+  "Theo Chan": "/lovable-uploads/theo-chan-team-final.png",
+  "Aria Lin": "/src/assets/author-aria.jpg",
+  "Miles Danner": "/src/assets/author-miles.jpg",
+  "Raj Malhotra": "/src/assets/author-raj.jpg",
+  "Imani Brooks": "/src/assets/author-imani.jpg"
+};
+
+const getAuthorImage = (authorName: string) => {
+  // Randomly switch between real photo and avatar for variety
+  const useRealPhoto = Math.random() > 0.3; // 70% chance of real photo
+  return useRealPhoto ? authorImages[authorName as keyof typeof authorImages] || "/placeholder.svg" : "/placeholder.svg";
+};
+
 interface Author {
   name: string;
   avatar: string;
@@ -45,18 +61,18 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               
               {/* Content - Right Side */}
               <div className="w-2/3 p-4 flex flex-col justify-between h-full">
-                <h2 className="font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-2 text-sm mb-2">
+                <h2 className="font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-sm mb-2">
                   {title}
                 </h2>
                 <p className="text-xs text-white/70 mb-3 line-clamp-2 leading-relaxed">
-                  Discover the latest innovations and expert insights in this comprehensive review that will help you make informed decisions.
+                  Discover the latest innovations and expert insights in this comprehensive review. Our team provides detailed analysis to help you make informed decisions about the newest tech products and trends in the market.
                 </p>
                 
                 {/* Author and Meta Info */}
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
                     <Avatar className="w-6 h-6 border border-brand/20">
-                      <AvatarImage src={author.avatar} alt={author.name} />
+                      <AvatarImage src={getAuthorImage(author.name)} alt={author.name} />
                       <AvatarFallback className="bg-brand/10 text-brand text-xs font-medium">
                         {author.name.split(' ').map(n => n[0]).join('')}
                       </AvatarFallback>
@@ -97,7 +113,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           
           {/* Content */}
           <div className="p-6 space-y-4 flex-1 flex flex-col">
-            <h2 className={`font-heading font-bold text-white group-hover:text-brand transition-colors duration-300 line-clamp-3 text-center flex-1 min-h-[4.5rem] ${isHero ? 'text-2xl' : 'text-lg'}`}>
+            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-3 text-center flex-1 min-h-[4.5rem] ${isHero ? 'text-2xl' : 'text-lg'}`}>
               {title}
             </h2>
             
@@ -105,7 +121,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             <div className="flex items-center justify-center gap-4 pt-2">
               <div className="flex items-center gap-3">
                 <Avatar className="w-8 h-8 border-2 border-brand/20">
-                  <AvatarImage src={author.avatar} alt={author.name} />
+                  <AvatarImage src={getAuthorImage(author.name)} alt={author.name} />
                   <AvatarFallback className="bg-brand/10 text-brand text-xs font-medium">
                     {author.name.split(' ').map(n => n[0]).join('')}
                   </AvatarFallback>

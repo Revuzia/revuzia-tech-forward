@@ -20,6 +20,8 @@ export interface Article {
 export const useArticles = (categoryName?: string, subCategoryName?: string) => {
   return useQuery({
     queryKey: ['articles', categoryName, subCategoryName],
+    staleTime: 30000, // Consider data fresh for 30 seconds
+    gcTime: 60000, // Keep in cache for 1 minute
     queryFn: async () => {
       console.log('🔍 useArticles called with:', { categoryName, subCategoryName });
       
@@ -74,6 +76,8 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
 export const useArticle = (slug: string) => {
   return useQuery({
     queryKey: ['article', slug],
+    staleTime: 60000, // Consider data fresh for 1 minute
+    gcTime: 300000, // Keep in cache for 5 minutes
     queryFn: async () => {
       console.log('🔍 useArticle called with slug:', slug);
       

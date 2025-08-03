@@ -114,18 +114,18 @@ const ArticleCarousel = ({
             ))}
           </Swiper>
           
-          {/* Custom Navigation Button - Single centered */}
-          <div className="flex justify-center mt-6">
-            <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !static !w-12 !h-12 !mt-0 !rounded-full hover:!scale-110 !transition-all !duration-300 !bg-black !text-white !shadow-lg`}
-                 style={{
-                   backgroundColor: '#000000',
-                   borderRadius: '50%',
-                   boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                   position: 'static',
-                   transform: 'none'
-                 }}
+          {/* Custom Navigation Buttons */}
+          <div className="flex justify-center items-center gap-4 mt-6">
+            {/* Previous Button */}
+            <div className={`swiper-button-prev swiper-button-prev-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !static !w-12 !h-12 !mt-0 !rounded-full hover:!scale-110 !transition-all !duration-300 !bg-brand !text-black !shadow-lg !shadow-brand/20 cursor-pointer flex items-center justify-center`}
+                 aria-label="Previous article">
+              <div className="!text-black !text-xl !font-black">←</div>
+            </div>
+            
+            {/* Next Button */}
+            <div className={`swiper-button-next swiper-button-next-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')} !static !w-12 !h-12 !mt-0 !rounded-full hover:!scale-110 !transition-all !duration-300 !bg-brand !text-black !shadow-lg !shadow-brand/20 cursor-pointer flex items-center justify-center`}
                  aria-label="Next article">
-              <div className="!text-white !text-2xl !font-black" style={{fontWeight: '900'}}>→</div>
+              <div className="!text-black !text-xl !font-black">→</div>
             </div>
           </div>
         </div>
