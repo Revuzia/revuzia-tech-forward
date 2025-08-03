@@ -33,50 +33,79 @@ const Terms = () => {
             </p>
           </div>
           
-          <div className="space-y-12 text-foreground text-center">
+          <div className="space-y-12 text-foreground text-left">
             <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
               <h2 className="text-3xl font-bold text-brand mb-6">
-                Acceptance of Terms
+                Agreement to Terms
               </h2>
               <p className="text-lg leading-relaxed">
-                By accessing and using Revuzia, you accept and agree to be bound by these Terms & Conditions. If you disagree with any part, please do not use our website.
+                By accessing and using Revuzia, you agree to be bound by these Terms & Conditions and our Privacy Policy. If you disagree with any part of these terms, please do not use our service.
               </p>
             </section>
 
             <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
               <h2 className="text-3xl font-bold text-brand mb-6">
-                Use License
+                Description of Service
               </h2>
               <p className="text-lg leading-relaxed">
-                We grant you a personal, non-transferable license to use Revuzia for personal, non-commercial purposes. You may not redistribute our content without permission.
+                Revuzia is a technology journalism platform providing news, reviews, buying guides, and analysis of consumer electronics and emerging technologies. We offer both free and premium content to our users.
               </p>
             </section>
 
             <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
               <h2 className="text-3xl font-bold text-brand mb-6">
-                User Conduct
+                Acceptable Use Policy
               </h2>
+              
+              <h3 className="text-xl font-semibold text-foreground mb-4">You may use Revuzia to:</h3>
+              <ul className="list-disc list-inside space-y-2 text-foreground/80 mb-6">
+                <li>Read and share our content for personal, non-commercial use</li>
+                <li>Participate in discussions and comment on articles</li>
+                <li>Subscribe to newsletters and notifications</li>
+                <li>Create user accounts and manage your preferences</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-foreground mb-4">You may not:</h3>
+              <ul className="list-disc list-inside space-y-2 text-foreground/80">
+                <li>Copy, redistribute, or republish our content without permission</li>
+                <li>Use automated systems (bots, scrapers) to access our content</li>
+                <li>Attempt to hack, disrupt, or damage our website or services</li>
+                <li>Post spam, malicious content, or engage in harassment</li>
+                <li>Impersonate other users or provide false information</li>
+                <li>Use our service for any illegal or unauthorized purpose</li>
+              </ul>
+            </section>
+
+            <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
+              <h2 className="text-3xl font-bold text-brand mb-6">
+                Intellectual Property Rights
+              </h2>
+              
+              <h3 className="text-xl font-semibold text-foreground mb-4">Our content:</h3>
+              <p className="text-lg leading-relaxed mb-6">
+                All content on Revuzia, including articles, reviews, images, logos, and design elements, is protected by copyright and other intellectual property laws. We own or have licensed rights to all content on our platform.
+              </p>
+
+              <h3 className="text-xl font-semibold text-foreground mb-4">User-generated content:</h3>
+              <p className="text-lg leading-relaxed mb-6">
+                When you submit comments, reviews, or other content to Revuzia, you grant us a non-exclusive, royalty-free license to use, modify, and display that content in connection with our service.
+              </p>
+
+              <h3 className="text-xl font-semibold text-foreground mb-4">Respect for others' rights:</h3>
               <p className="text-lg leading-relaxed">
-                Users must not post harmful, offensive, or illegal content. We reserve the right to remove content and suspend accounts that violate our community standards.
+                We respect intellectual property rights and expect our users to do the same. If you believe your copyrighted work has been used without permission, please contact us at <a href="mailto:support@revuzia.com" className="text-brand hover:underline">support@revuzia.com</a>.
               </p>
             </section>
 
             <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
               <h2 className="text-3xl font-bold text-brand mb-6">
-                Disclaimer
+                Contact Information
               </h2>
-              <p className="text-lg leading-relaxed">
-                Our reviews and recommendations are opinions based on testing. We're not liable for purchasing decisions made based on our content. Always verify product specifications independently.
-              </p>
-            </section>
-
-            <section className="bg-card/50 rounded-2xl p-8 border border-border/50">
-              <h2 className="text-3xl font-bold text-brand mb-6">
-                Contact Us
-              </h2>
-              <p className="text-lg leading-relaxed">
-                Questions about these terms? Contact us at <a href="mailto:legal@revuzia.com" className="text-brand hover:underline">legal@revuzia.com</a>
-              </p>
+              <p className="text-lg leading-relaxed mb-4">For questions about these Terms & Conditions:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground/80">
+                <li>Email: <a href="mailto:support@revuzia.com" className="text-brand hover:underline">support@revuzia.com</a></li>
+                <li>Website: Contact form at revuzia.com/contact</li>
+              </ul>
             </section>
 
             <section className="text-center py-8 border-t border-border/50">

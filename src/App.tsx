@@ -12,6 +12,7 @@ import BuyingGuides from "./pages/BuyingGuides";
 import VideoReviews from "./pages/VideoReviews";
 import Search from "./pages/Search";
 import Team from "./pages/Team";
+import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Affiliate from "./pages/Affiliate";
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/video-reviews" element={<VideoReviews />} />
           <Route path="/search" element={<Search />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/affiliate" element={<Affiliate />} />
