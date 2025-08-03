@@ -230,6 +230,25 @@
     background-color: rgb(var(--brand-rgb));
   }
 
+  /* Article content styling */
+  .article-content p {
+    @apply text-foreground/90 leading-relaxed mb-4;
+  }
+
+  .article-content h2 {
+    @apply text-2xl font-bold text-brand mb-6 mt-8;
+    text-shadow: 0 0 10px hsl(var(--brand) / 0.5), 0 0 20px hsl(var(--brand) / 0.3), 0 0 30px hsl(var(--brand) / 0.2);
+  }
+
+  .article-content img {
+    width: 50% !important;
+    max-width: 600px !important;
+    height: auto !important;
+    margin: 20px auto !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+
   .border-brand {
     border-color: rgb(var(--brand-rgb));
   }
