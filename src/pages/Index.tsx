@@ -15,7 +15,14 @@ import authorAria from "@/assets/author-aria-avatar.jpg";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
 
 const Index = () => {
-  const { data: dbArticles } = useArticles();
+  const { data: techNewsArticles } = useArticles("tech-news");
+  const { data: electrifiedArticles } = useArticles("get-electrified");
+  
+  // Combine tech-news and get-electrified articles for the "Latest Tech and Electronics" section
+  const techAndElectrifiedArticles = [
+    ...(techNewsArticles || []),
+    ...(electrifiedArticles || [])
+  ];
   
   const featuredArticles = [
     {
@@ -279,31 +286,31 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto">
             {/* Left side - 2 large featured articles stacked */}
             <div className="lg:col-span-1 space-y-4">
-              {dbArticles && dbArticles.length > 0 ? (
+              {techAndElectrifiedArticles && techAndElectrifiedArticles.length > 0 ? (
                 <>
                   <ArticleCard 
-                    title={dbArticles[0].title}
-                    image={dbArticles[0].featured_image_url}
+                    title={techAndElectrifiedArticles[0].title}
+                    image={techAndElectrifiedArticles[0].featured_image_url}
                     author={{
-                      name: dbArticles[0].author_name,
+                      name: techAndElectrifiedArticles[0].author_name,
                       avatar: "",
                     }}
-                    readTime={`${Math.ceil(dbArticles[0].content.length / 1000)} min read`}
-                    category={dbArticles[0].category_name}
-                    slug={dbArticles[0].slug}
+                    readTime={`${Math.ceil(techAndElectrifiedArticles[0].content.length / 1000)} min read`}
+                    category={techAndElectrifiedArticles[0].category_name}
+                    slug={techAndElectrifiedArticles[0].slug}
                     isHero={true} 
                   />
-                  {dbArticles[1] && (
+                  {techAndElectrifiedArticles[1] && (
                     <ArticleCard 
-                      title={dbArticles[1].title}
-                      image={dbArticles[1].featured_image_url}
+                      title={techAndElectrifiedArticles[1].title}
+                      image={techAndElectrifiedArticles[1].featured_image_url}
                       author={{
-                        name: dbArticles[1].author_name,
+                        name: techAndElectrifiedArticles[1].author_name,
                         avatar: "",
                       }}
-                      readTime={`${Math.ceil(dbArticles[1].content.length / 1000)} min read`}
-                      category={dbArticles[1].category_name}
-                      slug={dbArticles[1].slug}
+                      readTime={`${Math.ceil(techAndElectrifiedArticles[1].content.length / 1000)} min read`}
+                      category={techAndElectrifiedArticles[1].category_name}
+                      slug={techAndElectrifiedArticles[1].slug}
                       isHero={true} 
                     />
                   )}
@@ -323,8 +330,8 @@ const Index = () => {
             </div>
             {/* Right side - 4 horizontal rectangles */}
             <div className="lg:col-span-1 grid grid-rows-4 gap-3 h-full">
-              {dbArticles && dbArticles.length > 2 ? (
-                dbArticles.slice(2, 6).map((article, index) => (
+              {techAndElectrifiedArticles && techAndElectrifiedArticles.length > 2 ? (
+                techAndElectrifiedArticles.slice(2, 6).map((article, index) => (
                   <ArticleCard 
                     key={`db-${index}`}
                     title={article.title}
