@@ -35,16 +35,16 @@ const ArticleCarousel = ({
   viewAllText = "View All" 
 }: ArticleCarouselProps) => {
   return (
-    <section className="mb-16" aria-labelledby={`${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-heading`}>
+    <section className="mb-8" aria-labelledby={`${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-heading`}>
       <div className="relative inline-block w-full text-center mb-8">
         <h2 
           id={`${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-heading`}
           className="text-5xl md:text-6xl font-display font-bold text-center"
         >
-          <span className={`relative inline-block ${title === "Watch Review Videos" ? "text-accent" : "text-white"} drop-shadow-2xl`}>
+          <span className="relative inline-block text-white drop-shadow-2xl">
             {title}
             {/* Glow effect layers */}
-            <span className={`absolute inset-0 ${title === "Watch Review Videos" ? "text-accent" : "text-white"} opacity-60 blur-sm animate-pulse`}>
+            <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
               {title}
             </span>
             <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
