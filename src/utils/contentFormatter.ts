@@ -13,8 +13,8 @@ export const formatArticleContent = (content: string): string => {
   }
   
   try {
-    // Process the markdown content with marked
-    const markedResult = marked(content);
+    // Process the markdown content with marked (synchronous version)
+    const markedResult = marked.parse(content);
     let processedContent = typeof markedResult === 'string' ? markedResult : String(markedResult);
     
     // Post-process the HTML to add custom styling
