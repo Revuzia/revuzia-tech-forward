@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import ArticleCarousel from "@/components/ArticleCarousel";
 import BackToTop from "@/components/BackToTop";
+import { useArticles } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
@@ -14,6 +15,8 @@ import authorAria from "@/assets/author-aria-avatar.jpg";
 import heroTechBg from "@/assets/hero-tech-bg.jpg";
 
 const Index = () => {
+  const { data: dbArticles } = useArticles();
+  
   const featuredArticles = [
     {
       title: "Apple's Student Winners and Google's AI Surge Signal a New Era—But the Hardware Market Tells a Different Story",
@@ -276,25 +279,78 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto">
             {/* Left side - 2 large featured articles stacked */}
             <div className="lg:col-span-1 space-y-4">
-              <ArticleCard 
-                {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
-                isHero={true} 
-              />
-              <ArticleCard 
-                {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
-                isHero={true} 
-              />
+              {dbArticles && dbArticles.length > 0 ? (
+                <>
+                  <ArticleCard 
+                    title={dbArticles[0].title}
+                    image={dbArticles[0].featured_image_url}
+                    author={{
+                      name: dbArticles[0].author_name,
+                      avatar: "",
+                    }}
+                    readTime={`${Math.ceil(dbArticles[0].content.length / 1000)} min read`}
+                    category={dbArticles[0].category_name}
+                    slug={dbArticles[0].slug}
+                    isHero={true} 
+                  />
+                  {dbArticles[1] && (
+                    <ArticleCard 
+                      title={dbArticles[1].title}
+                      image={dbArticles[1].featured_image_url}
+                      author={{
+                        name: dbArticles[1].author_name,
+                        avatar: "",
+                      }}
+                      readTime={`${Math.ceil(dbArticles[1].content.length / 1000)} min read`}
+                      category={dbArticles[1].category_name}
+                      slug={dbArticles[1].slug}
+                      isHero={true} 
+                    />
+                  )}
+                </>
+              ) : (
+                <>
+                  <ArticleCard 
+                    {...featuredArticles.filter(article => article.category === "Tech News")[0]} 
+                    isHero={true} 
+                  />
+                  <ArticleCard 
+                    {...featuredArticles.filter(article => article.category === "Get Electrified")[0]} 
+                    isHero={true} 
+                  />
+                </>
+              )}
             </div>
             {/* Right side - 4 horizontal rectangles */}
             <div className="lg:col-span-1 grid grid-rows-4 gap-3 h-full">
-              {/* 2 more Tech News articles */}
-              {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
-                <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
-              ))}
-              {/* 2 more Get Electrified articles */}
-              {featuredArticles.filter(article => article.category === "Get Electrified").slice(1, 3).map((article, index) => (
-                <ArticleCard key={`electrified-${index}`} {...article} isHorizontal={true} />
-              ))}
+              {dbArticles && dbArticles.length > 2 ? (
+                dbArticles.slice(2, 6).map((article, index) => (
+                  <ArticleCard 
+                    key={`db-${index}`}
+                    title={article.title}
+                    image={article.featured_image_url}
+                    author={{
+                      name: article.author_name,
+                      avatar: "",
+                    }}
+                    readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                    category={article.category_name}
+                    slug={article.slug}
+                    isHorizontal={true} 
+                  />
+                ))
+              ) : (
+                <>
+                  {/* 2 more Tech News articles */}
+                  {featuredArticles.filter(article => article.category === "Tech News").slice(1, 3).map((article, index) => (
+                    <ArticleCard key={`tech-${index}`} {...article} isHorizontal={true} />
+                  ))}
+                  {/* 2 more Get Electrified articles */}
+                  {featuredArticles.filter(article => article.category === "Get Electrified").slice(1, 3).map((article, index) => (
+                    <ArticleCard key={`electrified-${index}`} {...article} isHorizontal={true} />
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </section>

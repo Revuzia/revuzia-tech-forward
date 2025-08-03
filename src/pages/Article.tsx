@@ -7,6 +7,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useArticle, incrementArticleViews } from "@/hooks/useArticles";
 import { ArrowLeft, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { formatArticleContent } from "@/utils/contentFormatter";
 
 const Article = () => {
   const { category, slug } = useParams<{ category: string; slug: string }>();
@@ -146,16 +147,21 @@ const Article = () => {
 
           {/* Article Content */}
           <div 
-            className="prose prose-lg max-w-none
-              prose-headings:text-foreground prose-p:text-foreground 
+            className="font-['Poppins',sans-serif] text-foreground leading-relaxed space-y-6
+              prose prose-lg max-w-none
+              prose-headings:text-[#10b981] prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-8
+              prose-h2:text-[#10b981] prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8
+              prose-p:text-foreground prose-p:mb-6 prose-p:leading-relaxed
               prose-strong:text-foreground prose-em:text-foreground
               prose-a:text-primary prose-a:no-underline hover:prose-a:underline
               prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground
               prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-muted prose-pre:border
-              prose-img:rounded-lg prose-img:shadow-md
+              prose-img:rounded-lg prose-img:shadow-md prose-img:max-w-[60%] prose-img:mx-auto
               dark:prose-invert"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ 
+              __html: formatArticleContent(article.content)
+            }}
           />
         </article>
       </main>

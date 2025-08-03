@@ -227,7 +227,7 @@
   }
 
   .swiper-pagination-bullet-active {
-    background: rgb(var(--brand-rgb)) !important;
+    background: #10b981 !important;
   }
 
   /* Hero Section Animations */
