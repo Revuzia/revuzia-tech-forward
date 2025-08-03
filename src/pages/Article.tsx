@@ -1,0 +1,168 @@
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { useArticle, incrementArticleViews } from "@/hooks/useArticles";
+import { ArrowLeft, Eye } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+const Article = () => {
+  const { category, slug } = useParams<{ category: string; slug: string }>();
+  const { data: article, isLoading, error } = useArticle(slug || "");
+  const { toast } = useToast();
+  const viewIncrementedRef = useRef(false);
+
+  useEffect(() => {
+    if (article && !viewIncrementedRef.current) {
+      const timer = setTimeout(() => {
+        incrementArticleViews(article.slug);
+        viewIncrementedRef.current = true;
+      }, 3000); // 3 second delay to ensure genuine view
+
+      return () => clearTimeout(timer);
+    }
+  }, [article]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="animate-pulse">
+            <div className="h-8 bg-muted rounded w-3/4 mb-4"></div>
+            <div className="h-64 bg-muted rounded mb-6"></div>
+            <div className="space-y-3">
+              <div className="h-4 bg-muted rounded w-full"></div>
+              <div className="h-4 bg-muted rounded w-5/6"></div>
+              <div className="h-4 bg-muted rounded w-4/6"></div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !article) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-foreground mb-4">Article Not Found</h1>
+            <p className="text-muted-foreground mb-6">
+              The article you're looking for doesn't exist or has been removed.
+            </p>
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-2 text-primary hover:underline"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="container mx-auto px-4 py-8">
+        {/* Back Navigation */}
+        <div className="mb-6">
+          <Link 
+            to={category ? `/${category}` : "/"} 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to {category ? category.replace('-', ' ') : 'Home'}
+          </Link>
+        </div>
+
+        {/* Article Header */}
+        <article className="max-w-4xl mx-auto">
+          <header className="mb-8">
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <Badge variant="secondary">{article.category_name}</Badge>
+              {article.subCategory_name && (
+                <Badge variant="outline">{article.subCategory_name}</Badge>
+              )}
+            </div>
+            
+            <h1 className="text-4xl font-bold text-foreground mb-6 leading-tight">
+              {article.title}
+            </h1>
+
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <Avatar className="w-10 h-10">
+                  <AvatarImage src="/placeholder.svg" alt={article.author_name} />
+                  <AvatarFallback>
+                    {article.author_name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="font-medium text-foreground">{article.author_name}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {new Date(article.created_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-1 text-muted-foreground">
+                <Eye className="w-4 h-4" />
+                <span className="text-sm">{article.view_count} views</span>
+              </div>
+            </div>
+
+            {article.excerpt && (
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                {article.excerpt}
+              </p>
+            )}
+          </header>
+
+          {/* Featured Image */}
+          {article.featured_image_url && (
+            <div className="mb-8">
+              <img 
+                src={article.featured_image_url} 
+                alt={article.title}
+                className="w-full h-auto rounded-lg shadow-lg"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          {/* Article Content */}
+          <div 
+            className="prose prose-lg max-w-none
+              prose-headings:text-foreground prose-p:text-foreground 
+              prose-strong:text-foreground prose-em:text-foreground
+              prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+              prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground
+              prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+              prose-pre:bg-muted prose-pre:border
+              prose-img:rounded-lg prose-img:shadow-md
+              dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
+        </article>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Article;
