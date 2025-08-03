@@ -251,7 +251,7 @@ const Index = () => {
           
           {/* Radiating Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link to="/product-reviews">
+            <Link to="/buying-guides">
               <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
                 Explore Latest Reviews
               </Button>
