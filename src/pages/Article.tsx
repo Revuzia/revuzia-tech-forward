@@ -96,14 +96,36 @@ const Article = () => {
               )}
             </div>
             
-            <h1 className="text-4xl font-bold text-foreground mb-6 leading-tight">
-              {article.title}
+            <h1 className="text-3xl md:text-4xl font-bold text-brand mb-6 leading-tight font-['Poppins',sans-serif] relative">
+              <span className="relative inline-block">
+                {article.title}
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-brand opacity-60 blur-sm animate-pulse">
+                  {article.title}
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  {article.title}
+                </span>
+                <span className="absolute inset-0 text-brand opacity-20 blur-lg animate-pulse">
+                  {article.title}
+                </span>
+              </span>
             </h1>
 
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center gap-3">
                 <Avatar className="w-10 h-10">
-                  <AvatarImage src="/placeholder.svg" alt={article.author_name} />
+                  <AvatarImage src={(() => {
+                    const authorImages = {
+                      "Zara Velez": "/lovable-uploads/zara-velez-team-final.png",
+                      "Theo Chan": "/lovable-uploads/theo-chan-team-final.png",
+                      "Aria Lin": "/src/assets/author-aria.jpg",
+                      "Miles Danner": "/src/assets/author-miles.jpg", 
+                      "Raj Malhotra": "/src/assets/author-raj.jpg",
+                      "Imani Brooks": "/src/assets/author-imani.jpg"
+                    };
+                    return authorImages[article.author_name as keyof typeof authorImages] || "/placeholder.svg";
+                  })()} alt={article.author_name} />
                   <AvatarFallback>
                     {article.author_name.split(' ').map(n => n[0]).join('').toUpperCase()}
                   </AvatarFallback>

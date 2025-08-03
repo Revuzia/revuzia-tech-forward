@@ -261,12 +261,17 @@
   }
 
   .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, 0.3) !important;
-    opacity: 1 !important;
+    background: rgb(var(--brand-rgb)) !important;
+    opacity: 0.4 !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
   }
 
   .swiper-pagination-bullet-active {
     background: rgb(var(--brand-rgb)) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
   }
 
   /* Hero Section Animations */

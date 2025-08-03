@@ -3,20 +3,19 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock } from "lucide-react";
 
-// Real author images
+// Real author images from Meet Our Team section
 const authorImages = {
   "Zara Velez": "/lovable-uploads/zara-velez-team-final.png",
   "Theo Chan": "/lovable-uploads/theo-chan-team-final.png",
   "Aria Lin": "/src/assets/author-aria.jpg",
-  "Miles Danner": "/src/assets/author-miles.jpg",
+  "Miles Danner": "/src/assets/author-miles.jpg", 
   "Raj Malhotra": "/src/assets/author-raj.jpg",
   "Imani Brooks": "/src/assets/author-imani.jpg"
 };
 
 const getAuthorImage = (authorName: string) => {
-  // Randomly switch between real photo and avatar for variety
-  const useRealPhoto = Math.random() > 0.3; // 70% chance of real photo
-  return useRealPhoto ? authorImages[authorName as keyof typeof authorImages] || "/placeholder.svg" : "/placeholder.svg";
+  // Always use the author's team photo consistently
+  return authorImages[authorName as keyof typeof authorImages] || "/placeholder.svg";
 };
 
 interface Author {
@@ -64,7 +63,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
                 <h2 className="font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-sm mb-2">
                   {title}
                 </h2>
-                <p className="text-xs text-white/70 mb-3 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-white/70 mb-3 leading-relaxed">
                   Discover the latest innovations and expert insights in this comprehensive review. Our team provides detailed analysis to help you make informed decisions about the newest tech products and trends in the market.
                 </p>
                 

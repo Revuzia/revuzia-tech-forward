@@ -101,15 +101,28 @@ const Footer = () => {
           </div>
 
           {/* CONNECT Section */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center space-y-4">
             <h3 className="text-xl font-poppins font-bold text-brand mb-6">CONNECT</h3>
             
-            {/* Newsletter Signup */}
-            <div className="w-full max-w-sm mb-6">
+            {/* 1. Follow us on X - First */}
+            <a 
+              href="https://twitter.com/revuzia45555"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black w-full max-w-sm"
+            >
+              <span>Follow us on</span>
+              <div className="bg-black rounded-full p-1">
+                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
+              </div>
+            </a>
+
+            {/* 2. Newsletter Signup - Second */}
+            <div className="w-full max-w-sm">
               {!showEmailInput ? (
                 <Button 
                   onClick={handleSubscribeClick}
-                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105 font-poppins text-base"
+                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-3 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-base"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   SUBSCRIBE
@@ -135,17 +148,13 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Social Links */}
-             <a 
-               href="https://twitter.com/revuzia45555"
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black"
-             >
-              <span>Follow us on</span>
-              <div className="bg-black rounded-full p-1">
-                <X className="w-4 h-4 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
+            {/* 3. Email Support - Third */}
+            <a 
+              href="mailto:support@revuzia.com"
+              className="inline-flex items-center justify-center space-x-3 text-white text-base hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-6 py-3 hover:bg-brand hover:text-black w-full max-w-sm"
+            >
+              <Mail className="w-4 h-4" />
+              <span>Email us @ support@revuzia.com</span>
             </a>
           </div>
         </div>
