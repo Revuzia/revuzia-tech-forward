@@ -3,19 +3,49 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock } from "lucide-react";
 
-// Real author images from Meet Our Team section
+// Dynamic Author Image System with alternating images
 const authorImages = {
-  "Zara Velez": "/lovable-uploads/zara-velez-team-final.png",
-  "Theo Chan": "/lovable-uploads/theo-chan-team-final.png",
-  "Aria Lin": "/src/assets/author-aria.jpg",
-  "Miles Danner": "/src/assets/author-miles.jpg", 
-  "Raj Malhotra": "/src/assets/author-raj.jpg",
-  "Imani Brooks": "/src/assets/author-imani.jpg"
+  "Zara Velez": {
+    avatar: "/lovable-uploads/zara-velez-team-final.png",
+    original: "/src/assets/author-zara.jpg"
+  },
+  "Theo Chan": {
+    avatar: "/lovable-uploads/theo-chan-team-final.png", 
+    original: "/src/assets/author-theo.jpg"
+  },
+  "Aria Lin": {
+    avatar: "/src/assets/author-aria-avatar.jpg",
+    original: "/src/assets/author-aria.jpg"
+  },
+  "Miles Danner": {
+    avatar: "/src/assets/author-miles-avatar-new.jpg",
+    original: "/src/assets/author-miles.jpg"
+  },
+  "Raj Malhotra": {
+    avatar: "/src/assets/author-raj-avatar-new.jpg",
+    original: "/src/assets/author-raj.jpg"
+  },
+  "Imani Brooks": {
+    avatar: "/src/assets/author-imani-avatar-new.jpg",
+    original: "/src/assets/author-imani.jpg"
+  }
 };
 
-const getAuthorImage = (authorName: string) => {
-  // Always use the author's team photo consistently
-  return authorImages[authorName as keyof typeof authorImages] || "/placeholder.svg";
+// Counter for alternating images
+let useAvatar = true;
+
+const getAuthorImage = (authorName: string, preferAvatar?: boolean) => {
+  const images = authorImages[authorName as keyof typeof authorImages];
+  if (!images) return "/placeholder.svg";
+  
+  if (preferAvatar !== undefined) {
+    return preferAvatar ? images.avatar : images.original;
+  }
+  
+  // Alternating logic for article cards
+  const image = useAvatar ? images.avatar : images.original;
+  useAvatar = !useAvatar; // Alternate for next call
+  return image;
 };
 
 interface Author {

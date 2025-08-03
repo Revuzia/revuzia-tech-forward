@@ -39,15 +39,15 @@ const ImaniBrooks = () => {
       
       <main className="container mx-auto px-4 py-16">
         {/* Author Hero Section */}
-        <div className="text-center mb-16">
+        <section className="author-hero text-center mb-16">
           <div 
             id="avatar-container"
-            className="relative inline-block mb-8"
+            className="author-avatar relative inline-block mb-8"
           >
             <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-brand/30 shadow-glow-primary">
               <img 
                 src={authorImaniAvatar} 
-                alt="Imani Brooks Avatar" 
+                alt="Imani Brooks" 
                 className="w-full h-full object-cover transition-transform duration-300 ease-out"
                 style={{
                   transform: `translate(${avatarPosition.x}px, ${avatarPosition.y}px) scale(1.05)`,
@@ -59,35 +59,47 @@ const ImaniBrooks = () => {
             <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-accent/30 rounded-full animate-float-2"></div>
           </div>
           
-          <h1 className="text-5xl font-bold text-brand mb-4">Imani Brooks</h1>
-          <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
-            Consumer Tech Reviews & Guides
-          </p>
-          
-          <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-white/90 leading-relaxed text-lg">
-              Hey! I'm Imani, and I'm probably a lot like you – I want tech that actually works for real people living real lives. I come from a consumer advocacy background, which means I'm always asking the questions that matter most: "Is this actually worth my money?" and "Will this make my life better or just more complicated?" I don't care how impressive the specs look on paper if the user experience is frustrating. I care about whether my mom could figure out how to use it, whether it's accessible for people with different needs, and whether you'll still be happy with your purchase six months from now.
+          <div className="author-info">
+            <h1 className="text-5xl font-bold text-brand mb-4">Imani Brooks</h1>
+            <p className="author-title text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
+              Consumer Advocacy Editor
             </p>
+            
+            <div className="max-w-2xl mx-auto mb-8">
+              <p className="author-bio text-white/90 leading-relaxed text-lg">
+                Hey! I'm Imani, and I'm probably a lot like you – I want tech that actually works for real people living real lives. I come from a consumer advocacy background, which means I'm always asking the questions that matter most: "Is this actually worth my money?" and "Will this make my life better or just more complicated?" I don't care how impressive the specs look on paper if the user experience is frustrating. I care about whether my mom could figure out how to use it, whether it's accessible for people with different needs, and whether you'll still be happy with your purchase six months from now.
+              </p>
+            </div>
+            
+            <div className="author-stats flex justify-center gap-6 mb-8 text-sm">
+              <span className="text-brand font-semibold">{imaniArticles.length} Articles</span>
+              <span className="text-foreground/70">Revuzia Author</span>
+              <span className="text-foreground/70">Consumer Advocacy</span>
+            </div>
+            
+            {/* Social Links */}
+            <div className="flex justify-center gap-4">
+              <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
+                <X className="w-4 h-4 mr-2" />
+                Follow
+              </Button>
+              <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
+                <Mail className="w-4 h-4 mr-2" />
+                Contact
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Author Content Section */}
+        <section className="author-content">
+          <div className="content-header text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand mb-4">Articles by Imani Brooks</h2>
+            <p className="text-foreground/70">Latest articles and content</p>
           </div>
           
-          {/* Social Links */}
-          <div className="flex justify-center gap-4">
-            <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <X className="w-4 h-4 mr-2" />
-              Follow
-            </Button>
-            <Button variant="outline" size="sm" className="border-brand/30 text-brand hover:bg-brand/10">
-              <Mail className="w-4 h-4 mr-2" />
-              Contact
-            </Button>
-          </div>
-        </div>
-
-        {/* Author's Articles */}
-        <section>
-          <h2 className="text-3xl font-bold text-brand text-center mb-12">Latest Articles by Imani</h2>
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="articles-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
               {[...Array(4)].map((_, index) => (
                 <div key={index} className="bg-card rounded-lg p-4 animate-pulse">
                   <div className="bg-muted h-48 rounded mb-4"></div>
@@ -97,7 +109,7 @@ const ImaniBrooks = () => {
               ))}
             </div>
           ) : imaniArticles.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="articles-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
               {imaniArticles.map((article, index) => (
                 <ArticleCard 
                   key={article.id}

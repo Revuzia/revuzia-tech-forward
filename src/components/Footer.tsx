@@ -89,14 +89,23 @@ const Footer = () => {
                  </Link>
                </li>
                <li>
-                 <Link 
-                   to="/affiliate" 
-                   className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
-                   onClick={() => window.scrollTo(0, 0)}
-                 >
-                  Affiliate Disclosure
-                </Link>
-              </li>
+                  <Link 
+                    to="/affiliate" 
+                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                   Affiliate Disclosure
+                 </Link>
+               </li>
+               <li>
+                  <Link 
+                    to="/contact" 
+                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                   Contact Us
+                 </Link>
+               </li>
             </ul>
           </div>
 
