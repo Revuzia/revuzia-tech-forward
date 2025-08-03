@@ -375,8 +375,8 @@ const Index = () => {
         </section>
 
         {/* Explore Latest Reviews Carousel */}
-        <section id="explore-latest-reviews">
-          <ArticleCarousel
+        <div id="explore-latest-reviews"></div>
+        <ArticleCarousel
           title="Explore Latest Reviews"
           articles={reviewArticles.length > 0 ? reviewArticles.map(article => ({
             title: article.title,
@@ -392,7 +392,8 @@ const Index = () => {
           viewAllLink="/product-reviews"
           viewAllText="View All Reviews"
         />
-        </section>
+
+        {/* Watch Review Videos Carousel */}
         <ArticleCarousel
           title="Watch Review Videos"
           articles={[
