@@ -260,12 +260,16 @@ const Index = () => {
             >
               Explore Latest Reviews
             </Button>
-            <Link to="/video-reviews">
-              <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg">
-                <Play className="w-5 h-5 mr-2" />
-                Watch Review Videos
-              </Button>
-            </Link>
+            <Button 
+              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg"
+              onClick={() => {
+                const element = document.getElementById('video-reviews-section');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <Play className="w-5 h-5 mr-2" />
+              Watch Review Videos
+            </Button>
           </div>
           
           {/* Tagline */}
@@ -394,6 +398,7 @@ const Index = () => {
         />
 
         {/* Watch Review Videos Carousel */}
+        <div id="video-reviews-section"></div>
         <ArticleCarousel
           title="Watch Review Videos"
           articles={[
