@@ -10,6 +10,18 @@ import { ArrowLeft, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { formatArticleContent } from "@/utils/contentFormatter";
 
+// Import author images
+import authorAriaAvatar from "@/assets/author-aria-avatar.jpg";
+import authorAria from "@/assets/author-aria.jpg";
+import authorImaniAvatar from "@/assets/author-imani-avatar-new.jpg";
+import authorImani from "@/assets/author-imani.jpg";
+import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
+import authorMiles from "@/assets/author-miles.jpg";
+import authorRajAvatar from "@/assets/author-raj-avatar-new.jpg";
+import authorRaj from "@/assets/author-raj.jpg";
+import authorTheoAvatar from "@/assets/author-theo-avatar-new.jpg";
+import authorZaraAvatar from "@/assets/author-zara-avatar-new.jpg";
+
 const Article = () => {
   const { category, slug } = useParams<{ category: string; slug: string }>();
   const { data: article, isLoading, error } = useArticle(slug || "");
@@ -173,27 +185,27 @@ const Article = () => {
                     const authorImages = {
                       "Zara Velez": {
                         main: "/lovable-uploads/zara-velez-team-final.png",
-                        avatar: "/src/assets/author-zara-avatar-new.jpg"
+                        avatar: authorZaraAvatar
                       },
                       "Theo Chan": {
                         main: "/lovable-uploads/theo-chan-team-final.png", 
-                        avatar: "/src/assets/author-theo-avatar-new.jpg"
+                        avatar: authorTheoAvatar
                       },
                       "Aria Lin": {
-                        main: "/src/assets/author-aria.jpg",
-                        avatar: "/src/assets/author-aria-avatar.jpg"
+                        main: authorAria,
+                        avatar: authorAriaAvatar
                       },
                       "Miles Danner": {
-                        main: "/src/assets/author-miles.jpg",
-                        avatar: "/src/assets/author-miles-avatar-new.jpg"
+                        main: authorMiles,
+                        avatar: authorMilesAvatar
                       },
                       "Raj Malhotra": {
-                        main: "/src/assets/author-raj.jpg",
-                        avatar: "/src/assets/author-raj-avatar-new.jpg"
+                        main: authorRaj,
+                        avatar: authorRajAvatar
                       },
                       "Imani Brooks": {
-                        main: "/src/assets/author-imani.jpg",
-                        avatar: "/src/assets/author-imani-avatar-new.jpg"
+                        main: authorImani,
+                        avatar: authorImaniAvatar
                       }
                     };
                     const authorData = authorImages[article.author_name as keyof typeof authorImages];
