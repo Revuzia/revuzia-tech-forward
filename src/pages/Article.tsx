@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -72,6 +73,59 @@ const Article = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{article.title} | Revuzia</title>
+        <meta name="description" content={article.excerpt || `Read ${article.title} on Revuzia - Your trusted source for tech news and reviews.`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${article.title} | Revuzia`} />
+        <meta property="og:description" content={article.excerpt || `Read ${article.title} on Revuzia - Your trusted source for tech news and reviews.`} />
+        <meta property="og:image" content={article.featured_image_url || "https://revuzia.com/favicon.ico"} />
+        <meta property="og:url" content={`https://revuzia.com/article/${article.slug}`} />
+        <meta property="og:site_name" content="Revuzia" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${article.title} | Revuzia`} />
+        <meta name="twitter:description" content={article.excerpt || `Read ${article.title} on Revuzia - Your trusted source for tech news and reviews.`} />
+        <meta name="twitter:image" content={article.featured_image_url || "https://revuzia.com/favicon.ico"} />
+        
+        {/* Article specific */}
+        <meta property="article:author" content={article.author_name} />
+        <meta property="article:published_time" content={article.created_at} />
+        <meta property="article:section" content={article.category_name} />
+        {article.subCategory_name && <meta property="article:tag" content={article.subCategory_name} />}
+        
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": article.title,
+            "description": article.excerpt || `Read ${article.title} on Revuzia`,
+            "image": article.featured_image_url,
+            "author": {
+              "@type": "Person",
+              "name": article.author_name
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Revuzia",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://revuzia.com/favicon.ico"
+              }
+            },
+            "datePublished": article.created_at,
+            "dateModified": article.created_at,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://revuzia.com/article/${article.slug}`
+            }
+          })}
+        </script>
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-8">
