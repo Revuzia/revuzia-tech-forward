@@ -5,7 +5,7 @@ import BackToTop from "@/components/BackToTop";
 import { useArticles } from "@/hooks/useArticles";
 
 const GamingPCs = () => {
-  const { data: articles, isLoading, error } = useArticles("Product Reviews", "Gaming & PCs");
+  const { data: articles, isLoading, error } = useArticles("product-reviews", "Gaming & PCs");
 
   if (isLoading) {
     return (
