@@ -114,14 +114,14 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center">
+            <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 flex-1 justify-center max-w-4xl mx-4">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-2 select-none flex flex-col gap-2.5 items-center">
+                      <div className="text-white/40 mx-1 xl:mx-2 select-none flex flex-col gap-2.5 items-center">
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
@@ -129,7 +129,7 @@ const Header = () => {
                     )}
                     <Link
                       to={item.path}
-                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap ${
+                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-1 xl:px-2 ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
                       onClick={() => window.scrollTo(0, 0)}
@@ -160,13 +160,13 @@ const Header = () => {
                     
                     {/* Dropdown Menu */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-sm border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <div className="py-2">
                           {item.subcategories.map((subcat) => (
                             <Link
                               key={subcat.name}
                               to={subcat.path}
-                              className="block px-4 py-3 text-white hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins"
+                              className="block px-4 py-3 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins"
                               onClick={() => window.scrollTo(0, 0)}
                             >
                               {subcat.name}
@@ -180,36 +180,39 @@ const Header = () => {
               })}
             </div>
 
-            {/* Search Bar - Desktop */}
-            <form onSubmit={handleSearch} className="hidden md:flex items-center max-w-md ml-auto" role="search">
-              <div className="relative w-full">
-                <Input
-                  type="search"
-                  placeholder="Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
-                  aria-label="Search Revuzia"
-                />
-                <Button 
-                  type="submit" 
-                  size="sm" 
-                  variant="ghost" 
-                  className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 p-0 hover:bg-brand/10"
-                  aria-label="Submit search"
-                >
-                  <Search className="h-4 w-4 text-brand" />
-                </Button>
-              </div>
-            </form>
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-3 flex-shrink-0">
+              {/* Search Bar - Desktop */}
+              <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
+                <div className="relative">
+                  <Input
+                    type="search"
+                    placeholder="Search"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-48 lg:w-56 pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
+                    aria-label="Search Revuzia"
+                  />
+                  <Button 
+                    type="submit" 
+                    size="sm" 
+                    variant="ghost" 
+                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 p-0 hover:bg-brand/10"
+                    aria-label="Submit search"
+                  >
+                    <Search className="h-4 w-4 text-brand" />
+                  </Button>
+                </div>
+              </form>
 
-            {/* User Auth Button - Simple for now */}
-            <div className="hidden md:flex items-center">
-            <Link to="/auth" onClick={() => window.scrollTo(0, 0)}>
-                <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
-                  Sign In
-                </Button>
-              </Link>
+              {/* User Auth Button */}
+              <div className="hidden md:flex items-center">
+                <Link to="/auth" onClick={() => window.scrollTo(0, 0)}>
+                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
+                    Sign In
+                  </Button>
+                </Link>
+              </div>
             </div>
 
 
@@ -231,16 +234,16 @@ const Header = () => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden mt-4 pb-4 border-t border-border">
+            <div className="lg:hidden mt-4 pb-4 border-t border-border bg-background/95 backdrop-blur-sm rounded-lg">
               {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="mt-4 mb-4" role="search">
+              <form onSubmit={handleSearch} className="mt-4 mb-4 px-2" role="search">
                 <div className="relative">
                   <Input
                     type="search"
                     placeholder="Search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pr-10 border-border focus:border-brand focus:ring-brand"
+                    className="w-full pr-10 border-border focus:border-brand focus:ring-brand bg-background/80"
                     aria-label="Search Revuzia"
                   />
                   <Button 
@@ -256,15 +259,15 @@ const Header = () => {
               </form>
 
               {/* Mobile Navigation Links */}
-              <div className="space-y-3">
+              <div className="space-y-2 px-2">
                 {navItems.map((item) => {
                   const isActive = location.pathname === item.path;
                   return (
                     <Link
                       key={item.name}
                       to={item.path}
-                      className={`block text-white hover:text-brand transition-colors duration-300 font-poppins font-medium py-2 ${
-                        isActive ? 'text-brand' : ''
+                      className={`block text-foreground hover:text-brand transition-colors duration-300 font-poppins font-medium py-3 px-3 rounded-lg hover:bg-brand/10 ${
+                        isActive ? 'text-brand bg-brand/10' : ''
                       }`}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
@@ -275,6 +278,29 @@ const Header = () => {
                     </Link>
                   );
                 })}
+              </div>
+
+              {/* Mobile Auth Buttons */}
+              <div className="mt-6 px-2 space-y-3 border-t border-border pt-4">
+                <Link to="/auth" onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}>
+                  <Button className="w-full bg-brand hover:bg-brand/90 text-black font-semibold">
+                    Sign In
+                  </Button>
+                </Link>
+                <Button 
+                  variant="outline" 
+                  className="w-full border-brand text-brand hover:bg-brand/10"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    // Add subscribe functionality here
+                    window.location.href = '#subscribe';
+                  }}
+                >
+                  Subscribe
+                </Button>
               </div>
             </div>
           )}
