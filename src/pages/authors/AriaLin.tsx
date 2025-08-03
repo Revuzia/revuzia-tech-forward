@@ -5,12 +5,17 @@ import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { X, Mail } from "lucide-react";
-import authorAria from "@/assets/author-aria.jpg";
+import { useArticles } from "@/hooks/useArticles";
 import authorAriaAvatar from "@/assets/author-aria-avatar.jpg";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
 
 const AriaLin = () => {
   const [avatarPosition, setAvatarPosition] = useState({ x: 0, y: 0 });
+  const { data: articles, isLoading } = useArticles();
+
+  // Filter articles by author
+  const ariaArticles = articles?.filter(article => 
+    article.author_name === "Aria Lin"
+  ) || [];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,31 +32,6 @@ const AriaLin = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const articles = [
-    {
-      title: "AI Revolution in Smart Home Technology",
-      image: gamingHero,
-      author: {
-        name: "Aria Lin",
-        avatar: authorAria,
-      },
-      readTime: "8 min read",
-      category: "Tech News",
-      slug: "ai-smart-home-revolution",
-    },
-    {
-      title: "The Future of Sustainable Computing",
-      image: gamingHero,
-      author: {
-        name: "Aria Lin",
-        avatar: authorAria,
-      },
-      readTime: "6 min read",
-      category: "Tech News",
-      slug: "sustainable-computing-future",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -122,11 +102,35 @@ const AriaLin = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {articles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="bg-card rounded-lg p-4 animate-pulse">
+                  <div className="bg-muted h-48 rounded mb-4"></div>
+                  <div className="bg-muted h-4 rounded mb-2"></div>
+                  <div className="bg-muted h-4 rounded w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : ariaArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {ariaArticles.map((article, index) => (
+                <ArticleCard 
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{ name: article.author_name, avatar: authorAriaAvatar }}
+                  readTime="5 min read"
+                  category={article.subCategory_name || article.category_name}
+                  slug={article.slug}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-white/70 text-lg">No articles found by Aria Lin yet.</p>
+            </div>
+          )}
         </section>
       </main>
 

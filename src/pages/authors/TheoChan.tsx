@@ -5,14 +5,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import authorTheo from "/lovable-uploads/77db2401-63d0-4707-a42f-51632b75e5c2.png";
+import { useArticles } from "@/hooks/useArticles";
 import authorTheoAvatar from "@/assets/author-theo-avatar-new.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
 import { Button } from "@/components/ui/button";
 
 const TheoChan = () => {
   const [avatarPosition, setAvatarPosition] = useState({ x: 0, y: 0 });
+  const { data: articles, isLoading } = useArticles();
+
+  // Filter articles by author
+  const theoArticles = articles?.filter(article => 
+    article.author_name === "Theo Chan"
+  ) || [];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -30,25 +34,6 @@ const TheoChan = () => {
     return () => document.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const articles = [
-    {
-      title: "Complete Buying Guide: Best Smartphones Under $500 in 2024",
-      image: buyingGuideHero,
-      author: { name: "Theo Chan", avatar: authorTheo },
-      readTime: "10 min read",
-      category: "Buying Guide",
-      slug: "best-smartphones-under-500-2024",
-    },
-    {
-      title: "Product Testing Methodology: How We Review Tech at Revuzia",
-      image: heroTechBg,
-      author: { name: "Theo Chan", avatar: authorTheo },
-      readTime: "6 min read",
-      category: "Behind the Scenes",
-      slug: "product-testing-methodology",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -64,9 +49,9 @@ const TheoChan = () => {
               className="avatar-container mb-8 w-64 h-64 mx-auto"
             >
               <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-brand/30 shadow-glow-primary">
-                  <img 
-                    src={authorTheoAvatar}
-                    alt="Theo Chan"
+                 <img 
+                   src={authorTheoAvatar}
+                   alt="Theo Chan"
                   className="w-full h-full object-cover transition-transform duration-300 ease-out"
                   style={{ 
                     transform: `translate(${Math.max(-20, Math.min(20, avatarPosition.x))}px, ${Math.max(-20, Math.min(20, avatarPosition.y))}px) scale(1.05)`,
@@ -76,11 +61,11 @@ const TheoChan = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Theo Chan</h1>
-            <p className="text-xl text-brand font-medium mb-6">Product Reviews & Testing Specialist</p>
+            <p className="text-xl text-brand font-medium mb-6">Video Reviews and Tech Demos</p>
             
             <div className="max-w-2xl mx-auto mb-8">
               <p className="text-white/90 leading-relaxed text-lg">
-                Hi! I'm Theo, and yes, I'm absolutely the kind of person who reads user manuals for fun and gets genuinely excited about thermal management solutions. My friends think I'm crazy for having spreadsheets tracking device performance metrics, but hey – that obsessive attention to detail is exactly what makes my reviews thorough. With my engineering background, I can't help but dive deep into the technical specifications, but I've learned that the real magic happens when elegant engineering meets practical usability. There's something beautiful about a well-designed heat sink or a perfectly tuned display calibration that most people never notice – but I do, and I love sharing those discoveries.
+                Hey there! I'm Theo, and I'm obsessed with making technology accessible through video. I believe the best way to understand a product is to see it in action – not just glamour shots or spec sheets, but real, hands-on exploration of how things actually work. My background in visual storytelling means I think about tech reviews differently. I'm not just listing features; I'm trying to help you visualize how this technology would fit into your life. Every video is designed to answer the question: "Okay, but what's it really like to use this every day?"
               </p>
             </div>
             
@@ -116,14 +101,35 @@ const TheoChan = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {articles.map((article, index) => (
-              <ArticleCard 
-                key={index}
-                {...article}
-              />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="bg-card rounded-lg p-4 animate-pulse">
+                  <div className="bg-muted h-48 rounded mb-4"></div>
+                  <div className="bg-muted h-4 rounded mb-2"></div>
+                  <div className="bg-muted h-4 rounded w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : theoArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {theoArticles.map((article, index) => (
+                <ArticleCard 
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{ name: article.author_name, avatar: authorTheoAvatar }}
+                  readTime="5 min read"
+                  category={article.subCategory_name || article.category_name}
+                  slug={article.slug}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-white/70 text-lg">No articles found by Theo Chan yet.</p>
+            </div>
+          )}
         </section>
       </main>
 

@@ -5,14 +5,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
+import { useArticles } from "@/hooks/useArticles";
 import authorZara from "/lovable-uploads/75c66acd-a1fa-4912-9cb0-ba0121e8debb.png";
 import authorZaraAvatar from "@/assets/author-zara-avatar-new.jpg";
-import gamingArticleHero from "@/assets/gaming-article-hero.jpg";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
 import { Button } from "@/components/ui/button";
 
 const ZaraVelez = () => {
   const [avatarPosition, setAvatarPosition] = useState({ x: 0, y: 0 });
+  const { data: articles, isLoading } = useArticles();
+
+  // Filter articles by author
+  const zaraArticles = articles?.filter(article => 
+    article.author_name === "Zara Velez"
+  ) || [];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,25 +34,6 @@ const ZaraVelez = () => {
     document.addEventListener('mousemove', handleMouseMove);
     return () => document.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const articles = [
-    {
-      title: "Gaming Revolution: RTX 4090 vs RTX 4080 Performance Deep Dive",
-      image: gamingArticleHero,
-      author: { name: "Zara Velez", avatar: authorZaraAvatar },
-      readTime: "8 min read",
-      category: "Gaming Hardware",
-      slug: "rtx-4090-vs-4080-performance",
-    },
-    {
-      title: "The Ultimate Guide to Building a Gaming PC in 2024",
-      image: heroTechBg,
-      author: { name: "Zara Velez", avatar: authorZaraAvatar },
-      readTime: "12 min read", 
-      category: "PC Building",
-      slug: "ultimate-gaming-pc-build-2024",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -116,14 +102,35 @@ const ZaraVelez = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {articles.map((article, index) => (
-              <ArticleCard 
-                key={index}
-                {...article}
-              />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="bg-card rounded-lg p-4 animate-pulse">
+                  <div className="bg-muted h-48 rounded mb-4"></div>
+                  <div className="bg-muted h-4 rounded mb-2"></div>
+                  <div className="bg-muted h-4 rounded w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : zaraArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {zaraArticles.map((article, index) => (
+                <ArticleCard 
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{ name: article.author_name, avatar: authorZaraAvatar }}
+                  readTime="5 min read"
+                  category={article.subCategory_name || article.category_name}
+                  slug={article.slug}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-white/70 text-lg">No articles found by Zara Velez yet.</p>
+            </div>
+          )}
         </section>
       </main>
 

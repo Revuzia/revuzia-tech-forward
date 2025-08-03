@@ -5,12 +5,17 @@ import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { X, Mail } from "lucide-react";
-import authorMiles from "@/assets/author-miles.jpg";
+import { useArticles } from "@/hooks/useArticles";
 import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 
 const MilesDanner = () => {
   const [avatarPosition, setAvatarPosition] = useState({ x: 0, y: 0 });
+  const { data: articles, isLoading } = useArticles();
+
+  // Filter articles by author
+  const milesArticles = articles?.filter(article => 
+    article.author_name === "Miles Danner"
+  ) || [];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,31 +32,6 @@ const MilesDanner = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const articles = [
-    {
-      title: "Best Tech Gadgets Under $500: Maximum Value Guide",
-      image: buyingGuideHero,
-      author: {
-        name: "Miles Danner",
-        avatar: authorMiles,
-      },
-      readTime: "14 min read",
-      category: "Buying Guides",
-      slug: "best-tech-under-500",
-    },
-    {
-      title: "Smart Home Setup Guide: Building Your Connected Home",
-      image: buyingGuideHero,
-      author: {
-        name: "Miles Danner",
-        avatar: authorMiles,
-      },
-      readTime: "16 min read",
-      category: "Buying Guides",
-      slug: "smart-home-setup-guide",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -122,11 +102,35 @@ const MilesDanner = () => {
               </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {articles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(4)].map((_, index) => (
+                <div key={index} className="bg-card rounded-lg p-4 animate-pulse">
+                  <div className="bg-muted h-48 rounded mb-4"></div>
+                  <div className="bg-muted h-4 rounded mb-2"></div>
+                  <div className="bg-muted h-4 rounded w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : milesArticles.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {milesArticles.map((article, index) => (
+                <ArticleCard 
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{ name: article.author_name, avatar: authorMilesAvatar }}
+                  readTime="5 min read"
+                  category={article.subCategory_name || article.category_name}
+                  slug={article.slug}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-white/70 text-lg">No articles found by Miles Danner yet.</p>
+            </div>
+          )}
         </section>
       </main>
 
