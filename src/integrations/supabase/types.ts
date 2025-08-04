@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      articles: {
+        Row: {
+          author_name: string
+          category_name: string
+          content: string
+          content2: string | null
+          contentsplit: boolean | null
+          created_at: string
+          featured_image_url: string | null
+          id: string
+          slug: string
+          splittype: string | null
+          status: string | null
+          subcategory_name: string | null
+          title: string
+          totaloriginallength: number | null
+          updated_at: string
+          views: number | null
+        }
+        Insert: {
+          author_name: string
+          category_name: string
+          content: string
+          content2?: string | null
+          contentsplit?: boolean | null
+          created_at?: string
+          featured_image_url?: string | null
+          id?: string
+          slug: string
+          splittype?: string | null
+          status?: string | null
+          subcategory_name?: string | null
+          title: string
+          totaloriginallength?: number | null
+          updated_at?: string
+          views?: number | null
+        }
+        Update: {
+          author_name?: string
+          category_name?: string
+          content?: string
+          content2?: string | null
+          contentsplit?: boolean | null
+          created_at?: string
+          featured_image_url?: string | null
+          id?: string
+          slug?: string
+          splittype?: string | null
+          status?: string | null
+          subcategory_name?: string | null
+          title?: string
+          totaloriginallength?: number | null
+          updated_at?: string
+          views?: number | null
+        }
+        Relationships: []
+      }
       "ASIN Database": {
         Row: {
           ASIN: string
