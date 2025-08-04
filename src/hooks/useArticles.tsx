@@ -26,7 +26,7 @@ export interface Article {
 // Global subscription tracker
 let globalSubscription: any = null;
 
-export const useArticles = (categoryName?: string, subCategoryName?: string) => {
+export const useArticles = (categoryName?: string, subCategoryName?: string): any => {
   const queryClient = useQueryClient();
 
   // Set up real-time subscription
