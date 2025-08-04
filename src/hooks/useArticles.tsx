@@ -1,32 +1,19 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-// 🔥 SIMPLIFIED: Flexible interface that works with whatever data we get
+// Simple article type
 export interface Article {
-  id: any;
-  title: string;
-  slug: string;
-  content: string;
-  content2?: any;
-  excerpt?: string;
-  author_name: string;
-  author_id?: any;
-  featured_image_url: string;
-  status?: string;
-  category_name: string;
-  subCategory_name?: any;
-  view_count?: number;
-  views?: number; // Alternative field name
-  created_at: string;
-  read_time?: string;
-  [key: string]: any; // Accept any additional fields
+  [key: string]: any;
 }
 
 // Global subscription tracker
 let globalSubscription: any = null;
 
-export const useArticles = (categoryName?: string, subCategoryName?: string): any => {
+export const useArticles = (categoryName?: string, subCategoryName?: string) => {
+  const [data, setData] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
   const queryClient = useQueryClient();
 
   // Set up real-time subscription
@@ -42,21 +29,19 @@ export const useArticles = (categoryName?: string, subCategoryName?: string): an
           table: 'articles'
         }, (payload) => {
           console.log('🔥 Real-time change:', payload);
-          queryClient.invalidateQueries({ queryKey: ['articles'] });
-          queryClient.invalidateQueries({ queryKey: ['article'] });
+          // Refetch data when changes occur
+          fetchArticles();
         })
-        .subscribe((status, err) => {
+        .subscribe((status: any, err: any) => {
           console.log('📡 Subscription status:', status);
           if (err) console.error('❌ Subscription error:', err);
         });
     }
-  }, [queryClient]);
+  }, []);
 
-  return useQuery({
-    queryKey: ['articles', categoryName, subCategoryName],
-    staleTime: 10000,
-    gcTime: 30000,
-    queryFn: async () => {
+  const fetchArticles = async () => {
+    try {
+      setIsLoading(true);
       console.log('🔍 Fetching articles:', { categoryName, subCategoryName });
       
       let query = supabase.from('articles').select('*').order('created_at', { ascending: false });
@@ -68,68 +53,85 @@ export const useArticles = (categoryName?: string, subCategoryName?: string): an
         query = query.eq('subCategory_name', subCategoryName);
       }
       
-      const queryResult = await query;
-      const { data, error } = queryResult as { data: any[] | null; error: any };
+      const result = await query;
+      const { data: articles, error: fetchError } = result as any;
       
-      if (error) {
-        console.error('❌ Query error:', error);
-        throw error;
+      if (fetchError) {
+        console.error('❌ Query error:', fetchError);
+        setError(fetchError);
+        return;
       }
       
-      console.log('✅ Articles found:', data?.length || 0);
-      
-      // Return simple array without complex mapping
-      return data || [];
-    },
-  }) as any;
+      console.log('✅ Articles found:', articles?.length || 0);
+      setData(articles || []);
+      setError(null);
+    } catch (err) {
+      console.error('❌ Fetch error:', err);
+      setError(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Fetch on mount and when dependencies change
+  useEffect(() => {
+    fetchArticles();
+  }, [categoryName, subCategoryName]);
+
+  return {
+    data,
+    isLoading,
+    error,
+    refetch: fetchArticles
+  };
 };
 
 export const useArticle = (slug: string) => {
-  return useQuery({
-    queryKey: ['article', slug],
-    staleTime: 60000,
-    gcTime: 300000,
-    queryFn: async () => {
+  const [data, setData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
+
+  const fetchArticle = async () => {
+    if (!slug) return;
+    
+    try {
+      setIsLoading(true);
       console.log('🔍 Fetching article:', slug);
       
-      const queryResult = await supabase
+      const result = await supabase
         .from('articles')
         .select('*')
         .eq('slug', slug)
         .maybeSingle();
-      const { data, error } = queryResult as { data: any | null; error: any };
         
-      if (error) {
-        console.error('❌ Article error:', error);
-        throw error;
+      const { data: article, error: fetchError } = result as any;
+      
+      if (fetchError) {
+        console.error('❌ Article error:', fetchError);
+        setError(fetchError);
+        return;
       }
 
-      if (!data) return null;
+      setData(article);
+      setError(null);
+    } catch (err) {
+      console.error('❌ Fetch error:', err);
+      setError(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      // 🔥 ULTRA SAFE: Cast to any and handle all possible field variations
-      const rawData = data as any;
-      return {
-        id: rawData.id || rawData.ID,
-        title: rawData.title || rawData.Title || 'Untitled',
-        slug: rawData.slug || rawData.Slug || '',
-        content: rawData.content || rawData.Content || '',
-        content2: rawData.content2 || rawData.Content2,
-        excerpt: rawData.excerpt || rawData.Excerpt || (rawData.content || '').substring(0, 160) + '...',
-        author_name: rawData.author_name || rawData.AuthorName || rawData['author-name'] || 'Unknown Author',
-        author_id: rawData.author_id || rawData.AuthorId || rawData['author-id'],
-        featured_image_url: rawData.featured_image_url || rawData.FeaturedImageUrl || rawData['featured-image-url'] || '',
-        status: rawData.status || rawData.Status || 'published',
-        category_name: rawData.category_name || rawData.CategoryName || rawData['category-name'] || '',
-        subCategory_name: rawData.subCategory_name || rawData.SubCategoryName || rawData['sub-category-name'],
-        view_count: rawData.view_count || rawData.ViewCount || rawData['view-count'] || rawData.views || 0,
-        views: rawData.views || rawData.Views || 0,
-        created_at: rawData.created_at || rawData.CreatedAt || rawData['created-at'] || new Date().toISOString(),
-        read_time: rawData.read_time || rawData.ReadTime || rawData['read-time'],
-        ...rawData // Include any other fields
-      } as Article;
-    },
-    enabled: !!slug,
-  });
+  useEffect(() => {
+    fetchArticle();
+  }, [slug]);
+
+  return {
+    data,
+    isLoading,
+    error,
+    refetch: fetchArticle
+  };
 };
 
 // Utility function to calculate read time
