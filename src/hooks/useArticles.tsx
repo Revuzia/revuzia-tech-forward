@@ -78,29 +78,10 @@ export const useArticles = (categoryName?: string, subCategoryName?: string): an
       
       console.log('✅ Articles found:', data?.length || 0);
       
-      // 🔥 ULTRA SAFE: Cast to any to avoid TypeScript field checking
-      const rawData = data as any[];
-      return (rawData || []).map((row: any): Article => ({
-        id: row.id || row.ID,
-        title: row.title || row.Title || 'Untitled',
-        slug: row.slug || row.Slug || '',
-        content: row.content || row.Content || '',
-        content2: row.content2 || row.Content2,
-        excerpt: row.excerpt || row.Excerpt || (row.content || '').substring(0, 160) + '...',
-        author_name: row.author_name || row.AuthorName || row['author-name'] || 'Unknown Author',
-        author_id: row.author_id || row.AuthorId || row['author-id'],
-        featured_image_url: row.featured_image_url || row.FeaturedImageUrl || row['featured-image-url'] || '',
-        status: row.status || row.Status || 'published',
-        category_name: row.category_name || row.CategoryName || row['category-name'] || '',
-        subCategory_name: row.subCategory_name || row.SubCategoryName || row['sub-category-name'],
-        view_count: row.view_count || row.ViewCount || row['view-count'] || row.views || 0,
-        views: row.views || row.Views || 0,
-        created_at: row.created_at || row.CreatedAt || row['created-at'] || new Date().toISOString(),
-        read_time: row.read_time || row.ReadTime || row['read-time'],
-        ...row // Include any other fields as-is
-      }));
+      // Return simple array without complex mapping
+      return data || [];
     },
-  });
+  }) as any;
 };
 
 export const useArticle = (slug: string) => {
