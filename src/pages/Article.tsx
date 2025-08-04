@@ -28,6 +28,11 @@ const Article = () => {
   const { toast } = useToast();
   const viewIncrementedRef = useRef(false);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     if (article && !viewIncrementedRef.current) {
       const timer = setTimeout(() => {

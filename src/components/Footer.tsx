@@ -97,15 +97,6 @@ const Footer = () => {
                    Affiliate Disclosure
                  </Link>
                </li>
-               <li>
-                  <Link 
-                    to="/contact" 
-                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                   Contact Us
-                 </Link>
-               </li>
             </ul>
           </div>
 

@@ -1,7 +1,10 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import { AuthProvider } from "@/components/AuthProvider";
 import KofiButton from "./components/KofiButton";
 import Index from "./pages/Index";
@@ -55,13 +58,29 @@ import ZaraVelez from "./pages/authors/ZaraVelez";
 const App = () => {
   console.log("App component rendering...");
   
+  const queryClient = new QueryClient();
+
+  // Component to handle scroll-to-top on route changes
+  const ScrollToTop = () => {
+    const location = useLocation();
+    
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [location.pathname]);
+    
+    return null;
+  };
+  
   return (
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <KofiButton />
-      <BrowserRouter>
-        <Routes>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <KofiButton />
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tech-news" element={<TechNews />} />
           <Route path="/get-electrified" element={<GetElectrified />} />
@@ -117,9 +136,11 @@ const App = () => {
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
   );
 };
 
