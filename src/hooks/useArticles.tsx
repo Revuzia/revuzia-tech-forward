@@ -2,45 +2,46 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect } from "react";
 
-// 🔧 FIXED: Proper TypeScript interface that matches your Supabase table
+// 🔧 FIXED: Article interface that matches your database structure
 export interface Article {
-  id: string;
+  id: number; // Changed from string to number to match your int8 field
   title: string;
   slug: string;
   content: string;
-  content2?: string | null; // Optional since it can be NULL
+  content2?: string | null;
   excerpt: string;
   author_name: string;
-  author_id: number;
+  author_id: string; // Changed from number to string to match your text field
   featured_image_url: string;
-  status: string;
+  status: string; // You DO have this field
   category_name: string;
-  subCategory_name?: string | null; // Optional field
-  subcategory?: string | null; // Alternative field name
+  subCategory_name?: string | null;
   view_count: number;
   created_at: string;
-  read_time?: string | null; // New field for read time
+  timestamp?: string;
+  read_time?: string | null;
 }
 
-// 🔧 FIXED: Database row type that matches Supabase exactly
+// 🔧 FIXED: Database row type that matches your EXACT Supabase table structure
 type ArticleRow = {
-  id: string;
+  id: number; // int8 in your DB
+  created_at: string;
+  timestamp?: string;
   title: string;
   slug: string;
   content: string;
   content2: string | null;
   excerpt: string;
+  author_id: string; // text field in your DB, not number
   author_name: string;
-  author_id: number;
   featured_image_url: string;
-  status: string;
+  status: string; // You DO have this field
+  view_count: number; // int4 in your DB
   category_name: string;
   subCategory_name: string | null;
-  subcategory: string | null;
-  view_count: number;
-  created_at: string;
-  read_time: string | null;
-  [key: string]: any; // Allow additional fields
+  // Optional fields that might be added later
+  read_time?: string | null;
+  [key: string]: any;
 };
 
 // Global subscription tracker to prevent multiple subscriptions
@@ -97,7 +98,7 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
     queryFn: async (): Promise<Article[]> => {
       console.log('🔍 useArticles called with:', { categoryName, subCategoryName });
       
-      // 🔧 FIXED: Proper TypeScript query without 'as any'
+      // Query with status filter since you DO have this field
       let query = supabase
         .from('articles')
         .select('*')
@@ -131,7 +132,7 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
         });
       }
       
-      // 🔧 FIXED: Proper type conversion with null checks
+      // 🔧 FIXED: Map database row to Article interface with correct types
       return (data || []).map((row: ArticleRow): Article => ({
         id: row.id,
         title: row.title,
@@ -140,14 +141,14 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
         content2: row.content2,
         excerpt: row.excerpt,
         author_name: row.author_name,
-        author_id: row.author_id,
+        author_id: row.author_id, // String field in your DB
         featured_image_url: row.featured_image_url,
         status: row.status,
         category_name: row.category_name,
         subCategory_name: row.subCategory_name,
-        subcategory: row.subcategory,
-        view_count: row.view_count || 0,
+        view_count: row.view_count,
         created_at: row.created_at,
+        timestamp: row.timestamp,
         read_time: row.read_time
       }));
     },
@@ -162,7 +163,7 @@ export const useArticle = (slug: string) => {
     queryFn: async (): Promise<Article | null> => {
       console.log('🔍 useArticle called with slug:', slug);
       
-      // 🔧 FIXED: Proper TypeScript query
+      // Query with status filter since you DO have this field
       const { data, error } = await supabase
         .from('articles')
         .select('*')
@@ -179,22 +180,22 @@ export const useArticle = (slug: string) => {
         return null;
       }
 
-      // 🔧 FIXED: Proper type conversion
+      // 🔧 FIXED: Proper type conversion with fallbacks for missing fields
       return {
         id: data.id,
-        title: data.title,
+        title: data.title || 'Untitled Article',
         slug: data.slug,
         content: data.content,
         content2: data.content2,
-        excerpt: data.excerpt,
+        excerpt: data.excerpt || data.content?.substring(0, 160) + '...' || 'No excerpt available',
         author_name: data.author_name,
-        author_id: data.author_id,
+        author_id: data.author_id || 1, // Default fallback
         featured_image_url: data.featured_image_url,
-        status: data.status,
+        status: data.status || 'published', // Default assumption
         category_name: data.category_name,
-        subCategory_name: data.subCategory_name,
-        subcategory: data.subcategory,
-        view_count: data.view_count || 0,
+        subCategory_name: data.subCategory_name || data.subcategory,
+        subcategory: data.subcategory || data.subCategory_name,
+        view_count: data.view_count || data.views || 0,
         created_at: data.created_at,
         read_time: data.read_time
       };
