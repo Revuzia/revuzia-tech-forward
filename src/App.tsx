@@ -41,6 +41,7 @@ import BudgetPicks from "./pages/subcategories/BudgetPicks";
 import BestOf2025 from "./pages/subcategories/BestOf2025";
 import Comparisons from "./pages/subcategories/Comparisons";
 import BeginnersGuides from "./pages/subcategories/BeginnersGuides";
+import ArticleEditor from "./pages/ArticleEditor";
 
 // Author pages
 import AriaLin from "./pages/authors/AriaLin";
@@ -95,7 +96,11 @@ const App = () => {
           <Route path="/subcategories/best-of-2025" element={<BestOf2025 />} />
           <Route path="/subcategories/comparisons" element={<Comparisons />} />
           <Route path="/subcategories/beginners-guides" element={<BeginnersGuides />} />
-          
+
+          {/* Admin/Editor Routes */}
+          <Route path="/admin/articles/new" element={<ArticleEditor />} />
+          <Route path="/admin/articles/:slug" element={<ArticleEditor />} />
+
           {/* Article Route */}
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/articles/:slug" element={<Article />} />
