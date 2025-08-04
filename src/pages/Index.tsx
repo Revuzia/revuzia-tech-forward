@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import ArticleCarousel from "@/components/ArticleCarousel";
 import BackToTop from "@/components/BackToTop";
-import { useArticles } from "@/hooks/useArticles";
+import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
@@ -24,13 +24,13 @@ const Index = () => {
   const techAndElectrifiedArticles = [
     ...(techNewsArticles || []),
     ...(electrifiedArticles || [])
-  ];
+  ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Sort by newest first
 
   // Combine product reviews and buying guides for "Explore Latest Reviews" section
   const reviewArticles = [
     ...(productReviewsArticles || []),
     ...(buyingGuidesArticles || [])
-  ];
+  ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
   
   const featuredArticles = [
     {
@@ -311,7 +311,7 @@ const Index = () => {
                       name: techAndElectrifiedArticles[0].author_name,
                       avatar: "",
                     }}
-                    readTime={`${Math.ceil(techAndElectrifiedArticles[0].content.length / 1000)} min read`}
+                    readTime={calculateReadTime(techAndElectrifiedArticles[0].content)}
                     category={techAndElectrifiedArticles[0].category_name}
                     slug={techAndElectrifiedArticles[0].slug}
                     isHero={true} 
@@ -324,7 +324,7 @@ const Index = () => {
                         name: techAndElectrifiedArticles[1].author_name,
                         avatar: "",
                       }}
-                      readTime={`${Math.ceil(techAndElectrifiedArticles[1].content.length / 1000)} min read`}
+                      readTime={calculateReadTime(techAndElectrifiedArticles[1].content)}
                       category={techAndElectrifiedArticles[1].category_name}
                       slug={techAndElectrifiedArticles[1].slug}
                       isHero={true} 
@@ -356,7 +356,7 @@ const Index = () => {
                       name: article.author_name,
                       avatar: "",
                     }}
-                    readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                    readTime={calculateReadTime(article.content)}
                     category={article.category_name}
                     slug={article.slug}
                     isHorizontal={true} 
@@ -389,7 +389,7 @@ const Index = () => {
               name: article.author_name,
               avatar: "",
             },
-            readTime: `${Math.ceil(article.content.length / 1000)} min read`,
+            readTime: calculateReadTime(article.content),
             category: article.category_name,
             slug: article.slug,
           })) : featuredArticles.filter(article => article.category === "Product Reviews" || article.category === "Buying Guides")}
