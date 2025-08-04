@@ -18,45 +18,57 @@ export interface Article {
   created_at: string;
 }
 
+// Global subscription tracker to prevent multiple subscriptions
+let globalSubscription: any = null;
+
 export const useArticles = (categoryName?: string, subCategoryName?: string) => {
   const queryClient = useQueryClient();
 
-  // Set up real-time subscription
+  // Set up real-time subscription (only once globally)
   useEffect(() => {
-    console.log('🔔 Setting up real-time subscription for articles');
-    
-    const subscription = supabase
-      .channel('articles-realtime')
-      .on(
-        'postgres_changes',
-        {
-          event: '*', // Listen for INSERT, UPDATE, DELETE
-          schema: 'public',
-          table: 'articles'
-        },
-        (payload) => {
-          console.log('🔥 Real-time article change detected:', payload);
-          
-          // Invalidate and refetch articles queries
-          queryClient.invalidateQueries({ queryKey: ['articles'] });
-          queryClient.invalidateQueries({ queryKey: ['article'] });
-        }
-      )
-      .subscribe((status) => {
-        console.log('📡 Real-time subscription status:', status);
-      });
+    if (!globalSubscription) {
+      console.log('🔔 Setting up global real-time subscription for articles');
+      
+      globalSubscription = supabase
+        .channel('articles-realtime-global')
+        .on(
+          'postgres_changes',
+          {
+            event: '*', // Listen for INSERT, UPDATE, DELETE
+            schema: 'public',
+            table: 'articles'
+          },
+          (payload) => {
+            console.log('🔥 Real-time article change detected:', payload);
+            
+            // Invalidate all articles queries to force refresh
+            queryClient.invalidateQueries({ queryKey: ['articles'] });
+            
+            // Also invalidate single article queries
+            queryClient.invalidateQueries({ queryKey: ['article'] });
+          }
+        )
+        .subscribe((status, err) => {
+          console.log('📡 Real-time subscription status:', status);
+          if (err) {
+            console.error('❌ Real-time subscription error:', err);
+            // Reset global subscription on error so it can be retried
+            globalSubscription = null;
+          }
+        });
+    }
 
-    // Cleanup subscription on unmount
+    // Cleanup function - but don't unsubscribe global subscription
     return () => {
-      console.log('🧹 Cleaning up real-time subscription');
-      subscription.unsubscribe();
+      // Don't unsubscribe the global subscription here
+      // It should persist across component mounts/unmounts
     };
   }, [queryClient]);
 
   return useQuery({
     queryKey: ['articles', categoryName, subCategoryName],
-    staleTime: 30000,
-    gcTime: 60000,
+    staleTime: 10000, // Reduced to 10 seconds for more frequent updates
+    gcTime: 30000, // Reduced cache time
     queryFn: async () => {
       console.log('🔍 useArticles called with:', { categoryName, subCategoryName });
       
@@ -68,11 +80,14 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
       
       if (categoryName) {
         query = query.eq('category_name', categoryName);
+        console.log('🎯 Added category filter:', categoryName);
       }
       if (subCategoryName) {
         query = query.eq('subCategory_name', subCategoryName);
+        console.log('🎯 Added subcategory filter:', subCategoryName);
       }
       
+      console.log('🚀 Executing Supabase query...');
       const { data, error } = await query;
       
       if (error) {
@@ -81,12 +96,20 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
       }
       
       console.log('✅ Query completed, articles found:', data?.length || 0);
+      if (data && data.length > 0) {
+        console.log('📊 Sample article:', {
+          title: data[0].title,
+          category: data[0].category_name,
+          status: data[0].status,
+          created_at: data[0].created_at
+        });
+      }
+      
       return (data as unknown) as Article[];
     },
   });
 };
 
-// Keep your existing useArticle hook the same
 export const useArticle = (slug: string) => {
   return useQuery({
     queryKey: ['article', slug],
@@ -110,6 +133,33 @@ export const useArticle = (slug: string) => {
     },
     enabled: !!slug,
   });
+};
+
+// Utility function to calculate read time from content
+export const calculateReadTime = (content: string): string => {
+  if (!content) return "1 min read";
+  
+  // Strip HTML tags from content
+  const textContent = content.replace(/<[^>]*>/g, ' ');
+  
+  // Count words (split by whitespace and filter empty strings)
+  const wordCount = textContent
+    .trim()
+    .split(/\s+/)
+    .filter(word => word.length > 0)
+    .length;
+  
+  // Average reading speed is 200-250 words per minute
+  // We'll use 225 words per minute as a middle ground
+  const readingSpeedWPM = 225;
+  const minutes = Math.ceil(wordCount / readingSpeedWPM);
+  
+  // Ensure minimum 1 minute
+  const readTime = Math.max(1, minutes);
+  
+  console.log(`📖 Read time calculated: ${wordCount} words = ${readTime} min`);
+  
+  return `${readTime} min read`;
 };
 
 export const incrementArticleViews = async (slug: string) => {
