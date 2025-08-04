@@ -6,31 +6,39 @@ export const formatArticleContent = (content: string): string => {
   try {
     let processedContent = content;
     
-    // Convert ### headings to h3
-    processedContent = processedContent.replace(/^### (.+)$/gm, '<h3 style="color: rgb(0, 255, 191); font-size: 1.25rem; font-weight: bold; margin: 1.5rem 0 0.5rem 0; font-family: Poppins, sans-serif;">$1</h3>');
+    // Convert ### headings to h3 with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/^### (.+)$/gm, '<h3 style="color: #06d6a0; font-size: 1.5rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; font-family: Poppins, sans-serif;">$1</h3>');
     
-    // Convert ## headings to h2 with glow effect  
-    processedContent = processedContent.replace(/^## (.+)$/gm, '<h2 style="color: rgb(0, 255, 191); font-size: 1.5rem; font-weight: bold; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif; text-shadow: 0 0 10px rgba(0, 255, 191, 0.5), 0 0 20px rgba(0, 255, 191, 0.3), 0 0 30px rgba(0, 255, 191, 0.2);">$1</h2>');
+    // Convert ## headings to h2 with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/^## (.+)$/gm, '<h2 style="color: #06d6a0; font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif;">$1</h2>');
     
-    // Convert H2: pattern specifically 
-    processedContent = processedContent.replace(/^H2:\s*(.+)$/gm, '<h2 style="color: rgb(0, 255, 191); font-size: 1.5rem; font-weight: bold; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif; text-shadow: 0 0 10px rgba(0, 255, 191, 0.5), 0 0 20px rgba(0, 255, 191, 0.3), 0 0 30px rgba(0, 255, 191, 0.2);">$1</h2>');
+    // Convert H2: pattern specifically with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/^H2:\s*(.+)$/gm, '<h2 style="color: #06d6a0; font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif;">$1</h2>');
     
-    // Convert # headings to h1
-    processedContent = processedContent.replace(/^# (.+)$/gm, '<h1 style="color: rgb(0, 255, 191); font-weight: bold; margin: 1.5rem 0 0.5rem 0; font-family: Poppins, sans-serif;">$1</h1>');
+    // Convert #### headings to h4 with Revuzia brand color #06d6a0  
+    processedContent = processedContent.replace(/^#### (.+)$/gm, '<h4 style="color: #06d6a0; font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0; font-family: Poppins, sans-serif;">$1</h4>');
     
-    // Convert **bold** text
-    processedContent = processedContent.replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight: 600; color: rgb(0, 255, 191);">$1</strong>');
+    // Convert # headings to h1 with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/^# (.+)$/gm, '<h1 style="color: #06d6a0; font-weight: bold; margin: 1.5rem 0 0.5rem 0; font-family: Poppins, sans-serif;">$1</h1>');
     
-    // Convert horizontal rules --- to hr
-    processedContent = processedContent.replace(/^---$/gm, '<hr style="border: none; border-top: 1px solid rgba(0, 255, 191, 0.3); margin: 2rem 0;">');
+    // Apply brand colors to any existing HTML headings that might not have the correct colors
+    processedContent = processedContent.replace(/<h2(?![^>]*color:\s*#06d6a0)([^>]*)>/gi, '<h2$1 style="color: #06d6a0; font-size: 2rem; font-weight: 700; margin: 2rem 0 1rem 0; font-family: Poppins, sans-serif;">');
+    processedContent = processedContent.replace(/<h3(?![^>]*color:\s*#06d6a0)([^>]*)>/gi, '<h3$1 style="color: #06d6a0; font-size: 1.5rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; font-family: Poppins, sans-serif;">');
+    processedContent = processedContent.replace(/<h4(?![^>]*color:\s*#06d6a0)([^>]*)>/gi, '<h4$1 style="color: #06d6a0; font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem 0; font-family: Poppins, sans-serif;">');
     
-    // Style Amazon/product links
-    processedContent = processedContent.replace(/\[([^\]]+)\]\s*(https?:\/\/[^\s\)]*amazon[^\s\)]*)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: rgb(0, 255, 191); text-decoration: none; border: 2px solid rgb(0, 255, 191); padding: 8px 16px; border-radius: 6px; display: inline-block; margin: 4px 0; font-weight: 600; transition: all 0.3s ease; background: rgba(0, 255, 191, 0.1);" onmouseover="this.style.background=\'rgba(0, 255, 191, 0.2)\'" onmouseout="this.style.background=\'rgba(0, 255, 191, 0.1)\'">$1</a>');
+    // Convert **bold** text with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/\*\*(.+?)\*\*/g, '<strong style="font-weight: 600; color: #06d6a0;">$1</strong>');
     
-    processedContent = processedContent.replace(/\[([^\]]+)\]\s*(https?:\/\/[^\s\)]*amzn\.to[^\s\)]*)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: rgb(0, 255, 191); text-decoration: none; border: 2px solid rgb(0, 255, 191); padding: 8px 16px; border-radius: 6px; display: inline-block; margin: 4px 0; font-weight: 600; transition: all 0.3s ease; background: rgba(0, 255, 191, 0.1);" onmouseover="this.style.background=\'rgba(0, 255, 191, 0.2)\'" onmouseout="this.style.background=\'rgba(0, 255, 191, 0.1)\'">$1</a>');
+    // Convert horizontal rules --- to hr with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/^---$/gm, '<hr style="border: none; border-top: 1px solid #06d6a0; margin: 2rem 0; opacity: 0.3;">');
     
-    // Style regular links  
-    processedContent = processedContent.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: rgb(0, 255, 191); text-decoration: none; border-bottom: 1px dotted rgb(0, 255, 191); transition: all 0.3s ease; font-weight: 600;">$1</a>');
+    // Style Amazon/product links with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/\[([^\]]+)\]\s*(https?:\/\/[^\s\)]*amazon[^\s\)]*)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #06d6a0; text-decoration: none; border: 2px solid #06d6a0; padding: 8px 16px; border-radius: 6px; display: inline-block; margin: 4px 0; font-weight: 600; transition: all 0.3s ease; background: rgba(6, 214, 160, 0.1);" onmouseover="this.style.background=\'rgba(6, 214, 160, 0.2)\'" onmouseout="this.style.background=\'rgba(6, 214, 160, 0.1)\'">$1</a>');
+    
+    processedContent = processedContent.replace(/\[([^\]]+)\]\s*(https?:\/\/[^\s\)]*amzn\.to[^\s\)]*)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #06d6a0; text-decoration: none; border: 2px solid #06d6a0; padding: 8px 16px; border-radius: 6px; display: inline-block; margin: 4px 0; font-weight: 600; transition: all 0.3s ease; background: rgba(6, 214, 160, 0.1);" onmouseover="this.style.background=\'rgba(6, 214, 160, 0.2)\'" onmouseout="this.style.background=\'rgba(6, 214, 160, 0.1)\'">$1</a>');
+    
+    // Style regular links with Revuzia brand color #06d6a0
+    processedContent = processedContent.replace(/\[([^\]]+)\]\s*\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #06d6a0; text-decoration: none; border-bottom: 1px dotted #06d6a0; transition: all 0.3s ease; font-weight: 600;">$1</a>');
     
     // Convert table-like data (pipe-separated values) to HTML tables
     processedContent = processedContent.replace(/(\|[^|\r\n]*\|[^|\r\n]*\|[^|\r\n]*.*?(?:\r?\n|$))+/g, function(match) {
@@ -50,15 +58,15 @@ export const formatArticleContent = (content: string): string => {
         
         const cellTag = index === 0 ? 'th' : 'td';
         const cellStyle = index === 0 
-          ? 'padding: 12px; text-align: left; font-weight: 600; color: rgb(0, 255, 191); border-bottom: 2px solid rgba(0, 255, 191, 0.3); background: rgba(0, 255, 191, 0.05);'
-          : 'padding: 12px; text-align: left; border-bottom: 1px solid rgba(0, 255, 191, 0.1);';
+          ? 'padding: 12px; text-align: left; font-weight: 600; color: #06d6a0; border-bottom: 2px solid rgba(6, 214, 160, 0.3); background: rgba(6, 214, 160, 0.05);'
+          : 'padding: 12px; text-align: left; border-bottom: 1px solid rgba(6, 214, 160, 0.1);';
         
         return `<tr>${cells.map(cell => `<${cellTag} style="${cellStyle}">${cell}</${cellTag}>`).join('')}</tr>`;
       }).filter(row => row).join('');
       
       if (!tableRows) return match;
       
-      return `<div style="overflow-x: auto; margin: 2rem 0;"><table style="width: 100%; border-collapse: collapse; border: 1px solid rgba(0, 255, 191, 0.2); border-radius: 8px; overflow: hidden; font-family: Poppins, sans-serif; background: rgba(0, 0, 0, 0.02);">${tableRows}</table></div>`;
+      return `<div style="overflow-x: auto; margin: 2rem 0;"><table style="width: 100%; border-collapse: collapse; border: 1px solid rgba(6, 214, 160, 0.2); border-radius: 8px; overflow: hidden; font-family: Poppins, sans-serif; background: rgba(0, 0, 0, 0.02);">${tableRows}</table></div>`;
     });
     
     // Convert bullet points (- item, X item, ❌ item)

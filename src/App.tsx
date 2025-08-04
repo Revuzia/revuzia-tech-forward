@@ -42,6 +42,7 @@ import BestOf2025 from "./pages/subcategories/BestOf2025";
 import Comparisons from "./pages/subcategories/Comparisons";
 import BeginnersGuides from "./pages/subcategories/BeginnersGuides";
 import ArticleEditor from "./pages/ArticleEditor";
+import ArticlePreview from "./pages/ArticlePreview";
 
 // Author pages
 import AriaLin from "./pages/authors/AriaLin";
@@ -100,6 +101,7 @@ const App = () => {
           {/* Admin/Editor Routes */}
           <Route path="/admin/articles/new" element={<ArticleEditor />} />
           <Route path="/admin/articles/:slug" element={<ArticleEditor />} />
+          <Route path="/article-preview" element={<ArticlePreview />} />
 
           {/* Article Route */}
           <Route path="/article/:slug" element={<Article />} />

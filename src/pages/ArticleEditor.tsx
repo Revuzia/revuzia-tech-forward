@@ -18,9 +18,9 @@ interface ArticleData {
   slug: string;
   content: string;
   content2: string;
-  contentSplit: boolean;
-  splitType: 'natural' | 'fallback' | 'hard' | 'none';
-  totalOriginalLength: number;
+  contentsplit: boolean;  // Note: lowercase in DB
+  splittype: 'natural' | 'fallback' | 'hard' | 'none';  // Note: lowercase in DB
+  totaloriginallength: number;  // Note: lowercase in DB
   featured_image_url: string;
   author_name: string;
   category_name: string;
@@ -72,14 +72,14 @@ const ArticleEditor = () => {
             setArticleSlug(data.slug);
             setContent(data.content || '');
             setContent2(data.content2 || '');
-            setContentSplit(data.contentSplit || false);
-            setSplitType(data.splitType || 'none');
-            setTotalOriginalLength(data.totalOriginalLength || data.content?.length || 0);
+            setContentSplit(data.contentsplit || false);  // Map lowercase DB field
+            setSplitType((data.splittype as 'natural' | 'fallback' | 'hard' | 'none') || 'none');      // Map lowercase DB field with type assertion
+            setTotalOriginalLength(data.totaloriginallength || data.content?.length || 0);  // Map lowercase DB field
             setFeaturedImageUrl(data.featured_image_url || '');
             setAuthorName(data.author_name || '');
             setCategoryName(data.category_name || '');
             setSubcategoryName(data.subcategory_name || '');
-            setStatus(data.status || 'draft');
+            setStatus((data.status as 'draft' | 'published') || 'draft');  // Type assertion for status
           }
         } catch (error) {
           console.error('Error loading article:', error);
@@ -166,9 +166,9 @@ const ArticleEditor = () => {
         slug: articleSlug.trim(),
         content: finalContent, // Always save merged content
         content2: '', // Don't save separate parts
-        contentSplit: false, // Reset split flag after merging
-        splitType: 'none' as const,
-        totalOriginalLength: finalContent.length,
+        contentsplit: false, // Reset split flag after merging (lowercase for DB)
+        splittype: 'none' as const, // Reset split type (lowercase for DB)
+        totaloriginallength: finalContent.length, // Use lowercase for DB
         featured_image_url: featuredImageUrl.trim(),
         author_name: authorName.trim(),
         category_name: categoryName.trim(),
