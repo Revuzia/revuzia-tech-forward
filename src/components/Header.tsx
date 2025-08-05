@@ -14,6 +14,8 @@ const Header = () => {
       name: "Tech News", 
       path: "/tech-news",
       subcategories: [
+        { name: "AI Development Tools", path: "/subcategories/ai-development-tools" },
+        { name: "AI Content Creation", path: "/subcategories/ai-content-creation" },
         { name: "AI & Machine Learning", path: "/subcategories/ai-machine-learning" },
         { name: "Cybersecurity", path: "/subcategories/cybersecurity" },
         { name: "Automation & LLM Tools", path: "/subcategories/automation-llm" },
@@ -24,6 +26,8 @@ const Header = () => {
       name: "Get Electrified", 
       path: "/get-electrified",
       subcategories: [
+        { name: "AI Hardware Accelerators", path: "/subcategories/ai-hardware-accelerators" },
+        { name: "Content Creation Hardware", path: "/subcategories/content-creation-hardware" },
         { name: "Home Automation", path: "/subcategories/home-automation" },
         { name: "Audio Electronics", path: "/subcategories/audio-electronics" },
         { name: "Display Electronics", path: "/subcategories/display-electronics" },
@@ -34,6 +38,9 @@ const Header = () => {
       name: "Product Reviews", 
       path: "/product-reviews",
       subcategories: [
+        { name: "AI Software Platforms", path: "/subcategories/ai-software-platforms" },
+        { name: "Crypto Trading Platforms", path: "/subcategories/crypto-trading-platforms" },
+        { name: "Development Tools", path: "/subcategories/development-tools" },
         { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
         { name: "Gaming & PCs", path: "/subcategories/gaming-pcs" },
         { name: "Audio & Video", path: "/subcategories/audio-video" },
@@ -160,7 +167,7 @@ const Header = () => {
                     
                     {/* Dropdown Menu */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-sm border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                         <div className="py-2">
                           {item.subcategories.map((subcat) => (
                             <Link

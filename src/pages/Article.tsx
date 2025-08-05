@@ -5,6 +5,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { 
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 import { useArticle, incrementArticleViews } from "@/hooks/useArticles";
 import { ArrowLeft, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -146,26 +154,44 @@ const Article = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        {/* Back Navigation */}
-        <div className="mb-6">
-          <Link 
-            to={category ? `/${category}` : "/"} 
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to {category ? category.replace('-', ' ') : 'Home'}
-          </Link>
-        </div>
+        {/* Breadcrumb Navigation */}
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to={`/${article.category_name.toLowerCase().replace(/\s+/g, '-')}`}>
+                  {article.category_name}
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            {article.subcategory_name && (
+              <>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={`/subcategories/${article.subcategory_name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/\s+/g, '-')}`}>
+                      {article.subcategory_name}
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </>
+            )}
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-foreground font-medium">{article.title.length > 50 ? article.title.substring(0, 50) + '...' : article.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-8">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <Badge variant="secondary">{article.category_name}</Badge>
-              {article.subCategory_name && (
-                <Badge variant="outline">{article.subCategory_name}</Badge>
-              )}
-            </div>
             
             <h1 className="text-3xl md:text-4xl font-bold text-brand mb-6 leading-tight font-['Poppins',sans-serif] relative">
               <span className="relative inline-block">
