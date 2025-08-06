@@ -154,8 +154,8 @@ const Article = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        {/* Badge-style Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+        {/* Badge-style Breadcrumb Navigation - Centered */}
+        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
           <Link 
             to="/" 
             className="hover:text-brand transition-colors"

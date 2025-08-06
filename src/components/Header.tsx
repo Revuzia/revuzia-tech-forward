@@ -27,7 +27,6 @@ const Header = () => {
       path: "/get-electrified",
       subcategories: [
         { name: "AI Hardware Accelerators", path: "/subcategories/ai-hardware-accelerators" },
-        { name: "Content Creation Hardware", path: "/subcategories/content-creation-hardware" },
         { name: "Home Automation", path: "/subcategories/home-automation" },
         { name: "Audio Electronics", path: "/subcategories/audio-electronics" },
         { name: "Display Electronics", path: "/subcategories/display-electronics" },

@@ -3,10 +3,12 @@ import { X, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import ContactModal from "./ContactModal";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [showEmailInput, setShowEmailInput] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const handleSubscribeClick = () => {
     setShowEmailInput(true);
@@ -149,13 +151,13 @@ const Footer = () => {
             </div>
 
             {/* 3. Email Support - Third - Smaller */}
-            <a 
-              href="mailto:support@revuzia.com"
+            <Button
+              onClick={() => setIsContactModalOpen(true)}
               className="inline-flex items-center justify-center space-x-2 text-white text-xs hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-3 py-2 hover:bg-brand hover:text-black w-full max-w-xs"
             >
               <Mail className="w-3 h-3" />
               <span>Email us: Support@revuzia.com</span>
-            </a>
+            </Button>
           </div>
         </div>
 
@@ -165,6 +167,12 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </footer>
   );
 };

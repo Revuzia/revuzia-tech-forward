@@ -48,7 +48,7 @@ import AIDevelopmentTools from "./pages/subcategories/AIDevelopmentTools";
 import AIContentCreation from "./pages/subcategories/AIContentCreation";
 import DevelopmentTools from "./pages/subcategories/DevelopmentTools";
 import AIHardwareAccelerators from "./pages/subcategories/AIHardwareAccelerators";
-import ContentCreationHardware from "./pages/subcategories/ContentCreationHardware";
+
 import ArticleEditor from "./pages/ArticleEditor";
 import ArticlePreview from "./pages/ArticlePreview";
 
@@ -125,7 +125,7 @@ const App = () => {
           <Route path="/subcategories/ai-content-creation" element={<AIContentCreation />} />
           <Route path="/subcategories/development-tools" element={<DevelopmentTools />} />
           <Route path="/subcategories/ai-hardware-accelerators" element={<AIHardwareAccelerators />} />
-          <Route path="/subcategories/content-creation-hardware" element={<ContentCreationHardware />} />
+          
 
           {/* Admin/Editor Routes */}
           <Route path="/admin/articles/new" element={<ArticleEditor />} />
