@@ -46,8 +46,6 @@ import Comparisons from "./pages/subcategories/Comparisons";
 import BeginnersGuides from "./pages/subcategories/BeginnersGuides";
 import AIDevelopmentTools from "./pages/subcategories/AIDevelopmentTools";
 import AIContentCreation from "./pages/subcategories/AIContentCreation";
-import AISoftwarePlatforms from "./pages/subcategories/AISoftwarePlatforms";
-import CryptoTradingPlatforms from "./pages/subcategories/CryptoTradingPlatforms";
 import DevelopmentTools from "./pages/subcategories/DevelopmentTools";
 import AIHardwareAccelerators from "./pages/subcategories/AIHardwareAccelerators";
 import ContentCreationHardware from "./pages/subcategories/ContentCreationHardware";
@@ -125,8 +123,6 @@ const App = () => {
           <Route path="/subcategories/beginners-guides" element={<BeginnersGuides />} />
           <Route path="/subcategories/ai-development-tools" element={<AIDevelopmentTools />} />
           <Route path="/subcategories/ai-content-creation" element={<AIContentCreation />} />
-          <Route path="/subcategories/ai-software-platforms" element={<AISoftwarePlatforms />} />
-          <Route path="/subcategories/crypto-trading-platforms" element={<CryptoTradingPlatforms />} />
           <Route path="/subcategories/development-tools" element={<DevelopmentTools />} />
           <Route path="/subcategories/ai-hardware-accelerators" element={<AIHardwareAccelerators />} />
           <Route path="/subcategories/content-creation-hardware" element={<ContentCreationHardware />} />

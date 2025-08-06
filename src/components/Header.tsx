@@ -38,8 +38,6 @@ const Header = () => {
       name: "Product Reviews", 
       path: "/product-reviews",
       subcategories: [
-        { name: "AI Software Platforms", path: "/subcategories/ai-software-platforms" },
-        { name: "Crypto Trading Platforms", path: "/subcategories/crypto-trading-platforms" },
         { name: "Development Tools", path: "/subcategories/development-tools" },
         { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
         { name: "Gaming & PCs", path: "/subcategories/gaming-pcs" },
@@ -188,7 +186,7 @@ const Header = () => {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex items-center gap-3 flex-shrink-0 ml-auto">
               {/* Search Bar - Desktop */}
               <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
                 <div className="relative">
@@ -197,7 +195,7 @@ const Header = () => {
                     placeholder="Search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-48 lg:w-56 pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
+                    className="w-48 lg:w-56 xl:w-64 pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
                     aria-label="Search Revuzia"
                   />
                   <Button 

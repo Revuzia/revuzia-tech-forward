@@ -5,10 +5,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import SearchBar from "@/components/SearchBar";
 import BackToTop from "@/components/BackToTop";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -16,70 +13,37 @@ const Search = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Mock search results - in a real app, this would be an API call
-  const allArticles = [
-    {
-      title: "Apple's Student Winners and Google's AI Surge Signal a New Era—But the Hardware Market Tells a Different Story",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "7 min read",
-      category: "Tech News",
-      slug: "apple-google-ai-hardware-market",
-    },
-    {
-      title: "The Definitive Tech Buying Guide 2025: 5 Essential Gadgets That Offer Incredible Value Right Now",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "12 min read",
-      category: "Buying Guides",
-      slug: "tech-buying-guide-2025",
-    },
-    {
-      title: "Revolutionary Gaming Laptops: RTX 5090 Performance Benchmark",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "8 min read",
-      category: "Product Reviews",
-      slug: "rtx-5090-gaming-laptops",
-    },
-    {
-      title: "Samsung Galaxy S25 Ultra: The Photography Revolution",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "6 min read",
-      category: "Get Electrified",
-      slug: "samsung-s25-ultra-photography",
-    },
-  ];
+  // Connect to real articles database using useArticles hook
+  const { data: articlesData } = useArticles();
 
   useEffect(() => {
-    if (query) {
+    if (query && articlesData) {
       setIsLoading(true);
-      // Simulate API delay
-      setTimeout(() => {
-        const results = allArticles.filter(article =>
-          article.title.toLowerCase().includes(query.toLowerCase()) ||
-          article.category.toLowerCase().includes(query.toLowerCase())
-        );
-        setSearchResults(results);
-        setIsLoading(false);
-      }, 500);
+      // Search through real articles data
+      const results = articlesData.filter(article =>
+        article.title?.toLowerCase().includes(query.toLowerCase()) ||
+        article.category_name?.toLowerCase().includes(query.toLowerCase()) ||
+        article.subcategory_name?.toLowerCase().includes(query.toLowerCase()) ||
+        article.content?.toLowerCase().includes(query.toLowerCase()) ||
+        article.author_name?.toLowerCase().includes(query.toLowerCase())
+      ).map(article => ({
+        title: article.title,
+        image: article.featured_image_url,
+        author: {
+          name: article.author_name,
+          avatar: `/lovable-uploads/${article.author_name?.toLowerCase().replace(/\s+/g, '-')}-avatar.jpg`
+        },
+        readTime: calculateReadTime(article.content),
+        category: article.category_name,
+        subcategory: article.subcategory_name,
+        slug: article.slug
+      }));
+      setSearchResults(results);
+      setIsLoading(false);
     } else {
       setSearchResults([]);
     }
-  }, [query]);
+  }, [query, articlesData]);
 
   const handleNewSearch = (newQuery: string) => {
     window.location.href = `/search?q=${encodeURIComponent(newQuery)}`;

@@ -154,40 +154,51 @@ const Article = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        {/* Breadcrumb Navigation */}
-        <Breadcrumb className="mb-6">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to={`/${article.category_name.toLowerCase().replace(/\s+/g, '-')}`}>
-                  {article.category_name}
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            {article.subcategory_name && (
-              <>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to={`/subcategories/${article.subcategory_name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/\s+/g, '-')}`}>
-                      {article.subcategory_name}
-                    </Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-              </>
-            )}
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage className="text-foreground font-medium">{article.title.length > 50 ? article.title.substring(0, 50) + '...' : article.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        {/* Badge-style Breadcrumb Navigation */}
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+          <Link 
+            to="/" 
+            className="hover:text-brand transition-colors"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            <Badge 
+              variant="outline" 
+              className="cursor-pointer hover:bg-brand/10 hover:text-brand transition-all duration-200 border-border hover:border-brand"
+            >
+              Home
+            </Badge>
+          </Link>
+          <span>/</span>
+          <Link 
+            to={`/${article.category_name?.toLowerCase().replace(/\s+/g, '-')}`}
+            className="hover:text-brand transition-colors"
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            <Badge 
+              variant="outline" 
+              className="cursor-pointer hover:bg-brand/10 hover:text-brand transition-all duration-200 border-border hover:border-brand"
+            >
+              {article.category_name}
+            </Badge>
+          </Link>
+          {article.subcategory_name && (
+            <>
+              <span>/</span>
+              <Link 
+                to={`/subcategories/${article.subcategory_name.toLowerCase().replace(/[\s&]+/g, '-')}`}
+                className="hover:text-brand transition-colors"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                <Badge 
+                  variant="outline" 
+                  className="cursor-pointer hover:bg-brand/10 hover:text-brand transition-all duration-200 border-border hover:border-brand"
+                >
+                  {article.subcategory_name}
+                </Badge>
+              </Link>
+            </>
+          )}
+        </div>
 
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
