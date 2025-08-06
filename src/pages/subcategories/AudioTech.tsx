@@ -1,64 +1,63 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import BackToTop from "@/components/BackToTop";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const AudioTech = () => {
-  const audioTechArticles = [
-    {
-      title: "Spatial Audio Technology: The Future of Sound",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "9 min read",
-      category: "Get Electrified",
-      slug: "spatial-audio-technology-future-sound",
-    },
-    {
-      title: "Wireless Audio Codecs: LDAC vs aptX HD Comparison",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "11 min read",
-      category: "Get Electrified",
-      slug: "wireless-audio-codecs-ldac-aptx",
-    },
-    {
-      title: "Smart Speakers Evolution: AI-Powered Audio Assistants",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "8 min read",
-      category: "Get Electrified",
-      slug: "smart-speakers-ai-audio-assistants",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("get-electrified", "audio-tech");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Audio Tech - Get Electrified | REVUZIA</title>
+        <meta name="description" content="Discover the latest in audio technology including spatial audio, high-fidelity sound systems, and cutting-edge audio innovations." />
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <section className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Audio Tech</h1>
           <p className="text-xl text-foreground/80 text-center mb-12 max-w-3xl mx-auto">
-            Explore cutting-edge audio technologies, from spatial sound to wireless innovations.
+            Explore the cutting-edge world of audio technology, from spatial audio to high-fidelity sound systems.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {audioTechArticles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {isLoading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-foreground/80">Loading articles...</p>
+              </div>
+            ) : articles && articles.length > 0 ? (
+              articles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{
+                    name: article.author_name,
+                    avatar: "",
+                  }}
+                  readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                  category="Audio Tech"
+                  slug={article.slug}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+                <p className="text-foreground/80 mb-6">
+                  We're working on bringing you the latest audio technology insights and reviews.
+                </p>
+                <Link 
+                  to="/get-electrified" 
+                  className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+                >
+                  Browse All Get Electrified
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       </main>

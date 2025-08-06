@@ -1,51 +1,20 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import ArticleCarousel from "@/components/ArticleCarousel";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
-import authorRaj from "@/assets/author-raj.jpg";
+import ArticleCard from "@/components/ArticleCard";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const SmartHomeTech = () => {
-  const featuredArticles = [
-    {
-      title: "Complete Smart Home Setup Guide 2025",
-      image: heroTechBg,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "14 min read",
-      category: "Smart Home Tech",
-      slug: "smart-home-setup-guide-2025",
-    },
-    {
-      title: "Best Smart Speakers: Alexa vs Google vs Apple",
-      image: heroTechBg,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "12 min read",
-      category: "Smart Home Tech",
-      slug: "smart-speakers-comparison-2025",
-    },
-    {
-      title: "Top 5 Smart Lighting Systems for Energy Efficiency",
-      image: heroTechBg,
-      author: {
-        name: "Raj Malhotra",
-        avatar: authorRaj,
-      },
-      readTime: "11 min read",
-      category: "Smart Home Tech",
-      slug: "smart-lighting-energy-efficiency",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("get-electrified", "smart-home-tech");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Smart Home Tech - Get Electrified | REVUZIA</title>
+        <meta name="description" content="Transform your living space with the latest smart home technology. From automation to security, discover what's new and electrifying." />
+      </Helmet>
       <Header />
       
       <main id="main-content" className="container mx-auto px-4 py-16">
@@ -73,13 +42,42 @@ const SmartHomeTech = () => {
           </p>
         </section>
 
-        {/* Featured Articles */}
-        <ArticleCarousel 
-          title="Latest Smart Home Tech"
-          articles={featuredArticles}
-          viewAllLink="/get-electrified"
-          viewAllText="View All Smart Home"
-        />
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "",
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category="Smart Home Tech"
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+              <p className="text-foreground/80 mb-6">
+                We're working on bringing you the latest smart home technology insights and reviews.
+              </p>
+              <Link 
+                to="/get-electrified" 
+                className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+              >
+                Browse All Get Electrified
+              </Link>
+            </div>
+          )}
+        </div>
       </main>
 
       <Footer />

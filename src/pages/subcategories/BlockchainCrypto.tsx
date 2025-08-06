@@ -1,51 +1,20 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const BlockchainCrypto = () => {
-  const blockchainArticles = [
-    {
-      title: "Bitcoin ETF Approval: What It Means for Crypto Adoption",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "8 min read",
-      category: "Tech News",
-      slug: "bitcoin-etf-approval-crypto-adoption",
-    },
-    {
-      title: "Ethereum 2.0 Staking: Complete Guide for 2025",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "12 min read",
-      category: "Tech News",
-      slug: "ethereum-2-staking-guide-2025",
-    },
-    {
-      title: "Web3 Development: Building Decentralized Applications",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "15 min read",
-      category: "Tech News",
-      slug: "web3-development-dapps",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("tech-news", "blockchain-crypto");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Blockchain & Crypto - Tech News | REVUZIA</title>
+        <meta name="description" content="Explore the latest developments in blockchain technology, cryptocurrency markets, and decentralized finance." />
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-16">
@@ -55,10 +24,40 @@ const BlockchainCrypto = () => {
             Explore the latest developments in blockchain technology, cryptocurrency markets, and decentralized finance.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blockchainArticles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {isLoading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-foreground/80">Loading articles...</p>
+              </div>
+            ) : articles && articles.length > 0 ? (
+              articles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{
+                    name: article.author_name,
+                    avatar: "",
+                  }}
+                  readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                  category="Blockchain & Crypto"
+                  slug={article.slug}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+                <p className="text-foreground/80 mb-6">
+                  We're working on bringing you the latest blockchain and cryptocurrency insights.
+                </p>
+                <Link 
+                  to="/tech-news" 
+                  className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+                >
+                  Browse All Tech News
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       </main>

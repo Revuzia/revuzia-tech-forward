@@ -1,64 +1,63 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import BackToTop from "@/components/BackToTop";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const CamerasPhotography = () => {
-  const cameraArticles = [
-    {
-      title: "Canon EOS R6 Mark III Review: Professional Photography Evolved",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "15 min read",
-      category: "Product Reviews",
-      slug: "canon-eos-r6-mark-iii-review",
-    },
-    {
-      title: "Sony A7R VI vs Nikon Z9: Mirrorless Camera Showdown",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "18 min read",
-      category: "Product Reviews",
-      slug: "sony-a7r-vi-vs-nikon-z9",
-    },
-    {
-      title: "DJI Action 5 Pro Review: Action Camera Excellence",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "11 min read",
-      category: "Product Reviews",
-      slug: "dji-action-5-pro-review",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("product-reviews", "cameras-photography");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Cameras & Photography - Product Reviews | REVUZIA</title>
+        <meta name="description" content="Professional reviews of cameras, lenses, and photography equipment for every skill level and budget." />
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <section className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Cameras & Photography</h1>
           <p className="text-xl text-foreground/80 text-center mb-12 max-w-3xl mx-auto">
-            Professional camera reviews, photography gear guides, and imaging technology insights.
+            Detailed reviews and comparisons of cameras, lenses, and photography gear from entry-level to professional.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cameraArticles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {isLoading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-foreground/80">Loading articles...</p>
+              </div>
+            ) : articles && articles.length > 0 ? (
+              articles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{
+                    name: article.author_name,
+                    avatar: "",
+                  }}
+                  readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                  category="Cameras & Photography"
+                  slug={article.slug}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+                <p className="text-foreground/80 mb-6">
+                  We're working on comprehensive camera and photography equipment reviews.
+                </p>
+                <Link 
+                  to="/product-reviews" 
+                  className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+                >
+                  Browse All Product Reviews
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       </main>

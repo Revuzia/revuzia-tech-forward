@@ -1,83 +1,20 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import ArticleCarousel from "@/components/ArticleCarousel";
-import heroTechBg from "@/assets/hero-tech-bg.jpg";
-import authorRaj from "@/assets/author-raj.jpg";
-import authorImani from "@/assets/author-imani.jpg";
+import ArticleCard from "@/components/ArticleCard";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const Cybersecurity = () => {
-  const featuredArticles = [
-    {
-      title: "Zero Trust Security: Why Your Business Needs It Now",
-      image: heroTechBg,
-      author: {
-        name: "Raj Malhotra",
-        avatar: authorRaj,
-      },
-      readTime: "11 min read",
-      category: "Cybersecurity",
-      slug: "zero-trust-security-guide",
-    },
-    {
-      title: "Ransomware Protection: Complete Defense Strategy",
-      image: heroTechBg,
-      author: {
-        name: "Imani Brooks",
-        avatar: authorImani,
-      },
-      readTime: "13 min read",
-      category: "Cybersecurity",
-      slug: "ransomware-protection",
-    },
-    {
-      title: "The Future of Cybersecurity: AI vs. Hackers",
-      image: heroTechBg,
-      author: {
-        name: "Raj Malhotra",
-        avatar: authorRaj,
-      },
-      readTime: "14 min read",
-      category: "Cybersecurity",
-      slug: "future-of-cybersecurity",
-    },
-    {
-      title: "Mobile Security: Protecting Your Data on the Go",
-      image: heroTechBg,
-      author: {
-        name: "Imani Brooks",
-        avatar: authorImani,
-      },
-      readTime: "10 min read",
-      category: "Cybersecurity",
-      slug: "mobile-security-tips",
-    },
-    {
-      title: "Cybersecurity for Small Businesses: Essential Steps",
-      image: heroTechBg,
-      author: {
-        name: "Raj Malhotra",
-        avatar: authorRaj,
-      },
-      readTime: "12 min read",
-      category: "Cybersecurity",
-      slug: "cybersecurity-for-small-businesses",
-    },
-    {
-      title: "Data Privacy in 2024: What You Need to Know",
-      image: heroTechBg,
-      author: {
-        name: "Imani Brooks",
-        avatar: authorImani,
-      },
-      readTime: "15 min read",
-      category: "Cybersecurity",
-      slug: "data-privacy-2024",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("tech-news", "cybersecurity");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Cybersecurity - Tech News | REVUZIA</title>
+        <meta name="description" content="Stay protected in the digital age with the latest cybersecurity insights, threat analysis, and protection strategies." />
+      </Helmet>
       <Header />
       
       <main id="main-content" className="container mx-auto px-4 py-16">
@@ -105,13 +42,42 @@ const Cybersecurity = () => {
           </p>
         </section>
 
-        {/* Featured Articles */}
-        <ArticleCarousel 
-          title="Latest Cybersecurity Updates"
-          articles={featuredArticles}
-          viewAllLink="/tech-news"
-          viewAllText="View All Security Articles"
-        />
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "",
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category="Cybersecurity"
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+              <p className="text-foreground/80 mb-6">
+                We're working on bringing you the latest cybersecurity insights and protection strategies.
+              </p>
+              <Link 
+                to="/tech-news" 
+                className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+              >
+                Browse All Tech News
+              </Link>
+            </div>
+          )}
+        </div>
       </main>
 
       <Footer />

@@ -1,64 +1,63 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
-import authorTheo from "@/assets/author-theo.jpg";
+import BackToTop from "@/components/BackToTop";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const BudgetPicks = () => {
-  const budgetArticles = [
-    {
-      title: "Best Budget Smartphones Under $300: 2025 Edition",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "12 min read",
-      category: "Buying Guides",
-      slug: "best-budget-smartphones-under-300-2025",
-    },
-    {
-      title: "Affordable Gaming Laptops: Performance on a Budget",
-      image: buyingGuideHero,
-      author: {
-        name: "Theo Chan",
-        avatar: authorTheo,
-      },
-      readTime: "14 min read",
-      category: "Buying Guides",
-      slug: "affordable-gaming-laptops-budget",
-    },
-    {
-      title: "Best Budget Wireless Earbuds: Quality Sound for Less",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "10 min read",
-      category: "Buying Guides",
-      slug: "best-budget-wireless-earbuds",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("buying-guides", "budget-picks");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Budget Picks - Buying Guides | REVUZIA</title>
+        <meta name="description" content="Find the best value tech products with our budget-friendly recommendations and money-saving buying guides." />
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-16">
         <section className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Best Budget Picks</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Budget Picks</h1>
           <p className="text-xl text-foreground/80 text-center mb-12 max-w-3xl mx-auto">
-            Discover the best technology products that offer exceptional value without breaking the bank.
+            Get the most bang for your buck with our carefully selected budget-friendly tech recommendations.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {budgetArticles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {isLoading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-foreground/80">Loading articles...</p>
+              </div>
+            ) : articles && articles.length > 0 ? (
+              articles.map((article) => (
+                <ArticleCard
+                  key={article.id}
+                  title={article.title}
+                  image={article.featured_image_url}
+                  author={{
+                    name: article.author_name,
+                    avatar: "",
+                  }}
+                  readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                  category="Budget Picks"
+                  slug={article.slug}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+                <p className="text-foreground/80 mb-6">
+                  We're working on finding the best budget-friendly tech deals for you.
+                </p>
+                <Link 
+                  to="/buying-guides" 
+                  className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+                >
+                  Browse All Buying Guides
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       </main>

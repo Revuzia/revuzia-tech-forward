@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
+import { useArticles } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 import { 
   Breadcrumb,
@@ -12,45 +13,9 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
-import gamingHero from "@/assets/gaming-article-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
 
 const SmartphonesTablets = () => {
-  const smartphoneArticles = [
-    {
-      title: "iPhone 16 Pro Max: Revolutionary Camera System Deep Dive",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "8 min read",
-      category: "Smartphones & Tablets",
-      slug: "iphone-16-pro-max-camera",
-    },
-    {
-      title: "Samsung Galaxy S25 Ultra: The Future of Mobile Photography",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "10 min read",
-      category: "Smartphones & Tablets",
-      slug: "galaxy-s25-ultra-photography",
-    },
-    {
-      title: "iPad Pro M4: Professional Tablet Computing Redefined",
-      image: gamingHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "7 min read",
-      category: "Smartphones & Tablets",
-      slug: "ipad-pro-m4-review",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("product-reviews", "smartphones-tablets");
 
   return (
     <div className="min-h-screen bg-background">
@@ -88,10 +53,40 @@ const SmartphonesTablets = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-          {smartphoneArticles.map((article, index) => (
-            <ArticleCard key={index} {...article} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "",
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category="Smartphones & Tablets"
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+              <p className="text-foreground/80 mb-6">
+                We're working on bringing you the latest smartphone and tablet reviews.
+              </p>
+              <Link 
+                to="/product-reviews" 
+                className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+              >
+                Browse All Product Reviews
+              </Link>
+            </div>
+          )}
         </div>
       </main>
 

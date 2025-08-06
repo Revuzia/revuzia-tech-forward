@@ -1,49 +1,20 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
-import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
-import authorZara from "@/assets/author-zara.jpg";
+import { useArticles } from "@/hooks/useArticles";
+import { Link } from "react-router-dom";
 
 const WearablesTech = () => {
-  const wearablesArticles = [
-    {
-      title: "Apple Watch Series 10: Health Monitoring Revolution",
-      image: buyingGuideHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "6 min read",
-      category: "Wearables & Tech",
-      slug: "apple-watch-series-10",
-    },
-    {
-      title: "Meta Quest 4: VR Gaming Reaches New Heights",
-      image: buyingGuideHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "9 min read",
-      category: "Wearables & Tech",
-      slug: "meta-quest-4-vr",
-    },
-    {
-      title: "Fitness Trackers 2025: Complete Health Monitoring Guide",
-      image: buyingGuideHero,
-      author: {
-        name: "Zara Velez",
-        avatar: authorZara,
-      },
-      readTime: "8 min read",
-      category: "Wearables & Tech",
-      slug: "fitness-trackers-2025",
-    },
-  ];
+  const { data: articles, isLoading } = useArticles("get-electrified", "wearables-tech");
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Wearables & Tech - Get Electrified | REVUZIA</title>
+        <meta name="description" content="Explore the latest in wearable technology, smartwatches, fitness trackers, and VR/AR devices that are changing how we interact with technology." />
+      </Helmet>
       <Header />
       
       <main className="container mx-auto px-4 py-16">
@@ -54,10 +25,40 @@ const WearablesTech = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-          {wearablesArticles.map((article, index) => (
-            <ArticleCard key={index} {...article} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isLoading ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-foreground/80">Loading articles...</p>
+            </div>
+          ) : articles && articles.length > 0 ? (
+            articles.map((article) => (
+              <ArticleCard
+                key={article.id}
+                title={article.title}
+                image={article.featured_image_url}
+                author={{
+                  name: article.author_name,
+                  avatar: "",
+                }}
+                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                category="Wearables & Tech"
+                slug={article.slug}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">Coming Soon</h3>
+              <p className="text-foreground/80 mb-6">
+                We're working on bringing you the latest wearable technology reviews and insights.
+              </p>
+              <Link 
+                to="/get-electrified" 
+                className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
+              >
+                Browse All Get Electrified
+              </Link>
+            </div>
+          )}
         </div>
       </main>
 
