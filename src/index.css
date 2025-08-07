@@ -199,8 +199,7 @@
   }
 
   body {
-    @apply bg-background font-heading;
-    color: #ffffff; /* Bright white for all body text */
+    @apply bg-background text-foreground font-heading;
   }
 
   /* Accessibility - Skip to content */
