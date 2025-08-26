@@ -73,24 +73,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const subscribeToNewsletter = async (email: string) => {
-    // Check if user is already registered
-    const { data: existingUser } = await supabase.auth.signUp({
+    // For now, just attempt to sign up the user
+    const { error } = await supabase.auth.signUp({
       email,
       password: Math.random().toString(36).slice(-8), // Temporary password
       options: {
         emailRedirectTo: `${window.location.origin}/`,
       }
     });
-
-    // If user already exists, just add to newsletter
-    if (!existingUser.user) {
-      const { error: newsletterError } = await supabase
-        .from('newsletter_subscribers')
-        .insert([{ email }]);
-      return { error: newsletterError };
-    }
-
-    return { error: null };
+    return { error };
   };
 
   const value = {

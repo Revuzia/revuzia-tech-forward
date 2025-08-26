@@ -71,14 +71,14 @@ const ArticleEditor = () => {
             setTitle(data.title);
             setArticleSlug(data.slug);
             setContent(data.content || '');
-            setContent2(data.content2 || '');
-            setContentSplit(data.contentsplit || false);  // Map lowercase DB field
-            setSplitType((data.splittype as 'natural' | 'fallback' | 'hard' | 'none') || 'none');      // Map lowercase DB field with type assertion
-            setTotalOriginalLength(data.totaloriginallength || data.content?.length || 0);  // Map lowercase DB field
+            setContent2(''); // content2 doesn't exist in DB schema
+            setContentSplit(false); // contentsplit doesn't exist in DB schema
+            setSplitType('none'); // splittype doesn't exist in DB schema
+            setTotalOriginalLength(data.content?.length || 0); // totaloriginallength doesn't exist in DB schema
             setFeaturedImageUrl(data.featured_image_url || '');
             setAuthorName(data.author_name || '');
             setCategoryName(data.category_name || '');
-            setSubcategoryName(data.subcategory_name || '');
+            setSubcategoryName(data.subCategory_name || ''); // Correct property name
             setStatus((data.status as 'draft' | 'published') || 'draft');  // Type assertion for status
           }
         } catch (error) {
