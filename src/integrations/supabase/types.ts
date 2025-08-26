@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.12 (cd3cf9e)"
@@ -16,139 +16,76 @@ export type Database = {
     Tables: {
       articles: {
         Row: {
-          author_name: string
-          category_name: string
-          content: string
-          content2: string | null
-          contentsplit: boolean | null
+          author_id: string | null
+          author_name: string | null
+          category_name: string | null
+          content: string | null
           created_at: string
+          excerpt: string | null
           featured_image_url: string | null
-          id: string
-          slug: string
-          splittype: string | null
+          id: number
+          slug: string | null
           status: string | null
-          subcategory_name: string | null
-          title: string
-          totaloriginallength: number | null
-          updated_at: string
-          views: number | null
+          subCategory_name: string | null
+          title: string | null
+          view_count: number | null
         }
         Insert: {
-          author_name: string
-          category_name: string
-          content: string
-          content2?: string | null
-          contentsplit?: boolean | null
+          author_id?: string | null
+          author_name?: string | null
+          category_name?: string | null
+          content?: string | null
           created_at?: string
+          excerpt?: string | null
           featured_image_url?: string | null
-          id?: string
-          slug: string
-          splittype?: string | null
+          id?: number
+          slug?: string | null
           status?: string | null
-          subcategory_name?: string | null
-          title: string
-          totaloriginallength?: number | null
-          updated_at?: string
-          views?: number | null
+          subCategory_name?: string | null
+          title?: string | null
+          view_count?: number | null
         }
         Update: {
-          author_name?: string
-          category_name?: string
-          content?: string
-          content2?: string | null
-          contentsplit?: boolean | null
+          author_id?: string | null
+          author_name?: string | null
+          category_name?: string | null
+          content?: string | null
           created_at?: string
+          excerpt?: string | null
           featured_image_url?: string | null
-          id?: string
-          slug?: string
-          splittype?: string | null
+          id?: number
+          slug?: string | null
           status?: string | null
-          subcategory_name?: string | null
-          title?: string
-          totaloriginallength?: number | null
-          updated_at?: string
-          views?: number | null
+          subCategory_name?: string | null
+          title?: string | null
+          view_count?: number | null
         }
         Relationships: []
       }
-      "ASIN Database": {
+      asindatabase: {
         Row: {
-          ASIN: string
-          Category: string
-          "New Price (USD)": string
-          Product: string
-          "Variant/Notes": string
-        }
-        Insert: {
-          ASIN: string
-          Category: string
-          "New Price (USD)": string
-          Product: string
-          "Variant/Notes": string
-        }
-        Update: {
-          ASIN?: string
-          Category?: string
-          "New Price (USD)"?: string
-          Product?: string
-          "Variant/Notes"?: string
-        }
-        Relationships: []
-      }
-      newsletter_subscribers: {
-        Row: {
-          email: string
+          ASIN: string | null
+          Category: string | null
           id: string
-          is_active: boolean | null
-          subscribed_at: string
+          Notes: string | null
+          "Price (USD)": string | null
+          Product: string | null
         }
         Insert: {
-          email: string
+          ASIN?: string | null
+          Category?: string | null
           id?: string
-          is_active?: boolean | null
-          subscribed_at?: string
+          Notes?: string | null
+          "Price (USD)"?: string | null
+          Product?: string | null
         }
         Update: {
-          email?: string
+          ASIN?: string | null
+          Category?: string | null
           id?: string
-          is_active?: boolean | null
-          subscribed_at?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          bio: string | null
-          created_at: string
-          display_name: string | null
-          email: string
-          id: string
-          is_subscribed: boolean | null
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          display_name?: string | null
-          email: string
-          id?: string
-          is_subscribed?: boolean | null
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          display_name?: string | null
-          email?: string
-          id?: string
-          is_subscribed?: boolean | null
-          updated_at?: string
-          user_id?: string
+          Notes?: string | null
+          "Price (USD)"?: string | null
+          Product?: string | null
         }
         Relationships: []
       }
