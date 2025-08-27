@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import ArticleCarousel from "@/components/ArticleCarousel";
 import BackToTop from "@/components/BackToTop";
-import ParticleSystem from "@/components/ParticleSystem";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -191,12 +190,7 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroTechBg})` }}
         >
-          <div className="absolute inset-0 bg-background/70 backdrop-blur-sm"></div>
-        </div>
-        
-        {/* Interactive Particle System */}
-        <div className="absolute inset-0 z-5">
-          <ParticleSystem />
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
         </div>
         
         {/* Floating Tech Elements */}
