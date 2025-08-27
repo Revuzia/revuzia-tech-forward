@@ -1,178 +1,244 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-interface Particle {
+interface Node {
   id: number;
   x: number;
   y: number;
+  targetX: number;
+  targetY: number;
   vx: number;
   vy: number;
   size: number;
-  life: number;
-  maxLife: number;
+  connections: number[];
+  pulse: number;
   color: string;
-  type: 'network' | 'explosion';
-  connections?: number[];
+  type: 'primary' | 'secondary' | 'data';
 }
 
 interface ParticleSystemProps {
   className?: string;
 }
 
-const ParticleSystem: React.FC<ParticleSystemProps> = ({ className }) => {
+const CyberpunkNetwork: React.FC<ParticleSystemProps> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number>();
-  const particlesRef = useRef<Particle[]>([]);
+  const nodesRef = useRef<Node[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const timeRef = useRef(0);
+  const [isActive, setIsActive] = useState(false);
 
-  const colors = [
-    'hsl(var(--primary))',
-    'hsl(var(--accent))',
-    'hsl(var(--brand))',
-    '#00ff88',
-    '#ff0088',
-    '#0088ff'
-  ];
+  const createNode = (x: number, y: number, type: 'primary' | 'secondary' | 'data'): Node => {
+    const colors = {
+      primary: '#00ff88',
+      secondary: '#ff0088', 
+      data: '#0088ff'
+    };
 
-  const createNetworkParticle = (x: number, y: number): Particle => ({
-    id: Date.now() + Math.random(),
-    x,
-    y,
-    vx: (Math.random() - 0.5) * 0.5,
-    vy: (Math.random() - 0.5) * 0.5,
-    size: Math.random() * 3 + 1,
-    life: 1,
-    maxLife: 1,
-    color: colors[Math.floor(Math.random() * colors.length)],
-    type: 'network',
-    connections: []
-  });
-
-  const createExplosionParticle = (x: number, y: number): Particle => {
-    const angle = Math.random() * Math.PI * 2;
-    const speed = Math.random() * 8 + 2;
     return {
       id: Date.now() + Math.random(),
       x,
       y,
-      vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed,
-      size: Math.random() * 4 + 2,
-      life: 1,
-      maxLife: 1,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      type: 'explosion'
+      targetX: x,
+      targetY: y,
+      vx: 0,
+      vy: 0,
+      size: type === 'primary' ? 8 : type === 'secondary' ? 6 : 4,
+      connections: [],
+      pulse: Math.random() * Math.PI * 2,
+      color: colors[type],
+      type
     };
   };
 
-  const initializeNetworkParticles = (canvas: HTMLCanvasElement) => {
-    const particles: Particle[] = [];
-    const numParticles = 30;
+  const initializeNetwork = (canvas: HTMLCanvasElement) => {
+    const nodes: Node[] = [];
     
-    for (let i = 0; i < numParticles; i++) {
-      particles.push(createNetworkParticle(
+    // Create primary nodes (fewer, larger)
+    for (let i = 0; i < 8; i++) {
+      nodes.push(createNode(
         Math.random() * canvas.width,
-        Math.random() * canvas.height
+        Math.random() * canvas.height,
+        'primary'
       ));
     }
     
-    particlesRef.current = particles;
-  };
-
-  const createExplosion = (x: number, y: number) => {
-    const explosionParticles = Array.from({ length: 15 }, () => 
-      createExplosionParticle(x, y)
-    );
-    particlesRef.current.push(...explosionParticles);
-  };
-
-  const updateParticles = (canvas: HTMLCanvasElement) => {
-    const particles = particlesRef.current;
+    // Create secondary nodes
+    for (let i = 0; i < 15; i++) {
+      nodes.push(createNode(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        'secondary'
+      ));
+    }
     
-    particles.forEach((particle, index) => {
-      if (particle.type === 'network') {
-        // Network particles move slowly and bounce off walls
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        
-        if (particle.x <= 0 || particle.x >= canvas.width) particle.vx *= -1;
-        if (particle.y <= 0 || particle.y >= canvas.height) particle.vy *= -1;
-        
-        // Keep particles within bounds
-        particle.x = Math.max(0, Math.min(canvas.width, particle.x));
-        particle.y = Math.max(0, Math.min(canvas.height, particle.y));
-        
-        // Update connections
-        particle.connections = [];
-        particles.forEach((other, otherIndex) => {
-          if (other.type === 'network' && index !== otherIndex) {
-            const dx = particle.x - other.x;
-            const dy = particle.y - other.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < 120) {
-              particle.connections!.push(otherIndex);
-            }
+    // Create data nodes (smaller, more numerous)
+    for (let i = 0; i < 25; i++) {
+      nodes.push(createNode(
+        Math.random() * canvas.width,
+        Math.random() * canvas.height,
+        'data'
+      ));
+    }
+    
+    // Establish connections
+    nodes.forEach((node, index) => {
+      nodes.forEach((other, otherIndex) => {
+        if (index !== otherIndex) {
+          const dx = node.x - other.x;
+          const dy = node.y - other.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          // Connection probability based on node types and distance
+          let maxDistance = 150;
+          if (node.type === 'primary' && other.type === 'primary') maxDistance = 200;
+          if (node.type === 'data' && other.type === 'data') maxDistance = 80;
+          
+          if (distance < maxDistance && Math.random() > 0.7) {
+            node.connections.push(otherIndex);
           }
-        });
-      } else {
-        // Explosion particles fade and fall
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-        particle.vy += 0.1; // gravity
-        particle.vx *= 0.99; // air resistance
-        particle.life -= 0.02;
-        
-        if (particle.life <= 0) {
-          particles.splice(index, 1);
+        }
+      });
+    });
+    
+    nodesRef.current = nodes;
+  };
+
+  const updateNodes = (canvas: HTMLCanvasElement, time: number) => {
+    const nodes = nodesRef.current;
+    const mouse = mouseRef.current;
+    
+    nodes.forEach(node => {
+      // Gentle orbital movement
+      node.targetX += Math.sin(time * 0.001 + node.id) * 0.5;
+      node.targetY += Math.cos(time * 0.0008 + node.id) * 0.3;
+      
+      // Mouse interaction - attraction/repulsion
+      const dx = mouse.x - node.x;
+      const dy = mouse.y - node.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 150) {
+        const force = (150 - distance) / 150;
+        if (isActive) {
+          // Attraction when active
+          node.targetX += dx * force * 0.02;
+          node.targetY += dy * force * 0.02;
+        } else {
+          // Gentle repulsion
+          node.targetX -= dx * force * 0.01;
+          node.targetY -= dy * force * 0.01;
         }
       }
+      
+      // Keep nodes within bounds with elastic boundaries
+      const margin = 50;
+      if (node.targetX < margin) node.targetX = margin + (margin - node.targetX) * 0.1;
+      if (node.targetX > canvas.width - margin) node.targetX = canvas.width - margin - (node.targetX - (canvas.width - margin)) * 0.1;
+      if (node.targetY < margin) node.targetY = margin + (margin - node.targetY) * 0.1;
+      if (node.targetY > canvas.height - margin) node.targetY = canvas.height - margin - (node.targetY - (canvas.height - margin)) * 0.1;
+      
+      // Smooth movement
+      node.vx += (node.targetX - node.x) * 0.05;
+      node.vy += (node.targetY - node.y) * 0.05;
+      node.vx *= 0.85;
+      node.vy *= 0.85;
+      
+      node.x += node.vx;
+      node.y += node.vy;
+      
+      // Update pulse for glow effect
+      node.pulse += 0.05;
     });
   };
 
-  const drawParticles = (ctx: CanvasRenderingContext2D) => {
-    const particles = particlesRef.current;
+  const drawConnections = (ctx: CanvasRenderingContext2D, time: number) => {
+    const nodes = nodesRef.current;
     
-    // Draw connections first
-    particles.forEach(particle => {
-      if (particle.type === 'network' && particle.connections) {
-        particle.connections.forEach(connectionIndex => {
-          const connected = particles[connectionIndex];
-          if (connected && connected.type === 'network') {
-            const dx = particle.x - connected.x;
-            const dy = particle.y - connected.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const opacity = 1 - (distance / 120);
-            
-            ctx.strokeStyle = `rgba(0, 255, 136, ${opacity * 0.3})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(connected.x, connected.y);
-            ctx.stroke();
-          }
-        });
-      }
+    nodes.forEach((node, index) => {
+      node.connections.forEach(connectionIndex => {
+        const connected = nodes[connectionIndex];
+        if (!connected) return;
+        
+        const dx = node.x - connected.x;
+        const dy = node.y - connected.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        // Dynamic line properties
+        const maxDistance = node.type === 'primary' ? 200 : 150;
+        const opacity = Math.max(0, 1 - (distance / maxDistance));
+        const pulse = Math.sin(time * 0.003 + index * 0.1) * 0.3 + 0.7;
+        
+        // Gradient line
+        const gradient = ctx.createLinearGradient(node.x, node.y, connected.x, connected.y);
+        gradient.addColorStop(0, `${node.color}${Math.floor(opacity * pulse * 100).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(1, `${connected.color}${Math.floor(opacity * pulse * 100).toString(16).padStart(2, '0')}`);
+        
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = node.type === 'primary' ? 2 : 1;
+        ctx.setLineDash([]);
+        
+        // Add glow effect
+        ctx.shadowColor = node.color;
+        ctx.shadowBlur = 3;
+        
+        ctx.beginPath();
+        ctx.moveTo(node.x, node.y);
+        ctx.lineTo(connected.x, connected.y);
+        ctx.stroke();
+        
+        // Data flow particles along connections
+        if (Math.random() > 0.95) {
+          const progress = (time * 0.002) % 1;
+          const flowX = node.x + (connected.x - node.x) * progress;
+          const flowY = node.y + (connected.y - node.y) * progress;
+          
+          ctx.shadowBlur = 5;
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(flowX, flowY, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
     });
     
-    // Draw particles
-    particles.forEach(particle => {
-      const alpha = particle.type === 'explosion' ? particle.life : 1;
+    ctx.shadowBlur = 0;
+  };
+
+  const drawNodes = (ctx: CanvasRenderingContext2D, time: number) => {
+    const nodes = nodesRef.current;
+    
+    nodes.forEach(node => {
+      const pulse = Math.sin(node.pulse) * 0.3 + 1;
+      const size = node.size * pulse;
       
-      // Create glow effect
-      ctx.shadowColor = particle.color;
-      ctx.shadowBlur = particle.size * 3;
+      // Outer glow
+      const glowSize = size * 3;
+      const glowGradient = ctx.createRadialGradient(
+        node.x, node.y, 0,
+        node.x, node.y, glowSize
+      );
+      glowGradient.addColorStop(0, `${node.color}40`);
+      glowGradient.addColorStop(1, `${node.color}00`);
       
-      ctx.fillStyle = particle.color.includes('hsl') 
-        ? particle.color.replace(')', `, ${alpha})`)
-        : particle.color + Math.floor(alpha * 255).toString(16).padStart(2, '0');
-      
+      ctx.fillStyle = glowGradient;
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      ctx.arc(node.x, node.y, glowSize, 0, Math.PI * 2);
       ctx.fill();
       
-      // Reset shadow for next particle
+      // Main node
+      ctx.shadowColor = node.color;
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = node.color;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, size, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Inner highlight
       ctx.shadowBlur = 0;
+      ctx.fillStyle = '#ffffff60';
+      ctx.beginPath();
+      ctx.arc(node.x - size * 0.3, node.y - size * 0.3, size * 0.3, 0, Math.PI * 2);
+      ctx.fill();
     });
   };
 
@@ -182,12 +248,15 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ className }) => {
     
     if (!canvas || !ctx) return;
     
-    // Clear canvas with fade effect
+    timeRef.current += 16;
+    
+    // Clear with fade effect
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    updateParticles(canvas);
-    drawParticles(ctx);
+    updateNodes(canvas, timeRef.current);
+    drawConnections(ctx, timeRef.current);
+    drawNodes(ctx, timeRef.current);
     
     animationFrameRef.current = requestAnimationFrame(animate);
   };
@@ -203,48 +272,29 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ className }) => {
     };
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
+  const handleMouseEnter = () => setIsActive(true);
+  const handleMouseLeave = () => setIsActive(false);
+
+  const handleClick = () => {
+    // Reorganize network on click
     const canvas = canvasRef.current;
     if (!canvas) return;
     
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    
-    createExplosion(x, y);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    // Add some extra particles when hovering
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      for (let i = 0; i < 5; i++) {
-        particlesRef.current.push(createNetworkParticle(
-          Math.random() * canvas.width,
-          Math.random() * canvas.height
-        ));
-      }
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+    nodesRef.current.forEach(node => {
+      node.targetX = Math.random() * canvas.width;
+      node.targetY = Math.random() * canvas.height;
+      node.pulse = Math.random() * Math.PI * 2;
+    });
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
     const updateCanvasSize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
-      
-      // Reinitialize particles when canvas resizes
-      initializeNetworkParticles(canvas);
+      initializeNetwork(canvas);
     };
     
     updateCanvasSize();
@@ -263,17 +313,17 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ className }) => {
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 pointer-events-auto cursor-crosshair ${className}`}
+      className={`absolute inset-0 pointer-events-auto cursor-none ${className}`}
       onMouseMove={handleMouseMove}
-      onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       style={{ 
         background: 'transparent',
-        filter: isHovered ? 'brightness(1.2)' : 'brightness(1)'
+        filter: isActive ? 'brightness(1.3) contrast(1.1)' : 'brightness(1)'
       }}
     />
   );
 };
 
-export default ParticleSystem;
+export default CyberpunkNetwork;
