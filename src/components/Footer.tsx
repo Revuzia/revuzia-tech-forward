@@ -111,7 +111,7 @@ const Footer = () => {
               href="https://twitter.com/revuzia45555"
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-2 text-white text-sm hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-4 py-2 hover:bg-brand hover:text-black w-full max-w-xs"
+              className="inline-flex items-center justify-center space-x-2 text-white text-sm hover:text-brand transition-all duration-300 group font-poppins font-medium bg-black rounded-full px-4 py-2 hover:bg-brand hover:text-black hover:scale-105 w-full max-w-xs"
             >
               <span>Follow us on</span>
               <div className="bg-black rounded-full p-1">
@@ -153,7 +153,7 @@ const Footer = () => {
             {/* 3. Email Support - Third - Smaller */}
             <Button
               onClick={() => setIsContactModalOpen(true)}
-              className="inline-flex items-center justify-center space-x-2 text-white text-xs hover:text-brand transition-colors duration-300 group font-poppins font-medium bg-black rounded-full px-3 py-2 hover:bg-brand hover:text-black w-full max-w-xs"
+              className="inline-flex items-center justify-center space-x-2 text-white text-xs hover:text-brand transition-all duration-300 group font-poppins font-medium bg-black rounded-full px-3 py-2 hover:bg-brand hover:text-black hover:scale-105 w-full max-w-xs"
             >
               <Mail className="w-3 h-3" />
               <span>Email us: Support@revuzia.com</span>
