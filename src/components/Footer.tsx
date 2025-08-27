@@ -111,7 +111,7 @@ const Footer = () => {
               href="https://twitter.com/revuzia45555"
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center space-x-2 text-white text-sm hover:text-brand transition-all duration-300 group font-poppins font-medium bg-black rounded-full px-4 py-2 hover:bg-brand hover:text-black hover:scale-105 w-full max-w-xs"
+              className="inline-flex items-center justify-center space-x-2 text-white text-sm hover:text-black transition-all duration-300 group font-poppins font-medium bg-black rounded-full px-4 py-2 hover:bg-brand hover:scale-105 w-full max-w-xs"
             >
               <span>Follow us on</span>
               <div className="bg-black rounded-full p-1">
@@ -124,7 +124,7 @@ const Footer = () => {
               {!showEmailInput ? (
                 <Button 
                   onClick={handleSubscribeClick}
-                  className="w-full bg-black hover:bg-brand text-white hover:text-black font-semibold py-2 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-sm"
+                  className="w-full text-white hover:text-black font-semibold py-2 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-sm bg-black hover:bg-brand"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   SUBSCRIBE
