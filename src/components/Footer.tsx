@@ -124,7 +124,7 @@ const Footer = () => {
               {!showEmailInput ? (
                 <Button 
                   onClick={handleSubscribeClick}
-                  className="w-full bg-brand hover:bg-brand/90 text-black font-semibold py-2 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-sm"
+                  className="w-full bg-black hover:bg-brand text-white hover:text-black font-semibold py-2 rounded-full transition-all duration-300 hover:scale-105 font-poppins text-sm"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   SUBSCRIBE
