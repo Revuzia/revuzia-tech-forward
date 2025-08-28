@@ -268,7 +268,7 @@ const Index = () => {
               }}
             >
               <Play className="w-5 h-5 mr-2" />
-              Watch Review Videos
+              Listen to the Latest AI Podcasts
             </Button>
           </div>
           
@@ -285,16 +285,16 @@ const Index = () => {
           <div className="relative inline-block w-full text-center mb-8">
             <h2 id="tech-news-heading" className="text-5xl md:text-6xl font-display font-bold text-center">
               <span className="relative inline-block text-white drop-shadow-2xl">
-                Latest Tech and Electronics
+                The Latest Tech and Digital Tools
                 {/* Glow effect layers */}
-                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
-                  Latest Tech and Electronics
+                 <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  The Latest Tech and Digital Tools
                 </span>
                 <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
-                  Latest Tech and Electronics
+                  The Latest Tech and Digital Tools
                 </span>
                 <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
-                  Latest Tech and Electronics
+                  The Latest Tech and Digital Tools
                 </span>
               </span>
             </h2>
@@ -380,27 +380,106 @@ const Index = () => {
 
         {/* Explore Latest Reviews Carousel */}
         <div id="explore-latest-reviews"></div>
-        <ArticleCarousel
-          title="Explore Latest Reviews"
-          articles={reviewArticles.length > 0 ? reviewArticles.map(article => ({
-            title: article.title,
-            image: article.featured_image_url,
-            author: {
-              name: article.author_name,
-              avatar: "",
-            },
-            readTime: calculateReadTime(article.content),
-            category: article.category_name,
-            slug: article.slug,
-          })) : featuredArticles.filter(article => article.category === "Product Reviews" || article.category === "Buying Guides")}
-          viewAllLink="/product-reviews"
-          viewAllText="View All Reviews"
-        />
+        <section className="mb-20">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Product Reviews */}
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Product Reviews</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {reviewArticles.filter(article => article.category_name === "Reviews").slice(0, 4).length > 0 ? (
+                  reviewArticles.filter(article => article.category_name === "Reviews").slice(0, 4).map((article, index) => (
+                    <ArticleCard
+                      key={`review-${index}`}
+                      title={article.title}
+                      image={article.featured_image_url}
+                      author={{
+                        name: article.author_name,
+                        avatar: "",
+                      }}
+                      readTime={calculateReadTime(article.content)}
+                      category={article.category_name}
+                      slug={article.slug}
+                      isHorizontal={true}
+                    />
+                  ))
+                ) : (
+                  featuredArticles.filter(article => article.category === "Product Reviews").slice(0, 4).map((article, index) => (
+                    <ArticleCard key={`review-fallback-${index}`} {...article} isHorizontal={true} />
+                  ))
+                )}
+              </div>
+              <div className="text-center mt-6">
+                <Link to="/reviews">
+                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
+                    View All Reviews
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Buying Guides */}
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Buying Guides</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {reviewArticles.filter(article => article.category_name === "Buying Guides").slice(0, 4).length > 0 ? (
+                  reviewArticles.filter(article => article.category_name === "Buying Guides").slice(0, 4).map((article, index) => (
+                    <ArticleCard
+                      key={`guide-${index}`}
+                      title={article.title}
+                      image={article.featured_image_url}
+                      author={{
+                        name: article.author_name,
+                        avatar: "",
+                      }}
+                      readTime={calculateReadTime(article.content)}
+                      category={article.category_name}
+                      slug={article.slug}
+                      isHorizontal={true}
+                    />
+                  ))
+                ) : (
+                  featuredArticles.filter(article => article.category === "Buying Guides").slice(0, 4).map((article, index) => (
+                    <ArticleCard key={`guide-fallback-${index}`} {...article} isHorizontal={true} />
+                  ))
+                )}
+              </div>
+              <div className="text-center mt-6">
+                <Link to="/buying-guides">
+                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
+                    View All Guides
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Battle of the Brands */}
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Battle of the Brands</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {featuredArticles.slice(0, 4).map((article, index) => (
+                  <ArticleCard 
+                    key={`battle-${index}`} 
+                    {...article} 
+                    isHorizontal={true}
+                    category="Battle of the Brands"
+                  />
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <Link to="/battle-of-the-brands">
+                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
+                    View All Battles
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Watch Review Videos Carousel */}
         <div id="video-reviews-section"></div>
         <ArticleCarousel
-          title="Watch Review Videos"
+          title="Listen to the Latest AI Podcasts"
           articles={[
             {
               title: "RTX 5090 Gaming Laptop Full Review",

@@ -32,9 +32,10 @@ const Footer = () => {
 
   const categories = [
     { name: "Tech News", path: "/tech-news" },
-    { name: "Get Electrified", path: "/get-electrified" },
-    { name: "Product Reviews", path: "/product-reviews" },
+    { name: "Digital Tools", path: "/digital-tools" },
+    { name: "Reviews", path: "/reviews" },
     { name: "Buying Guides", path: "/buying-guides" },
+    { name: "Battle of the Brands", path: "/battle-of-the-brands" },
   ];
 
   return (

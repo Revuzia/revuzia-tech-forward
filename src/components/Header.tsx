@@ -14,50 +14,64 @@ const Header = () => {
       name: "Tech News", 
       path: "/tech-news",
       subcategories: [
-        { name: "AI Development Tools", path: "/subcategories/ai-development-tools" },
-        { name: "AI Content Creation", path: "/subcategories/ai-content-creation" },
-        { name: "AI & Machine Learning", path: "/subcategories/ai-machine-learning" },
-        { name: "Cybersecurity", path: "/subcategories/cybersecurity" },
-        { name: "Automation & LLM Tools", path: "/subcategories/automation-llm" },
-        { name: "Blockchain & Crypto", path: "/subcategories/blockchain-crypto" }
+        { name: "AI", path: "/subcategories/ai" },
+        { name: "Robotics", path: "/subcategories/robotics" },
+        { name: "Quantum Computing", path: "/subcategories/quantum-computing" },
+        { name: "Biotechnology", path: "/subcategories/biotechnology" },
+        { name: "Space", path: "/subcategories/space" },
+        { name: "Energy Innovation", path: "/subcategories/energy-innovation" },
+        { name: "Research Breakthroughs", path: "/subcategories/research-breakthroughs" }
       ]
     },
     { 
-      name: "Get Electrified", 
-      path: "/get-electrified",
+      name: "Digital Tools", 
+      path: "/digital-tools",
       subcategories: [
-        { name: "AI Hardware Accelerators", path: "/subcategories/ai-hardware-accelerators" },
-        { name: "Home Automation", path: "/subcategories/home-automation" },
-        { name: "Audio Electronics", path: "/subcategories/audio-electronics" },
-        { name: "Display Electronics", path: "/subcategories/display-electronics" },
-        { name: "Gadgets & Cool Tech", path: "/subcategories/gadgets-cool-tech" }
+        { name: "Apps & Platforms", path: "/subcategories/apps-platforms" },
+        { name: "Cloud Services", path: "/subcategories/cloud-services" },
+        { name: "Developer Tools", path: "/subcategories/developer-tools" },
+        { name: "Automation", path: "/subcategories/automation" },
+        { name: "Productivity Software", path: "/subcategories/productivity-software" },
+        { name: "AI Tools & Services", path: "/subcategories/ai-tools-services" }
       ]
     },
     { 
-      name: "Product Reviews", 
-      path: "/product-reviews",
+      name: "Reviews", 
+      path: "/reviews",
       subcategories: [
-        { name: "Development Tools", path: "/subcategories/development-tools" },
-        { name: "Smartphones & Tablets", path: "/subcategories/smartphones-tablets" },
-        { name: "Gaming & PCs", path: "/subcategories/gaming-pcs" },
-        { name: "Audio & Video", path: "/subcategories/audio-video" },
-        { name: "Cameras & Photography", path: "/subcategories/cameras-photography" },
-        { name: "Battery Packs & Power", path: "/subcategories/battery-power" },
-        { name: "Networking & Connectivity", path: "/subcategories/networking-connectivity" },
-        { name: "Tools & Accessories", path: "/subcategories/tools-accessories" }
+        { name: "Smartphones", path: "/subcategories/smartphones" },
+        { name: "Audio", path: "/subcategories/audio" },
+        { name: "Video", path: "/subcategories/video" },
+        { name: "Cameras & Drones", path: "/subcategories/cameras-drones" },
+        { name: "Laptops & Computers", path: "/subcategories/laptops-computers" },
+        { name: "Gaming Hardware", path: "/subcategories/gaming-hardware" },
+        { name: "Wearables", path: "/subcategories/wearables" },
+        { name: "Tablets", path: "/subcategories/tablets" }
       ]
     },
     { 
       name: "Buying Guides", 
       path: "/buying-guides",
       subcategories: [
+        { name: "Editors Choice", path: "/subcategories/editors-choice" },
         { name: "Best in Class", path: "/subcategories/best-in-class" },
-        { name: "Best Budget Picks", path: "/subcategories/budget-picks" },
-        { name: "Best of 2025", path: "/subcategories/best-of-2025" },
-        { name: "Product Comparisons", path: "/subcategories/comparisons" },
-        { name: "Beginner's Guides", path: "/subcategories/beginners-guides" }
+        { name: "Best Value", path: "/subcategories/best-value" },
+        { name: "Premium Pick", path: "/subcategories/premium-pick" },
+        { name: "Smart Home Guides", path: "/subcategories/smart-home-guides" }
       ]
     },
+    { 
+      name: "Battle of the Brands", 
+      path: "/battle-of-the-brands",
+      subcategories: [
+        { name: "Smartphone Showdown", path: "/subcategories/smartphone-showdown" },
+        { name: "Laptop Showdown", path: "/subcategories/laptop-showdown" },
+        { name: "Gaming Battles", path: "/subcategories/gaming-battles" },
+        { name: "Audio Face-off", path: "/subcategories/audio-face-off" },
+        { name: "Smart Home Wars", path: "/subcategories/smart-home-wars" },
+        { name: "Streaming Wars", path: "/subcategories/streaming-wars" }
+      ]
+    }
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -118,7 +132,7 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 flex-1 justify-center max-w-4xl mx-4">
+            <div className="hidden lg:flex items-center space-x-1 flex-1 justify-center max-w-5xl mx-4">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (

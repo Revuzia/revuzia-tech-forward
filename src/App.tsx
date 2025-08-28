@@ -9,9 +9,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import KofiButton from "./components/KofiButton";
 import Index from "./pages/Index";
 import TechNews from "./pages/TechNews";
-import GetElectrified from "./pages/GetElectrified";
-import ProductReviews from "./pages/ProductReviews";
+import DigitalTools from "./pages/DigitalTools";
+import Reviews from "./pages/Reviews";
 import BuyingGuides from "./pages/BuyingGuides";
+import BattleOfTheBrands from "./pages/BattleOfTheBrands";
 import VideoReviews from "./pages/VideoReviews";
 import Search from "./pages/Search";
 import Team from "./pages/Team";
@@ -48,6 +49,31 @@ import AIDevelopmentTools from "./pages/subcategories/AIDevelopmentTools";
 import AIContentCreation from "./pages/subcategories/AIContentCreation";
 import DevelopmentTools from "./pages/subcategories/DevelopmentTools";
 import AIHardwareAccelerators from "./pages/subcategories/AIHardwareAccelerators";
+
+// New subcategory imports
+import AI from "./pages/subcategories/AI";
+import Robotics from "./pages/subcategories/Robotics";
+import QuantumComputing from "./pages/subcategories/QuantumComputing";
+import Biotechnology from "./pages/subcategories/Biotechnology";
+import Space from "./pages/subcategories/Space";
+import EnergyInnovation from "./pages/subcategories/EnergyInnovation";
+import ResearchBreakthroughs from "./pages/subcategories/ResearchBreakthroughs";
+import AppsPlatforms from "./pages/subcategories/AppsPlatforms";
+import CloudServices from "./pages/subcategories/CloudServices";
+import Automation from "./pages/subcategories/Automation";
+import ProductivitySoftware from "./pages/subcategories/ProductivitySoftware";
+import AIToolsServices from "./pages/subcategories/AIToolsServices";
+import Smartphones from "./pages/subcategories/Smartphones";
+import AudioComponent from "./pages/subcategories/Audio";
+import Video from "./pages/subcategories/Video";
+import CamerasDrones from "./pages/subcategories/CamerasDrones";
+import LaptopsComputers from "./pages/subcategories/LaptopsComputers";
+import GamingHardware from "./pages/subcategories/GamingHardware";
+import Wearables from "./pages/subcategories/Wearables";
+import Tablets from "./pages/subcategories/Tablets";
+import EditorsChoice from "./pages/subcategories/EditorsChoice";
+import BestValue from "./pages/subcategories/BestValue";
+import PremiumPick from "./pages/subcategories/PremiumPick";
 
 import ArticleEditor from "./pages/ArticleEditor";
 import ArticlePreview from "./pages/ArticlePreview";
@@ -88,9 +114,10 @@ const App = () => {
             <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tech-news" element={<TechNews />} />
-          <Route path="/get-electrified" element={<GetElectrified />} />
-          <Route path="/product-reviews" element={<ProductReviews />} />
+          <Route path="/digital-tools" element={<DigitalTools />} />
+          <Route path="/reviews" element={<Reviews />} />
           <Route path="/buying-guides" element={<BuyingGuides />} />
+          <Route path="/battle-of-the-brands" element={<BattleOfTheBrands />} />
           <Route path="/video-reviews" element={<VideoReviews />} />
           <Route path="/search" element={<Search />} />
           <Route path="/team" element={<Team />} />
@@ -100,7 +127,32 @@ const App = () => {
           <Route path="/affiliate" element={<Affiliate />} />
           <Route path="/auth" element={<Auth />} />
           
-          {/* Subcategory Routes */}
+          {/* New Subcategory Routes */}
+          <Route path="/subcategories/ai" element={<AI />} />
+          <Route path="/subcategories/robotics" element={<Robotics />} />
+          <Route path="/subcategories/quantum-computing" element={<QuantumComputing />} />
+          <Route path="/subcategories/biotechnology" element={<Biotechnology />} />
+          <Route path="/subcategories/space" element={<Space />} />
+          <Route path="/subcategories/energy-innovation" element={<EnergyInnovation />} />
+          <Route path="/subcategories/research-breakthroughs" element={<ResearchBreakthroughs />} />
+          <Route path="/subcategories/apps-platforms" element={<AppsPlatforms />} />
+          <Route path="/subcategories/cloud-services" element={<CloudServices />} />
+          <Route path="/subcategories/automation" element={<Automation />} />
+          <Route path="/subcategories/productivity-software" element={<ProductivitySoftware />} />
+          <Route path="/subcategories/ai-tools-services" element={<AIToolsServices />} />
+          <Route path="/subcategories/smartphones" element={<Smartphones />} />
+          <Route path="/subcategories/audio" element={<AudioComponent />} />
+          <Route path="/subcategories/video" element={<Video />} />
+          <Route path="/subcategories/cameras-drones" element={<CamerasDrones />} />
+          <Route path="/subcategories/laptops-computers" element={<LaptopsComputers />} />
+          <Route path="/subcategories/gaming-hardware" element={<GamingHardware />} />
+          <Route path="/subcategories/wearables" element={<Wearables />} />
+          <Route path="/subcategories/tablets" element={<Tablets />} />
+          <Route path="/subcategories/editors-choice" element={<EditorsChoice />} />
+          <Route path="/subcategories/best-value" element={<BestValue />} />
+          <Route path="/subcategories/premium-pick" element={<PremiumPick />} />
+          
+          {/* Legacy Subcategory Routes */}
           <Route path="/subcategories/smartphones-tablets" element={<SmartphonesTablets />} />
           <Route path="/subcategories/gaming-pcs" element={<GamingPCs />} />
           <Route path="/subcategories/ai-machine-learning" element={<AIMachineLearning />} />
