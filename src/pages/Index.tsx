@@ -4,7 +4,7 @@ import { Play, Zap, Cpu, Smartphone, Monitor } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import ArticleCarousel from "@/components/ArticleCarousel";
+import AudioPlayer from "@/components/AudioPlayer";
 import BackToTop from "@/components/BackToTop";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
@@ -208,6 +208,25 @@ const Index = () => {
             <Zap className="w-7 h-7 text-brand opacity-45" />
           </div>
         </div>
+
+        {/* Spaceship Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="spaceship spaceship-1">
+            <div className="spaceship-body">
+              <div className="spaceship-trail"></div>
+            </div>
+          </div>
+          <div className="spaceship spaceship-2">
+            <div className="spaceship-body">
+              <div className="spaceship-trail"></div>
+            </div>
+          </div>
+          <div className="spaceship spaceship-3">
+            <div className="spaceship-body">
+              <div className="spaceship-trail"></div>
+            </div>
+          </div>
+        </div>
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -260,10 +279,10 @@ const Index = () => {
             >
               Explore Latest Reviews
             </Button>
-            <Button 
+              <Button 
               className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg"
               onClick={() => {
-                const element = document.getElementById('video-reviews-section');
+                const element = document.getElementById('audio-podcasts-section');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
@@ -378,212 +397,173 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Explore Latest Reviews Carousel */}
+        {/* Product Verdicts & Buying Guides */}
         <div id="explore-latest-reviews"></div>
-        <section className="mb-20">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Product Reviews */}
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Product Reviews</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {reviewArticles.filter(article => article.category_name === "Reviews").slice(0, 4).length > 0 ? (
-                  reviewArticles.filter(article => article.category_name === "Reviews").slice(0, 4).map((article, index) => (
-                    <ArticleCard
-                      key={`review-${index}`}
-                      title={article.title}
-                      image={article.featured_image_url}
-                      author={{
-                        name: article.author_name,
-                        avatar: "",
-                      }}
-                      readTime={calculateReadTime(article.content)}
-                      category={article.category_name}
-                      slug={article.slug}
-                      isHorizontal={true}
-                    />
-                  ))
-                ) : (
-                  featuredArticles.filter(article => article.category === "Product Reviews").slice(0, 4).map((article, index) => (
-                    <ArticleCard key={`review-fallback-${index}`} {...article} isHorizontal={true} />
-                  ))
-                )}
-              </div>
-              <div className="text-center mt-6">
-                <Link to="/reviews">
-                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
-                    View All Reviews
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Buying Guides */}
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Buying Guides</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {reviewArticles.filter(article => article.category_name === "Buying Guides").slice(0, 4).length > 0 ? (
-                  reviewArticles.filter(article => article.category_name === "Buying Guides").slice(0, 4).map((article, index) => (
-                    <ArticleCard
-                      key={`guide-${index}`}
-                      title={article.title}
-                      image={article.featured_image_url}
-                      author={{
-                        name: article.author_name,
-                        avatar: "",
-                      }}
-                      readTime={calculateReadTime(article.content)}
-                      category={article.category_name}
-                      slug={article.slug}
-                      isHorizontal={true}
-                    />
-                  ))
-                ) : (
-                  featuredArticles.filter(article => article.category === "Buying Guides").slice(0, 4).map((article, index) => (
-                    <ArticleCard key={`guide-fallback-${index}`} {...article} isHorizontal={true} />
-                  ))
-                )}
-              </div>
-              <div className="text-center mt-6">
-                <Link to="/buying-guides">
-                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
-                    View All Guides
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Battle of the Brands */}
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-brand mb-6 text-center">Battle of the Brands</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {featuredArticles.slice(0, 4).map((article, index) => (
+        <section className="mb-20" aria-labelledby="product-verdicts-heading">
+          <div className="relative inline-block w-full text-center mb-8">
+            <h2 id="product-verdicts-heading" className="text-5xl md:text-6xl font-display font-bold text-center">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                Product Verdicts & Buying Guides
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  Product Verdicts & Buying Guides
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  Product Verdicts & Buying Guides
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  Product Verdicts & Buying Guides
+                </span>
+              </span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto">
+            {/* Left side - 2 large featured articles stacked */}
+            <div className="lg:col-span-1 space-y-4">
+              {reviewArticles && reviewArticles.length > 0 ? (
+                <>
                   <ArticleCard 
-                    key={`battle-${index}`} 
-                    {...article} 
-                    isHorizontal={true}
-                    category="Battle of the Brands"
+                    title={reviewArticles[0].title}
+                    image={reviewArticles[0].featured_image_url}
+                    author={{
+                      name: reviewArticles[0].author_name,
+                      avatar: "",
+                    }}
+                    readTime={calculateReadTime(reviewArticles[0].content)}
+                    category={reviewArticles[0].category_name}
+                    slug={reviewArticles[0].slug}
+                    isHero={true} 
                   />
-                ))}
-              </div>
-              <div className="text-center mt-6">
-                <Link to="/battle-of-the-brands">
-                  <Button className="bg-brand hover:bg-brand/90 text-black font-semibold">
-                    View All Battles
-                  </Button>
-                </Link>
-              </div>
+                  {reviewArticles[1] && (
+                    <ArticleCard 
+                      title={reviewArticles[1].title}
+                      image={reviewArticles[1].featured_image_url}
+                      author={{
+                        name: reviewArticles[1].author_name,
+                        avatar: "",
+                      }}
+                      readTime={calculateReadTime(reviewArticles[1].content)}
+                      category={reviewArticles[1].category_name}
+                      slug={reviewArticles[1].slug}
+                      isHero={true} 
+                    />
+                  )}
+                </>
+              ) : (
+                <>
+                  <ArticleCard 
+                    {...featuredArticles.filter(article => 
+                      article.category === "Product Reviews" || 
+                      article.category === "Buying Guides" || 
+                      article.category === "Battle of the Brands"
+                    )[0]} 
+                    isHero={true} 
+                  />
+                  <ArticleCard 
+                    {...featuredArticles.filter(article => 
+                      article.category === "Product Reviews" || 
+                      article.category === "Buying Guides" || 
+                      article.category === "Battle of the Brands"
+                    )[1]} 
+                    isHero={true} 
+                  />
+                </>
+              )}
+            </div>
+            {/* Right side - 4 horizontal rectangles */}
+            <div className="lg:col-span-1 grid grid-rows-4 gap-3 h-full">
+              {reviewArticles && reviewArticles.length > 2 ? (
+                reviewArticles.slice(2, 6).map((article, index) => (
+                  <ArticleCard 
+                    key={`verdict-${index}`}
+                    title={article.title}
+                    image={article.featured_image_url}
+                    author={{
+                      name: article.author_name,
+                      avatar: "",
+                    }}
+                    readTime={calculateReadTime(article.content)}
+                    category={article.category_name}
+                    slug={article.slug}
+                    isHorizontal={true} 
+                  />
+                ))
+              ) : (
+                featuredArticles.filter(article => 
+                  article.category === "Product Reviews" || 
+                  article.category === "Buying Guides" || 
+                  article.category === "Battle of the Brands"
+                ).slice(2, 6).map((article, index) => (
+                  <ArticleCard key={`verdict-fallback-${index}`} {...article} isHorizontal={true} />
+                ))
+              )}
             </div>
           </div>
         </section>
 
-        {/* Watch Review Videos Carousel */}
-        <div id="video-reviews-section"></div>
-        <ArticleCarousel
-          title="Listen to the Latest AI Podcasts"
-          articles={[
-            {
-              title: "RTX 5090 Gaming Laptop Full Review",
-              image: gamingHero,
-              author: {
+        {/* Listen to the Latest AI Podcasts */}
+        <div id="audio-podcasts-section"></div>
+        <section className="mb-20">
+          <div className="relative inline-block w-full text-center mb-8">
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-center">
+              <span className="relative inline-block text-white drop-shadow-2xl">
+                Listen to the Latest AI Podcasts
+                {/* Glow effect layers */}
+                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                  Listen to the Latest AI Podcasts
+                </span>
+                <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
+                  Listen to the Latest AI Podcasts
+                </span>
+                <span className="absolute inset-0 text-accent opacity-20 blur-lg animate-pulse">
+                  Listen to the Latest AI Podcasts
+                </span>
+              </span>
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AudioPlayer
+              title="AI Unleashed: Geopolitics, Jobs, and the Race for Tomorrow's Tech"
+              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__Geopolitics%2C_Jobs%2C_and_the_Race_for_Tomorrow_s_Tech.m4a"
+              image={gamingHero}
+              author={{
                 name: "Zara Velez",
                 avatar: authorZara,
-              },
-              readTime: "15:32",
-              category: "Video Review",
-              slug: "rtx-5090-video-review",
-            },
-            {
-              title: "Samsung Galaxy S25 Ultra Camera Test",
-              image: buyingGuideHero,
-              author: {
+              }}
+              duration="45:20"
+            />
+            <AudioPlayer
+              title="AI's Wild West: Fake Content, Financial Fights, and Failing Safety"
+              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Wild_West__Fake_Content%2C_Financial_Fights%2C_and_Failing_Safety.m4a"
+              image={buyingGuideHero}
+              author={{
                 name: "Theo Chan",
                 avatar: authorTheo,
-              },
-              readTime: "12:45",
-              category: "Video Review",
-              slug: "samsung-s25-video-review",
-            },
-            {
-              title: "Best Gaming Laptops 2025 Roundup",
-              image: gamingHero,
-              author: {
-                name: "Zara Velez",
-                avatar: authorZara,
-              },
-              readTime: "18:20",
-              category: "Video Review",
-              slug: "gaming-laptops-2025-video",
-            },
-            {
-              title: "iPhone 16 Pro Max Deep Dive",
-              image: buyingGuideHero,
-              author: {
-                name: "Theo Chan",
-                avatar: authorTheo,
-              },
-              readTime: "22:15",
-              category: "Video Review",
-              slug: "iphone-16-pro-video",
-            },
-            {
-              title: "Tesla Cybertruck: Full Electric Beast Review",
-              image: gamingHero,
-              author: {
-                name: "Zara Velez",
-                avatar: authorZara,
-              },
-              readTime: "25:40",
-              category: "Video Review",
-              slug: "tesla-cybertruck-video",
-            },
-            {
-              title: "Apple Vision Pro: Spatial Computing Future",
-              image: buyingGuideHero,
-              author: {
-                name: "Theo Chan",
-                avatar: authorTheo,
-              },
-              readTime: "19:55",
-              category: "Video Review",
-              slug: "apple-vision-pro-video",
-            },
-            {
-              title: "MacBook Pro M4 Max Performance Test",
-              image: gamingHero,
-              author: {
-                name: "Zara Velez",
-                avatar: authorZara,
-              },
-              readTime: "16:30",
-              category: "Video Review",
-              slug: "macbook-pro-m4-video",
-            },
-            {
-              title: "Google Pixel 9 Pro Camera Showdown",
-              image: buyingGuideHero,
-              author: {
-                name: "Theo Chan",
-                avatar: authorTheo,
-              },
-              readTime: "14:20",
-              category: "Video Review",
-              slug: "pixel-9-pro-video",
-            },
-            {
-              title: "Steam Deck OLED vs ROG Ally Comparison",
-              image: gamingHero,
-              author: {
-                name: "Zara Velez",
-                avatar: authorZara,
-              },
-              readTime: "21:15",
-              category: "Video Review",
-              slug: "steam-deck-vs-rog-ally-video",
-            },
-          ]}
-          viewAllLink="/video-reviews"
-          viewAllText="Watch All Videos"
-        />
+              }}
+              duration="38:15"
+            />
+            <AudioPlayer
+              title="AI's Rapid Ascent: Billions, Space, and the Global Race for Dominance"
+              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Rapid_Ascent__Billions%2C_Space%2C_and_the_Global_Race_for_Dominance.m4a"
+              image={gamingHero}
+              author={{
+                name: "Aria Lin",
+                avatar: authorAria,
+              }}
+              duration="42:30"
+            />
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link to="/video-reviews">
+              <Button className="bg-brand hover:bg-brand/90 text-black font-semibold px-8 py-3">
+                <Play className="w-5 h-5 mr-2" />
+                Listen to All Podcasts
+              </Button>
+            </Link>
+          </div>
+        </section>
       </main>
 
       <Footer />

@@ -36,7 +36,7 @@ const Header = () => {
       ]
     },
     { 
-      name: "Reviews", 
+      name: "Product Reviews", 
       path: "/reviews",
       subcategories: [
         { name: "Smartphones", path: "/subcategories/smartphones" },
@@ -90,10 +90,10 @@ const Header = () => {
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between gap-4" role="navigation" aria-label="Main navigation">
-            {/* Logo */}
+            {/* Logo - Moved Further Left */}
             <Link 
               to="/" 
-              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
+              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300 mr-8"
               aria-label="Revuzia – Home"
               onClick={() => window.scrollTo(0, 0)}
             >
@@ -131,8 +131,8 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Navigation Links - Desktop */}
-            <div className="hidden lg:flex items-center space-x-1 flex-1 justify-center max-w-5xl mx-4">
+            {/* Navigation Links - Desktop with More Space */}
+            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center max-w-6xl mx-6">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -147,49 +147,36 @@ const Header = () => {
                     )}
                     <Link
                       to={item.path}
-                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-1 xl:px-2 ${
+                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-2 xl:px-3 category-light-effect ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
                       onClick={() => window.scrollTo(0, 0)}
                     >
-                      {item.name === "Get Electrified" ? (
-                        <span className="lightning-animation">
-                          Get Electrified
-                        </span>
-                      ) : item.name === "Tech News" ? (
-                        <span className="tech-news-animation">
-                          Tech News
-                        </span>
-                      ) : item.name === "Product Reviews" ? (
-                        <span className="product-reviews-animation">
-                          Product Reviews
-                        </span>
-                      ) : item.name === "Buying Guides" ? (
-                        <span className="buying-guides-animation">
-                          Buying Guides
-                        </span>
-                      ) : (
-                        item.name
-                      )}
+                      <span className="relative z-10">
+                        {item.name}
+                      </span>
                       <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}></span>
                     </Link>
                     
-                    {/* Dropdown Menu */}
+                    {/* Dropdown Menu - Centered Under Category */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div className="py-2">
-                          {item.subcategories.map((subcat) => (
-                            <Link
-                              key={subcat.name}
-                              to={subcat.path}
-                              className="block px-4 py-3 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins"
-                              onClick={() => window.scrollTo(0, 0)}
-                            >
-                              {subcat.name}
-                            </Link>
-                          ))}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div className="py-4">
+                          <h4 className="text-brand font-semibold text-center mb-3 px-4">{item.name}</h4>
+                          <div className="grid grid-cols-1 gap-1">
+                            {item.subcategories.map((subcat) => (
+                              <Link
+                                key={subcat.name}
+                                to={subcat.path}
+                                className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md mx-2"
+                                onClick={() => window.scrollTo(0, 0)}
+                              >
+                                {subcat.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     )}
@@ -198,8 +185,8 @@ const Header = () => {
               })}
             </div>
 
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-3 flex-shrink-0 ml-auto">
+            {/* Right Side Actions - Moved Further Right */}
+            <div className="flex items-center gap-4 flex-shrink-0 ml-8">
               {/* Search Bar - Desktop */}
               <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
                 <div className="relative">

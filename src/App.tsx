@@ -74,6 +74,9 @@ import Tablets from "./pages/subcategories/Tablets";
 import EditorsChoice from "./pages/subcategories/EditorsChoice";
 import BestValue from "./pages/subcategories/BestValue";
 import PremiumPick from "./pages/subcategories/PremiumPick";
+import SmartHomeGuides from "./pages/subcategories/SmartHomeGuides";
+import SmartHomeWars from "./pages/subcategories/SmartHomeWars";
+import StreamingWars from "./pages/subcategories/StreamingWars";
 
 import ArticleEditor from "./pages/ArticleEditor";
 import ArticlePreview from "./pages/ArticlePreview";
@@ -151,6 +154,14 @@ const App = () => {
           <Route path="/subcategories/editors-choice" element={<EditorsChoice />} />
           <Route path="/subcategories/best-value" element={<BestValue />} />
           <Route path="/subcategories/premium-pick" element={<PremiumPick />} />
+          <Route path="/subcategories/smart-home-guides" element={<SmartHomeGuides />} />
+          <Route path="/subcategories/development-tools" element={<DevelopmentTools />} />
+          <Route path="/subcategories/smartphone-showdown" element={<Smartphones />} />
+          <Route path="/subcategories/laptop-showdown" element={<LaptopsComputers />} />
+          <Route path="/subcategories/gaming-battles" element={<GamingHardware />} />
+          <Route path="/subcategories/audio-face-off" element={<AudioComponent />} />
+          <Route path="/subcategories/smart-home-wars" element={<SmartHomeWars />} />
+          <Route path="/subcategories/streaming-wars" element={<StreamingWars />} />
           
           {/* Legacy Subcategory Routes */}
           <Route path="/subcategories/smartphones-tablets" element={<SmartphonesTablets />} />
