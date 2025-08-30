@@ -61,32 +61,30 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, autho
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:border-brand/30 transition-all duration-300 group">
       <div className="relative">
-        <img src={image} alt={title} className="w-full h-48 object-cover" />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <img src={image} alt={title} className="w-full h-32 object-cover" />
+        <div className="absolute top-3 right-3">
           <Button
             onClick={togglePlay}
-            className="bg-brand hover:bg-brand/90 text-black rounded-full p-4"
+            className="bg-brand hover:bg-brand/90 text-black rounded-full w-8 h-8 p-0"
           >
-            {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
+            {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3 ml-0.5" />}
           </Button>
         </div>
       </div>
       
-      <div className="p-4 space-y-3">
-        <h3 className="font-bold text-lg text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-2">
+      <div className="p-3 space-y-2">
+        <h3 className="font-semibold text-xs text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-2">
           {title}
         </h3>
         
-        <div className="flex items-center justify-center">
-          <div className="text-sm text-muted-foreground text-center">
-            <p>{duration}</p>
-          </div>
+        <div className="text-xs text-muted-foreground">
+          <p>{duration}</p>
         </div>
 
         {/* Audio Progress Bar */}
-        <div className="space-y-2">
+        <div className="space-y-1">
           <div 
-            className="w-full h-2 bg-muted rounded-full cursor-pointer overflow-hidden"
+            className="w-full h-1 bg-muted rounded-full cursor-pointer overflow-hidden"
             onClick={handleSeek}
           >
             <div 
@@ -99,17 +97,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, autho
             <span>{formatTime(currentTime)}</span>
             <span>{audioDuration ? formatTime(audioDuration) : duration}</span>
           </div>
-        </div>
-
-        {/* Play Controls */}
-        <div className="flex items-center justify-center pt-2">
-          <Button
-            onClick={togglePlay}
-            className="bg-brand hover:bg-brand/90 text-black font-medium px-6"
-          >
-            {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
-            {isPlaying ? 'Pause' : 'Play'}
-          </Button>
         </div>
       </div>
 

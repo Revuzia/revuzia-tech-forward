@@ -200,6 +200,7 @@
 
   body {
     @apply bg-background text-foreground font-heading;
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTUuMDkgOC4yNkwyMiA5TDE2IDEyTDEyIDIyTDggMTJMMiA5TDguOTEgOC4yNkwxMiAyWiIgZmlsbD0iIzAwZmZiZiIgZmlsbC1vcGFjaXR5PSIwLjgiLz4KPC9zdmc+'), auto;
   }
 
   /* Accessibility - Skip to content */
@@ -319,14 +320,15 @@
     right: 25%;
   }
 
-  /* Rocket Icons - Replace Spaceship Elements */
+  /* Rocket Icons - Green Spaceships */
   .rocket-icon {
     position: absolute;
     pointer-events: none;
     z-index: 5;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: rgb(var(--brand-rgb));
-    opacity: 0.6;
+    opacity: 0.7;
+    filter: hue-rotate(0deg) brightness(1.1);
   }
 
   .rocket-icon-1 {
@@ -343,98 +345,63 @@
 
   @keyframes rocket-float-1 {
     0% {
-      top: 20%;
+      top: 10%;
       left: -60px;
-      transform: rotate(0deg) scale(0.8);
+      transform: translateY(0) scale(1);
       opacity: 0;
     }
     10% {
-      opacity: 0.6;
-    }
-    25% {
-      top: 40%;
-      left: 25%;
-      transform: rotate(15deg) scale(1);
-    }
-    50% {
-      top: 60%;
-      left: 50%;
-      transform: rotate(-10deg) scale(1.1);
-    }
-    75% {
-      top: 30%;
-      left: 75%;
-      transform: rotate(5deg) scale(0.9);
+      opacity: 0.7;
     }
     90% {
-      opacity: 0.6;
+      opacity: 0.7;
     }
     100% {
-      top: 50%;
+      top: 10%;
       left: calc(100% + 60px);
-      transform: rotate(0deg) scale(0.8);
+      transform: translateY(0) scale(1);
       opacity: 0;
     }
   }
 
   @keyframes rocket-float-2 {
     0% {
-      top: 70%;
-      left: -60px;
-      transform: rotate(0deg) scale(0.8);
+      top: calc(100% + 60px);
+      left: 80%;
+      transform: translateX(0) scale(1) rotate(90deg);
       opacity: 0;
     }
     10% {
-      opacity: 0.5;
-    }
-    30% {
-      top: 45%;
-      left: 30%;
-      transform: rotate(-20deg) scale(1);
-    }
-    60% {
-      top: 25%;
-      left: 60%;
-      transform: rotate(10deg) scale(1.2);
+      opacity: 0.6;
     }
     90% {
-      opacity: 0.5;
+      opacity: 0.6;
     }
     100% {
-      top: 40%;
-      left: calc(100% + 60px);
-      transform: rotate(0deg) scale(0.8);
+      top: -60px;
+      left: 80%;
+      transform: translateX(0) scale(1) rotate(90deg);
       opacity: 0;
     }
   }
 
   @keyframes rocket-float-3 {
     0% {
-      top: 15%;
-      left: -60px;
-      transform: rotate(0deg) scale(1);
+      top: 50%;
+      left: calc(100% + 60px);
+      transform: translateY(0) scale(1) rotate(180deg);
       opacity: 0;
     }
     10% {
-      opacity: 0.4;
-    }
-    20% {
-      top: 50%;
-      left: 20%;
-      transform: rotate(25deg) scale(0.8);
-    }
-    70% {
-      top: 80%;
-      left: 70%;
-      transform: rotate(-15deg) scale(1.1);
+      opacity: 0.5;
     }
     90% {
-      opacity: 0.4;
+      opacity: 0.5;
     }
     100% {
-      top: 35%;
-      left: calc(100% + 60px);
-      transform: rotate(0deg) scale(1);
+      top: 50%;
+      left: -60px;
+      transform: translateY(0) scale(1) rotate(180deg);
       opacity: 0;
     }
   }
@@ -464,8 +431,8 @@
 
   @keyframes light-sweep {
     0% { left: -100%; }
-    30% { left: 100%; }
-    100% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
   }
 
   /* Radiating Button Effect */
