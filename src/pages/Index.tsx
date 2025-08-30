@@ -209,23 +209,11 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Spaceship Elements */}
+        {/* Rocket Icons */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="spaceship spaceship-1">
-            <div className="spaceship-body">
-              <div className="spaceship-trail"></div>
-            </div>
-          </div>
-          <div className="spaceship spaceship-2">
-            <div className="spaceship-body">
-              <div className="spaceship-trail"></div>
-            </div>
-          </div>
-          <div className="spaceship spaceship-3">
-            <div className="spaceship-body">
-              <div className="spaceship-trail"></div>
-            </div>
-          </div>
+          <div className="rocket-icon rocket-icon-1">🚀</div>
+          <div className="rocket-icon rocket-icon-2">🚀</div>
+          <div className="rocket-icon rocket-icon-3">🚀</div>
         </div>
         
         {/* Hero Content */}
@@ -522,37 +510,93 @@ const Index = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AudioPlayer
-              title="AI Unleashed: Geopolitics, Jobs, and the Race for Tomorrow's Tech"
-              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__Geopolitics%2C_Jobs%2C_and_the_Race_for_Tomorrow_s_Tech.m4a"
-              image={gamingHero}
-              author={{
-                name: "Zara Velez",
-                avatar: authorZara,
-              }}
-              duration="45:20"
-            />
-            <AudioPlayer
-              title="AI's Wild West: Fake Content, Financial Fights, and Failing Safety"
-              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Wild_West__Fake_Content%2C_Financial_Fights%2C_and_Failing_Safety.m4a"
-              image={buyingGuideHero}
-              author={{
-                name: "Theo Chan",
-                avatar: authorTheo,
-              }}
-              duration="38:15"
-            />
-            <AudioPlayer
-              title="AI's Rapid Ascent: Billions, Space, and the Global Race for Dominance"
-              audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Rapid_Ascent__Billions%2C_Space%2C_and_the_Global_Race_for_Dominance.m4a"
-              image={gamingHero}
-              author={{
-                name: "Aria Lin",
-                avatar: authorAria,
-              }}
-              duration="42:30"
-            />
+          <div className="swiper-container">
+            <div className="swiper-wrapper flex gap-6 overflow-x-auto pb-4">
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI Unleashed: Geopolitics, Jobs, and the Race for Tomorrow's Tech"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__Geopolitics%2C_Jobs%2C_and_the_Race_for_Tomorrow_s_Tech.m4a"
+                  image={gamingHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="45:20"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI's Wild West: Fake Content, Financial Fights, and Failing Safety"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Wild_West__Fake_Content%2C_Financial_Fights%2C_and_Failing_Safety.m4a"
+                  image={buyingGuideHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="38:15"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI's Rapid Ascent: Billions, Space, and the Global Race for Dominance"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Rapid_Ascent__Billions%2C_Space%2C_and_the_Global_Race_for_Dominance.m4a"
+                  image={gamingHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="42:30"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI's Cutting Edge: Data Wars, Deepfakes, and the Justice System"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Cutting_Edge__Data_Wars%2C_Deepfakes%2C_and_the_Justice_System.m4a"
+                  image={buyingGuideHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="41:45"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI's Immediate Impact: Job Market Shock, Psychological Peril, and Siri's Stealthy Evolution"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Immediate_Impact__Job_Market_Shock%2C_Psychological_Peril%2C_and_Siri_s_Stealthy_Evolution.m4a"
+                  image={gamingHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="39:12"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="The AI Paradox: From DHL's 'Ja' Flub to Billionaire Battles and Your Digital Future"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/The_AI_Paradox__From_DHL_s__Ja__Flub_to_Billionaire_Battles_and_Your_Digital_Future.m4a"
+                  image={buyingGuideHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="43:28"
+                />
+              </div>
+              <div className="swiper-slide min-w-80 flex-shrink-0">
+                <AudioPlayer
+                  title="AI's Trillion-Dollar Tangle: Copyright, Warships, and K-12 Coders"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Trillion-Dollar_Tangle__Copyright%2C_Warships%2C_and_K-12_Coders.m4a"
+                  image={gamingHero}
+                  author={{
+                    name: "",
+                    avatar: "",
+                  }}
+                  duration="37:55"
+                />
+              </div>
+            </div>
           </div>
           
           <div className="text-center mt-8">

@@ -77,10 +77,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, autho
           {title}
         </h3>
         
-        <div className="flex items-center gap-3">
-          <img src={author.avatar} alt={author.name} className="w-8 h-8 rounded-full" />
-          <div className="text-sm text-muted-foreground">
-            <p className="font-medium">{author.name}</p>
+        <div className="flex items-center justify-center">
+          <div className="text-sm text-muted-foreground text-center">
             <p>{duration}</p>
           </div>
         </div>
@@ -104,7 +102,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, autho
         </div>
 
         {/* Play Controls */}
-        <div className="flex items-center justify-center gap-4 pt-2">
+        <div className="flex items-center justify-center pt-2">
           <Button
             onClick={togglePlay}
             className="bg-brand hover:bg-brand/90 text-black font-medium px-6"
@@ -112,7 +110,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, autho
             {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
             {isPlaying ? 'Pause' : 'Play'}
           </Button>
-          <Volume2 className="w-5 h-5 text-muted-foreground" />
         </div>
       </div>
 

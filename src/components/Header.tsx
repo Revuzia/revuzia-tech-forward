@@ -16,9 +16,9 @@ const Header = () => {
       subcategories: [
         { name: "AI", path: "/subcategories/ai" },
         { name: "Robotics", path: "/subcategories/robotics" },
+        { name: "Space", path: "/subcategories/space" },
         { name: "Quantum Computing", path: "/subcategories/quantum-computing" },
         { name: "Biotechnology", path: "/subcategories/biotechnology" },
-        { name: "Space", path: "/subcategories/space" },
         { name: "Energy Innovation", path: "/subcategories/energy-innovation" },
         { name: "Research Breakthroughs", path: "/subcategories/research-breakthroughs" }
       ]
@@ -40,13 +40,12 @@ const Header = () => {
       path: "/reviews",
       subcategories: [
         { name: "Smartphones", path: "/subcategories/smartphones" },
-        { name: "Audio", path: "/subcategories/audio" },
-        { name: "Video", path: "/subcategories/video" },
-        { name: "Cameras & Drones", path: "/subcategories/cameras-drones" },
         { name: "Laptops & Computers", path: "/subcategories/laptops-computers" },
-        { name: "Gaming Hardware", path: "/subcategories/gaming-hardware" },
+        { name: "Tablets", path: "/subcategories/tablets" },
         { name: "Wearables", path: "/subcategories/wearables" },
-        { name: "Tablets", path: "/subcategories/tablets" }
+        { name: "Cameras & Drones", path: "/subcategories/cameras-drones" },
+        { name: "Audio", path: "/subcategories/audio" },
+        { name: "Video", path: "/subcategories/video" }
       ]
     },
     { 
@@ -160,17 +159,16 @@ const Header = () => {
                       }`}></span>
                     </Link>
                     
-                    {/* Dropdown Menu - Centered Under Category */}
+                    {/* Dropdown Menu - Centered Under Category, Narrower */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div className="py-4">
-                          <h4 className="text-brand font-semibold text-center mb-3 px-4">{item.name}</h4>
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-48 max-w-64 bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div className="py-3">
                           <div className="grid grid-cols-1 gap-1">
                             {item.subcategories.map((subcat) => (
                               <Link
                                 key={subcat.name}
                                 to={subcat.path}
-                                className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md mx-2"
+                                className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md mx-2 whitespace-nowrap"
                                 onClick={() => window.scrollTo(0, 0)}
                               >
                                 {subcat.name}
