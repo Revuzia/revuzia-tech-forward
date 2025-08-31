@@ -202,11 +202,6 @@
     @apply bg-background text-foreground font-heading;
   }
 
-  /* Custom cursor */
-  html, body, * {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2310B981' d='M2 2v20l6-4 4 4 10-10-4-4-4 6z'/%3E%3C/svg%3E"), auto !important;
-  }
-
   /* Accessibility - Skip to content */
   .skip-to-content {
     position: absolute;
