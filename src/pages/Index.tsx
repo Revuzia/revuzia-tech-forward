@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import AudioPlayer from "@/components/AudioPlayer";
 import BackToTop from "@/components/BackToTop";
+import RocketIcon from "@/components/RocketIcon";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -212,13 +213,13 @@ const Index = () => {
         {/* Green Rocket Icons */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="rocket-icon rocket-icon-1">
-            <Zap className="w-10 h-10 text-brand" />
+            <RocketIcon className="w-12 h-12" />
           </div>
           <div className="rocket-icon rocket-icon-2">
-            <Zap className="w-8 h-8 text-brand" />
+            <RocketIcon className="w-10 h-10" />
           </div>
           <div className="rocket-icon rocket-icon-3">
-            <Zap className="w-9 h-9 text-brand" />
+            <RocketIcon className="w-11 h-11" />
           </div>
         </div>
         
