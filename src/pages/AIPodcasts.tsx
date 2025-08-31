@@ -1,6 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AudioPlayer from "@/components/AudioPlayer";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const AIPodcasts = () => {
   const podcastData = [
@@ -86,18 +93,24 @@ const AIPodcasts = () => {
           <p className="text-xl text-muted-foreground">Listen to the latest AI news and insights from our expert analysis</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {podcastData.map((podcast, index) => (
-            <AudioPlayer
-              key={index}
-              title={podcast.title}
-              audioUrl={podcast.audioUrl}
-              image={podcast.image}
-              author={podcast.author}
-              duration={podcast.duration}
-            />
-          ))}
-        </div>
+        <Carousel className="w-full">
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {podcastData.map((podcast, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/3">
+                <AudioPlayer
+                  title={podcast.title}
+                  audioUrl={podcast.audioUrl}
+                  image={podcast.image}
+                  author={podcast.author}
+                  duration={podcast.duration}
+                  isLarge={true}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </main>
 
       <Footer />
