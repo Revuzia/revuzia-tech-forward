@@ -200,7 +200,7 @@
 
   body {
     @apply bg-background text-foreground font-heading;
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTUuMDkgOC4yNkwyMiA5TDE2IDEyTDEyIDIyTDggMTJMMiA5TDguOTEgOC4yNkwxMiAyWiIgZmlsbD0iIzAwZmZiZiIgZmlsbC1vcGFjaXR5PSIwLjgiLz4KPC9zdmc+'), auto;
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTUuMDkgOC4yNkwyMiA5TDE2IDEyTDEyIDIyTDggMTJMMiA5TDguOTEgOC4yNkwxMiAyWiIgZmlsbD0iIzAwZmZiZiIgc3Ryb2tlPSIjMDBmZmJmIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8L3N2Zz4='), auto;
   }
 
   /* Accessibility - Skip to content */

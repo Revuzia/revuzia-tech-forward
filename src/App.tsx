@@ -14,6 +14,7 @@ import Reviews from "./pages/Reviews";
 import BuyingGuides from "./pages/BuyingGuides";
 import BattleOfTheBrands from "./pages/BattleOfTheBrands";
 import VideoReviews from "./pages/VideoReviews";
+import AIPodcasts from "./pages/AIPodcasts";
 import Search from "./pages/Search";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
@@ -122,6 +123,7 @@ const App = () => {
           <Route path="/buying-guides" element={<BuyingGuides />} />
           <Route path="/battle-of-the-brands" element={<BattleOfTheBrands />} />
           <Route path="/video-reviews" element={<VideoReviews />} />
+          <Route path="/ai-podcasts" element={<AIPodcasts />} />
           <Route path="/search" element={<Search />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />

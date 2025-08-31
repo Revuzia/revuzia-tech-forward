@@ -161,14 +161,14 @@ const Header = () => {
                     
                     {/* Dropdown Menu - Centered Under Category, Narrower */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-fit bg-background border border-brand/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div className="py-3">
-                          <div className="grid grid-cols-1 gap-1">
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-max bg-background/95 backdrop-blur-sm border border-brand/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div className="py-2 px-1">
+                          <div className="grid grid-cols-1 gap-0.5">
                             {item.subcategories.map((subcat) => (
                               <Link
                                 key={subcat.name}
                                 to={subcat.path}
-                                className="block px-3 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md mx-1 whitespace-nowrap text-sm"
+                                className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md whitespace-nowrap text-sm"
                                 onClick={() => window.scrollTo(0, 0)}
                               >
                                 {subcat.name}
