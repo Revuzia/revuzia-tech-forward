@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import AudioPlayer from "@/components/AudioPlayer";
 import BackToTop from "@/components/BackToTop";
-import RocketIcon from "@/components/RocketIcon";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -210,18 +209,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Green Rocket Icons */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="rocket-icon rocket-icon-1">
-            <RocketIcon className="w-12 h-12" />
-          </div>
-          <div className="rocket-icon rocket-icon-2">
-            <RocketIcon className="w-10 h-10" />
-          </div>
-          <div className="rocket-icon rocket-icon-3">
-            <RocketIcon className="w-11 h-11" />
-          </div>
-        </div>
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">

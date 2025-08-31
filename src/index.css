@@ -200,7 +200,11 @@
 
   body {
     @apply bg-background text-foreground font-heading;
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iNCIgZmlsbD0iIzAwZmZiZiIgc3Ryb2tlPSIjMDBmZmJmIiBzdHJva2Utd2lkdGg9IjIiLz4KPC9zdmc+'), auto;
+  }
+
+  /* Custom cursor */
+  html, body, * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2310B981' d='M2 2v20l6-4 4 4 10-10-4-4-4 6z'/%3E%3C/svg%3E"), auto !important;
   }
 
   /* Accessibility - Skip to content */
@@ -320,91 +324,6 @@
     right: 25%;
   }
 
-  /* Rocket Icons - Green Spaceships */
-  .rocket-icon {
-    position: absolute;
-    pointer-events: none;
-    z-index: 5;
-    font-size: 2.5rem;
-    color: rgb(var(--brand-rgb));
-    opacity: 0.7;
-    filter: hue-rotate(0deg) brightness(1.1);
-  }
-
-  .rocket-icon-1 {
-    animation: rocket-float-1 14s linear infinite;
-  }
-
-  .rocket-icon-2 {
-    animation: rocket-float-2 16s linear infinite 5s;
-  }
-
-  .rocket-icon-3 {
-    animation: rocket-float-3 18s linear infinite 10s;
-  }
-
-  @keyframes rocket-float-1 {
-    0% {
-      top: 20%;
-      left: -60px;
-      transform: rotate(15deg) scale(1);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.7;
-    }
-    90% {
-      opacity: 0.7;
-    }
-    100% {
-      top: 10%;
-      left: calc(100% + 60px);
-      transform: rotate(15deg) scale(1);
-      opacity: 0;
-    }
-  }
-
-  @keyframes rocket-float-2 {
-    0% {
-      bottom: -60px;
-      left: 25%;
-      transform: rotate(75deg) scale(1);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.6;
-    }
-    90% {
-      opacity: 0.6;
-    }
-    100% {
-      top: -60px;
-      left: 35%;
-      transform: rotate(75deg) scale(1);
-      opacity: 0;
-    }
-  }
-
-  @keyframes rocket-float-3 {
-    0% {
-      top: 60%;
-      left: calc(100% + 60px);
-      transform: rotate(195deg) scale(1);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.5;
-    }
-    90% {
-      opacity: 0.5;
-    }
-    100% {
-      top: 30%;
-      left: -60px;
-      transform: rotate(195deg) scale(1);
-      opacity: 0;
-    }
-  }
 
 
   /* Radiating Button Effect */
