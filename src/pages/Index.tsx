@@ -6,6 +6,13 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import AudioPlayer from "@/components/AudioPlayer";
 import BackToTop from "@/components/BackToTop";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
@@ -504,94 +511,103 @@ const Index = () => {
             </h2>
           </div>
           
-          <div className="relative overflow-hidden">
-            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
-              <div className="min-w-56 flex-shrink-0">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI Unleashed: Geopolitics, Jobs, and the Race for Tomorrow's Tech"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__Geopolitics%2C_Jobs%2C_and_the_Race_for_Tomorrow_s_Tech.m4a"
-                  image="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/3bf09d33-1258-46ba-babc-143c450079de.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
                   duration="45:20"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI's Wild West: Fake Content, Financial Fights, and Failing Safety"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Wild_West__Fake_Content%2C_Financial_Fights%2C_and_Failing_Safety.m4a"
-                  image="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/4bd7c322-2c67-44ee-b0dd-07a2a91f95e0.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
                   duration="38:15"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI's Rapid Ascent: Billions, Space, and the Global Race for Dominance"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Rapid_Ascent__Billions%2C_Space%2C_and_the_Global_Race_for_Dominance.m4a"
-                  image="https://images.unsplash.com/photo-1675557009239-9a792f8c3323?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/75c66acd-a1fa-4912-9cb0-ba0121e8debb.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
                   duration="42:30"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI's Cutting Edge: Data Wars, Deepfakes, and the Justice System"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Cutting_Edge__Data_Wars%2C_Deepfakes%2C_and_the_Justice_System.m4a"
-                  image="https://images.unsplash.com/photo-1633218388467-539651dcbad8?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/9edee9f8-dbe2-4df6-a792-4c9c7b92a989.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
-                  duration="41:45"
+                  duration="41:15"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI's Immediate Impact: Job Market Shock, Psychological Peril, and Siri's Stealthy Evolution"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Immediate_Impact__Job_Market_Shock%2C_Psychological_Peril%2C_and_Siri_s_Stealthy_Evolution.m4a"
-                  image="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/ac76f32b-e603-4aea-84ef-eaef30d438db.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
-                  duration="39:12"
+                  duration="39:45"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="The AI Paradox: From DHL's 'Ja' Flub to Billionaire Battles and Your Digital Future"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/The_AI_Paradox__From_DHL_s__Ja__Flub_to_Billionaire_Battles_and_Your_Digital_Future.m4a"
-                  image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/ed9a9afc-a628-4392-b866-ebd5dd3d98f2.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
-                  duration="43:28"
+                  duration="44:12"
+                  isLarge={true}
                 />
-              </div>
-              <div className="min-w-56 flex-shrink-0">
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
                   title="AI's Trillion-Dollar Tangle: Copyright, Warships, and K-12 Coders"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Trillion-Dollar_Tangle__Copyright%2C_Warships%2C_and_K-12_Coders.m4a"
-                  image="https://images.unsplash.com/photo-1516110833967-0b5716ca75b3?w=400&h=300&fit=crop"
+                  image="/lovable-uploads/1dd03894-c52e-40fe-96c1-08f89456a11c.png"
                   author={{
-                    name: "",
+                    name: "Revuzia AI",
                     avatar: "",
                   }}
-                  duration="37:55"
+                  duration="46:33"
+                  isLarge={true}
                 />
-              </div>
-            </div>
-          </div>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
           
           <div className="text-center mt-8">
             <Link to="/ai-podcasts">
