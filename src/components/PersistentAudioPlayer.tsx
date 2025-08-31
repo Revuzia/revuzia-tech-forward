@@ -10,9 +10,6 @@ interface AudioContextType {
     image: string;
   } | null;
   isPlaying: boolean;
-  currentTime: number;
-  duration: number;
-  handleSeek: (time: number) => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -78,15 +75,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     }
   };
 
-  const handleSeek = (time: number) => {
-    if (audioRef.current) {
-      const newTime = (time / 100) * duration;
-      audioRef.current.currentTime = newTime;
-      setCurrentTime(newTime);
-    }
-  };
-
-  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (audioRef.current) {
       const rect = e.currentTarget.getBoundingClientRect();
       const clickX = e.clientX - rect.left;
@@ -126,7 +115,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   };
 
   return (
-    <AudioContext.Provider value={{ playAudio, currentAudio, isPlaying, currentTime, duration, handleSeek }}>
+    <AudioContext.Provider value={{ playAudio, currentAudio, isPlaying }}>
       {children}
       
       {/* Persistent Audio Player */}
@@ -165,7 +154,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                   </span>
                   <div 
                     className="w-32 h-2 bg-muted rounded-full cursor-pointer"
-                    onClick={handleProgressClick}
+                    onClick={handleSeek}
                   >
                     <div 
                       className="h-full bg-brand rounded-full transition-all duration-100"
@@ -217,7 +206,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
               </div>
               <div 
                 className="w-full h-2 bg-muted rounded-full cursor-pointer"
-                onClick={handleProgressClick}
+                onClick={handleSeek}
               >
                 <div 
                   className="h-full bg-brand rounded-full transition-all duration-100"
