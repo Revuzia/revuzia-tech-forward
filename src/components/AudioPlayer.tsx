@@ -16,9 +16,11 @@ interface AudioPlayerProps {
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, duration, isLarge = false }) => {
-  const { playAudio, currentAudio, isPlaying } = useAudio();
+  const { playAudio, currentAudio, isPlaying, currentTime, duration: totalDuration, formatTime } = useAudio();
   
   const isCurrentAudio = currentAudio?.audioUrl === audioUrl;
+  const progress = isCurrentAudio && totalDuration ? (currentTime / totalDuration) * 100 : 0;
+  const displayCurrentTime = isCurrentAudio ? formatTime(currentTime) : "0:00";
   
   const handlePlay = () => {
     playAudio(title, audioUrl, image);
@@ -75,12 +77,15 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
           
           <div className="flex-1 flex items-center gap-2">
             <span className={`text-muted-foreground ${isLarge ? 'text-xs' : 'text-[10px]'}`}>
-              0:00
+              {displayCurrentTime}
             </span>
             
             {/* Progress Bar */}
             <div className="flex-1 h-1 bg-muted rounded-full overflow-hidden">
-              <div className="w-0 h-full bg-brand rounded-full transition-all duration-300"></div>
+              <div 
+                className="h-full bg-brand rounded-full transition-all duration-300"
+                style={{ width: `${progress}%` }}
+              ></div>
             </div>
             
             <span className={`text-muted-foreground ${isLarge ? 'text-xs' : 'text-[10px]'}`}>

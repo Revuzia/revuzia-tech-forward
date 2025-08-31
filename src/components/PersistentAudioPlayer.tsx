@@ -10,6 +10,9 @@ interface AudioContextType {
     image: string;
   } | null;
   isPlaying: boolean;
+  currentTime: number;
+  duration: number;
+  formatTime: (seconds: number) => string;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -115,7 +118,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   };
 
   return (
-    <AudioContext.Provider value={{ playAudio, currentAudio, isPlaying }}>
+    <AudioContext.Provider value={{ playAudio, currentAudio, isPlaying, currentTime, duration, formatTime }}>
       {children}
       
       {/* Persistent Audio Player */}
