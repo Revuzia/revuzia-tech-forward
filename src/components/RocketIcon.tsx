@@ -1,5 +1,5 @@
 import React from 'react';
-import rocketImage from '@/assets/revuzia-rocket.png';
+import rocketImage from '@/assets/revuzia-rocket-transparent.png';
 
 interface RocketIconProps {
   className?: string;

@@ -345,9 +345,9 @@
 
   @keyframes rocket-float-1 {
     0% {
-      top: 10%;
+      top: 20%;
       left: -60px;
-      transform: translateY(0) scale(1) rotate(0deg);
+      transform: rotate(15deg) scale(1);
       opacity: 0;
     }
     10% {
@@ -359,16 +359,16 @@
     100% {
       top: 10%;
       left: calc(100% + 60px);
-      transform: translateY(0) scale(1) rotate(0deg);
+      transform: rotate(15deg) scale(1);
       opacity: 0;
     }
   }
 
   @keyframes rocket-float-2 {
     0% {
-      top: calc(100% + 60px);
-      left: 80%;
-      transform: translateX(0) scale(1) rotate(270deg);
+      bottom: -60px;
+      left: 25%;
+      transform: rotate(75deg) scale(1);
       opacity: 0;
     }
     10% {
@@ -379,17 +379,17 @@
     }
     100% {
       top: -60px;
-      left: 80%;
-      transform: translateX(0) scale(1) rotate(270deg);
+      left: 35%;
+      transform: rotate(75deg) scale(1);
       opacity: 0;
     }
   }
 
   @keyframes rocket-float-3 {
     0% {
-      top: 50%;
+      top: 60%;
       left: calc(100% + 60px);
-      transform: translateY(0) scale(1) rotate(180deg);
+      transform: rotate(195deg) scale(1);
       opacity: 0;
     }
     10% {
@@ -399,9 +399,9 @@
       opacity: 0.5;
     }
     100% {
-      top: 50%;
+      top: 30%;
       left: -60px;
-      transform: translateY(0) scale(1) rotate(180deg);
+      transform: rotate(195deg) scale(1);
       opacity: 0;
     }
   }
