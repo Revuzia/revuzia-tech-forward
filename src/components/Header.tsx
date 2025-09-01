@@ -87,8 +87,8 @@ const Header = () => {
         Skip to content
       </a>
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-2 py-4">
-          <nav className="flex items-center gap-2" role="navigation" aria-label="Main navigation">
+        <div className="container mx-auto px-1 py-4">
+          <nav className="flex items-center justify-between gap-2" role="navigation" aria-label="Main navigation">
             {/* Logo - All the way left */}
             <Link 
               to="/" 
