@@ -123,7 +123,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       
       {/* Persistent Audio Player */}
       {currentAudio && isVisible && (
-        <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-40">
           <div className="container mx-auto px-4 py-3">
             <div className="flex items-center gap-4">
               {/* Audio Info */}
