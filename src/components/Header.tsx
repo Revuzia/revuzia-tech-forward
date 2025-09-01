@@ -88,11 +88,11 @@ const Header = () => {
       </a>
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-2 py-4">
-          <nav className="flex items-center justify-between gap-2" role="navigation" aria-label="Main navigation">
-            {/* Logo - Moved Further Left */}
+          <nav className="flex items-center gap-2" role="navigation" aria-label="Main navigation">
+            {/* Logo - All the way left */}
             <Link 
               to="/" 
-              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300 mr-4"
+              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300"
               aria-label="Revuzia – Home"
               onClick={() => window.scrollTo(0, 0)}
             >
@@ -131,7 +131,7 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop with More Space */}
-            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-start max-w-6xl mx-2">
+            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center max-w-6xl mx-4">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
