@@ -87,12 +87,12 @@ const Header = () => {
         Skip to content
       </a>
       <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex items-center justify-between gap-4" role="navigation" aria-label="Main navigation">
+        <div className="container mx-auto px-2 py-4">
+          <nav className="flex items-center justify-between gap-2" role="navigation" aria-label="Main navigation">
             {/* Logo - Moved Further Left */}
             <Link 
               to="/" 
-              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300 mr-8"
+              className="flex items-center space-x-2 flex-shrink-0 hover:opacity-90 transition-opacity duration-300 mr-4"
               aria-label="Revuzia – Home"
               onClick={() => window.scrollTo(0, 0)}
             >
@@ -131,7 +131,7 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop with More Space */}
-            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center max-w-6xl mx-6">
+            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-start max-w-6xl mx-2">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -184,7 +184,7 @@ const Header = () => {
             </div>
 
             {/* Right Side Actions - Moved Further Right */}
-            <div className="flex items-center gap-4 flex-shrink-0 ml-8">
+            <div className="flex items-center gap-3 flex-shrink-0 ml-4">
               {/* Search Bar - Desktop */}
               <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
                 <div className="relative">
