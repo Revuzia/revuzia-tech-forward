@@ -24,6 +24,7 @@ import Affiliate from "./pages/Affiliate";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Article from "./pages/Article";
+import ThreeDDemo from "./pages/3DDemo";
 
 // Subcategory pages
 import SmartphonesTablets from "./pages/subcategories/SmartphonesTablets";
@@ -208,6 +209,9 @@ const App = () => {
           <Route path="/authors/miles-danner" element={<MilesDanner />} />
           <Route path="/authors/theo-chan" element={<TheoChan />} />
           <Route path="/authors/zara-velez" element={<ZaraVelez />} />
+          
+          {/* 3D Demo Route */}
+          <Route path="/3d-demo" element={<ThreeDDemo />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
