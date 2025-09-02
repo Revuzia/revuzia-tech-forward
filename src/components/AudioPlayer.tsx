@@ -26,9 +26,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
   const getFontSize = (titleLength: number, isLarge: boolean) => {
     if (!isLarge) return 'text-xs';
     
-    if (titleLength <= 50) return 'text-lg';        // Large font for shorter titles
-    if (titleLength <= 70) return 'text-base';      // Medium font for medium titles  
-    if (titleLength <= 90) return 'text-sm';        // Smaller font for longer titles
+    if (titleLength <= 45) return 'text-xl';        // Extra large font for short titles
+    if (titleLength <= 65) return 'text-lg';        // Large font for medium-short titles
+    if (titleLength <= 85) return 'text-base';      // Medium font for medium-long titles  
+    if (titleLength <= 105) return 'text-sm';       // Smaller font for long titles
     return 'text-xs';                                // Smallest font for very long titles
   };
   
