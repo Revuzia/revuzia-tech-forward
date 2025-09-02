@@ -128,8 +128,8 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
     <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
       <Link to={`/articles/${slug}`} className="block" onClick={() => window.scrollTo(0, 0)}>
         <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 h-[400px] flex flex-col">
-          {/* Image Container - Larger */}
-          <div className="relative h-56 overflow-hidden">
+          {/* Image Container - Even Larger */}
+          <div className="relative h-72 overflow-hidden">
             <img 
               src={image} 
               alt={title}
@@ -143,14 +143,14 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             </div>
           </div>
           
-          {/* Content - Compact */}
-          <div className="p-4 flex flex-col justify-between flex-1">
-            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-3 ${isHero ? 'text-xl' : 'text-lg'}`}>
+          {/* Content - Minimal Spacing */}
+          <div className="p-3 flex flex-col justify-between flex-1">
+            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-2 ${isHero ? 'text-xl' : 'text-lg'}`}>
               {title}
             </h2>
             
-            {/* Author and Meta Info - Single Line */}
-            <div className="flex items-center justify-center gap-4 mt-auto">
+            {/* Author and Meta Info - Close to Title */}
+            <div className="flex items-center justify-center gap-4">
               <div className="flex items-center gap-3">
                 <Avatar className="w-7 h-7 border-2 border-brand/20">
                   <AvatarImage src={getAuthorImage(author.name)} alt={author.name} />
