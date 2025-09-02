@@ -38,7 +38,7 @@ const AutomationLLM = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                readTime={article.read_time || `${Math.ceil(article.content.length / 1000)} min read`}
                 category="Automation & LLM Tools"
                 slug={article.slug}
               />

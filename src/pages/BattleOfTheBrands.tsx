@@ -39,7 +39,7 @@ const BattleOfTheBrands = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                readTime={article.read_time || `${Math.ceil(article.content.length / 1000)} min read`}
                 category={article.category_name}
                 slug={article.slug}
               />
