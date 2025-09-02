@@ -16,7 +16,7 @@ const TechNews = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Tech News</h1>
+          <h1 className="text-4xl font-bold text-brand mb-4">Tech News</h1>
           <p className="text-xl text-muted-foreground">Stay updated with the latest technology news and industry developments</p>
         </div>
 

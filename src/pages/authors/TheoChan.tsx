@@ -63,7 +63,7 @@ const TheoChan = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Theo Chan</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-brand mb-6">Theo Chan</h1>
             <p className="text-xl text-brand font-medium mb-6">Video Reviews and Tech Demos</p>
             
             <div className="max-w-3xl mx-auto mb-8 space-y-6">
