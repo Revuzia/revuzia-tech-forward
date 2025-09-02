@@ -68,6 +68,31 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
   const cardSizeClass = "";
   const imageHeightClass = isHero ? "h-48" : isHorizontal ? "h-32" : "h-40";
 
+  // Dynamic font sizing based on title length to ensure it fits in 2 lines
+  const getTitleFontSize = (title: string, isHero: boolean, isHorizontal: boolean) => {
+    const wordCount = title.split(' ').length;
+    const charCount = title.length;
+    
+    if (isHorizontal) {
+      // Horizontal cards need smaller fonts due to limited width
+      if (charCount > 80) return "text-xs";
+      if (charCount > 60) return "text-sm";
+      return "text-sm";
+    }
+    
+    if (isHero) {
+      // Hero cards can be larger
+      if (charCount > 90) return "text-lg";
+      if (charCount > 70) return "text-xl";
+      return "text-xl";
+    }
+    
+    // Regular cards
+    if (charCount > 85) return "text-sm";
+    if (charCount > 65) return "text-base";
+    return "text-lg";
+  };
+
   if (isHorizontal) {
     return (
       <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
@@ -90,7 +115,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               
               {/* Content - Right Side */}
               <div className="w-2/3 p-4 flex flex-col justify-between h-full">
-                <h2 className="font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-sm mb-2">
+                <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
                   {title}
                 </h2>
                 <p className="text-xs text-white/70 mb-3 leading-relaxed">
@@ -145,7 +170,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           
           {/* Content - Minimal Spacing */}
           <div className="p-3 flex flex-col justify-between flex-1">
-            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-2 ${isHero ? 'text-xl' : 'text-lg'}`}>
+            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
               {title}
             </h2>
             
