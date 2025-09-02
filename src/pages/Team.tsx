@@ -69,11 +69,11 @@ const Team = () => {
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              <span className="relative inline-block text-white drop-shadow-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-brand mb-6">
+              <span className="relative inline-block text-brand drop-shadow-2xl">
                 Meet Our Team
                 {/* Glow effect layers */}
-                <span className="absolute inset-0 text-white opacity-60 blur-sm animate-pulse">
+                <span className="absolute inset-0 text-brand opacity-60 blur-sm animate-pulse">
                   Meet Our Team
                 </span>
                 <span className="absolute inset-0 text-brand opacity-40 blur-md animate-pulse">
