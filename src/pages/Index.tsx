@@ -526,7 +526,7 @@ const Index = () => {
               skipSnaps: false,
               dragFree: true,
               containScroll: "trimSnaps",
-              duration: 25
+              duration: 35
             }}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
