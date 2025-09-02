@@ -68,29 +68,29 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
   const cardSizeClass = "";
   const imageHeightClass = isHero ? "h-48" : isHorizontal ? "h-32" : "h-40";
 
-  // Dynamic font sizing based on title length to ensure it fits in 2 lines
+  // Dynamic font sizing based on title length to ensure it fits in 3 lines
   const getTitleFontSize = (title: string, isHero: boolean, isHorizontal: boolean) => {
     const wordCount = title.split(' ').length;
     const charCount = title.length;
     
     if (isHorizontal) {
       // Horizontal cards need smaller fonts due to limited width
-      if (charCount > 80) return "text-xs";
-      if (charCount > 60) return "text-sm";
-      return "text-sm";
+      if (charCount > 80) return "text-sm";
+      if (charCount > 60) return "text-base";
+      return "text-base";
     }
     
     if (isHero) {
       // Hero cards can be larger
-      if (charCount > 90) return "text-lg";
-      if (charCount > 70) return "text-xl";
-      return "text-xl";
+      if (charCount > 90) return "text-xl";
+      if (charCount > 70) return "text-2xl";
+      return "text-2xl";
     }
     
-    // Regular cards
-    if (charCount > 85) return "text-sm";
-    if (charCount > 65) return "text-base";
-    return "text-lg";
+    // Regular cards - increased sizes for 3 lines
+    if (charCount > 85) return "text-base";
+    if (charCount > 65) return "text-lg";
+    return "text-xl";
   };
 
   if (isHorizontal) {
