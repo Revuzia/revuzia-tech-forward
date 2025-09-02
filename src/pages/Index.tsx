@@ -32,13 +32,15 @@ import aiPodcastElonLawsuit from "@/assets/ai-podcast-elon-lawsuit.jpg";
 const Index = () => {
   const { data: techNewsArticles } = useArticles("tech-news");
   const { data: electrifiedArticles } = useArticles("get-electrified");
+  const { data: digitalToolsArticles } = useArticles("digital-tools");
   const { data: productReviewsArticles } = useArticles("product-reviews");
   const { data: buyingGuidesArticles } = useArticles("buying-guides");
   
-  // Combine tech-news and get-electrified articles for the "Latest Tech and Electronics" section
+  // Combine tech-news, get-electrified, and digital-tools articles for the "Latest Tech and Electronics" section
   const techAndElectrifiedArticles = [
     ...(techNewsArticles || []),
-    ...(electrifiedArticles || [])
+    ...(electrifiedArticles || []),
+    ...(digitalToolsArticles || [])
   ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Sort by newest first
 
   // Combine product reviews and buying guides for "Explore Latest Reviews" section
