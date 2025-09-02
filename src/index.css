@@ -198,13 +198,26 @@
     @apply border-border;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-heading;
+    position: relative;
   }
 
   /* Custom cursor */
   html, body, * {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath fill='%2300ffbf' d='M2 2l20 7.5-7.5 2.5-2.5 7.5z' transform='rotate(5 15 15)'/%3E%3C/svg%3E"), auto !important;
+  }
+
+  /* Prevent horizontal scroll globally */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Accessibility - Skip to content */
