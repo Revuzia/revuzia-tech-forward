@@ -39,8 +39,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
       </div>
       
       <div className={`${isLarge ? 'p-4' : 'p-2'} relative`}>
-        <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-2 leading-tight ${
-          isLarge ? 'text-lg pr-12' : 'text-xs pr-10'
+        <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 leading-tight ${
+          isLarge ? 'text-sm pr-12' : 'text-xs pr-10'
         }`}>
           {title}
         </h3>
