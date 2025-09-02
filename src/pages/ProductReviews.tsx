@@ -15,8 +15,8 @@ const ProductReviews = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-8">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">Product Reviews</h1>
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Product Reviews</h1>
           <p className="text-xl text-muted-foreground">In-depth reviews of the latest tech products and gadgets</p>
         </div>
 
