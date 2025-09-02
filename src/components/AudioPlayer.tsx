@@ -36,28 +36,27 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
           alt={title} 
           className={`w-full object-cover ${isLarge ? 'h-48' : 'h-20'}`} 
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Button
-            onClick={handlePlay}
-            className={`rounded-full p-0 ${
-              isLarge ? 'w-16 h-16' : 'w-12 h-12'
-            } ${
-              isCurrentAudio && isPlaying 
-                ? 'bg-brand/80 hover:bg-brand text-black' 
-                : 'bg-brand hover:bg-brand/90 text-black'
-            }`}
-          >
-            <Play className={`${isLarge ? 'w-6 h-6' : 'w-4 h-4'} ml-0.5`} />
-          </Button>
-        </div>
       </div>
       
-      <div className={`${isLarge ? 'p-4' : 'p-2'}`}>
+      <div className={`${isLarge ? 'p-4' : 'p-2'} relative`}>
         <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 line-clamp-2 leading-tight ${
-          isLarge ? 'text-lg' : 'text-xs'
+          isLarge ? 'text-lg pr-12' : 'text-xs pr-10'
         }`}>
           {title}
         </h3>
+        
+        <Button
+          onClick={handlePlay}
+          className={`absolute top-2 right-2 rounded-full p-0 ${
+            isLarge ? 'w-10 h-10' : 'w-8 h-8'
+          } ${
+            isCurrentAudio && isPlaying 
+              ? 'bg-brand/80 hover:bg-brand text-black' 
+              : 'bg-brand hover:bg-brand/90 text-black'
+          }`}
+        >
+          <Play className={`${isLarge ? 'w-5 h-5' : 'w-3 h-3'} ml-0.5`} />
+        </Button>
       </div>
     </div>
   );
