@@ -62,8 +62,8 @@ const MilesDanner = () => {
             <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-accent/30 rounded-full animate-float-4"></div>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Miles Danner</h1>
-          <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Miles Danner</h1>
+          <p className="text-xl text-white mb-6 max-w-3xl mx-auto">
             Electronics & Innovation Reporter
           </p>
           

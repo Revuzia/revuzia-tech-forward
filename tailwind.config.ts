@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontSize: {
+				'article-heading': ['52px', { lineHeight: '1.1' }],
+			},
 			fontFamily: {
 				'heading': ['Orbitron', 'sans-serif'],
 				'body': ['Exo 2', 'sans-serif'],

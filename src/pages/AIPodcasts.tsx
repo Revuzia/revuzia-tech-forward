@@ -89,9 +89,9 @@ const AIPodcasts = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">AI Podcasts</h1>
-          <p className="text-xl text-muted-foreground">Listen to the latest AI news and insights — all generated with NotebookLM, Google's experimental AI tool for podcast creation.</p>
-          <p className="text-xl text-muted-foreground mt-4">Yes, you read that right — these episodes aren't recorded in a studio, they're conjured up by AI. It's all part of the great AI "takeover"… don't worry, it's a friendly one (so far).</p>
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">AI Podcasts</h1>
+          <p className="text-xl text-white">Listen to the latest AI news and insights — all generated with NotebookLM, Google's experimental AI tool for podcast creation.</p>
+          <p className="text-xl text-white mt-4">Yes, you read that right — these episodes aren't recorded in a studio, they're conjured up by AI. It's all part of the great AI "takeover"… don't worry, it's a friendly one (so far).</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

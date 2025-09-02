@@ -18,8 +18,8 @@ const AI = () => {
       
       <main className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">AI Technology</h1>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">AI Technology</h1>
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Latest developments in artificial intelligence, machine learning, and neural networks.
           </p>
         </div>

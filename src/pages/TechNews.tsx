@@ -16,8 +16,8 @@ const TechNews = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Tech News</h1>
-          <p className="text-xl text-muted-foreground">Stay updated with the latest technology news and industry developments</p>
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Tech News</h1>
+          <p className="text-xl text-white">Stay updated with the latest technology news and industry developments</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

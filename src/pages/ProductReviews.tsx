@@ -16,8 +16,8 @@ const ProductReviews = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Product Reviews</h1>
-          <p className="text-xl text-muted-foreground">In-depth reviews of the latest tech products and gadgets</p>
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Product Reviews</h1>
+          <p className="text-xl text-white">In-depth reviews of the latest tech products and gadgets</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -62,8 +62,8 @@ const AriaLin = () => {
             <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-accent/30 rounded-full animate-float-1"></div>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Aria Lin</h1>
-          <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Aria Lin</h1>
+          <p className="text-xl text-white mb-6 max-w-3xl mx-auto">
             Tech News & Electronics Specialist
           </p>
           
