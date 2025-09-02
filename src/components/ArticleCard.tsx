@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Clock } from "lucide-react";
 
 // Dynamic Author Image System with alternating images
@@ -76,11 +77,13 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             <div className="flex h-full">
               {/* Image Container - Left Side */}
               <div className={`relative w-1/3 overflow-hidden`}>
-                <img 
-                  src={image} 
-                  alt={title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+                <AspectRatio ratio={16 / 9}>
+                  <img 
+                    src={image} 
+                    alt={title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </AspectRatio>
                 <div className="absolute top-2 left-2">
                   <Badge className="bg-card/90 text-white border-0 font-semibold px-2 py-1 text-xs rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
                     {category}
@@ -129,12 +132,14 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
       <Link to={`/articles/${slug}`} className="block" onClick={() => window.scrollTo(0, 0)}>
         <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 h-[400px] flex flex-col">
           {/* Image Container - Even Larger */}
-          <div className="relative h-72 overflow-hidden">
-            <img 
-              src={image} 
-              alt={title}
-              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-            />
+          <div className="relative overflow-hidden">
+            <AspectRatio ratio={16 / 9}>
+              <img 
+                src={image} 
+                alt={title}
+                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+              />
+            </AspectRatio>
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
               <Badge className="bg-card/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
