@@ -22,6 +22,16 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
   const progress = isCurrentAudio && totalDuration ? (currentTime / totalDuration) * 100 : 0;
   const displayCurrentTime = isCurrentAudio ? formatTime(currentTime) : "0:00";
   
+  // Dynamic font size based on title length to ensure 2 lines max
+  const getFontSize = (titleLength: number, isLarge: boolean) => {
+    if (!isLarge) return 'text-xs';
+    
+    if (titleLength <= 40) return 'text-base';
+    if (titleLength <= 60) return 'text-sm';
+    if (titleLength <= 80) return 'text-xs';
+    return 'text-xs';
+  };
+  
   const handlePlay = () => {
     playAudio(title, audioUrl, image);
   };
@@ -39,9 +49,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
       </div>
       
       <div className={`${isLarge ? 'p-4' : 'p-2'} relative`}>
-        <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 leading-tight text-center ${
-          isLarge ? 'text-base pr-12' : 'text-xs pr-10'
-        }`}>
+        <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 leading-tight text-center line-clamp-2 ${
+          getFontSize(title.length, isLarge)
+        } ${isLarge ? 'pr-12' : 'pr-10'}`}>
           {title}
         </h3>
         
