@@ -115,7 +115,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
               
               {/* Content - Right Side */}
               <div className="w-2/3 p-4 flex flex-col justify-between h-full">
-                <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
+                <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-3 mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
                   {title}
                 </h2>
                 <p className="text-xs text-white/70 mb-3 leading-relaxed">
@@ -170,7 +170,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
           
           {/* Content - Minimal Spacing */}
           <div className="p-3 flex flex-col justify-between flex-1">
-            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
+            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-3 text-center mb-2 ${getTitleFontSize(title, isHero, isHorizontal)}`}>
               {title}
             </h2>
             
