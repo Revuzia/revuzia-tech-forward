@@ -228,8 +228,8 @@ const Index = () => {
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           {/* Hero Title with Orbiting Elements */}
-          <div className="relative inline-block mb-6">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-8 leading-tight">
+          <div className="relative inline-block mb-2 md:mb-6">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-center mb-4 md:mb-8 leading-tight">
               <span className="relative inline-block text-white drop-shadow-2xl">
                 The Future of Tech and Reviews
                 {/* Glow effect layers */}
@@ -261,14 +261,14 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-2xl text-foreground/80 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover cutting-edge technology through in-depth reviews, exclusive insights, and futuristic perspectives on the devices shaping tomorrow.
           </p>
           
           {/* Radiating Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-6 md:mb-0">
             <Button 
-              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg"
+              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
               onClick={() => {
                 const element = document.getElementById('explore-latest-reviews');
                 element?.scrollIntoView({ behavior: 'smooth' });
@@ -277,19 +277,19 @@ const Index = () => {
               Explore Latest Reviews
             </Button>
               <Button 
-              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-8 py-4 text-lg"
+              className="bg-gradient-primary text-primary-foreground hover:shadow-glow-primary hover:scale-105 font-semibold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg"
               onClick={() => {
                 const element = document.getElementById('audio-podcasts-section');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              <Play className="w-5 h-5 mr-2" />
+              <Play className="w-4 md:w-5 h-4 md:h-5 mr-2" />
               Listen to the Latest AI Podcasts
             </Button>
           </div>
           
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-foreground/80 mt-8 font-medium tracking-wide max-w-4xl mx-auto">
+          <p className="text-lg md:text-2xl text-foreground/80 mt-4 md:mt-8 font-medium tracking-wide max-w-4xl mx-auto">
             Reliable. Insightful. Transparent.
           </p>
         </div>
