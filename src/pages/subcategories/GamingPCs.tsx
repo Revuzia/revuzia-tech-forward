@@ -13,7 +13,7 @@ const GamingPCs = () => {
         <Header />
         <main className="container mx-auto px-4 py-16">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-brand mb-4">Gaming & PCs</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Gaming & PCs</h1>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
               Comprehensive reviews of gaming PCs, laptops, graphics cards, and components for the ultimate gaming experience.
             </p>
@@ -39,7 +39,7 @@ const GamingPCs = () => {
       
       <main className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-brand mb-4">Gaming & PCs</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Gaming & PCs</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             Comprehensive reviews of gaming PCs, laptops, graphics cards, and components for the ultimate gaming experience.
           </p>

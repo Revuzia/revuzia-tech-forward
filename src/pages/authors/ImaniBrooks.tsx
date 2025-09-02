@@ -63,7 +63,7 @@ const ImaniBrooks = () => {
           </div>
           
           <div className="author-info">
-            <h1 className="text-5xl font-bold text-brand mb-4">Imani Brooks</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Imani Brooks</h1>
             <p className="author-title text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
               Consumer Advocacy Editor
             </p>

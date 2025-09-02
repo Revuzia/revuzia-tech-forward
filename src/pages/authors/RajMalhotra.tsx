@@ -62,7 +62,7 @@ const RajMalhotra = () => {
             <div className="absolute -bottom-2 -left-6 w-6 h-6 bg-accent/30 rounded-full animate-float-3"></div>
           </div>
           
-          <h1 className="text-5xl font-bold text-brand mb-4">Raj Malhotra</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Raj Malhotra</h1>
           <p className="text-xl text-foreground/80 mb-6 max-w-3xl mx-auto">
             Buying Guides & Product Comparison
           </p>

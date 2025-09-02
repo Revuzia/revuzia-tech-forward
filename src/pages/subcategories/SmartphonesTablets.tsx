@@ -47,7 +47,7 @@ const SmartphonesTablets = () => {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-brand mb-4">Smartphones & Tablets</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Smartphones & Tablets</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             Discover the latest smartphones, tablets, and mobile technology reviews with in-depth analysis of performance, cameras, and features.
           </p>

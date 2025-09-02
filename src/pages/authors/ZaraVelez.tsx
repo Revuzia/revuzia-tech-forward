@@ -64,7 +64,7 @@ const ZaraVelez = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-brand mb-6">Zara Velez</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-brand mb-6">Zara Velez</h1>
             <p className="text-xl text-brand font-medium mb-6">Tech News and Market Analysis</p>
             
             <div className="max-w-3xl mx-auto mb-8 space-y-6">
