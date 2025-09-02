@@ -518,7 +518,16 @@ const Index = () => {
             </h2>
           </div>
           
-          <Carousel className="w-full">
+          <Carousel 
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+              skipSnaps: false,
+              dragFree: true,
+              containScroll: "trimSnaps"
+            }}
+          >
             <CarouselContent className="-ml-2 md:-ml-4">
               <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
