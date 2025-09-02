@@ -24,6 +24,7 @@ export type Database = {
           excerpt: string | null
           featured_image_url: string | null
           id: number
+          read_time: string | null
           slug: string | null
           status: string | null
           subCategory_name: string | null
@@ -39,6 +40,7 @@ export type Database = {
           excerpt?: string | null
           featured_image_url?: string | null
           id?: number
+          read_time?: string | null
           slug?: string | null
           status?: string | null
           subCategory_name?: string | null
@@ -54,6 +56,7 @@ export type Database = {
           excerpt?: string | null
           featured_image_url?: string | null
           id?: number
+          read_time?: string | null
           slug?: string | null
           status?: string | null
           subCategory_name?: string | null

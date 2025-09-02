@@ -40,7 +40,7 @@ const SmartHomeGuides = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={calculateReadTime(article.content)}
+                readTime={article.read_time || calculateReadTime(article.content)}
                 category="Smart Home Guides"
                 slug={article.slug}
               />

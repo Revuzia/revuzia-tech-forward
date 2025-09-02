@@ -42,7 +42,7 @@ const StreamingWars = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={calculateReadTime(article.content)}
+                readTime={article.read_time || calculateReadTime(article.content)}
                 category="Streaming Wars"
                 slug={article.slug}
               />
