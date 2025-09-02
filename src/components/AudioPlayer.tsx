@@ -22,14 +22,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
   const progress = isCurrentAudio && totalDuration ? (currentTime / totalDuration) * 100 : 0;
   const displayCurrentTime = isCurrentAudio ? formatTime(currentTime) : "0:00";
   
-  // Dynamic font size based on title length to ensure 2 lines max
+  // Dynamic font size based on title length to maximize space usage within 2 lines
   const getFontSize = (titleLength: number, isLarge: boolean) => {
     if (!isLarge) return 'text-xs';
     
-    if (titleLength <= 40) return 'text-base';
-    if (titleLength <= 60) return 'text-sm';
-    if (titleLength <= 80) return 'text-xs';
-    return 'text-xs';
+    if (titleLength <= 50) return 'text-lg';        // Large font for shorter titles
+    if (titleLength <= 70) return 'text-base';      // Medium font for medium titles  
+    if (titleLength <= 90) return 'text-sm';        // Smaller font for longer titles
+    return 'text-xs';                                // Smallest font for very long titles
   };
   
   const handlePlay = () => {
