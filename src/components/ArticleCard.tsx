@@ -128,8 +128,8 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
     <article className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${cardSizeClass}`}>
       <Link to={`/articles/${slug}`} className="block" onClick={() => window.scrollTo(0, 0)}>
         <div className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-brand/30 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 h-[400px] flex flex-col">
-          {/* Image Container */}
-          <div className={`relative ${imageHeightClass} overflow-hidden`}>
+          {/* Image Container - Larger */}
+          <div className="relative h-56 overflow-hidden">
             <img 
               src={image} 
               alt={title}
@@ -143,16 +143,16 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             </div>
           </div>
           
-          {/* Content */}
-          <div className="p-6 space-y-4 flex-1 flex flex-col">
-            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-3 text-center flex-1 min-h-[4.5rem] ${isHero ? 'text-2xl' : 'text-lg'}`}>
+          {/* Content - Compact */}
+          <div className="p-4 flex flex-col justify-between flex-1">
+            <h2 className={`font-heading font-bold text-brand group-hover:text-brand/80 transition-colors duration-300 line-clamp-2 text-center mb-3 ${isHero ? 'text-xl' : 'text-lg'}`}>
               {title}
             </h2>
             
             {/* Author and Meta Info - Single Line */}
-            <div className="flex items-center justify-center gap-4 pt-2">
+            <div className="flex items-center justify-center gap-4 mt-auto">
               <div className="flex items-center gap-3">
-                <Avatar className="w-8 h-8 border-2 border-brand/20">
+                <Avatar className="w-7 h-7 border-2 border-brand/20">
                   <AvatarImage src={getAuthorImage(author.name)} alt={author.name} />
                   <AvatarFallback className="bg-brand/10 text-brand text-xs font-medium">
                     {author.name.split(' ').map(n => n[0]).join('')}
