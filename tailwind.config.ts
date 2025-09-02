@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontSize: {
-				'article-heading': ['36px', { lineHeight: '1.1' }],
+				'article-heading': ['32px', { lineHeight: '1.1' }],
 			},
 			fontFamily: {
 				'heading': ['Orbitron', 'sans-serif'],

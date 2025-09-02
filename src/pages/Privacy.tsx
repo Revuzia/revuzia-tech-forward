@@ -16,7 +16,7 @@ const Privacy = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Section */}
           <div className="mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-brand mb-6">
+            <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-6">
               <span className="relative inline-block text-brand drop-shadow-2xl">
                 Privacy Policy
                 {/* Glow effect layers */}
@@ -28,7 +28,7 @@ const Privacy = () => {
                 </span>
               </span>
             </h1>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-xl text-white/100 max-w-2xl mx-auto">
               Your privacy matters to us. Here's how we protect your information.
             </p>
           </div>
