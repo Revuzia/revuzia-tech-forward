@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Play, Zap, Cpu, Smartphone, Monitor } from "lucide-react";
+import { Play, Zap, Cpu, Smartphone, Monitor, Rocket } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
@@ -223,6 +223,16 @@ const Index = () => {
           </div>
           <div className="floating-tech-element animate-float-4">
             <Zap className="w-7 h-7 text-brand opacity-45" />
+          </div>
+          
+          {/* Flying Rocket Ship */}
+          <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
+            <div className="relative flex items-center">
+              <Rocket className="w-12 h-12 text-brand opacity-70 rotate-45" />
+              <span className="absolute left-16 text-white font-bold text-sm tracking-wider">
+                REVUZIA
+              </span>
+            </div>
           </div>
         </div>
 
