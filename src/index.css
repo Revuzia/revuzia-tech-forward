@@ -903,13 +903,8 @@
   85% {
     opacity: 1;
   }
-  95% {
-    left: 90vw;
-    transform: translateY(-50%);
-    opacity: 0;
-  }
   100% {
-    left: 90vw;
+    left: calc(100vw + 150px);
     transform: translateY(-50%);
     opacity: 0;
   }
