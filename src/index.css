@@ -50,7 +50,7 @@
     --gradient-card: linear-gradient(145deg, hsl(220, 27%, 12%), hsl(220, 27%, 18%));
     
     /* Animation durations and timings */
-    --rocket-duration: 12s;
+    --rocket-duration: 18s;
     
     /* Glowing effects using brand color */
     --glow-primary: 0 0 20px rgb(var(--brand-rgb), 0.3);
@@ -898,10 +898,15 @@
   0% {
     left: -150px;
     transform: translateY(-50%);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
   }
   100% {
-    left: calc(100vw + 50px);
+    left: calc(100vw + 150px);
     transform: translateY(-50%);
+    opacity: 0;
   }
 }
 
