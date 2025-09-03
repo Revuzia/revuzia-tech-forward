@@ -900,11 +900,16 @@
     transform: translateY(-50%);
     opacity: 1;
   }
-  85% {
+  70% {
     opacity: 1;
   }
+  85% {
+    left: 85vw;
+    transform: translateY(-50%);
+    opacity: 0;
+  }
   100% {
-    left: calc(100vw + 150px);
+    left: 85vw;
     transform: translateY(-50%);
     opacity: 0;
   }
