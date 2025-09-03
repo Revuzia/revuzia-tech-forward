@@ -49,8 +49,12 @@
     --gradient-hero: linear-gradient(135deg, hsl(220, 27%, 8%), hsl(220, 27%, 15%));
     --gradient-card: linear-gradient(145deg, hsl(220, 27%, 12%), hsl(220, 27%, 18%));
     
-    /* Animation durations and timings */
-    --rocket-duration: 18s;
+  /* Animation durations and timings */
+  --rocket-duration: 18s;
+  
+  /* Rocket glow and pulse animations */
+  --rocket-glow-base: 0 0 20px rgba(var(--brand-rgb), 0.6);
+  --rocket-glow-intense: 0 0 40px rgba(var(--brand-rgb), 1), 0 0 60px rgba(var(--brand-rgb), 0.8);
     
     /* Glowing effects using brand color */
     --glow-primary: 0 0 20px rgb(var(--brand-rgb), 0.3);
