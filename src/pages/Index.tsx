@@ -228,8 +228,8 @@ const Index = () => {
           {/* Flying Rocket Ship */}
           <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
             <div className="relative flex items-center">
-              <Rocket className="w-12 h-12 text-brand opacity-70 rotate-45" />
-              <span className="absolute left-16 text-white font-bold text-sm tracking-wider">
+              <Rocket className="w-20 h-12 text-brand fill-brand opacity-70 rotate-45" style={{ transform: 'scaleX(1.5)' }} />
+              <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xs tracking-wider transform rotate-45">
                 REVUZIA
               </span>
             </div>
