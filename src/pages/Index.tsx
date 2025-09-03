@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import AudioPlayer from "@/components/AudioPlayer";
 import BackToTop from "@/components/BackToTop";
-import FlyingRocket from "@/components/FlyingRocket";
 import {
   Carousel,
   CarouselContent,
@@ -200,7 +199,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <FlyingRocket />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
