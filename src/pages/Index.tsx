@@ -227,7 +227,7 @@ const Index = () => {
           
           {/* Flying Rocket Ship */}
           <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
-            <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45" />
+            <Rocket className="w-12 h-12 text-brand opacity-70 rotate-45 scale-x-[3]" />
           </div>
         </div>
 
