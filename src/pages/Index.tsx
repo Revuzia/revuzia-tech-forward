@@ -228,8 +228,36 @@ const Index = () => {
           {/* Flying Rocket Ship */}
           <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
             <div className="relative flex items-center">
-              <Rocket className="w-16 h-12 text-brand fill-brand opacity-70 rotate-45" />
-              <span className="absolute left-20 text-white font-bold text-sm tracking-wider">
+              <svg
+                width="24"
+                height="12"
+                viewBox="0 0 24 12"
+                className="opacity-70 rotate-45"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Rocket body - filled with brand color */}
+                <path
+                  d="M8 2L18 6L8 10L10 6L8 2Z"
+                  fill="hsl(var(--brand))"
+                  stroke="hsl(var(--brand))"
+                  strokeWidth="1"
+                />
+                {/* Tail flames - white outline only */}
+                <path
+                  d="M8 4L4 2L6 6L4 10L8 8"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M8 5L2 4L4 6L2 8L8 7"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="1"
+                />
+              </svg>
+              <span className="absolute left-28 text-white font-bold text-sm tracking-wider">
                 REVUZIA
               </span>
             </div>
