@@ -54,11 +54,15 @@ const FlyingRocket = () => {
             src="/lovable-uploads/56c91f72-fb18-4db3-a531-02f29387ac71.png" 
             alt="Rocket" 
             className="w-20 h-20 md:w-24 md:h-24"
+            style={{ 
+              filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.3))',
+              mixBlendMode: 'multiply' 
+            }}
           />
           
           {/* REVUZIA Text */}
           <div className="absolute left-full ml-2 whitespace-nowrap">
-            <span className="text-brand font-bold text-lg md:text-xl font-poppins tracking-wider drop-shadow-lg">
+            <span className="text-white font-bold text-lg md:text-xl font-poppins tracking-wider drop-shadow-lg">
               REVUZIA
             </span>
           </div>
