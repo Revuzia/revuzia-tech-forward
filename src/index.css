@@ -919,3 +919,24 @@
 .animate-fly-across {
   animation: fly-across var(--rocket-duration) linear infinite;
 }
+
+/* Rocket glow effect */
+.rocket-glow {
+  filter: drop-shadow(0 0 10px rgba(var(--brand-rgb), 0.7)) 
+          drop-shadow(0 0 20px rgba(var(--brand-rgb), 0.5)) 
+          drop-shadow(0 0 30px rgba(var(--brand-rgb), 0.3));
+  animation: rocket-glow-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes rocket-glow-pulse {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(var(--brand-rgb), 0.7)) 
+            drop-shadow(0 0 20px rgba(var(--brand-rgb), 0.5)) 
+            drop-shadow(0 0 30px rgba(var(--brand-rgb), 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(var(--brand-rgb), 0.9)) 
+            drop-shadow(0 0 25px rgba(var(--brand-rgb), 0.7)) 
+            drop-shadow(0 0 35px rgba(var(--brand-rgb), 0.5));
+  }
+}
