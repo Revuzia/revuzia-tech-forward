@@ -124,34 +124,34 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       {/* Persistent Audio Player */}
       {currentAudio && isVisible && (
         <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-40">
-          <div className="mx-auto px-4 py-3" style={{ 
+          <div className="mx-auto px-4 py-2 md:py-3" style={{ 
             marginLeft: 'max(1rem, calc(80px + 1rem))', 
             marginRight: 'max(1rem, calc(64px + 1rem))',
             maxWidth: 'calc(100vw - max(2rem, calc(80px + 64px + 2rem)))'
           }}>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               {/* Audio Info */}
-              <div className="flex items-center gap-3 flex-1 min-w-0">
+              <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
                 <img 
                   src={currentAudio.image} 
                   alt={currentAudio.title}
-                  className="w-12 h-12 rounded object-cover flex-shrink-0"
+                  className="w-8 h-8 md:w-12 md:h-12 rounded object-cover flex-shrink-0"
                 />
                 <div className="min-w-0 flex-1">
-                  <h4 className="text-sm font-medium text-foreground truncate">
+                  <h4 className="text-xs md:text-sm font-medium text-foreground truncate">
                     {currentAudio.title}
                   </h4>
-                  <p className="text-xs text-muted-foreground">Revuzia AI</p>
+                  <p className="text-xs text-muted-foreground hidden md:block">Revuzia AI</p>
                 </div>
               </div>
 
               {/* Controls */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 md:gap-2">
                 <Button
                   onClick={togglePlay}
-                  className="bg-brand hover:bg-brand/90 text-black rounded-full w-10 h-10 p-0"
+                  className="bg-brand hover:bg-brand/90 text-black rounded-full w-8 h-8 md:w-10 md:h-10 p-0"
                 >
-                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+                  {isPlaying ? <Pause className="w-3 h-3 md:w-4 md:h-4" /> : <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5" />}
                 </Button>
 
                 {/* Progress Bar */}
@@ -197,22 +197,22 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                 <Button
                   onClick={closePlayer}
                   variant="ghost"
-                  className="w-8 h-8 p-0"
+                  className="w-6 h-6 md:w-8 md:h-8 p-0"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3 h-3 md:w-4 md:h-4" />
                 </Button>
               </div>
             </div>
 
             {/* Mobile Progress Bar */}
-            <div className="md:hidden mt-2">
+            <div className="md:hidden mt-1">
               <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                 <span>{formatTime(currentTime)}</span>
                 <span className="flex-1"></span>
                 <span>{duration ? formatTime(duration) : '--:--'}</span>
               </div>
               <div 
-                className="w-full h-2 bg-muted rounded-full cursor-pointer"
+                className="w-full h-1 bg-muted rounded-full cursor-pointer"
                 onClick={handleSeek}
               >
                 <div 
