@@ -1,6 +1,4 @@
 import React from 'react';
-import { Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { useAudio } from '@/components/PersistentAudioPlayer';
 
 interface AudioPlayerProps {
@@ -38,36 +36,42 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
   };
 
   return (
-    <div className={`bg-card border border-border rounded-lg overflow-hidden hover:border-brand/30 transition-all duration-300 group ${
-      isLarge ? 'w-full' : 'max-w-56'
-    }`}>
+    <div 
+      onClick={handlePlay}
+      className={`bg-card border rounded-lg overflow-hidden transition-all duration-300 group cursor-pointer ${
+        isLarge ? 'w-full' : 'max-w-56'
+      } ${
+        isCurrentAudio && isPlaying 
+          ? 'border-brand shadow-lg shadow-brand/20 bg-card/90' 
+          : 'border-border hover:border-brand/30'
+      }`}
+    >
       <div className="relative">
         <img 
           src={image} 
           alt={title} 
           className={`w-full object-cover ${isLarge ? 'h-48' : 'h-20'}`} 
         />
+        {/* Active indicator overlay */}
+        {isCurrentAudio && isPlaying && (
+          <div className="absolute inset-0 bg-brand/10 flex items-center justify-center">
+            <div className="w-12 h-12 bg-brand/80 rounded-full flex items-center justify-center">
+              <div className="w-2 h-2 bg-black rounded-full animate-pulse" />
+            </div>
+          </div>
+        )}
       </div>
       
       <div className={`${isLarge ? 'p-4' : 'p-2'} relative`}>
-        <h3 className={`font-semibold text-foreground group-hover:text-brand transition-colors duration-300 leading-tight text-center line-clamp-2 ${
+        <h3 className={`font-semibold transition-colors duration-300 leading-tight text-center line-clamp-2 ${
           getFontSize(title.length, isLarge)
-        } ${isLarge ? 'pr-12' : 'pr-10'}`}>
+        } ${
+          isCurrentAudio && isPlaying 
+            ? 'text-brand' 
+            : 'text-foreground group-hover:text-brand'
+        }`}>
           {title}
         </h3>
-        
-        <Button
-          onClick={handlePlay}
-          className={`absolute top-2 right-2 rounded-full p-0 ${
-            isLarge ? 'w-10 h-10' : 'w-8 h-8'
-          } ${
-            isCurrentAudio && isPlaying 
-              ? 'bg-brand/80 hover:bg-brand text-black' 
-              : 'bg-brand hover:bg-brand/90 text-black'
-          }`}
-        >
-          <Play className={`${isLarge ? 'w-5 h-5' : 'w-3 h-3'} ml-0.5`} />
-        </Button>
       </div>
     </div>
   );
