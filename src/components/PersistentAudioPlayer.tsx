@@ -160,7 +160,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
 
               {/* Progress Bar */}
               <div 
-                className="flex-1 h-1 bg-muted rounded-full cursor-pointer min-w-[100px]"
+                className="w-32 md:w-48 h-1 bg-muted rounded-full cursor-pointer"
                 onClick={handleSeek}
               >
                 <div 
