@@ -9,6 +9,8 @@ import aiPodcastImmediateImpact from "@/assets/ai-podcast-immediate-impact.jpg";
 import aiPodcastParadox from "@/assets/ai-podcast-paradox.jpg";
 import aiPodcastTrillionTangle from "@/assets/ai-podcast-trillion-tangle.jpg";
 import aiPodcastElonLawsuit from "@/assets/ai-podcast-elon-lawsuit.jpg";
+import aiPodcastGoldRush from "@/assets/ai-podcast-gold-rush.jpg";
+import aiPodcastUnmasked from "@/assets/ai-podcast-unmasked.jpg";
 
 const AIPodcasts = () => {
   const podcastData = [
@@ -91,6 +93,26 @@ const AIPodcasts = () => {
         avatar: "",
       },
       duration: "46:33",
+    },
+    {
+      title: "AI Gold Rush: Billions, Battles, and a World Rewritten",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Gold_Rush__Billions%2C_Battles%2C_and_a_World_Rewritten.m4a",
+      image: aiPodcastGoldRush,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "42:15",
+    },
+    {
+      title: "AI Unmasked: Deception, Efficiency, and the Digital Battleground",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unmasked__Deception%2C_Efficiency%2C_and_the_Digital_Battleground.m4a",
+      image: aiPodcastUnmasked,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "38:45",
     },
   ];
 
