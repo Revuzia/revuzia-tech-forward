@@ -17,7 +17,7 @@ const BuyingGuides = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Buying Guides</h1>
-          <p className="text-xl text-white">Expert advice to help you make the best tech purchasing decisions</p>
+          <p className="text-xl text-white">Smart buying guides and expert recommendations to help you choose the perfect tech products for your needs and budget</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

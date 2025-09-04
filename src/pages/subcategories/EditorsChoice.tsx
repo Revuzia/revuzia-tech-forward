@@ -20,7 +20,7 @@ const EditorsChoice = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Editor's Choice</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Our expert team's top recommendations for the best technology products across all categories.
+            The cream of the crop. These are the products our expert editors personally recommend after rigorous testing — the ones we'd buy with our own money.
           </p>
         </div>
 

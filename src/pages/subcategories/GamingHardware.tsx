@@ -20,7 +20,7 @@ const GamingHardware = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Gaming Hardware</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Expert reviews of gaming hardware including GPUs, peripherals, and gaming accessories.
+            Level up your gaming setup with our expert reviews of graphics cards, gaming keyboards, mice, headsets, and accessories. Tested by gamers, for gamers.
           </p>
         </div>
 

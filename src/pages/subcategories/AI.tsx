@@ -20,7 +20,7 @@ const AI = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">AI Technology</h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
-            Latest developments in artificial intelligence, machine learning, and neural networks.
+            Breaking news in artificial intelligence — from ChatGPT updates to breakthrough research, AI regulation, and the companies reshaping our world with machine intelligence.
           </p>
         </div>
 

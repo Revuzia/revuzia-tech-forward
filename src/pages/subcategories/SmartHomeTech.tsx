@@ -38,7 +38,7 @@ const SmartHomeTech = () => {
             </h1>
           </div>
           <p className="text-xl text-foreground/80 max-w-4xl mx-auto mb-8">
-            Transform your living space with the latest smart home technology. From automation to security, discover what's new and electrifying.
+            The future of home living is here. Discover smart devices, automation systems, and connected technologies that make your home more intelligent, secure, and energy-efficient.
           </p>
         </section>
 

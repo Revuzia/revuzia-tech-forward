@@ -21,7 +21,7 @@ const BudgetPicks = () => {
         <section className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Budget Picks</h1>
           <p className="text-xl text-foreground/80 text-center mb-12 max-w-3xl mx-auto">
-            Get the most bang for your buck with our carefully selected budget-friendly tech recommendations.
+            Great tech doesn't have to break the bank. Discover the best affordable devices that deliver premium features without the premium price tag.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

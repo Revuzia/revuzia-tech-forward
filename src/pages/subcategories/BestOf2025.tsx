@@ -21,7 +21,7 @@ const BestOf2025 = () => {
         <section className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">Best of 2025</h1>
           <p className="text-xl text-foreground/80 text-center mb-12 max-w-3xl mx-auto">
-            Our curated selection of the year's most outstanding tech products and innovations.
+            The definitive collection of 2025's most innovative and game-changing tech products. These are the devices, services, and breakthroughs that defined the year.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

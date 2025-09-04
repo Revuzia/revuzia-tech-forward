@@ -20,7 +20,7 @@ const LaptopsComputers = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Laptops & Computers</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            In-depth reviews of laptops, desktops, and computer hardware with performance benchmarks.
+            Comprehensive laptop and desktop reviews covering performance, battery life, build quality, and value. From ultrabooks to gaming rigs, we test them all.
           </p>
         </div>
 

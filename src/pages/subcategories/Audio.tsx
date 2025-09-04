@@ -20,7 +20,7 @@ const Audio = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Audio Equipment</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Expert reviews of headphones, speakers, earbuds, and premium audio equipment.
+            Expert audio gear reviews covering headphones, speakers, earbuds, and hi-fi systems. We test sound quality, comfort, build quality, and value across all price ranges.
           </p>
         </div>
 

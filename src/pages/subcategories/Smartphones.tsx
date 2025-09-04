@@ -20,7 +20,7 @@ const Smartphones = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Smartphone Reviews</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Comprehensive reviews of the latest smartphones with detailed analysis and performance testing.
+            Real-world smartphone reviews with detailed camera tests, performance benchmarks, and honest opinions on the latest iPhone, Samsung Galaxy, Google Pixel, and flagship Android devices.
           </p>
         </div>
 

@@ -20,7 +20,7 @@ const PremiumPick = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold text-brand mb-4">Premium Pick</h1>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Luxury technology products that represent the pinnacle of quality, performance, and design.
+            For those who accept no compromises. These premium products deliver the ultimate in performance, craftsmanship, and luxury — worth every penny for the discerning tech enthusiast.
           </p>
         </div>
 

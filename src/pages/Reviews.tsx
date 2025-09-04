@@ -20,7 +20,7 @@ const Reviews = () => {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-article-heading font-bold text-brand mb-4">Product Reviews</h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
-            In-depth reviews of the latest technology products to help you make informed purchasing decisions.
+            Expert, unbiased reviews of the latest tech products — from flagship smartphones to cutting-edge gadgets. We test everything so you don't have to guess.
           </p>
         </div>
 
