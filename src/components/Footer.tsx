@@ -65,6 +65,15 @@ const Footer = () => {
             <h3 className="text-xl font-poppins font-bold text-brand mb-6">REVUZIA</h3>
             <ul className="space-y-3">
               <li>
+                <Link 
+                  to="/ai-podcasts" 
+                  className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Listen to AI Podcasts
+                </Link>
+              </li>
+              <li>
                  <Link 
                    to="/team" 
                    className="text-white text-base hover:text-brand transition-colors duration-300 font-poppins font-medium"
