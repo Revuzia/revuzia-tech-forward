@@ -124,72 +124,35 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       {/* Persistent Audio Player */}
       {currentAudio && isVisible && (
         <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-40">
-          <div className="mx-auto px-4 py-2 md:py-3" style={{ 
-            marginLeft: 'max(1rem, calc(80px + 1rem))', 
-            marginRight: 'max(1rem, calc(64px + 1rem))',
-            maxWidth: 'calc(100vw - max(2rem, calc(80px + 64px + 2rem)))'
-          }}>
-            <div className="flex items-center gap-4">
-              {/* Audio Info */}
-              <div className="flex items-center gap-3">
-                <img 
-                  src={currentAudio.image} 
-                  alt={currentAudio.title}
-                  className="w-12 h-12 rounded object-cover flex-shrink-0"
-                />
-                <div className="min-w-0">
-                  <h4 className="text-sm font-medium text-foreground truncate max-w-[200px] md:max-w-[300px]">
-                    {currentAudio.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground">Revuzia AI</p>
-                </div>
-              </div>
+          <div className="flex items-center justify-center gap-4 px-4 py-3">
+            {/* Play/Pause Button */}
+            <Button
+              onClick={togglePlay}
+              className="bg-brand hover:bg-brand/90 text-black rounded-full w-10 h-10 p-0 flex-shrink-0"
+            >
+              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
+            </Button>
 
-              {/* Play/Pause Button */}
-              <Button
-                onClick={togglePlay}
-                className="bg-brand hover:bg-brand/90 text-black rounded-full w-10 h-10 p-0 flex-shrink-0"
-              >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
-              </Button>
+            {/* Current Time */}
+            <span className="text-sm text-muted-foreground whitespace-nowrap">
+              {formatTime(currentTime)}
+            </span>
 
-              {/* Time and Progress Bar */}
-              <div className="flex items-center gap-3 flex-1 min-w-0">
-                <span className="text-sm text-muted-foreground whitespace-nowrap">
-                  {formatTime(currentTime)}
-                </span>
-                <div 
-                  className="flex-1 h-1 bg-muted rounded-full cursor-pointer"
-                  onClick={handleSeek}
-                >
-                  <div 
-                    className="h-full bg-brand rounded-full transition-all duration-100"
-                    style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                  />
-                </div>
-                <span className="text-sm text-muted-foreground whitespace-nowrap">
-                  {duration ? formatTime(duration) : '--:--'}
-                </span>
-              </div>
-
-              {/* Volume Control */}
-              <Button
-                onClick={toggleMute}
-                variant="ghost"
-                className="w-10 h-10 p-0 flex-shrink-0"
-              >
-                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-              </Button>
-
-              {/* Close Button */}
-              <Button
-                onClick={closePlayer}
-                variant="ghost"
-                className="w-10 h-10 p-0 flex-shrink-0"
-              >
-                <X className="w-5 h-5" />
-              </Button>
+            {/* Progress Bar */}
+            <div 
+              className="w-48 h-1 bg-muted rounded-full cursor-pointer"
+              onClick={handleSeek}
+            >
+              <div 
+                className="h-full bg-brand rounded-full transition-all duration-100"
+                style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+              />
             </div>
+
+            {/* Total Duration */}
+            <span className="text-sm text-muted-foreground whitespace-nowrap">
+              {duration ? formatTime(duration) : '--:--'}
+            </span>
           </div>
 
           <audio
