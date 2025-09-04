@@ -53,14 +53,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
           alt={title} 
           className={`w-full object-cover ${isLarge ? 'h-48' : 'h-20'}`} 
         />
-        {/* Active indicator overlay */}
-        {isCurrentAudio && isPlaying && (
-          <div className="absolute inset-0 bg-brand/10 flex items-center justify-center">
-            <div className="w-12 h-12 bg-brand/90 rounded-full flex items-center justify-center">
-              <Pause className="w-5 h-5 text-black" />
-            </div>
-          </div>
-        )}
       </div>
       
       <div className={`${isLarge ? 'p-4' : 'p-2'} relative`}>
