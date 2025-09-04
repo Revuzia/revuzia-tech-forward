@@ -129,83 +129,66 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
             marginRight: 'max(1rem, calc(64px + 1rem))',
             maxWidth: 'calc(100vw - max(2rem, calc(80px + 64px + 2rem)))'
           }}>
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-4">
               {/* Audio Info */}
-              <div className="flex items-center gap-3 flex-1 min-w-0">
+              <div className="flex items-center gap-3">
                 <img 
                   src={currentAudio.image} 
                   alt={currentAudio.title}
-                  className="w-10 h-10 md:w-12 md:h-12 rounded object-cover flex-shrink-0"
+                  className="w-12 h-12 rounded object-cover flex-shrink-0"
                 />
-                <div className="min-w-0 flex-1">
-                  <h4 className="text-sm md:text-base font-medium text-foreground truncate">
+                <div className="min-w-0">
+                  <h4 className="text-sm font-medium text-foreground truncate max-w-[200px] md:max-w-[300px]">
                     {currentAudio.title}
                   </h4>
                   <p className="text-xs text-muted-foreground">Revuzia AI</p>
                 </div>
               </div>
 
-              {/* Time Display */}
-              <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-                <span>{formatTime(currentTime)}</span>
-                <span>|</span>
-                <span>{duration ? formatTime(duration) : '--:--'}</span>
-              </div>
-
               {/* Play/Pause Button */}
               <Button
                 onClick={togglePlay}
-                className="bg-brand hover:bg-brand/90 text-black rounded-full w-10 h-10 md:w-12 md:h-12 p-0 flex-shrink-0"
+                className="bg-brand hover:bg-brand/90 text-black rounded-full w-10 h-10 p-0 flex-shrink-0"
               >
-                {isPlaying ? <Pause className="w-4 h-4 md:w-5 md:h-5" /> : <Play className="w-4 h-4 md:w-5 md:h-5 ml-0.5" />}
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
               </Button>
 
-              {/* Volume Controls */}
-              <div className="hidden md:flex items-center gap-2">
-                <Button
-                  onClick={toggleMute}
-                  variant="ghost"
-                  className="w-8 h-8 p-0"
+              {/* Time and Progress Bar */}
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <span className="text-sm text-muted-foreground whitespace-nowrap">
+                  {formatTime(currentTime)}
+                </span>
+                <div 
+                  className="flex-1 h-1 bg-muted rounded-full cursor-pointer"
+                  onClick={handleSeek}
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                </Button>
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.1"
-                  value={isMuted ? 0 : volume}
-                  onChange={handleVolumeChange}
-                  className="w-16 h-1 bg-muted rounded-lg cursor-pointer"
-                />
+                  <div 
+                    className="h-full bg-brand rounded-full transition-all duration-100"
+                    style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                  />
+                </div>
+                <span className="text-sm text-muted-foreground whitespace-nowrap">
+                  {duration ? formatTime(duration) : '--:--'}
+                </span>
               </div>
+
+              {/* Volume Control */}
+              <Button
+                onClick={toggleMute}
+                variant="ghost"
+                className="w-10 h-10 p-0 flex-shrink-0"
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </Button>
 
               {/* Close Button */}
               <Button
                 onClick={closePlayer}
                 variant="ghost"
-                className="w-8 h-8 md:w-10 md:h-10 p-0 flex-shrink-0"
+                className="w-10 h-10 p-0 flex-shrink-0"
               >
-                <X className="w-4 h-4 md:w-5 md:h-5" />
+                <X className="w-5 h-5" />
               </Button>
-            </div>
-
-            {/* Progress Bar and Time - Mobile Only */}
-            <div className="md:hidden mt-2">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                <span>{formatTime(currentTime)}</span>
-                <span className="flex-1"></span>
-                <span>{duration ? formatTime(duration) : '--:--'}</span>
-              </div>
-              <div 
-                className="w-full h-1 bg-muted rounded-full cursor-pointer"
-                onClick={handleSeek}
-              >
-                <div 
-                  className="h-full bg-brand rounded-full transition-all duration-100"
-                  style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                />
-              </div>
             </div>
           </div>
 
