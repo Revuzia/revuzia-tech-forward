@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AudioProvider } from "@/components/PersistentAudioPlayer";
 // import { AuthProvider } from "@/components/AuthProvider";
 import KofiButton from "./components/KofiButton";
+import BackToTop from "./components/BackToTop";
 import Index from "./pages/Index";
 import TechNews from "./pages/TechNews";
 import DigitalTools from "./pages/DigitalTools";
@@ -115,6 +116,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <KofiButton />
+            <BackToTop />
             <BrowserRouter>
             <ScrollToTop />
             <Routes>
