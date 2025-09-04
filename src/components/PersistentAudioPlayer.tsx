@@ -129,82 +129,40 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
             marginRight: 'max(1rem, calc(64px + 1rem))',
             maxWidth: 'calc(100vw - max(2rem, calc(80px + 64px + 2rem)))'
           }}>
-            <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-2 md:gap-3">
               {/* Audio Info */}
-              <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-1 min-w-0">
                 <img 
                   src={currentAudio.image} 
                   alt={currentAudio.title}
-                  className="w-8 h-8 md:w-12 md:h-12 rounded object-cover flex-shrink-0"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded object-cover flex-shrink-0"
                 />
                 <div className="min-w-0 flex-1">
                   <h4 className="text-xs md:text-sm font-medium text-foreground truncate">
                     {currentAudio.title}
                   </h4>
-                  <p className="text-xs text-muted-foreground hidden md:block">Revuzia AI</p>
                 </div>
               </div>
 
-              {/* Controls */}
-              <div className="flex items-center gap-1 md:gap-2">
-                <Button
-                  onClick={togglePlay}
-                  className="bg-brand hover:bg-brand/90 text-black rounded-full w-8 h-8 md:w-10 md:h-10 p-0"
-                >
-                  {isPlaying ? <Pause className="w-3 h-3 md:w-4 md:h-4" /> : <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5" />}
-                </Button>
+              {/* Play/Pause Button */}
+              <Button
+                onClick={togglePlay}
+                className="bg-brand hover:bg-brand/90 text-black rounded-full w-8 h-8 md:w-10 md:h-10 p-0 flex-shrink-0"
+              >
+                {isPlaying ? <Pause className="w-3 h-3 md:w-4 md:h-4" /> : <Play className="w-3 h-3 md:w-4 md:h-4 ml-0.5" />}
+              </Button>
 
-                {/* Progress Bar */}
-                <div className="hidden md:flex items-center gap-2">
-                  <span className="text-xs text-muted-foreground min-w-[35px]">
-                    {formatTime(currentTime)}
-                  </span>
-                  <div 
-                    className="w-32 h-2 bg-muted rounded-full cursor-pointer"
-                    onClick={handleSeek}
-                  >
-                    <div 
-                      className="h-full bg-brand rounded-full transition-all duration-100"
-                      style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                    />
-                  </div>
-                  <span className="text-xs text-muted-foreground min-w-[35px]">
-                    {duration ? formatTime(duration) : '--:--'}
-                  </span>
-                </div>
-
-                {/* Volume Control */}
-                <div className="hidden md:flex items-center gap-2">
-                  <Button
-                    onClick={toggleMute}
-                    variant="ghost"
-                    className="w-8 h-8 p-0"
-                  >
-                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                  </Button>
-                  <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.1"
-                    value={volume}
-                    onChange={handleVolumeChange}
-                    className="w-16 h-1 bg-muted rounded-lg appearance-none cursor-pointer"
-                  />
-                </div>
-
-                {/* Close Button */}
-                <Button
-                  onClick={closePlayer}
-                  variant="ghost"
-                  className="w-6 h-6 md:w-8 md:h-8 p-0"
-                >
-                  <X className="w-3 h-3 md:w-4 md:h-4" />
-                </Button>
-              </div>
+              {/* Close Button */}
+              <Button
+                onClick={closePlayer}
+                variant="ghost"
+                className="w-6 h-6 md:w-8 md:h-8 p-0 flex-shrink-0"
+              >
+                <X className="w-3 h-3 md:w-4 md:h-4" />
+              </Button>
             </div>
 
-            {/* Mobile Progress Bar */}
+            {/* Progress Bar - Mobile Only */}
             <div className="md:hidden mt-1">
               <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
                 <span>{formatTime(currentTime)}</span>

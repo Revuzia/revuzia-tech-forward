@@ -1,4 +1,5 @@
 import React from 'react';
+import { Play, Pause } from 'lucide-react';
 import { useAudio } from '@/components/PersistentAudioPlayer';
 
 interface AudioPlayerProps {
@@ -55,8 +56,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
         {/* Active indicator overlay */}
         {isCurrentAudio && isPlaying && (
           <div className="absolute inset-0 bg-brand/10 flex items-center justify-center">
-            <div className="w-12 h-12 bg-brand/80 rounded-full flex items-center justify-center">
-              <div className="w-2 h-2 bg-black rounded-full animate-pulse" />
+            <div className="w-12 h-12 bg-brand/90 rounded-full flex items-center justify-center">
+              <Pause className="w-5 h-5 text-black" />
             </div>
           </div>
         )}
