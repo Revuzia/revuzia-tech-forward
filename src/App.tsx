@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AudioProvider } from "@/components/PersistentAudioPlayer";
 // import { AuthProvider } from "@/components/AuthProvider";
 import KofiButton from "./components/KofiButton";
 import Index from "./pages/Index";
@@ -109,11 +110,12 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <KofiButton />
-          <BrowserRouter>
+        <AudioProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <KofiButton />
+            <BrowserRouter>
             <ScrollToTop />
             <Routes>
           <Route path="/" element={<Index />} />
@@ -213,7 +215,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </TooltipProvider>
+          </TooltipProvider>
+        </AudioProvider>
       </HelmetProvider>
     </QueryClientProvider>
   );
