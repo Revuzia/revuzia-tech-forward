@@ -141,6 +141,12 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                   <h4 className="text-xs md:text-sm font-medium text-foreground truncate">
                     {currentAudio.title}
                   </h4>
+                  {/* Time Display for Desktop */}
+                  <div className="hidden md:flex items-center gap-2 text-xs text-muted-foreground">
+                    <span>{formatTime(currentTime)}</span>
+                    <span>/</span>
+                    <span>{duration ? formatTime(duration) : '--:--'}</span>
+                  </div>
                 </div>
               </div>
 

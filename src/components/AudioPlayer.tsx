@@ -65,11 +65,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ title, audioUrl, image, durat
         }`}>
           {title}
         </h3>
-        
-        <div className="flex justify-between items-center mt-2 text-xs text-muted-foreground">
-          <span>{displayCurrentTime}</span>
-          <span>{duration}</span>
-        </div>
       </div>
     </div>
   );
