@@ -227,8 +227,8 @@ const Index = () => {
             <Zap className="w-7 h-7 text-brand opacity-45" />
           </div>
           
-          {/* Flying Rocket Ship */}
-          <div className="absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
+          {/* Flying Rocket Ship - Only visible on desktop */}
+          <div className="hidden xl:block absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
             <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
           </div>
         </div>
