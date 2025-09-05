@@ -30,6 +30,8 @@ import aiPodcastTrillionTangle from "@/assets/ai-podcast-trillion-tangle.jpg";
 import aiPodcastElonLawsuit from "@/assets/ai-podcast-elon-lawsuit.jpg";
 import aiPodcastGoldRush from "@/assets/ai-podcast-gold-rush.jpg";
 import aiPodcastUnmasked from "@/assets/ai-podcast-unmasked.jpg";
+import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
+import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 
 const Index = () => {
   const { data: techNewsArticles } = useArticles("tech-news");
@@ -654,6 +656,19 @@ const Index = () => {
                     avatar: "",
                   }}
                   duration="42:15"
+                  isLarge={true}
+                />
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
+                <AudioPlayer
+                  title="AI Unpacked: From Your Smart Home to Stadiums and Security Threats"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unpacked__From_Your_Smart_Home_to_Stadiums_and_Security_Threats.m4a"
+                  image={aiPodcastUnpacked}
+                  author={{
+                    name: "Miles Danner",
+                    avatar: authorMilesAvatar,
+                  }}
+                  duration="38 min"
                   isLarge={true}
                 />
               </CarouselItem>
