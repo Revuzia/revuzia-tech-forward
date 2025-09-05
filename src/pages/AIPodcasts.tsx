@@ -16,6 +16,16 @@ import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
 const AIPodcasts = () => {
   const podcastData = [
     {
+      title: "AI Unpacked: From Your Smart Home to Stadiums and Security Threats",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unpacked__From_Your_Smart_Home_to_Stadiums_and_Security_Threats.m4a",
+      image: aiPodcastUnpacked,
+      author: {
+        name: "Miles Danner",
+        avatar: "/src/assets/author-miles-avatar-new.jpg",
+      },
+      duration: "38 min",
+    },
+    {
       title: "AI Unleashed: From Elon's Lawsuit to Chatbot Tragedies, Navigating AI's Wild Frontier",
       audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__From_Elon_s_Lawsuit_to_Chatbot_Tragedies%2C_Navigating_AI_s_Wild_Frontier.m4a",
       image: aiPodcastElonLawsuit,
@@ -104,16 +114,6 @@ const AIPodcasts = () => {
         avatar: "",
       },
       duration: "42:15",
-    },
-    {
-      title: "AI Unpacked: From Your Smart Home to Stadiums and Security Threats",
-      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unpacked__From_Your_Smart_Home_to_Stadiums_and_Security_Threats.m4a",
-      image: aiPodcastUnpacked,
-      author: {
-        name: "Miles Danner",
-        avatar: "/src/assets/author-miles-avatar-new.jpg",
-      },
-      duration: "38 min",
     },
     {
       title: "AI Unmasked: Deception, Efficiency, and the Digital Battleground",
