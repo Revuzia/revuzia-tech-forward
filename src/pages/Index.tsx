@@ -544,6 +544,19 @@ const Index = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
                 <AudioPlayer
+                  title="AI Unpacked: From Your Smart Home to Stadiums and Security Threats"
+                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unpacked__From_Your_Smart_Home_to_Stadiums_and_Security_Threats.m4a"
+                  image={aiPodcastUnpacked}
+                  author={{
+                    name: "Miles Danner",
+                    avatar: authorMilesAvatar,
+                  }}
+                  duration="38 min"
+                  isLarge={true}
+                />
+              </CarouselItem>
+              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
+                <AudioPlayer
                   title="AI Unleashed: From Elon's Lawsuit to Chatbot Tragedies, Navigating AI's Wild Frontier"
                   audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__From_Elon_s_Lawsuit_to_Chatbot_Tragedies%2C_Navigating_AI_s_Wild_Frontier.m4a"
                   image={aiPodcastElonLawsuit}
@@ -643,19 +656,6 @@ const Index = () => {
                     avatar: "",
                   }}
                   duration="46:33"
-                  isLarge={true}
-                />
-              </CarouselItem>
-              <CarouselItem className="pl-2 md:pl-4 md:basis-1/3">
-                <AudioPlayer
-                  title="AI Unpacked: From Your Smart Home to Stadiums and Security Threats"
-                  audioUrl="https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unpacked__From_Your_Smart_Home_to_Stadiums_and_Security_Threats.m4a"
-                  image={aiPodcastUnpacked}
-                  author={{
-                    name: "Miles Danner",
-                    avatar: authorMilesAvatar,
-                  }}
-                  duration="38 min"
                   isLarge={true}
                 />
               </CarouselItem>
