@@ -51,11 +51,20 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
       
       if (categoryName) {
         console.log('🎯 Filtering by category:', categoryName);
-        query = query.eq('category_name', categoryName);
+        query = query.ilike('category_name', categoryName);
       }
       if (subCategoryName) {
         console.log('🎯 Filtering by subcategory:', subCategoryName);
-        query = query.eq('subCategory_name', subCategoryName);
+        // Try exact match first, then case-insensitive with format variations
+        query = query.or(`
+          subCategory_name.eq.${subCategoryName},
+          subCategory_name.ilike.${subCategoryName},
+          subCategory_name.ilike.${subCategoryName.replace(/-/g, ' ')},
+          subCategory_name.ilike.${subCategoryName.replace(/-/g, ' & ')},
+          subCategory_name.ilike.${subCategoryName.charAt(0).toUpperCase() + subCategoryName.slice(1).replace(/-/g, ' ')},
+          subCategory_name.ilike.${subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')},
+          subCategory_name.ilike.${subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')}
+        `);
       }
       
       const result = await query;
