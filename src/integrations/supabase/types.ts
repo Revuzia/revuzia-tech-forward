@@ -92,9 +92,134 @@ export type Database = {
         }
         Relationships: []
       }
+      topic_history: {
+        Row: {
+          articles_found: number | null
+          content_type: string | null
+          created_at: string | null
+          id: string
+          newest_article_age_days: number | null
+          published: boolean | null
+          search_date: string | null
+          skip_reason: string | null
+          topic: string | null
+          topic_id: string | null
+          workflow_run_id: string | null
+        }
+        Insert: {
+          articles_found?: number | null
+          content_type?: string | null
+          created_at?: string | null
+          id?: string
+          newest_article_age_days?: number | null
+          published?: boolean | null
+          search_date?: string | null
+          skip_reason?: string | null
+          topic?: string | null
+          topic_id?: string | null
+          workflow_run_id?: string | null
+        }
+        Update: {
+          articles_found?: number | null
+          content_type?: string | null
+          created_at?: string | null
+          id?: string
+          newest_article_age_days?: number | null
+          published?: boolean | null
+          search_date?: string | null
+          skip_reason?: string | null
+          topic?: string | null
+          topic_id?: string | null
+          workflow_run_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "topic_history_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topic_performance"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "topic_history_topic_id_fkey"
+            columns: ["topic_id"]
+            isOneToOne: false
+            referencedRelation: "topic_pool"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      topic_pool: {
+        Row: {
+          category: string
+          consecutive_failures: number | null
+          created_at: string | null
+          id: string
+          is_active: boolean | null
+          last_check: string | null
+          last_successful_use: string | null
+          notes: string | null
+          search_volume: number | null
+          source: string | null
+          subcategory: string | null
+          temperature: string | null
+          topic: string
+          trend_score: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          category: string
+          consecutive_failures?: number | null
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          last_check?: string | null
+          last_successful_use?: string | null
+          notes?: string | null
+          search_volume?: number | null
+          source?: string | null
+          subcategory?: string | null
+          temperature?: string | null
+          topic: string
+          trend_score?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          consecutive_failures?: number | null
+          created_at?: string | null
+          id?: string
+          is_active?: boolean | null
+          last_check?: string | null
+          last_successful_use?: string | null
+          notes?: string | null
+          search_volume?: number | null
+          source?: string | null
+          subcategory?: string | null
+          temperature?: string | null
+          topic?: string
+          trend_score?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      topic_performance: {
+        Row: {
+          avg_articles_found: number | null
+          category: string | null
+          consecutive_failures: number | null
+          id: string | null
+          last_used: string | null
+          status: string | null
+          successful_publishes: number | null
+          temperature: string | null
+          topic: string | null
+          total_uses: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       increment_article_views: {
