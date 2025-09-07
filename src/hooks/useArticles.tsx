@@ -45,19 +45,23 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
   const fetchArticles = async () => {
     try {
       setIsLoading(true);
-      console.log('🔍 Fetching articles:', { categoryName, subCategoryName });
+      console.log('🔍 Fetching articles with params:', { categoryName, subCategoryName });
       
       let query = db.from('articles').select('*').order('created_at', { ascending: false });
       
       if (categoryName) {
+        console.log('🎯 Filtering by category:', categoryName);
         query = query.eq('category_name', categoryName);
       }
       if (subCategoryName) {
+        console.log('🎯 Filtering by subcategory:', subCategoryName);
         query = query.eq('subCategory_name', subCategoryName);
       }
       
       const result = await query;
       const { data: articles, error: fetchError } = result as any;
+      
+      console.log('📊 Database result:', { articles: articles?.length || 0, error: fetchError });
       
       if (fetchError) {
         console.error('❌ Query error:', fetchError);
@@ -66,6 +70,13 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
       }
       
       console.log('✅ Articles found:', articles?.length || 0);
+      if (articles && articles.length > 0) {
+        console.log('📝 First article sample:', {
+          title: articles[0]?.title,
+          category: articles[0]?.category_name,
+          subcategory: articles[0]?.subCategory_name
+        });
+      }
       setData(articles || []);
       setError(null);
     } catch (err) {
