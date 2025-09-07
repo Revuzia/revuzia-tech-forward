@@ -7,7 +7,7 @@ import { useArticles } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 
 const SmartHomeTech = () => {
-  const { data: articles, isLoading } = useArticles("Get-Electrified", "smart-home-tech");
+  const { data: articles, isLoading } = useArticles("Product Reviews", "smart-home-tech");
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,10 +70,10 @@ const SmartHomeTech = () => {
                 We're working on bringing you the latest smart home technology insights and reviews.
               </p>
               <Link 
-                to="/get-electrified" 
+                to="/product-reviews" 
                 className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
               >
-                Browse All Get Electrified
+                Browse All Product Reviews
               </Link>
             </div>
           )}

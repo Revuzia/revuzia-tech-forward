@@ -5,7 +5,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 
 const TechNews = () => {
-  const { data: articles, isLoading } = useArticles("Tech-News");
+  const { data: articles, isLoading } = useArticles("Tech News");
 
   return (
     <div className="min-h-screen bg-background">

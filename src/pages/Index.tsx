@@ -34,16 +34,14 @@ import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
 import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 
 const Index = () => {
-  const { data: techNewsArticles } = useArticles("Tech-News");
-  const { data: electrifiedArticles } = useArticles("Get-Electrified");
-  const { data: digitalToolsArticles } = useArticles("Digital-Tools");
-  const { data: productReviewsArticles } = useArticles("Product-Reviews");
-  const { data: buyingGuidesArticles } = useArticles("Buying-Guides");
+  const { data: techNewsArticles } = useArticles("Tech News");
+  const { data: digitalToolsArticles } = useArticles("Digital Tools");
+  const { data: productReviewsArticles } = useArticles("Product Reviews");
+  const { data: buyingGuidesArticles } = useArticles("Buying Guides");
   
-  // Combine tech-news, get-electrified, and digital-tools articles for the "Latest Tech and Electronics" section
+  // Combine tech-news and digital-tools articles for the "Latest Tech and Electronics" section
   const techAndElectrifiedArticles = [
     ...(techNewsArticles || []),
-    ...(electrifiedArticles || []),
     ...(digitalToolsArticles || [])
   ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()); // Sort by newest first
 

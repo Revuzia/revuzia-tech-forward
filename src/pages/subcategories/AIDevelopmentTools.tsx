@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const AIDevelopmentTools = () => {
-  const { data: articles, isLoading } = useArticles("Tech-News", "ai-development-tools");
+  const { data: articles, isLoading } = useArticles("Tech News", "ai-development-tools");
 
   return (
     <div className="min-h-screen bg-background">

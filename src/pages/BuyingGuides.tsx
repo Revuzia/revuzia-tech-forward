@@ -5,7 +5,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { useArticles } from "@/hooks/useArticles";
 
 const BuyingGuides = () => {
-  const { data: articles, isLoading } = useArticles("Buying-Guides");
+  const { data: articles, isLoading } = useArticles("Buying Guides");
 
   return (
     <div className="min-h-screen bg-background">

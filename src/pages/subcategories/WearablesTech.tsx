@@ -7,7 +7,7 @@ import { useArticles } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 
 const WearablesTech = () => {
-  const { data: articles, isLoading } = useArticles("get-electrified", "wearables-tech");
+  const { data: articles, isLoading } = useArticles("Product Reviews", "wearables-tech");
 
   return (
     <div className="min-h-screen bg-background">
@@ -52,10 +52,10 @@ const WearablesTech = () => {
                 We're working on bringing you the latest wearable technology reviews and insights.
               </p>
               <Link 
-                to="/get-electrified" 
+                to="/product-reviews" 
                 className="inline-flex items-center px-6 py-3 bg-brand text-background rounded-lg hover:bg-brand/90 transition-colors"
               >
-                Browse All Get Electrified
+                Browse All Product Reviews
               </Link>
             </div>
           )}

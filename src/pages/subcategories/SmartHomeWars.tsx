@@ -5,7 +5,7 @@ import BackToTop from "@/components/BackToTop";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 
 const SmartHomeWars = () => {
-  const { data: articles } = useArticles("Battle-Of-The-Brands");
+  const { data: articles } = useArticles("Battle Of The Brands");
   
   const smartHomeWarArticles = articles?.filter(article => 
     article.tags?.includes("smart-home") || 
