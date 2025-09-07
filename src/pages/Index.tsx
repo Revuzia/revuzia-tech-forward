@@ -34,11 +34,11 @@ import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
 import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 
 const Index = () => {
-  const { data: techNewsArticles } = useArticles("tech-news");
-  const { data: electrifiedArticles } = useArticles("get-electrified");
-  const { data: digitalToolsArticles } = useArticles("digital-tools");
-  const { data: productReviewsArticles } = useArticles("product-reviews");
-  const { data: buyingGuidesArticles } = useArticles("buying-guides");
+  const { data: techNewsArticles } = useArticles("Tech-News");
+  const { data: electrifiedArticles } = useArticles("Get-Electrified");
+  const { data: digitalToolsArticles } = useArticles("Digital-Tools");
+  const { data: productReviewsArticles } = useArticles("Product-Reviews");
+  const { data: buyingGuidesArticles } = useArticles("Buying-Guides");
   
   // Combine tech-news, get-electrified, and digital-tools articles for the "Latest Tech and Electronics" section
   const techAndElectrifiedArticles = [

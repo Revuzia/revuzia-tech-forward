@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const AIHardwareAccelerators = () => {
-  const { data: articles, isLoading } = useArticles("get-electrified", "ai-hardware-accelerators");
+  const { data: articles, isLoading } = useArticles("Get-Electrified", "ai-hardware-accelerators");
 
   return (
     <div className="min-h-screen bg-background">

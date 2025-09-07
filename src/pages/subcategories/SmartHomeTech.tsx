@@ -7,7 +7,7 @@ import { useArticles } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 
 const SmartHomeTech = () => {
-  const { data: articles, isLoading } = useArticles("get-electrified", "smart-home-tech");
+  const { data: articles, isLoading } = useArticles("Get-Electrified", "smart-home-tech");
 
   return (
     <div className="min-h-screen bg-background">

@@ -7,7 +7,7 @@ import { useArticles } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 
 const Comparisons = () => {
-  const { data: articles, isLoading } = useArticles("buying-guides", "comparisons");
+  const { data: articles, isLoading } = useArticles("Buying-Guides", "comparisons");
 
   return (
     <div className="min-h-screen bg-background">

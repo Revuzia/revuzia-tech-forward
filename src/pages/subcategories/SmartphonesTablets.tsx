@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const SmartphonesTablets = () => {
-  const { data: articles, isLoading } = useArticles("product-reviews", "smartphones-tablets");
+  const { data: articles, isLoading } = useArticles("Product-Reviews", "smartphones-tablets");
 
   return (
     <div className="min-h-screen bg-background">

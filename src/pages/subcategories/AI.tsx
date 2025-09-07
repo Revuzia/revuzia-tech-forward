@@ -6,7 +6,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { useArticles } from "@/hooks/useArticles";
 
 const AI = () => {
-  const { data: articles, isLoading } = useArticles("tech-news", "ai");
+  const { data: articles, isLoading } = useArticles("Tech-News", "ai");
 
   return (
     <div className="min-h-screen bg-background">

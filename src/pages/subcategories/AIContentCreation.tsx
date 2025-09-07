@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const AIContentCreation = () => {
-  const { data: articles, isLoading } = useArticles("tech-news", "ai-content-creation");
+  const { data: articles, isLoading } = useArticles("Tech-News", "ai-content-creation");
 
   return (
     <div className="min-h-screen bg-background">
