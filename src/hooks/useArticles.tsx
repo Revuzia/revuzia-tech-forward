@@ -55,16 +55,35 @@ export const useArticles = (categoryName?: string, subCategoryName?: string) => 
       }
       if (subCategoryName) {
         console.log('🎯 Filtering by subcategory:', subCategoryName);
-        // Try exact match first, then case-insensitive with format variations
-        query = query.or(`
-          subCategory_name.eq.${subCategoryName},
-          subCategory_name.ilike.${subCategoryName},
-          subCategory_name.ilike.${subCategoryName.replace(/-/g, ' ')},
-          subCategory_name.ilike.${subCategoryName.replace(/-/g, ' & ')},
-          subCategory_name.ilike.${subCategoryName.charAt(0).toUpperCase() + subCategoryName.slice(1).replace(/-/g, ' ')},
-          subCategory_name.ilike.${subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')},
-          subCategory_name.ilike.${subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')}
-        `);
+        // Create variations to try
+        const variations = [
+          subCategoryName,
+          subCategoryName.replace(/-/g, ' '),
+          subCategoryName.replace(/-/g, ' & '),
+          subCategoryName.charAt(0).toUpperCase() + subCategoryName.slice(1).replace(/-/g, ' '),
+          subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+          subCategoryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' & ')
+        ];
+        
+        console.log('🔄 Trying subcategory variations:', variations);
+        
+        // Try each variation until we find a match
+        let found = false;
+        for (const variation of variations) {
+          const testQuery = query.ilike('subCategory_name', variation);
+          const testResult = await testQuery;
+          if (testResult.data && testResult.data.length > 0) {
+            console.log(`✅ Found match with variation: "${variation}"`);
+            query = testQuery;
+            found = true;
+            break;
+          }
+        }
+        
+        if (!found) {
+          console.log('❌ No matches found for any variation');
+          query = query.ilike('subCategory_name', subCategoryName);
+        }
       }
       
       const result = await query;
