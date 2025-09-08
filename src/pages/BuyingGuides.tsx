@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Header from "@/components/Header";
+
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import { useArticles } from "@/hooks/useArticles";
@@ -12,7 +12,7 @@ const BuyingGuides = () => {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <Header />
+      
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-12 text-center">

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Header from "@/components/Header";
+
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
@@ -14,7 +14,7 @@ const Reviews = () => {
         <title>Product Reviews - In-Depth Tech Reviews | Revuzia</title>
         <meta name="description" content="Comprehensive reviews of the latest tech products including smartphones, laptops, audio equipment, and more." />
       </Helmet>
-      <Header />
+      
       
       <main className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">

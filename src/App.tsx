@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AudioProvider } from "@/components/PersistentAudioPlayer";
 // import { AuthProvider } from "@/components/AuthProvider";
+import Header from "./components/Header";
 import KofiButton from "./components/KofiButton";
 import BackToTop from "./components/BackToTop";
 import Index from "./pages/Index";
@@ -118,8 +119,9 @@ const App = () => {
             <KofiButton />
             <BackToTop />
             <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
+              <Header />
+              <ScrollToTop />
+              <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tech-news" element={<TechNews />} />
           <Route path="/digital-tools" element={<DigitalTools />} />
