@@ -86,7 +86,7 @@ const Header = () => {
       <a href="#main-content" className="skip-to-content">
         Skip to content
       </a>
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-[9999] bg-card/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-1 py-4">
           <nav className="flex items-center justify-between gap-2" role="navigation" aria-label="Main navigation">
             {/* Logo - All the way left */}

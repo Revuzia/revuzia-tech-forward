@@ -210,6 +210,7 @@
   body {
     @apply bg-background text-foreground font-heading;
     position: relative;
+    padding-top: 88px; /* Account for fixed header */
   }
 
   /* Custom cursor */
