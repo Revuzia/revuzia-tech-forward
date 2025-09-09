@@ -230,7 +230,7 @@ const Index = () => {
           </div>
           
           {/* Flying Rocket Ship - Only visible on desktop */}
-          <div className="hidden xl:block absolute top-[60%] -left-20 transform -translate-y-1/2 animate-fly-across">
+          <div className="hidden xl:block absolute top-[52%] -left-20 transform -translate-y-1/2 animate-fly-across">
             <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
           </div>
         </div>
