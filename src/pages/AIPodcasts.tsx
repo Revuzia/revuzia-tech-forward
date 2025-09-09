@@ -12,9 +12,31 @@ import aiPodcastElonLawsuit from "@/assets/ai-podcast-elon-lawsuit.jpg";
 import aiPodcastGoldRush from "@/assets/ai-podcast-gold-rush.jpg";
 import aiPodcastUnmasked from "@/assets/ai-podcast-unmasked.jpg";
 import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
+import aiPodcastNewHorizon from "@/assets/ai-podcast-new-horizon.jpg";
+import aiPodcastTrillionRace from "@/assets/ai-podcast-trillion-race.jpg";
 
 const AIPodcasts = () => {
   const podcastData = [
+    {
+      title: "AI's New Horizon: Chips, Copyright, and Resurrecting Lost Films",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_New_Horizon__Chips%2C_Copyright%2C_and_Resurrecting_Lost_Films.mp4",
+      image: aiPodcastNewHorizon,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "44:20",
+    },
+    {
+      title: "The Trillion-Dollar AI Race: Robots, Jobs, and Your Future",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/The_Trillion-Dollar_AI_Race__Robots%2C_Jobs%2C_and_Your_Future.m4a",
+      image: aiPodcastTrillionRace,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "41:30",
+    },
     {
       title: "AI Unleashed: From Elon's Lawsuit to Chatbot Tragedies, Navigating AI's Wild Frontier",
       audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Unleashed__From_Elon_s_Lawsuit_to_Chatbot_Tragedies%2C_Navigating_AI_s_Wild_Frontier.m4a",
