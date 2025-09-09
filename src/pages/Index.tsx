@@ -228,6 +228,11 @@ const Index = () => {
           <div className="floating-tech-element animate-float-4">
             <Zap className="w-7 h-7 text-brand opacity-45" />
           </div>
+          
+          {/* Flying Rocket Ship - Only visible on desktop */}
+          <div className="hidden xl:block absolute top-1/2 -left-20 transform -translate-y-1/2 animate-fly-across">
+            <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
+          </div>
         </div>
 
         
@@ -267,14 +272,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
-          {/* Flying Rocket Ship - Between title and description */}
-          <div className="hidden xl:block absolute w-full top-full mt-4 pointer-events-none overflow-hidden">
-            <div className="absolute -left-20 animate-fly-across">
-              <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
-            </div>
-          </div>
-          
           <p className="text-lg md:text-2xl text-foreground/80 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover cutting-edge technology through in-depth reviews, exclusive insights, and futuristic perspectives on the devices shaping tomorrow.
           </p>
