@@ -268,8 +268,8 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Flying Rocket Ship - Between title and description, absolutely positioned */}
-          <div className="hidden xl:block absolute left-1/2 transform -translate-x-1/2 mt-2 pointer-events-none">
+          {/* Flying Rocket Ship - Between title and description */}
+          <div className="hidden xl:block absolute w-full top-full mt-4 pointer-events-none overflow-hidden">
             <div className="absolute -left-20 animate-fly-across">
               <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
             </div>
