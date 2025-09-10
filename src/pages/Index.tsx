@@ -229,15 +229,16 @@ const Index = () => {
             <Zap className="w-7 h-7 text-brand opacity-45" />
           </div>
           
-          {/* Flying Rocket Ship - Only visible on desktop */}
-          <div className="hidden xl:block absolute top-[55%] -left-20 transform -translate-y-1/2 animate-fly-across">
-            <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
-          </div>
         </div>
 
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+          {/* Flying Rocket Ship - Positioned relative to content */}
+          <div className="hidden xl:block absolute -left-20 top-1/2 transform -translate-y-1/2 animate-fly-across pointer-events-none z-5">
+            <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
+          </div>
+          
           {/* Hero Title with Orbiting Elements */}
           <div className="relative inline-block mb-2 md:mb-6">
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-center mb-4 md:mb-8 leading-tight">
