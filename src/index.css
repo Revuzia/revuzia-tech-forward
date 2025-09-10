@@ -894,10 +894,10 @@
   display: none;
 }
 
-/* Flying rocket animation */
+/* Flying rocket animation - Full screen width */
 @keyframes fly-across {
   0% {
-    left: -150px;
+    left: -200px;
     transform: translateY(-50%);
     opacity: 1;
   }
@@ -911,10 +911,15 @@
     opacity: 0.3;
   }
   100% {
-    left: calc(100vw + 150px);
+    left: calc(100vw + 200px);
     transform: translateY(-50%);
     opacity: 0;
   }
+}
+
+/* Full screen positioning for rocket */
+.-left-screen {
+  left: -200px;
 }
 
 .animate-fly-across {
