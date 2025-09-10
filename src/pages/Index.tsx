@@ -234,9 +234,9 @@ const Index = () => {
         
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          {/* Flying Rocket Ship - Positioned relative to content */}
-          <div className="hidden xl:block absolute -left-20 top-1/2 transform -translate-y-1/2 animate-fly-across pointer-events-none z-5">
-            <Rocket className="w-56 h-12 text-brand opacity-70 rotate-45 rocket-glow" />
+          {/* Flying Rocket Ship - Positioned relative to content, visible on all screens */}
+          <div className="absolute top-1/2 transform -translate-y-1/2 animate-fly-across pointer-events-none z-5">
+            <Rocket className="w-32 h-8 md:w-44 lg:w-56 md:h-10 lg:h-12 text-brand opacity-70 rotate-45 rocket-glow" />
           </div>
           
           {/* Hero Title with Orbiting Elements */}
