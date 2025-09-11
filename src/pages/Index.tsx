@@ -14,7 +14,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useArticles, calculateReadTime } from "@/hooks/useArticles";
-import { useParallaxMultiple } from "@/hooks/useParallax";
+import { useBackgroundParallax } from "@/hooks/useParallax";
 import gamingHero from "@/assets/gaming-article-hero.jpg";
 import buyingGuideHero from "@/assets/buying-guide-hero.jpg";
 import authorZara from "@/assets/author-zara.jpg";
@@ -37,7 +37,7 @@ import aiPodcastTrillionRace from "@/assets/ai-podcast-trillion-race.jpg";
 import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 
 const Index = () => {
-  const { slowRef, mediumRef, fastRef } = useParallaxMultiple();
+  const backgroundRef = useBackgroundParallax(0.5);
   
   const { data: techNewsArticles } = useArticles("Tech News");
   const { data: digitalToolsArticles } = useArticles("Digital Tools");
@@ -209,37 +209,17 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[88px] pt-[88px]">
-        {/* Parallax Background Layers */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Slowest moving background */}
-          <div 
-            ref={slowRef}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroTechBg})`,
-              top: '-20%',
-              height: '120%'
-            }}
-          >
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
-          </div>
-          
-          {/* Medium speed geometric patterns */}
-          <div ref={mediumRef} className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-32 h-32 border border-brand/30 rotate-45 animate-spin-slow"></div>
-            <div className="absolute top-60 right-20 w-24 h-24 border border-accent/30 rotate-12 animate-bounce-slow"></div>
-            <div className="absolute bottom-40 left-1/4 w-40 h-40 border border-brand/20 rounded-full animate-pulse"></div>
-            <div className="absolute top-40 right-1/3 w-16 h-16 bg-gradient-to-r from-brand/20 to-accent/20 rotate-45 animate-float-1"></div>
-          </div>
-          
-          {/* Fastest moving particles */}
-          <div ref={fastRef} className="absolute inset-0 opacity-40">
-            <div className="absolute top-32 left-1/3 w-2 h-2 bg-brand rounded-full animate-pulse"></div>
-            <div className="absolute top-80 right-1/4 w-3 h-3 bg-accent rounded-full animate-ping"></div>
-            <div className="absolute bottom-60 left-1/2 w-1 h-1 bg-white rounded-full animate-pulse"></div>
-            <div className="absolute top-1/2 left-20 w-2 h-2 bg-brand/60 rounded-full animate-bounce"></div>
-            <div className="absolute bottom-32 right-1/3 w-3 h-3 bg-accent/60 rounded-full animate-spin"></div>
-          </div>
+        {/* Parallax Background */}
+        <div 
+          ref={backgroundRef}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+          style={{ 
+            backgroundImage: `url(${heroTechBg})`,
+            top: '-20%',
+            height: '120%'
+          }}
+        >
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
         </div>
         
         {/* Floating Tech Elements */}
