@@ -941,3 +941,12 @@
             drop-shadow(0 0 35px rgba(var(--brand-rgb), 0.5));
   }
 }
+
+/* Additional slow animations for parallax */
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 4s ease-in-out infinite;
+}
