@@ -48,6 +48,18 @@ const getAuthorImage = (authorName: string, preferAvatar?: boolean) => {
   return image;
 };
 
+const formatCategoryDisplay = (category: string) => {
+  // Convert specific category slugs to proper display names
+  const categoryMap: { [key: string]: string } = {
+    'laptops-computers': 'Laptops & Computers',
+    'tools-accessories': 'Tools & Accessories',
+    'smartphones-tablets': 'Smartphones & Tablets',
+    // Add more mappings as needed
+  };
+  
+  return categoryMap[category] || category;
+};
+
 interface Author {
   name: string;
   avatar: string;
@@ -108,7 +120,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
                 />
                 <div className="absolute top-2 left-2">
                   <Badge className="bg-card/90 text-white border-0 font-semibold px-2 py-1 text-xs rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
-                    {category}
+                    {formatCategoryDisplay(category)}
                   </Badge>
                 </div>
               </div>
@@ -163,7 +175,7 @@ const ArticleCard = ({ title, image, author, readTime, category, slug, isHero = 
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
               <Badge className="bg-card/90 text-white border-0 font-semibold px-3 py-1 rounded-full group-hover:bg-brand group-hover:text-black transition-all duration-300">
-                {category}
+                {formatCategoryDisplay(category)}
               </Badge>
             </div>
           </div>
