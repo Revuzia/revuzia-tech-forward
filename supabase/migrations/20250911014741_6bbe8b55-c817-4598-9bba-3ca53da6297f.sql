@@ -1,0 +1,1 @@
+UPDATE articles SET "subCategory_name" = 'Laptops & Computers' WHERE "subCategory_name" = 'Laptop & Computers';
