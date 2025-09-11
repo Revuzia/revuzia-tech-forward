@@ -36,7 +36,7 @@ const BuyingGuides = () => {
                   avatar: "",
                 }}
                 readTime={article.read_time || `${Math.ceil(article.content.length / 1000)} min read`}
-                category={article.category_name}
+                category={article.subCategory_name}
                 slug={article.slug}
               />
             ))

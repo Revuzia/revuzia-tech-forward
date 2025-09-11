@@ -384,7 +384,7 @@ const Index = () => {
                       avatar: "",
                     }}
                 readTime={article.read_time || calculateReadTime(article.content)}
-                    category={article.category_name}
+                    category={article.subCategory_name}
                     slug={article.slug}
                     isHorizontal={true} 
                   />
@@ -491,7 +491,7 @@ const Index = () => {
                       avatar: "",
                     }}
                     readTime={article.read_time || calculateReadTime(article.content)}
-                    category={article.category_name}
+                    category={article.subCategory_name}
                     slug={article.slug}
                     isHorizontal={true} 
                   />
