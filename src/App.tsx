@@ -14,6 +14,7 @@ import Index from "./pages/Index";
 import TechNews from "./pages/TechNews";
 import DigitalTools from "./pages/DigitalTools";
 import Reviews from "./pages/Reviews";
+import ProductReviews from "./pages/ProductReviews";
 import BuyingGuides from "./pages/BuyingGuides";
 import BattleOfTheBrands from "./pages/BattleOfTheBrands";
 import VideoReviews from "./pages/VideoReviews";
@@ -126,6 +127,7 @@ const App = () => {
           <Route path="/tech-news" element={<TechNews />} />
           <Route path="/digital-tools" element={<DigitalTools />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/product-reviews" element={<ProductReviews />} />
           <Route path="/buying-guides" element={<BuyingGuides />} />
           <Route path="/battle-of-the-brands" element={<BattleOfTheBrands />} />
           <Route path="/video-reviews" element={<VideoReviews />} />

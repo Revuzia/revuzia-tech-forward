@@ -10,7 +10,8 @@ const ProductReviews = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Product Reviews - In-Depth Tech Reviews | Revuzia</title>
+        <meta name="description" content="Comprehensive reviews of the latest tech products including smartphones, laptops, audio equipment, and more." />
       </Helmet>
       <Header />
       
