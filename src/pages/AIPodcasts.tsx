@@ -14,9 +14,31 @@ import aiPodcastUnmasked from "@/assets/ai-podcast-unmasked.jpg";
 import aiPodcastUnpacked from "@/assets/ai-podcast-unpacked.jpg";
 import aiPodcastNewHorizon from "@/assets/ai-podcast-new-horizon.jpg";
 import aiPodcastTrillionRace from "@/assets/ai-podcast-trillion-race.jpg";
+import aiPodcastSpeedVs from "@/assets/ai-podcast-speed-vs.jpg";
+import aiPodcastNvidiaIntel from "@/assets/ai-podcast-nvidia-intel.jpg";
 
 const AIPodcasts = () => {
   const podcastData = [
+    {
+      title: "AI's Speed vs",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Speed_vs.mp4",
+      image: aiPodcastSpeedVs,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "42:15",
+    },
+    {
+      title: "AI Revolution: From NVIDIA-Intel's Wild Alliance to Predictive Intelligence",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_Revolution__From_NVIDIA-Intel_s_Wild_Alliance_to_Predictive_.mp4",
+      image: aiPodcastNvidiaIntel,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "45:30",
+    },
     {
       title: "AI's New Horizon: Chips, Copyright, and Resurrecting Lost Films",
       audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_New_Horizon__Chips%2C_Copyright%2C_and_Resurrecting_Lost_Films.mp4",
