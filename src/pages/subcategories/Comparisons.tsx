@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import BackToTop from "@/components/BackToTop";
-import { useArticles } from "@/hooks/useArticles";
+import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 import { Link } from "react-router-dom";
 
 const Comparisons = () => {
@@ -39,7 +39,7 @@ const Comparisons = () => {
                     name: article.author_name,
                     avatar: "",
                   }}
-                  readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                  readTime={article.read_time || calculateReadTime(article.content)}
                   category="Product Comparisons"
                   slug={article.slug}
                 />
