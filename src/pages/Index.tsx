@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Play, Zap, Cpu, Smartphone, Monitor, Rocket } from "lucide-react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
@@ -41,6 +42,52 @@ import authorMilesAvatar from "@/assets/author-miles-avatar-new.jpg";
 const Index = () => {
   const backgroundRef = useBackgroundParallax(0.5);
   
+  // Dynamic rocket positioning between title and tagline
+  const heroRef = useRef<HTMLElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const taglineRef = useRef<HTMLParagraphElement | null>(null);
+  const [rocketTop, setRocketTop] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const compute = () => {
+      const hero = heroRef.current;
+      const title = titleRef.current;
+      const tagline = taglineRef.current;
+      if (!hero || !title || !tagline) return;
+
+      const heroRect = hero.getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      const taglineRect = tagline.getBoundingClientRect();
+
+      const spacing = 12; // safety padding
+      const topBound = titleRect.bottom - heroRect.top + spacing;
+      const bottomBound = taglineRect.top - heroRect.top - spacing;
+      const mid = (topBound + bottomBound) / 2;
+      const clamped = Math.max(topBound, Math.min(mid, bottomBound));
+      setRocketTop(clamped);
+    };
+
+    compute();
+
+    const ro = new ResizeObserver(() => compute());
+    if (heroRef.current) ro.observe(heroRef.current);
+    if (titleRef.current) ro.observe(titleRef.current);
+    if (taglineRef.current) ro.observe(taglineRef.current);
+
+    window.addEventListener('resize', compute);
+    // Recompute after fonts load (prevents jump after webfont renders)
+    // @ts-ignore
+    if (document.fonts?.ready) {
+      // @ts-ignore
+      document.fonts.ready.then(compute).catch(() => {});
+    }
+
+    return () => {
+      window.removeEventListener('resize', compute);
+      ro.disconnect();
+    };
+  }, []);
+
   const { data: techNewsArticles } = useArticles("Tech News");
   const { data: digitalToolsArticles } = useArticles("Digital Tools");
   const { data: productReviewsArticles } = useArticles("Product Reviews");
@@ -210,7 +257,7 @@ const Index = () => {
       
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[88px] pt-[88px]">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[88px] pt-[88px]">
         {/* Parallax Background */}
         <div 
           ref={backgroundRef}
@@ -240,7 +287,7 @@ const Index = () => {
           </div>
           
           {/* Flying Rocket Ship - Responsive positioning between sections */}
-          <div className="hidden md:block absolute top-[55%] -left-20 transform -translate-y-1/2 animate-fly-across">
+          <div className={`hidden md:block absolute -left-20 transform -translate-y-1/2 animate-fly-across ${rocketTop == null ? "top-[55%]" : ""}`} style={rocketTop != null ? { top: `${rocketTop}px` } : undefined}>
             <Rocket className="xl:w-56 xl:h-12 lg:w-40 lg:h-8 md:w-28 md:h-6 text-brand opacity-70 rotate-45 rocket-glow" />
           </div>
         </div>
@@ -250,7 +297,7 @@ const Index = () => {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           {/* Hero Title with Orbiting Elements */}
           <div className="relative inline-block mb-2 md:mb-6">
-            <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold text-center mb-4 md:mb-8 leading-tight">
+            <h1 ref={titleRef} className="text-4xl md:text-7xl lg:text-8xl font-bold text-center mb-4 md:mb-8 leading-tight">
               <span className="relative inline-block text-white drop-shadow-2xl">
                 The Future of Tech and Reviews
                 {/* Glow effect layers */}
@@ -310,7 +357,7 @@ const Index = () => {
           </div>
           
           {/* Tagline */}
-          <p className="text-lg md:text-2xl text-foreground/80 mt-4 md:mt-8 font-medium tracking-wide max-w-4xl mx-auto">
+          <p ref={taglineRef} className="text-lg md:text-2xl text-foreground/80 mt-4 md:mt-8 font-medium tracking-wide max-w-4xl mx-auto">
             Reliable. Insightful. Transparent.
           </p>
         </div>
