@@ -286,10 +286,6 @@ const Index = () => {
             <Zap className="w-7 h-7 text-brand opacity-45" />
           </div>
           
-          {/* Flying Rocket Ship - Responsive positioning between sections */}
-          <div className={`hidden md:block absolute -left-20 transform -translate-y-1/2 animate-fly-across ${rocketTop == null ? "top-[55%]" : ""}`} style={rocketTop != null ? { top: `${rocketTop}px` } : undefined}>
-            <Rocket className="xl:w-56 xl:h-12 lg:w-40 lg:h-8 md:w-28 md:h-6 text-brand opacity-70 rotate-45 rocket-glow" />
-          </div>
         </div>
 
         
