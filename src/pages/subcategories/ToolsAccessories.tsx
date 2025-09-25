@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ArticleCard from "@/components/ArticleCard";
-import { useArticles } from "@/hooks/useArticles";
+import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 
 const ToolsAccessories = () => {
   const { data: articles, isLoading } = useArticles("Product Reviews", "Tools & Accessories");
@@ -34,7 +34,7 @@ const ToolsAccessories = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={`${Math.ceil(article.content.length / 1000)} min read`}
+                readTime={article.read_time || calculateReadTime(article.content)}
                 category={article.subCategory_name}
                 slug={article.slug}
               />

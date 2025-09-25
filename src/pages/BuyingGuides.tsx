@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import { useArticles } from "@/hooks/useArticles";
+import { useArticles, calculateReadTime } from "@/hooks/useArticles";
 
 const BuyingGuides = () => {
   const { data: articles, isLoading } = useArticles("Buying Guides");
@@ -35,7 +35,7 @@ const BuyingGuides = () => {
                   name: article.author_name,
                   avatar: "",
                 }}
-                readTime={article.read_time || `${Math.ceil(article.content.length / 1000)} min read`}
+                readTime={article.read_time || calculateReadTime(article.content)}
                 category={article.subCategory_name}
                 slug={article.slug}
               />
