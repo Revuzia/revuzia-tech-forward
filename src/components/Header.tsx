@@ -87,7 +87,7 @@ const Header = () => {
         Skip to content
       </a>
       <header className="fixed top-0 left-0 right-0 z-[9999] bg-card/95 backdrop-blur-sm border-b border-border">
-        <div className="w-full py-4">
+        <div className="w-full px-4 py-4">
           <nav className="flex items-center justify-between gap-2 w-full" role="navigation" aria-label="Main navigation">
             {/* Logo - All the way left */}
             <Link 
