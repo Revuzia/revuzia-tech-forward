@@ -8,6 +8,7 @@ const Header = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const navItems = [
     { 
@@ -78,6 +79,7 @@ const Header = () => {
     if (searchQuery.trim()) {
       // Navigate to search page with query
       window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+      setIsSearchOpen(false); // Close search dropdown
     }
   };
 
@@ -185,28 +187,16 @@ const Header = () => {
 
             {/* Right Side Actions - All the way right */}
             <div className="flex items-center gap-3 flex-shrink-0 ml-auto pr-0">
-              {/* Search Bar - Desktop */}
-              <form onSubmit={handleSearch} className="hidden md:flex items-center min-[1400px]:flex min-[1200px]:hidden min-[1400px]:flex" role="search">
-                <div className="relative">
-                  <Input
-                    type="search"
-                    placeholder="Search"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-48 lg:w-56 xl:w-64 pr-10 border-border focus:border-brand focus:ring-brand bg-background/50"
-                    aria-label="Search Revuzia"
-                  />
-                  <Button 
-                    type="submit" 
-                    size="sm" 
-                    variant="ghost" 
-                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 p-0 hover:bg-brand/10"
-                    aria-label="Submit search"
-                  >
-                    <Search className="h-4 w-4 text-brand" />
-                  </Button>
-                </div>
-              </form>
+              {/* Search Icon - Desktop */}
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="hidden md:flex h-8 w-8 p-0 hover:bg-brand/10"
+                aria-label="Toggle search"
+              >
+                <Search className="h-4 w-4 text-brand" />
+              </Button>
 
               {/* User Auth Button */}
               <div className="hidden md:flex items-center">
@@ -308,6 +298,36 @@ const Header = () => {
             </div>
           )}
         </div>
+
+        {/* Dropdown Search Section */}
+        {isSearchOpen && (
+          <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg z-50">
+            <div className="w-full px-4 py-4">
+              <form onSubmit={handleSearch} className="max-w-2xl mx-auto" role="search">
+                <div className="relative">
+                  <Input
+                    type="search"
+                    placeholder="Search Revuzia..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pr-12 pl-4 py-3 text-lg border-border focus:border-brand focus:ring-brand bg-background/80"
+                    aria-label="Search Revuzia"
+                    autoFocus
+                  />
+                  <Button 
+                    type="submit" 
+                    size="sm" 
+                    variant="ghost" 
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 p-0 hover:bg-brand/10"
+                    aria-label="Submit search"
+                  >
+                    <Search className="h-5 w-5 text-brand" />
+                  </Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
