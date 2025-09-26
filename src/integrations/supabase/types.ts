@@ -101,6 +101,10 @@ export type Database = {
         Args: { article_slug: string }
         Returns: undefined
       }
+      random_initial_views: {
+        Args: Record<PropertyKey, never>
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never
