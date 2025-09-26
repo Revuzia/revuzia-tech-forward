@@ -43,19 +43,12 @@ const Article = () => {
 
   useEffect(() => {
     if (article && !viewIncrementedRef.current) {
-      const timer = setTimeout(() => {
-        incrementArticleViews(article.slug)
-          .then(() => {
-            // Brief delay to allow the DB write to propagate, then refresh
-            setTimeout(() => refetch(), 200);
-          })
-          .catch(() => {})
-          .finally(() => {
-            viewIncrementedRef.current = true;
-          });
-      }, 3000); // 3 second delay to ensure genuine view
-
-      return () => clearTimeout(timer);
+      viewIncrementedRef.current = true;
+      incrementArticleViews(article.slug)
+        .then(() => {
+          refetch();
+        })
+        .catch(() => {});
     }
   }, [article, refetch]);
 
