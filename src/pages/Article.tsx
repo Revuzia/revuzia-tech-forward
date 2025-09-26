@@ -32,7 +32,7 @@ import authorZaraAvatar from "@/assets/author-zara-avatar-new.jpg";
 
 const Article = () => {
   const { category, slug } = useParams<{ category: string; slug: string }>();
-  const { data: article, isLoading, error } = useArticle(slug || "");
+  const { data: article, isLoading, error, refetch } = useArticle(slug || "");
   const { toast } = useToast();
   const viewIncrementedRef = useRef(false);
 
@@ -44,13 +44,20 @@ const Article = () => {
   useEffect(() => {
     if (article && !viewIncrementedRef.current) {
       const timer = setTimeout(() => {
-        incrementArticleViews(article.slug);
-        viewIncrementedRef.current = true;
+        incrementArticleViews(article.slug)
+          .then(() => {
+            // Brief delay to allow the DB write to propagate, then refresh
+            setTimeout(() => refetch(), 200);
+          })
+          .catch(() => {})
+          .finally(() => {
+            viewIncrementedRef.current = true;
+          });
       }, 3000); // 3 second delay to ensure genuine view
 
       return () => clearTimeout(timer);
     }
-  }, [article]);
+  }, [article, refetch]);
 
   if (isLoading) {
     return (
