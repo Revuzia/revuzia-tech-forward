@@ -130,8 +130,8 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Navigation Links - Desktop with Responsive Spacing */}
-            <div className="hidden lg:flex items-center justify-evenly flex-1 max-w-4xl mx-auto px-8">
+            {/* Navigation Links - Desktop Centered on Product Reviews */}
+            <div className="hidden lg:flex items-center justify-center flex-1 space-x-2">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
