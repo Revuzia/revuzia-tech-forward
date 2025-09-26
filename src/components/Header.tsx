@@ -137,7 +137,7 @@ const Header = () => {
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
-                  <div key={item.name} className="relative group flex items-center">
+                  <div key={item.name} className="relative flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
                       <div className="text-white/40 mx-2 xl:mx-3 select-none flex flex-col gap-2.5 items-center">
@@ -146,40 +146,41 @@ const Header = () => {
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                       </div>
                     )}
-                    <Link
-                      to={item.path}
-                      className={`text-white text-[clamp(12px,0.95vw,16px)] hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-2 xl:px-3 category-light-effect ${
-                        isActive ? 'text-brand' : 'text-white'
-                      }`}
-                      onClick={() => window.scrollTo(0, 0)}
-                    >
-                      <span className="relative z-10">
-                        {item.name}
-                      </span>
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}></span>
-                    </Link>
-                    
-                    {/* Dropdown Menu - Centered Under Category, Narrower */}
-                    {item.subcategories && (
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-max bg-background/95 backdrop-blur-sm border border-brand/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999]">
-                        <div className="py-2 px-1">
-                          <div className="grid grid-cols-1 gap-0.5">
-                            {item.subcategories.map((subcat) => (
-                              <Link
-                                key={subcat.name}
-                                to={subcat.path}
-                                className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md whitespace-nowrap text-sm"
-                                onClick={() => window.scrollTo(0, 0)}
-                              >
-                                {subcat.name}
-                              </Link>
-                            ))}
+                    <div className="relative group flex items-center justify-center">
+                      <Link
+                        to={item.path}
+                        className={`text-white text-[clamp(12px,0.95vw,16px)] hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-2 xl:px-3 category-light-effect ${
+                          isActive ? 'text-brand' : 'text-white'
+                        }`}
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        <span className="relative z-10">
+                          {item.name}
+                        </span>
+                        <span className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-300 ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}></span>
+                      </Link>
+                      {/* Dropdown Menu - Centered Under Category, Narrower */}
+                      {item.subcategories && (
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-max bg-background/95 backdrop-blur-sm border border-brand/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999]">
+                          <div className="py-2 px-1">
+                            <div className="grid grid-cols-1 gap-0.5">
+                              {item.subcategories.map((subcat) => (
+                                <Link
+                                  key={subcat.name}
+                                  to={subcat.path}
+                                  className="block px-4 py-2 text-foreground hover:text-brand hover:bg-brand/10 transition-colors duration-200 font-poppins text-center rounded-md whitespace-nowrap text-sm"
+                                  onClick={() => window.scrollTo(0, 0)}
+                                >
+                                  {subcat.name}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 );
               })}
