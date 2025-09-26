@@ -301,16 +301,16 @@ const Header = () => {
 
         {/* Dropdown Search Section */}
         {isSearchOpen && (
-          <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg z-40">
+          <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg z-0">
             <div className="w-full px-4 py-4">
               <form onSubmit={handleSearch} className="max-w-2xl mx-auto" role="search">
-                <div className="relative">
+                <div className="relative z-0">
                   <Input
                     type="search"
                     placeholder="Search Revuzia..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pr-12 pl-4 py-3 text-lg border-border focus:border-brand focus:ring-brand bg-background/80"
+                    className="relative z-0 w-full pr-12 pl-4 py-3 text-lg border-border focus:border-brand focus:ring-brand bg-background/80"
                     aria-label="Search Revuzia"
                     autoFocus
                   />
