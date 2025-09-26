@@ -146,7 +146,7 @@ const Header = () => {
                     )}
                     <Link
                       to={item.path}
-                      className={`text-white text-sm xl:text-base hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-2 xl:px-3 category-light-effect ${
+                      className={`text-white text-[clamp(12px,0.95vw,16px)] hover:text-brand transition-colors duration-300 font-poppins font-medium relative flex items-center gap-1 xl:gap-2 whitespace-nowrap px-2 xl:px-3 category-light-effect ${
                         isActive ? 'text-brand' : 'text-white'
                       }`}
                       onClick={() => window.scrollTo(0, 0)}
