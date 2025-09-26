@@ -44,13 +44,9 @@ const Article = () => {
   useEffect(() => {
     if (article && !viewIncrementedRef.current) {
       viewIncrementedRef.current = true;
-      incrementArticleViews(article.slug)
-        .then(() => {
-          refetch();
-        })
-        .catch(() => {});
+      incrementArticleViews(article.slug).catch(() => {});
     }
-  }, [article, refetch]);
+  }, [article]);
 
   if (isLoading) {
     return (
