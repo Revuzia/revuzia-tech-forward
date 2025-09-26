@@ -82,6 +82,9 @@ import PremiumPick from "./pages/subcategories/PremiumPick";
 import SmartHomeGuides from "./pages/subcategories/SmartHomeGuides";
 import SmartHomeWars from "./pages/subcategories/SmartHomeWars";
 import StreamingWars from "./pages/subcategories/StreamingWars";
+import Display from "./pages/subcategories/Display";
+import AutomationLLMTools from "./pages/subcategories/AutomationLLMTools";
+import Drones from "./pages/subcategories/Drones";
 
 import ArticleEditor from "./pages/ArticleEditor";
 import ArticlePreview from "./pages/ArticlePreview";
@@ -166,12 +169,16 @@ const App = () => {
           <Route path="/subcategories/premium-pick" element={<PremiumPick />} />
           <Route path="/subcategories/smart-home-guides" element={<SmartHomeGuides />} />
           <Route path="/subcategories/development-tools" element={<DevelopmentTools />} />
+          <Route path="/subcategories/developer-tools" element={<DevelopmentTools />} />
           <Route path="/subcategories/smartphone-showdown" element={<Smartphones />} />
           <Route path="/subcategories/laptop-showdown" element={<LaptopsComputers />} />
           <Route path="/subcategories/gaming-battles" element={<GamingHardware />} />
           <Route path="/subcategories/audio-face-off" element={<AudioComponent />} />
           <Route path="/subcategories/smart-home-wars" element={<SmartHomeWars />} />
           <Route path="/subcategories/streaming-wars" element={<StreamingWars />} />
+          <Route path="/subcategories/display" element={<Display />} />
+          <Route path="/subcategories/automation-llm-tools" element={<AutomationLLMTools />} />
+          <Route path="/subcategories/drones" element={<Drones />} />
           
           {/* Legacy Subcategory Routes */}
           <Route path="/subcategories/smartphones-tablets" element={<SmartphonesTablets />} />
