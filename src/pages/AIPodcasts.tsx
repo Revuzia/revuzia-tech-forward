@@ -16,9 +16,42 @@ import aiPodcastNewHorizon from "@/assets/ai-podcast-new-horizon.jpg";
 import aiPodcastTrillionRace from "@/assets/ai-podcast-trillion-race.jpg";
 import aiPodcastSpeedVs from "@/assets/ai-podcast-speed-vs.jpg";
 import aiPodcastNvidiaIntel from "@/assets/ai-podcast-nvidia-intel.jpg";
+import aiPodcastBciBreakthroughs from "@/assets/ai-podcast-bci-breakthroughs.jpg";
+import aiPodcastTenGigawatt from "@/assets/ai-podcast-ten-gigawatt.jpg";
+import aiPodcast42CentWar from "@/assets/ai-podcast-42-cent-war.jpg";
 
 const AIPodcasts = () => {
   const podcastData = [
+    {
+      title: "BCI Breakthroughs, Embodied AGI, and the Dangerous Gamble of AI",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/BCI_Breakthroughs%2C_Embodied_AGI%2C_and_the_Dangerous_Gamble_of_AI.mp4",
+      image: aiPodcastBciBreakthroughs,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "48:30",
+    },
+    {
+      title: "The Ten Gigawatt Trade-Off: How AI's Massive Infrastructure Threatens Our Future",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/The_Ten_Gigawatt_Trade-Off__How_AI_s_Massive_Infrastructure_Thr.mp4",
+      image: aiPodcastTenGigawatt,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "46:15",
+    },
+    {
+      title: "The 42-Cent AI War: How Tech Giants Are Buying Government Lock-In",
+      audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/The_42-Cent_AI_War__How_Tech_Giants_Are_Buying_Government_Lock-.mp4",
+      image: aiPodcast42CentWar,
+      author: {
+        name: "Revuzia AI",
+        avatar: "",
+      },
+      duration: "44:45",
+    },
     {
       title: "AI's Speed vs",
       audioUrl: "https://pub-4f1ef9f21cb54c8186d298f94b3277fe.r2.dev/Revuzia-Audio/AI_s_Speed_vs.mp4",
