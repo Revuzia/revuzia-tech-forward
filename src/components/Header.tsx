@@ -130,15 +130,15 @@ const Header = () => {
               </div>
             </Link>
 
-            {/* Navigation Links - Desktop with Proper Centering */}
-            <div className="hidden lg:flex items-center space-x-2 flex-1 justify-center mx-8">
+            {/* Navigation Links - Desktop with Responsive Spacing */}
+            <div className="hidden lg:flex items-center justify-evenly flex-1 max-w-4xl mx-auto px-8">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <div key={item.name} className="relative group flex items-center">
                     {/* Add dotted separator between categories */}
                     {index > 0 && (
-                      <div className="text-white/40 mx-1 xl:mx-2 select-none flex flex-col gap-2.5 items-center">
+                      <div className="text-white/40 mx-2 xl:mx-3 select-none flex flex-col gap-2.5 items-center">
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
                         <span className="w-1.5 h-1.5 bg-white/40 rounded-full"></span>
