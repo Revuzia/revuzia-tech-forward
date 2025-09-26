@@ -131,7 +131,7 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop Centered on Product Reviews */}
-            <div className="hidden lg:flex items-center space-x-2 absolute left-1/2 -translate-x-1/2 translate-x-2 top-1/2 -translate-y-1/2 w-max px-4">
+            <div className="hidden lg:flex items-center space-x-2 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-max px-4">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
