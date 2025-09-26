@@ -163,7 +163,7 @@ const Header = () => {
                     
                     {/* Dropdown Menu - Centered Under Category, Narrower */}
                     {item.subcategories && (
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-max bg-background/95 backdrop-blur-sm border border-brand/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-auto min-w-max bg-background/95 backdrop-blur-sm border border-brand/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[80]">
                         <div className="py-2 px-1">
                           <div className="grid grid-cols-1 gap-0.5">
                             {item.subcategories.map((subcat) => (
@@ -301,7 +301,7 @@ const Header = () => {
 
         {/* Dropdown Search Section */}
         {isSearchOpen && (
-          <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg z-50">
+          <div className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border shadow-lg z-40">
             <div className="w-full px-4 py-4">
               <form onSubmit={handleSearch} className="max-w-2xl mx-auto" role="search">
                 <div className="relative">
