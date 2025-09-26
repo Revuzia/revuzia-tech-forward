@@ -186,7 +186,7 @@ const Header = () => {
             {/* Right Side Actions - All the way right */}
             <div className="flex items-center gap-3 flex-shrink-0 ml-auto pr-0">
               {/* Search Bar - Desktop */}
-              <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
+              <form onSubmit={handleSearch} className="hidden md:flex items-center min-[1400px]:flex min-[1200px]:hidden min-[1400px]:flex" role="search">
                 <div className="relative">
                   <Input
                     type="search"
