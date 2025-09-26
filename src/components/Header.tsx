@@ -88,7 +88,7 @@ const Header = () => {
       </a>
       <header className="fixed top-0 left-0 right-0 z-[9999] bg-card/95 backdrop-blur-sm border-b border-border">
         <div className="w-full px-4 py-4">
-          <nav className="flex items-center justify-between gap-2 w-full" role="navigation" aria-label="Main navigation">
+          <nav className="relative flex items-center justify-between gap-2 w-full" role="navigation" aria-label="Main navigation">
             {/* Logo - All the way left */}
             <Link 
               to="/" 
@@ -131,7 +131,7 @@ const Header = () => {
             </Link>
 
             {/* Navigation Links - Desktop Centered on Product Reviews */}
-            <div className="hidden lg:flex items-center justify-center flex-1 space-x-2">
+            <div className="hidden lg:flex items-center space-x-2 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-max px-4">
               {navItems.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (
