@@ -87,7 +87,7 @@ const Header = () => {
         Skip to content
       </a>
       <header className="fixed top-0 left-0 right-0 z-[9999] bg-card/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-1 py-4 max-w-none">
+        <div className="w-full py-4">
           <nav className="flex items-center justify-between gap-2 w-full" role="navigation" aria-label="Main navigation">
             {/* Logo - All the way left */}
             <Link 
@@ -184,7 +184,7 @@ const Header = () => {
             </div>
 
             {/* Right Side Actions - All the way right */}
-            <div className="flex items-center gap-3 flex-shrink-0 ml-auto pr-4">
+            <div className="flex items-center gap-3 flex-shrink-0 ml-auto pr-0">
               {/* Search Bar - Desktop */}
               <form onSubmit={handleSearch} className="hidden md:flex items-center" role="search">
                 <div className="relative">
